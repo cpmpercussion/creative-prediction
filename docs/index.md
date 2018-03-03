@@ -5,7 +5,7 @@
 layout: default
 ---
 
-![]({{ site.baseurl }}/assets/neural-ipad-band-demo.png)
+![]({{ site.baseurl }}/assets/neural-ipad-band-demo.jpg)
 
 ### Tutorial Description
 
