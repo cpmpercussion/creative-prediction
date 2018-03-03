@@ -5,7 +5,7 @@
 layout: default
 ---
 
-![](/assets/neural-ipad-band-demo.png)
+![]({{ site.baseurl }}/assets/neural-ipad-band-demo.png)
 
 ### Tutorial Description
 
@@ -13,7 +13,7 @@ The goal of this tutorial is to apply predictive machine learning models to crea
 
 We will walk through the fundamental steps for training creative RNNs using live-coded demonstrations with Python code in Jupyter Notebooks. These steps are: collecting and cleaning data, building and training an RNN, and developing predictive interactions. We will also have live demonstrations and interactive live-hacking of our creative RNN systems!
 
-![](/assets/predictive-interaction.png)
+![]({{ site.baseurl }}/assets/predictive-interaction.png)
 
 ### Our Creative Prediction Systems
 
@@ -23,7 +23,7 @@ This session will be interactive. The participants will be provided with demonst
 
 We think that every participant will come out of the tutorial with a custom RNN trained on text or musical data, as well as inspiration to make new creative neural network systems!
 
-![](/assets/fig-robojam-interaction.png)
+![]({{ site.baseurl }}/assets/fig-robojam-interaction.png)
 
 ### Session Plan
 
