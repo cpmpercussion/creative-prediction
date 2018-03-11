@@ -17,8 +17,8 @@ title: Creative Prediction with Neural Networks
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   A Tutorial at aLife 2018 
-baseurl: "/charlepm/creative-prediction" # the subpath of your site, e.g. /blog
-url: "https://pages.github.uio.no/" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/creative-prediction" # the subpath of your site, e.g. /blog
+url: "https://cpmpercussion.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: cpmpercussion
 github_username:  cpmpercussion
 # show_downloads: true
