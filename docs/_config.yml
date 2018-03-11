@@ -21,11 +21,11 @@ baseurl: "/charlepm/creative-prediction" # the subpath of your site, e.g. /blog
 url: "https://pages.github.uio.no/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: cpmpercussion
 github_username:  cpmpercussion
-show_downloads: true
+# show_downloads: true
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-cayman
+# theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
 
