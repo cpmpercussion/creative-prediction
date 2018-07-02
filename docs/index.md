@@ -5,6 +5,14 @@
 layout: default
 ---
 
+This is the website for the Creative Prediction (CrePre) tutorial at ALife 2018 -- a walkthrough for applying machine learning to creative data in interactive creativity systems such as interactive artworks and musical instruments.
+
+The tutorial is open to anybody attending ALife (any coding level is fine!) and will include code demonstrations and interaction with our creative systems (see below).
+
+There's a [schedule]({{ site.baseurl }}/schedule) available and a page about [setting up your computer]({{ site.baseurl }}/setup) if you want to run the code examples.
+
+If you want to (or already) use machine learning in a creative artistic setting; this is the tutorial for you! Come visit us or just drop in to say hi on Monday 23rd July.
+
 ![]({{ site.baseurl }}/assets/neural-ipad-band-demo.jpg)
 
 ### Tutorial Description
@@ -28,31 +36,3 @@ In the second half of the tutorial, we will introduce our creative RNN systems, 
 We think that every participant will come out of the tutorial with a custom RNN trained on text or musical data, as well as inspiration to make new creative neural network systems!
 
 ![]({{ site.baseurl }}/assets/fig-robojam-interaction.png)
-
-### Session Plan
-
-The [ALife schedule is now published!](http://2018.alife.org/schedule/) and this CREative PREdiction ("CREPRE") tutorial will occur on Monday 23 July in two sessions: 11:30am-12:45pm and 16:15pm-17:30pm. The sessions will cover different material, but feel free to come to either or both if you want! The list of topics is below.
-
-- Session 1: Monday 23 July. 11:30am-12:45pm Conference Room Uranus
-- **Introduction to Predictive Interaction (15 minutes)**
-    - Overview of Deep Learning and Creativity.
-    - What is a Recurrent Neural Network?
-    - Sequence learning, classification, and training
-    - Temporal and non-temporal models.
-    - Forward models and bio-inspired prediction.
-- **Generating Creative Sequences (60 minutes)**
-    - RNNs and Long Short-Term Memory (LSTM) with Keras and Python.
-    - Generating Text with a CharRNN; inventing Star Trek episode titles. ([see Notebook 1](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/1-star-trek-titles-RNN-basic.ipynb))
-    - Advanced CharRNN techniques ([see Notebook 2](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/2-star-trek-titles-advanced.ipynb))
-    - Continuing musical sequences. ([see Notebook 3](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/3-zeldic-musical-RNN.ipynb))
-    - Combining multiple sequences in a CharRNN with "Gesture-RNN". ([see Notebook 4])
-- Session 2: Monday 23 July. 16:15pm-17:30pm Conference Room Uranus
-- **Interacting with RNNs (15 minutes)**
-    - Introduction to the Neural iPad Ensemble, and Robojam, two projects showing how RNNs can be used in interactive-creativity systems.
-- **RNNs for continuous-valued data: Mixture Density Layers (MDNs) (45 minutes)**
-    - Introduction to Mixture Density Layers (see Notebook 5)
-    - Predicting sketching: Kanji generation with a Mixture Density RNN. (see Notebook 6)
-    - Predicting time and place - musical scribbles with RoboJam. (see Notebook 7)
-- Time for demonstration, interaction, and live-hacking with these systems. (15+ minutes)
-
-
