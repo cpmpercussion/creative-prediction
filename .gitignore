@@ -90,3 +90,4 @@ ENV/
 *.mag
 *.h5
 *.mid
+datasets/kanji.rdp25.npz
