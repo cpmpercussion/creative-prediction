@@ -31,6 +31,9 @@ Annoyingly, there are _two_ popular ways to set up Python on your computer: one 
 
 ## Running examples in a browsers
 
-You can also (potentially) run these notebooks on Google Colaboratory ([colab.research.google.com](https://colab.research.google.com)), an online Jupyter notebook system that could be useful, however, it's a bit more tricky to distribute the jupyter notebooks so that you can easily open them in Colab. Try storing the notebooks (`ipynb` files from the Github Repo) in your Google Drive and opening them, they should start up a colab instance.
+You can also (potentially) run these notebooks on Google Colaboratory ([colab.research.google.com](https://colab.research.google.com)), an online Jupyter notebook system that could be useful, however, it's a bit more tricky to distribute the jupyter notebooks so that you can easily open them in Colab. Try moving the notebooks (`ipynb` files from the Github Repo) in your Google Drive and opening them, they should start up a colab instance.
 
-- TODO: Fill in some more details here!
+- [Here's a great walkthrough for getting started with Google Colab!](https://medium.com/deep-learning-turkey/google-colab-free-gpu-tutorial-e113627b9f5d)
+- [And there's some more instructions here!](https://colab.research.google.com/notebooks/welcome.ipynb)
+
+I've been running most of my experiments over summer in Colab! It works really well!
