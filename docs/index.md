@@ -5,13 +5,23 @@
 layout: default
 ---
 
-This is the website for the Creative Prediction (CrePre) tutorial at ALife 2018 -- a walkthrough for applying machine learning to creative data in interactive creativity systems such as interactive artworks and musical instruments.
+This is the website for the Creative Prediction project -- a collection of walkthroughs and examples for applying machine learning to creative data in interactive creativity systems such as interactive artworks and musical instruments.
 
-The tutorial is open to anybody attending ALife (any coding level is fine!) and will include code demonstrations and interaction with our creative systems (see below).
+There's a [schedule]({{ site.baseurl }}/tutorials) available and a page about [setting up your computer]({{ site.baseurl }}/setup) if you want to run the code examples.
 
-There's a [schedule]({{ site.baseurl }}/schedule) available and a page about [setting up your computer]({{ site.baseurl }}/setup) if you want to run the code examples.
+Here's a list of the current tutorials:
 
-If you want to (or already) use machine learning in a creative artistic setting; this is the tutorial for you! Come visit us or just drop in to say hi on Monday 23rd July.
+- **Generating Creative Sequences**
+    - Generating Text with a CharRNN; inventing Star Trek episode titles. ([see Notebook 1](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/1-star-trek-titles-RNN-basic.ipynb))
+    - Advanced CharRNN techniques ([see Notebook 2](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/2-star-trek-titles-advanced.ipynb))
+    - Continuing musical sequences. ([see Notebook 3](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/3-zeldic-musical-RNN.ipynb))
+    - Combining multiple sequences in a CharRNN with "Gesture-RNN". ([see Notebook 4](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/4-gesture-rnn.ipynb))
+- **RNNs for continuous-valued data: Mixture Density Layers (MDNs)**
+    - Introduction to Mixture Density Layers ([see Notebook 5](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/5-mdn-sine-prediction.ipynb))
+    - Predicting sketching: Kanji generation with a Mixture Density RNN. ([see Notebook 6](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/6-MDN-RNN-kanji-generation.ipynb))
+    - Predicting time and place - musical scribbles with RoboJam. ([see Notebook 7](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/7-MDN-Robojam-touch-generation.ipynb))
+
+If you want to (or already) use machine learning in a creative artistic setting; this is the place for you!
 
 ![]({{ site.baseurl }}/assets/neural-ipad-band-demo.jpg)
 
