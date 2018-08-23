@@ -21,6 +21,11 @@ Here's a list of the current tutorials:
     - Predicting sketching: Kanji generation with a Mixture Density RNN. ([see Notebook 6](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/6-MDN-RNN-kanji-generation.ipynb))
     - Predicting time and place - musical scribbles with RoboJam. ([see Notebook 7](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/7-MDN-Robojam-touch-generation.ipynb))
 
+Here's some (experimental) Colab Notebooks, so you can try out the examples without installing anything:
+
+- [Star Trek Titles (basic)](https://colab.research.google.com/drive/1msBQCXTL8xdzN4JANCytDY12vYU-q12O)
+- [Star Trek Titles (advanced)](https://colab.research.google.com/drive/1JhL5iIcZuOFYeyhpEtwKI9P8ZgY6OWWF)
+
 If you want to (or already) use machine learning in a creative artistic setting; this is the place for you!
 
 ![]({{ site.baseurl }}/assets/neural-ipad-band-demo.jpg)
