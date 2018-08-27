@@ -1,13 +1,15 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: default
+title: Creative Prediction
+feature_text: |
+  ## Creative Prediction
+  Using AI/ML to predict and generate creative data.
+feature_image: "assets/neural-ipad-band-demo.jpg"
+excerpt: "This is the website for the Creative Prediction project -- a collection of walkthroughs and examples for applying machine learning to creative data in interactive creativity systems such as interactive artworks and musical instruments."
 ---
 
 This is the website for the Creative Prediction project -- a collection of walkthroughs and examples for applying machine learning to creative data in interactive creativity systems such as interactive artworks and musical instruments.
 
-There's a [schedule]({{ site.baseurl }}/tutorials) available and a page about [setting up your computer]({{ site.baseurl }}/setup) if you want to run the code examples.
+Here's a list of some available [tutorials]({{ site.baseurl }}/tutorials) available and a page about [setting up your computer]({{ site.baseurl }}/setup) with Python and the right libraries if you want to run the code examples.
 
 Here's a list of the current tutorials:
 

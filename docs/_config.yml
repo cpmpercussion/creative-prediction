@@ -8,13 +8,23 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
+sass:
+  style: compressed # Style compression
+permalink: pretty  # Permalink style (/YYYY/MM/DD/page-name/)
+excerpt_separator: <!-- more --> # Marks end of excerpt in posts
+timezone: Europe/London # Timezone for blog posts and alike
+
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+lang: en-GB # Set the site language
 title: Creative Prediction with Neural Networks
+logo: "/assets/network_logo.svg" # Site logo, also used in jekyll-seo-tag
 email: charlepm@ifi.uio.no
+repo: "https://github.com/cpmpercussion/creative-rediction"
+
 description: >- # this means to ignore newlines until "baseurl:"
   Tutorials and Examples for Artistic Deep Learning 
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -22,22 +32,24 @@ url: "http://creativeprediction.xyz" # the base hostname & protocol for your sit
 twitter_username: cpmpercussion
 github_username:  cpmpercussion
 # show_downloads: true
+css_inline: true # Will insert all styles into a single <style> block in the <head> element and remove the style <link> reference
+
 
 # Build settings
 markdown: kramdown
-theme: minima
+# theme: minima
+remote_theme: daviddarnes/alembic
 # theme: jekyll-theme-cayman
 plugins:
+  - jekyll-remote-theme
   - jekyll-feed
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+navigation_header:
+  Home: /
+  Tutorials: /tutorials/
+  Blog: /blog/
+  Setup: /setup/
+
+navigation_footer:
+  Created by Charles Martin: https://charlesmartin.com.au
+  Part of EPEC (RCN Project no. 240862): https://www.hf.uio.no/ritmo/english/projects/all/epec/
