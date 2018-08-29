@@ -1,9 +1,9 @@
 ---
 title: Creative Prediction
+feature_image: "assets/neural-ipad-band-demo.jpg"
 feature_text: |
   ## Creative Prediction
   Using AI/ML to predict and generate creative data.
-feature_image: "assets/neural-ipad-band-demo.jpg"
 excerpt: "This is the website for the Creative Prediction project -- a collection of walkthroughs and examples for applying machine learning to creative data in interactive creativity systems such as interactive artworks and musical instruments."
 ---
 
