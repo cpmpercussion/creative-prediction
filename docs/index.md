@@ -1,5 +1,5 @@
 ---
-title: Creative Prediction
+title: Creative Prediction - クレプレ
 feature_image: "assets/neural-ipad-band-demo.jpg"
 feature_text: |
   ## Creative Prediction
@@ -32,9 +32,9 @@ If you want to (or already) use machine learning in a creative artistic setting;
 
 ![]({{ site.baseurl }}/assets/neural-ipad-band-demo.jpg)
 
-### Tutorial Description
+### About CrePre
 
-The goal of this tutorial is to apply predictive machine learning models to creative data. The focus of the tutorial will be recurrent neural networks (RNNs), deep learning models that can be used to generate sequential and temporal data. RNNs can be applied to many kinds of creative data including text and music. They can learn the long-range structure from a corpus of data and "create" new sequences by predicting one element at a time. When embedded in a creative interface, they can be used for "predictive interaction" where a human collaborates with, influences, and is influenced by a generative neural network.
+This site is about applying predictive machine learning models to creative data. The focus is on recurrent neural networks (RNNs), deep learning models that can be used to generate sequential and temporal data. RNNs can be applied to many kinds of creative data including text and music. They can learn the long-range structure from a corpus of data and "create" new sequences by predicting one element at a time. When embedded in a creative interface, they can be used for "predictive interaction" where a human collaborates with, influences, and is influenced by a generative neural network.
 
 We will walk through the fundamental steps for training creative RNNs using live-coded demonstrations with Python code in Jupyter Notebooks. These steps are: collecting and cleaning data, building and training an RNN, and developing predictive interactions. We will also have live demonstrations and interactive live-hacking of our creative RNN systems!
 
