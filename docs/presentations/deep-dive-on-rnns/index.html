@@ -39,6 +39,7 @@
 
 <section class="slide level2">
 
+<!-- theme: "white" -->
 <h3 id="what-is-an-artificial-neurone">What is an Artificial Neurone?</h3>
 <p><img data-src="./1-artificial-neurone.png" style="width:100.0%" /></p>
 <p><a href="https://en.wikipedia.org/wiki/File:Blausen_0657_MultipolarNeuron.png">Source - Wikimedia Commons</a></p>
@@ -261,7 +262,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <h2>Deep RNNs</h2>
 <div class="columns">
 <div class="column">
-<p><img data-src="4-unfolding.png" /></p>
+<p><img data-src="rnn-deep.png" style="width:30.0%" /></p>
 </div><div class="column">
 <ul>
 <li class="fragment">Does adding deeper layers to an RNN make it work better?</li>
@@ -420,7 +421,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <li class="fragment">State-of-the-art in music generating RNNs.</li>
 <li class="fragment">Encode MIDI musical sequences as categorical data.</li>
 <li class="fragment">Now supports polyphony (multiple notes), dynamics (volume), expressive timing (rubato).</li>
-<li class="fragment">E.g.: https://youtu.be/JVf6esaXeLE</li>
+<li class="fragment">E.g.: <a href="https://youtu.be/JVf6esaXeLE">YouTube demo</a></li>
 </ul>
 </section>
 <section id="neural-ipad-band-another-charrnn" class="slide level2">
@@ -432,7 +433,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <ul>
 <li class="fragment">iPad music transcribed as sequence of numbers for each performer.</li>
 <li class="fragment">Trick: encode multiple ints as one (preserving ordering).</li>
-<li class="fragment">Video: https://youtu.be/FpQCAd0zKiU</li>
+<li class="fragment"><a href="https://youtu.be/FpQCAd0zKiU">Video</a></li>
 </ul>
 </div>
 </div>
@@ -440,12 +441,12 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <section id="books-and-learning-references" class="slide level2">
 <h2>Books and Learning References</h2>
 <ul>
-<li class="fragment">Ian Goodfellow, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press. http://www.deeplearningbook.org</li>
-<li class="fragment">François Chollet. 2018. Manning. https://www.manning.com/books/deep-learning-with-python</li>
-<li class="fragment">http://colah.github.io/posts/2015-08-Understanding-LSTMs/</li>
-<li class="fragment">https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html</li>
-<li class="fragment">Maybe RNN/LSTM is dead? https://towardsdatascience.com/the-fall-of-rnn-lstm-2d1594c74ce0</li>
-<li class="fragment">http://karpathy.github.io/2015/05/21/rnn-effectiveness/</li>
+<li class="fragment"><a href="http://www.deeplearningbook.org">Ian Goodfellow, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press.</a></li>
+<li class="fragment"><a href="https://www.manning.com/books/deep-learning-with-python">François Chollet. 2018. Manning.</a></li>
+<li class="fragment"><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">Chris Olah. 2015. Understanding LSTMs</a></li>
+<li class="fragment"><a href="https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html">RNNs in Tensorflow</a></li>
+<li class="fragment"><a href="https://towardsdatascience.com/the-fall-of-rnn-lstm-2d1594c74ce0">Maybe RNN/LSTM is dead? CNNs can work similarly to BLSTMs</a></li>
+<li class="fragment"><a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Karpathy. 2015. The Unreasonable Effectiveness of RNNs</a></li>
 </ul>
 </section>
 <section id="summary" class="slide level2">
