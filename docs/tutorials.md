@@ -12,6 +12,10 @@ Here's a list of creative prediction tutorials available right now!
     - Continuing musical sequences. ([see Notebook 3](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/3-zeldic-musical-RNN.ipynb))
     - Combining multiple sequences in a CharRNN with "Gesture-RNN". ([see Notebook 4](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/4-gesture-rnn.ipynb))
 - **RNNs for continuous-valued data: Mixture Density Layers (MDNs)**
+    - Probability Distributions ([see Jupyter Notebook](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/mdn-talk-examples.ipynb))
+        - comparing continuous and categorical probability distributions
+        - modelling data with a normal distribution
+        - modelling data with a mixture of normal distributions
     - Introduction to Mixture Density Layers ([see Notebook 5](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/5-mdn-sine-prediction.ipynb))
     - Predicting sketching: Kanji generation with a Mixture Density RNN. ([see Notebook 6](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/6-MDN-RNN-kanji-generation.ipynb))
     - Predicting time and place - musical scribbles with RoboJam. ([see Notebook 7](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/7-MDN-Robojam-touch-generation.ipynb))
