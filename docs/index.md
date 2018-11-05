@@ -1,6 +1,6 @@
 ---
 title: Creative Prediction - クレプレ
-feature_image: "assets/neural-ipad-band-demo.jpg"
+feature_image: "assets/creative-prediction-header.png"
 feature_text: |
   ## Creative Prediction
   Using AI/ML to predict and generate creative data.
