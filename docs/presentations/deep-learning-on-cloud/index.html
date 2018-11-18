@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Deep Learning in the Cloud</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+<div class="reveal">
+<div class="slides">
+
+<section data-markdown>
+    <textarea data-template>
+        # Deep Learning in the Cloud
+
+        Charles P. Martin 2018
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## Why cloud for ML/AI?
+
+        - Not always convenient/cost effective to use big workstation.
+        - We like small laptops without hot GPUs and processors.
+        - Could be easy to transition from development to product.
+        - The internet is cool/fun?
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+    ![Cloud Models](img/cloud-models.png)
+    [src: www.comgt.com/lib/sw/deliverymodels/](http://www.comgt.com/lib/sw/deliverymodels/)
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+    ![Pizza-as-a-Service](img/pizza-as-a-service.jpg)
+
+    [Albert Barron](https://www.linkedin.com/pulse/20140730172610-9679881-pizza-as-a-service/)
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## What do we need?
+
+        - GPUs: Nvidia [GTX1080TI, K80, P100, V100] or... "Tensor Processing Units"
+        - OS: Linux?
+        - CUDA + CUDnn
+        - Python
+        - Python libraries: Tensorflow, Keras, SKLearn, etc.
+        - Jupyter 
+
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## On Premises: Workstations
+
+        - Workstations (15-50KNOK)
+        - Pro: fun to play with
+        - Pro: good for small number of users
+        - Pro: one-time cost
+        - Con: not practical for many users
+        - Con: have to keep setting up eduroam
+        - Con: I don't like sharing?
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## Infrastructure-as-a-Service
+
+        - Virtual server:
+            - Amazon Web Services (AWS)
+            - Google Cloud Platform (GCP)
+            - DigitalOcean (DO)
+            - Linode
+            - etc.
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## Platform-as-a-Service
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## Software-as-a-Service
+
+        - Google Colaboratory (👏🏼)
+        - Kaggle Kernels
+    </textarea>
+</section>
+
+
+
+<section data-markdown>
+    <textarea data-template>
+        ## Infrastructure-as-a-Service
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## Example: Robojam
+
+        - Keras project
+        - Deployed as a web application
+            - receives 5s performances in
+            - returns a new 5s performance
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## Development - Experimentation
+
+        - Experimenting with the model
+        - Used local Jupyter Notebooks / Colaboratory
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## Development - 
+
+        - Putting together a server application
+        
+        - Using a Google Cloud Platform VM
+    </textarea>
+</section>       
+
+<section data-markdown>
+    <textarea data-template>
+        ## Deployment: IaaS
+
+        - Using DigitalOcean
+        - 1 cheapest VM (1 shared cpu, 1GB RAM, 20GB storage)
+        - running Flask server in a GNU screen session
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## Deployment: Docker
+
+        - Let's look at a Dockerfile to run this server!
+        - Fun?
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## Deployment: Docker
+
+        - Now can run on VM
+        - Or deploy on a PaaS system.
+
+    </textarea>
+</section>
+
+</div>
+</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
