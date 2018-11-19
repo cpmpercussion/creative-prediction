@@ -130,23 +130,22 @@
 
 <section data-markdown>
     <textarea data-template>
-        ## Example: Robojam
+        # Example: Robojam
 
-        <img align="center" width="75%" src="img/robojam-application.png">
-
-        Here's an example of these different levels using RoboJam, one of my deep learning projects.
+        <img align="center" width="20%" src="img/microjam-iphone8-robojam.png">
 
     </textarea>
 </section>
+
 
 <section data-markdown>
     <textarea data-template>
         ## Example: Robojam
 
-        - Keras project
-        - Deployed as a web application
-            - receives 5s performances in
-            - returns a new 5s performance
+        <img align="center" width="75%" src="img/robojam-application.png">
+
+        RoboJam is a Keras project, now deployed as a Flask web application.
+
     </textarea>
 </section>
 
@@ -156,8 +155,34 @@
 
         - Developed on local shared workstation
         - Also worked on Colaboratory
-        - Important trick: `ssh -L 8888:localhost:8888`
+        - Tips:
+            - keep jupyter sessions around with `screen`
+            - tunnel jupyter port with `ssh -L 8888:localhost:8888`
         - Could also use Google Cloud VMs with GPUs for short training runs
+
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## Starting point: IaaS + PaaS
+
+        <img align="center" width="30%" src="img/deep-learning-vm-image.png">
+
+        - Can use VMs and Containers for DL development
+        - [Google's "Cloud Deep Learning VM Image"](https://cloud.google.com/deep-learning-vm/)
+        - Comes with `jupyterhub` running to do development in a browser.
+        - Expensive for a good machine: K80 GPU 0.45USD/h
+
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## SaaS Architecture on Colab
+
+        ![](img/robojam-cloud-architecture-colab.png)
+
     </textarea>
 </section>
 
@@ -170,8 +195,11 @@
         - Send performance as JSON to that endpoit
         - robojam RNN model is conditioned with input, then a continuation is predicted.
         - prediction returned as JSON
+        - "[Deploying DL models with Flask](https://towardsdatascience.com/deploying-keras-deep-learning-models-with-flask-5da4181436a2)"
     </textarea>
 </section>
+
+
 
 <section data-markdown>
     <textarea data-template>
@@ -184,6 +212,16 @@
         - Problem: what if the app gets popular?
     </textarea>
 </section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## IaaS Architecture on DigitalOcean
+
+        ![](img/robojam-cloud-architecture-vm.png)
+
+    </textarea>
+</section>
+
 
 <section data-markdown>
     <textarea data-template>
@@ -231,6 +269,16 @@
 
 <section data-markdown>
     <textarea data-template>
+        ## Containerised Architecture with Docker
+
+        ![](img/robojam-cloud-architecture-docker.png)
+
+    </textarea>
+</section>
+
+
+<section data-markdown>
+    <textarea data-template>
         ## Deploying to Kubenetes
 
         - Kubernetes is a system to run docker containers on multiple computers simultaneously.
@@ -254,6 +302,15 @@
 
 <section data-markdown>
     <textarea data-template>
+        ## Micro-Service Architecture with Kubernetes
+
+        ![](img/robojam-cloud-architecture-kubenetes.png)
+
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
         ## Conclusion
 
         - ML/AI isn't just for research, we can make cool applications too!
@@ -264,6 +321,12 @@
         - Try out Jupyterhub for development. Might be way of future?
     </textarea>
 </section>
+
+<section data-markdown>
+    <textarea data-template>
+        ## Extra links
+
+        - [Maximise your GPU Dollars](https://towardsdatascience.com/maximize-your-gpu-dollars-a9133f4e546a)
 
 </div>
 </div>
