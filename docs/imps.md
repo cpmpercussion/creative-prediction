@@ -4,7 +4,7 @@ title: IMPS: The Interactive Musical Prediction System
 permalink: /imps/
 ---
 
-<!-- # IMPS: The Interactive Musical Predictive System -->
+# IMPS: The Interactive Musical Predictive System
 
 ![MIT License](https://img.shields.io/github/license/cpmpercussion/keras-mdn-layer.svg?style=flat)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2580176.svg)](https://doi.org/10.5281/zenodo.2580176)
