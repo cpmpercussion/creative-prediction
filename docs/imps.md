@@ -4,7 +4,7 @@ title: IMPS: The Interactive Musical Prediction System
 permalink: /imps/
 ---
 
-# IMPS: The Interactive Musical Predictive System
+<!-- # IMPS: The Interactive Musical Predictive System -->
 
 ![MIT License](https://img.shields.io/github/license/cpmpercussion/keras-mdn-layer.svg?style=flat)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2580176.svg)](https://doi.org/10.5281/zenodo.2580176)
@@ -13,7 +13,7 @@ permalink: /imps/
 
 IMPS is a system for predicting musical control data in live performance. It uses a mixture density recurrent neural network (MDRNN) to observe control inputs over multiple time steps, predicting the next value of each step, and the time that expects the next value to occur. It provides an input and output interface over OSC and can work with musical interfaces with any number of real valued inputs (we've tried from 1-8). Several interactive paradigms are supported for call-response improvisation, as well as independent operation, and "filtering" of the performer's input. Whenever you use IMPS, your input data is logged to build up a training corpus and a script is provided to train new versions of your model.
 
-Here's a demonstration video showing how IMPS can be used with different musical interfaces:
+Here's a [demonstration video showing how IMPS can be used with different musical interfaces.](https://www.youtube.com/embed/Kdmhrp2dfHw)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Kdmhrp2dfHw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -62,6 +62,14 @@ Now you need your music interface to send messages to IMPS over OSC. The default
 For an 8-dimensional interface.
 
 Your synthesiser software or interface needs to listen for messages from the IMPS system as well. These have the same format with the OSC address `/prediction`. You can interpret these as interactions predicted to occur right when the message is sent.
+
+Here's an example diagram for our 8-controller example, the [xtouch mini controller](https://www.musictribe.com/Categories/Behringer/Computer-Audio/Desktop-Controllers/X-TOUCH-MINI/p/P0B3M).
+
+![Predictive Musical Interaction](https://github.com/cpmpercussion/imps/raw/master/images/IMPS_connection_example.png)
+
+In this example we've used Pd to connect the xtouch mini to IMPS and to synthesis sounds. Our Pd mapping patch takes data from the xtouch and sends `/interface` OSC messages to IMPS, it also receives `/prediction` OSC message back from IMPS whenever they occur. Of course, whenever the user performs with the controller, the mapping patch sends commands to the synthesiser patch to make sound. Whenever `/prediction` messages are received, these also trigger changes in the synth patch, and we also send MIDI messages back to the xtouch controller to update its lights so that the performer knows what IMPS is predicting.
+
+So what happens if IMPS and the performer play at the same time? In this example, it doesn't make sense for both to control the synthesiser at the same time, so we set IMPS to run in "call and response" mode, so that it only makes predictions when the human has stopped performing. We could also set up our mapping patch to use prediction messages for a different synth and use one of the simultaneous performance modes of IMPS.
 
 ### 2. Log some training data
 
