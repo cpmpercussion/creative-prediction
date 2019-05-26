@@ -46,6 +46,7 @@ plugins:
 
 navigation_header:
   Home: /
+  NIME: /nime/
   Tutorials: /tutorials/
   Presentations: /presentations/
   IMPS: /imps/
