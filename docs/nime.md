@@ -14,6 +14,76 @@ The first half of the workshop will focus on recurrent neural networks (RNNs), d
 
 The second half of the workshop will focus on the Interactive Musical Prediction System (IMP), an end-to-end solution for adding an MDRNN to a musical interface with communication over OSC. This system allows you to focus on defining new predictive  NIMEs that can "fill in" parts of a musical performance or to “dream” new performances and accompaniments.
 
+### Session Plan
+
+- 9:00 Meeting, Intro, and Python Setup
+- 9:15 [Overview of Deep Learning and Creativity](#overview-dl-creativity)
+- 9:45 [Generating Text and Music with RNNs (practical)](#generating-sequences)
+- 10:30 (coffee break)
+- 10:45 Hack: inventing Star Trek episode titles
+- 11:30 [Using Mixture Density Networks (MDNs)](#mixture-density)
+- 13:00 Lunch (90 minutes)
+- 14:30 [Making Predictive Musical Interactions with the IMPS system](#making-predictive)
+- 16:00 (coffee break)
+- 16:15 [Future directions for creative neural networks at NIME and beyond](#future-directions)
+
+<!-- Generating Text and Music with RNNs; inventing Star Trek episode titles. (30m talk, 30m hack).
+Using Mixture Density Networks (MDNs) to predict NIME data with RoboJam (30m talk, 30m hack).
+Making Predictive Musical Interactions with the IMPS system (30m talk, 90m hack).
+Future directions for creative neural networks at NIME and beyond (60m discussion and brainstorming). -->
+
+
+#### Overview of Deep Learning and Creativity {#overview-dl-creativity}
+
+(30 minutes talk).
+
+- sequence learning with RNNs and Long Short-Term Memory (LSTM) in Keras and Python
+
+#### Generating Text and Music with RNNs {#generating-sequences}
+
+(30m talk, 60m hack).
+
+- Predicting sequences with LSTM networks
+- Generating text character-by-character
+- Generating music note-by-note
+- _Demo_: Star Trek Episode Title Generator
+- _Demo_: Zeldic Music Generator
+- _Exercise_: Make your own text/melody generator
+
+#### Using Mixture Density Networks (MDNs) to predict NIME data with RoboJam {#mixture-density}
+
+(45m talk, 45m hack).
+
+- Predicting **continuous** data from NIMEs
+- Gaussian Mixture Models
+- Mixture Density RNNs
+- _Demo_: Kanji Generation
+- _Exercise_: Making a RoboJam model with touchscreen data
+
+#### Making Predictive Musical Interactions with the IMPS system  {#making-predictive}
+
+![The IMPS system in use]({{ site.baseurl }}/assets/IMPS_connection_example.png)
+
+(30m talk, 90m hack).
+
+- The "Interactive Music Prediction System": IMPS
+- Setup and interaction scheme
+- _Demo_: IMPS with Lightpad block and Behringer Xtouch Mini
+- _Exercise_: Set up IMPS with 3D prediction (x, y, t) with Processing and Pd
+
+#### Future directions for creative neural networks at NIME and beyond {#future-directions}
+
+Let's define the future of predictive NIMEs... _together_.
+
+- What even is a predictive NIME?
+- What NIMEs could benefit from prediction?
+- What tools are needed?
+- Who can help?
+- What resources are necessary?
+- What's going on with this "Creative AI" field anyway?
+
+(60m discussion and brainstorming).
+
 Here's a list of demonstration code for the session:
 
 - **Generating Creative Sequences**
