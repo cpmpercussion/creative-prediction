@@ -32,12 +32,38 @@ Using Mixture Density Networks (MDNs) to predict NIME data with RoboJam (30m tal
 Making Predictive Musical Interactions with the IMPS system (30m talk, 90m hack).
 Future directions for creative neural networks at NIME and beyond (60m discussion and brainstorming). -->
 
+#### Getting Started
+
+Welcome to the Creative Prediction workshop at NIME! Thanks for coming along!
+
+This workshop will introduce the basics of _deep learning generation of creative sequences_ (e.g., text, music, videos, movements, etc!). We will cover a bit of the theory behind recurrent neural networks, and mixture density networks, and show you how to construct your own with **[Python](https://python.org)** and **[Keras](https://keras.io)**.
+
+All of the **demonstration code** for the workshop is contained in [Jupyter Notebooks](https://jupyter.org), an open standard for mixing code, text, and visualisations in a document that can be opened in web browser. We will display this code on the screen for you to follow along and see how it works, but for maximum fun, you'll want to install [Jupyter, Python, and Keras on your own computer]({% link setup.md %})
+
+There's links below, but you can [check out all the Jupyter Notebooks for this course (and other!) on Github.](https://github.com/cpmpercussion/creative-prediction/tree/master/notebooks)
+
+Another way to try out the Jupyter Notebooks is with [Google Colaboratory](https://colab.research.google.com), a free-to-use Jupyter notebook environment that has most of the necessary Python libraries pre-installed. It even works on a tablet! If you want to get started quickly without slowing down to get your python install right, we would recommend Colab as a great way to go.
+
+Colab has some amazing features:
+
+- [You can load all the notebooks for this workshop straight from the GitHub repo.](http://colab.research.google.com/github/cpmpercussion/creative-prediction/blob/master/)
+- You can use a [GPU for free](https://medium.com/deep-learning-turkey/google-colab-free-gpu-tutorial-e113627b9f5d) to train a biggish RNN
+
+There are some downsides though:
+
+- uploading and downloading data is a [bit](https://medium.com/@Keshav31/colab-features-download-and-upload-e1ec537a83df) [fiddly](https://towardsdatascience.com/3-ways-to-load-csv-files-into-colab-7c14fcbdcb92).
+- you can't use Music21's playback features to hear generated MIDI scores, or visualise them with musescore.
+- you can't run [IMPS]({% link imps.md %}) in Colab (it's not a jupyter notebook).
+
+The notebooks have some sections with a comment like "Use this if on Colab!" to work around some of the limitations.
 
 #### Overview of Deep Learning and Creativity {#overview-dl-creativity}
 
 (30 minutes talk).
 
 - sequence learning with RNNs and Long Short-Term Memory (LSTM) in Keras and Python
+
+
 
 #### Generating Text and Music with RNNs {#generating-sequences}
 
@@ -50,7 +76,15 @@ Future directions for creative neural networks at NIME and beyond (60m discussio
 - _Demo_: Zeldic Music Generator
 - _Exercise_: Make your own text/melody generator
 
-#### Exercise: Make your own text generator.
+- **Demo and Tutorial Code**
+    - Generating Text with a CharRNN; inventing Star Trek episode titles. [Notebook](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/1-star-trek-titles-RNN-basic.ipynb) [Colab](https://`)
+    - Advanced CharRNN techniques ([see Notebook 2](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/2-star-trek-titles-advanced.ipynb))
+    - Continuing musical sequences. ([see Notebook 3](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/3-zeldic-musical-RNN.ipynb))
+    - Combining multiple sequences in a CharRNN with "Gesture-RNN". ([see Notebook 4](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/4-gesture-rnn.ipynb))
+
+##### Exercise: Make your own text generator.
+
+For this exercise you'll need to be running our 
 
 1. Start by opening the example code for inventing Star Trek episode titles. (try the advanced version which is less verbose)
 2. Step through the code, and make sure that you can get it to generate some interesting text.
