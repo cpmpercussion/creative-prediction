@@ -50,6 +50,14 @@ Future directions for creative neural networks at NIME and beyond (60m discussio
 - _Demo_: Zeldic Music Generator
 - _Exercise_: Make your own text/melody generator
 
+#### Exercise: Make your own text generator.
+
+1. Start by opening the example code for inventing Star Trek episode titles. (try the advanced version which is less verbose)
+2. Step through the code, and make sure that you can get it to generate some interesting text.
+3. Try changing the diversity/temperature to produce more "normal" and more "weird" results.
+4. Now it gets interesting. Think of some data that YOU would like to generate which can be represented as text. This could be actual text, or something else (images, or sound) represented as text characters. Almost everything in computing can be represented as text, so there's a lot of scope for experimentation! Change the LSTM text generator to learn from your dataset and to generate new creative data.
+5. Think about how your creative data generator could be applied in a work of art. Could it be integrated into a website, or some kind of art installation? Come up with a artistic concept that relies on genuine data generation. What questions would this work ask of technology, and of us?
+
 #### Using Mixture Density Networks (MDNs) to predict NIME data with RoboJam {#mixture-density}
 
 (45m talk, 45m hack).
