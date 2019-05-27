@@ -84,7 +84,7 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 
 ##### Exercise: Make your own text generator.
 
-For this exercise you'll need to be running our 
+For this exercise you'll need to be running our Star Trek Episode Title Generator either in Colab or on your own computer.
 
 1. Start by opening the example code for inventing Star Trek episode titles. (try the advanced version which is less verbose)
 2. Step through the code, and make sure that you can get it to generate some interesting text.
