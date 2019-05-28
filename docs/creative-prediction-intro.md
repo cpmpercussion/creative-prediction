@@ -21,7 +21,6 @@ permalink: /intro/
 <section data-markdown>
 <textarea data-template>
 
-    
 ## A normal slide
 
 - Some dot points
