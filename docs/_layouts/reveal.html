@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="generator" content="jekyll">
+    <title>{{ page.title | escape }}</title>
+
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/reveal.js-3.8.0/css/reset.css">
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/reveal.js-3.8.0/css/reveal.css">
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/reveal.js-3.8.0/css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/reveal.js-3.8.0/lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '{{site.baseurl}}/assets/reveal.js-3.8.0/css/print/pdf.css' : '{{site.baseurl}}/assets/reveal.js-3.8.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        {{content}}
+      </div>
+    </div>
+    <script src="{{site.baseurl}}/assets/reveal.js-3.8.0/js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: '{{site.baseurl}}/assets/reveal.js-3.8.0/plugin/markdown/marked.js' },
+          { src: '{{site.baseurl}}/assets/reveal.js-3.8.0/plugin/markdown/markdown.js' },
+          { src: '{{site.baseurl}}/assets/reveal.js-3.8.0/plugin/notes/notes.js', async: true },
+          { src: '{{site.baseurl}}/assets/reveal.js-3.8.0/plugin/highlight/highlight.js', async: true }
+        ],
+       transition: 'fade',
+       width: 1920,
+       height: 1080,
+       margin: 0.1,
+       history: true,
+       slideNumber: true,
+       controls: false
+      });
+    </script>
+  </body>
+</html>

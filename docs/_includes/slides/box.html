@@ -1,0 +1,26 @@
+{% assign type = include.type %}
+
+{% case type %}
+{% when 'error' %}
+{% assign slide_background_colour = '#f99' %}
+{% when 'warning' %}
+{% assign slide_background_colour = '#ffe699' %}
+{% when 'info' %}
+{% assign slide_background_colour = '#b6daf2' %}
+{% when 'success' %}
+{% assign slide_background_colour = '#93e7b6' %}
+{% when 'think' %}
+{% assign slide_background_colour = '#f9cbe1' %}
+{% when 'talk' %}
+{% assign slide_background_colour = '#aef4e6' %}
+{% when 'push' %}
+{% assign slide_background_colour = '#ff9854' %}
+{% when 'extension' %}
+{% assign slide_background_colour = '#dbc3e5' %}
+{% endcase %}
+
+<h2
+  class="{{ type }}-box"
+  data-background-color="{{ slide_background_colour }}">
+  {{ type }}
+</h2>

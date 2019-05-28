@@ -1,0 +1,44 @@
+{% assign slide = include.slide %}
+{% case slide %}
+{% when 'big-picture' %}
+{% assign theme_image = 'rawpixel-com-351757.jpg' %}
+{% when 'feeling-lost' %}
+{% assign theme_image = 'linnea-sandbakk-99949.jpg' %}
+{% when 'live-demo' %}
+{% assign theme_image = 'aaron-thomas-385462.jpg' %}
+{% when 'quiz' %}
+{% assign theme_image = 'tachina-lee-42980.jpg' %}
+{% when 'quirks-of-history' %}
+{% assign theme_image = 'ricardo-viana-105232.jpg' %}
+{% when 'questions' %}
+{% assign theme_image = 'edwin-andrade-153753.jpg' %}
+{% when 'further-reading' %}
+{% assign theme_image = 'ben-white-138743.jpg' %}
+{% when 'todo' %}
+{% assign theme_image = 'glenn-carstens-peters-190592-unsplash.jpg' %}
+{% when 'story' %}
+{% assign theme_image = 'prasanna-kumar-218699.jpg' %}
+{% when 'code-theory' %}
+{% assign theme_image = 'omgface.png' %}
+{% when 'art-theory' %}
+{% assign theme_image = 'charles-deluvio-542217-unsplash.jpg' %}
+{% when 'praxis' %}
+{% assign theme_image = 'keyboard-cat.gif' %}
+{% when 'denouement' %}
+{% assign theme_image = 'zi-jian-lim-227847.jpg' %}
+{% else %}
+{% assign theme_image = 'none.jpg' %}
+{% endcase %}
+{% if include.heading %}
+<h2
+  {% if include.id %}id="{{ include.id }}"{% endif %}
+  data-background-image="{% asset lectures/all/{{theme_image}} @path %}"
+  data-background-size="cover"
+>{{ include.heading }}</h2>
+{% else %}
+<hr
+  {% if include.id %}id="{{ include.id }}"{% endif %}
+  data-background-image="{% asset lectures/all/{{theme_image}} @path %}"
+  data-background-size="cover"
+>
+{% endif %}

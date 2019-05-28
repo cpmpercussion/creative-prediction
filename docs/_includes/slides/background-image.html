@@ -1,0 +1,10 @@
+<section
+    {% if include.bgcol %}data-background-color="{{ include.bgcol }}"{% endif %}
+    {% if include.id %}id="{{ include.id }}"{% endif %}
+    data-background-image="{% if include.image contains "http" %}{{include.image}}{%else%}{% asset '{{include.image}}' @path %}{% endif %}"
+    data-background-size="{{ include.bgsize | default: "cover" }}"
+>
+  {% if include.heading %}
+  <h2>{{include.heading}}</h2>
+  {% endif %}
+</section>
