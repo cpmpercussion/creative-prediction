@@ -1,36 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="author" content="Charles Martin">
-  <title>Deep Dive on RNNs</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
-  <!--[if lt IE 9]>
-  <script src="reveal.js/lib/js/html5shiv.js"></script>
-  <![endif]-->
-</head>
-<body>
-  <div class="reveal">
-    <div class="slides">
+---
+layout: reveal
+title:  Deep Dive on RNNs
+permalink: /presentations/deep-dive-on-rnns/
+---
 
 <section id="title-slide">
   <h1 class="title">Deep Dive on RNNs</h1>
@@ -38,22 +10,23 @@
 </section>
 
 <section class="slide level2">
-
-<!-- theme: "white" -->
 <h3 id="what-is-an-artificial-neurone">What is an Artificial Neurone?</h3>
 <p><img data-src="./1-artificial-neurone.png" style="width:100.0%" /></p>
 <p><a href="https://en.wikipedia.org/wiki/File:Blausen_0657_MultipolarNeuron.png">Source - Wikimedia Commons</a></p>
 </section>
+
 <section id="feed-forward-network" class="slide level2">
 <h2>Feed-Forward Network</h2>
 <p><img data-src="./2-feed-forward.png" style="width:75.0%" /></p>
 <p>For each unit: <span class="math inline">\(y = \text{tanh}\big(Wx + b \big)\)</span></p>
 </section>
+
 <section id="recurrent-network" class="slide level2">
 <h2>Recurrent Network</h2>
 <p><img data-src="./3-recurrent.png" style="width:75.0%" /></p>
 <p>For each unit: <span class="math inline">\(y_t = \text{tanh}\big(Ux_t + Vh_{t-1} + b \big)\)</span></p>
 </section>
+
 <section id="sequence-learning-tasks" class="slide level2">
 <h2>Sequence Learning Tasks</h2>
 <div class="columns">
@@ -64,6 +37,7 @@
 </div>
 </div>
 </section>
+
 <section id="recurrent-network-1" class="slide level2">
 <h2>Recurrent Network</h2>
 <p><img data-src="4-unfolding.png" style="width:75.0%" /></p>
@@ -74,6 +48,7 @@
 <p><img data-src="5-recurrent-vert.png" style="width:25.0%" /></p>
 <p>simplifying and rotating…</p>
 </section>
+
 <section id="state-in-recurrent-networks" class="slide level2">
 <h2>“State” in Recurrent Networks</h2>
 <div class="columns">
@@ -89,6 +64,7 @@
 </div>
 </div>
 </section>
+
 <section class="slide level2">
 
 <h3 id="defining-the-rnn-state">Defining the RNN State</h3>
@@ -102,6 +78,7 @@
 </div>
 </div>
 </section>
+
 <section id="unfolding-an-rnn-in-time" class="slide level2">
 <h2>Unfolding an RNN in Time</h2>
 <figure>
@@ -124,12 +101,14 @@
 </div>
 </div>
 </section>
+
 <section id="y-hat-is-softmaxd" class="slide level2">
 <h2>Y-hat is Softmax’d</h2>
 <p><img data-src="softmax-is-probability.png" style="width:75.0%" /></p>
 <p><span class="math inline">\(\hat{y}\)</span> is a probability distribution! A finite number of weights that add to 1:</p>
 <p><span class="math display">\[\sigma(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}} \text{ for } j = 1,\ldots, K\]</span></p>
 </section>
+
 <section id="calculating-loss-categorical-cross-entropy" class="slide level2">
 <h2>Calculating Loss: Categorical Cross Entropy</h2>
 <div class="columns">
@@ -146,6 +125,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </div>
 </section>
+
 <section id="backpropagation-through-time-bptt" class="slide level2">
 <h2>Backpropagation Through Time (BPTT)</h2>
 <div class="columns">
@@ -156,6 +136,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </div>
 </section>
+
 <section id="example-character-level-text-model" class="slide level2">
 <h2>Example: Character-level text model</h2>
 <ul>
@@ -164,6 +145,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <li class="fragment"><strong>Target output (<em>y</em>)</strong>: 1 character, the next one after the 30 in each <em>X</em>.</li>
 </ul>
 </section>
+
 <section id="training-the-character-level-model" class="slide level2">
 <h2>Training the Character-level Model</h2>
 <div class="columns">
@@ -178,6 +160,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </div>
 </section>
+
 <section id="using-the-trained-model-to-generate-text" class="slide level2">
 <h2>Using the trained model to generate text</h2>
 <div class="columns">
@@ -192,6 +175,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </div>
 </section>
+
 <section id="char-rnn" class="slide level2">
 <h2>Char-RNN</h2>
 <div class="columns">
@@ -209,6 +193,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </div>
 </section>
+
 <section id="char-rnn-examples" class="slide level2">
 <h2>Char-RNN Examples</h2>
 <div class="columns">
@@ -227,9 +212,11 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </div>
 </section>
+
 <section id="rnn-architectures-and-lstm" class="slide level2">
 <h2>RNN Architectures and LSTM</h2>
 </section>
+
 <section id="bidirectional-rnns" class="slide level2">
 <h2>Bidirectional RNNs</h2>
 <div class="columns">
@@ -244,6 +231,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </div>
 </section>
+
 <section id="encoder-decoder-seq-to-seq" class="slide level2">
 <h2>Encoder-Decoder (seq-to-seq)</h2>
 <div class="columns">
@@ -258,6 +246,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </div>
 </section>
+
 <section id="deep-rnns" class="slide level2">
 <h2>Deep RNNs</h2>
 <div class="columns">
@@ -274,6 +263,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </div>
 </section>
+
 <section id="long-term-dependencies" class="slide level2">
 <h2>Long-Term Dependencies</h2>
 <div class="columns">
@@ -299,6 +289,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </div>
 </div>
 </section>
+
 <section id="vanishing-and-exploding-gradients" class="slide level2">
 <h2>Vanishing and Exploding Gradients</h2>
 <div class="columns">
@@ -317,6 +308,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </div>
 </div>
 </section>
+
 <section id="gated-rnns" class="slide level2">
 <h2>Gated RNNs</h2>
 <div class="columns">
@@ -335,6 +327,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </div>
 </div>
 </section>
+
 <section id="long-short-term-memory" class="slide level2">
 <h2>Long Short-Term Memory</h2>
 <div class="columns">
@@ -355,6 +348,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </div>
 </div>
 </section>
+
 <section id="long-short-term-memory-1" class="slide level2">
 <h2>Long Short-Term Memory</h2>
 <div class="columns">
@@ -371,6 +365,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </div>
 </div>
 </section>
+
 <section id="other-gating-units" class="slide level2">
 <h2>Other Gating Units</h2>
 <div class="columns">
@@ -386,18 +381,21 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </div>
 </div>
 </section>
+
 <section id="visualising-lstm-activations" class="slide level2">
 <h2>Visualising LSTM activations</h2>
 <p>Sometimes, the LSTM cell state corresponds with features of the sequential data:</p>
 <p><img data-src="lstm-state-visualisation.png" style="width:80.0%" /></p>
 <p>Source: <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">(Karpathy, 2015)</a></p>
 </section>
+
 <section id="charrnn-applications-folkrnn" class="slide level2">
 <h2>CharRNN Applications: FolkRNN</h2>
 <p>Some kinds of music can be represented in a text-like manner.</p>
 <p><img data-src="folk-rnn.png" style="width:80.0%" /></p>
 <p>Source: <a href="https://core.ac.uk/download/pdf/55873381.pdf">Sturm et al. 2015. Folk Music Style Modelling by Recurrent Neural Networks with Long Short Term Memory Units</a></p>
 </section>
+
 <section id="other-charrnn-applications" class="slide level2">
 <h2>Other CharRNN Applications</h2>
 <div class="columns">
@@ -408,6 +406,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </div>
 </div>
 </section>
+
 <section id="google-magenta-performance-rnn" class="slide level2">
 <h2>Google Magenta Performance RNN</h2>
 <div class="columns">
@@ -424,6 +423,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <li class="fragment">E.g.: <a href="https://youtu.be/JVf6esaXeLE">YouTube demo</a></li>
 </ul>
 </section>
+
 <section id="neural-ipad-band-another-charrnn" class="slide level2">
 <h2>Neural iPad Band, another CharRNN</h2>
 <div class="columns">
@@ -438,6 +438,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </div>
 </div>
 </section>
+
 <section id="books-and-learning-references" class="slide level2">
 <h2>Books and Learning References</h2>
 <ul>
@@ -449,6 +450,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <li class="fragment"><a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Karpathy. 2015. The Unreasonable Effectiveness of RNNs</a></li>
 </ul>
 </section>
+
 <section id="summary" class="slide level2">
 <h2>Summary</h2>
 <ul>
@@ -458,44 +460,3 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <li class="fragment">LSTM units are able to overcome the vanishing gradient problem to some extent.</li>
 </ul>
 </section>
-    </div>
-  </div>
-
-  <script src="reveal.js/lib/js/head.min.js"></script>
-  <script src="reveal.js/js/reveal.js"></script>
-
-  <script>
-
-      // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        // Push each slide change to the browser history
-        history: true,
-        math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
-        // Optional reveal.js plugins
-        dependencies: [
-          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-          { src: 'reveal.js/plugin/math/math.js', async: true },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true }
-        ]
-      });
-    </script>
-    </body>
-</html>
