@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../../assets/reveal.js/css/reveal.css">
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -18,7 +18,7 @@
   <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -31,13 +31,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,17 +78,17 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <link rel="stylesheet" href="../../assets/reveal.js/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../../assets/reveal.js/css/print/pdf.css' : '../../assets/reveal.js/css/print/paper.css';
     document.getElementsByTagName( 'head' )[0].appendChild( link );
   </script>
   <!--[if lt IE 9]>
-  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <script src="../../assets/reveal.js/lib/js/html5shiv.js"></script>
   <![endif]-->
 </head>
 <body>
@@ -280,12 +278,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 id="feedforward-mse-network">Feedforward MSE Network</h3>
 <p><img data-src="./arcsine-feedforward-mse-prediction.png" style="width:30.0%" /> <img data-src="./feedforward-mse-prediction-loss-plot.png" style="width:40.0%" /></p>
 <p>Here’s a simple two-hidden-layer network (286 parameters), trained to produce the above result.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">model <span class="op">=</span> Sequential()</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">model.add(Dense(<span class="dv">15</span>, batch_input_shape<span class="op">=</span>(<span class="va">None</span>, <span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;tanh&#39;</span>))</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">model.add(Dense(<span class="dv">15</span>, activation<span class="op">=</span><span class="st">&#39;tanh&#39;</span>))</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">model.add(Dense(<span class="dv">1</span>, activation<span class="op">=</span><span class="st">&#39;linear&#39;</span>))</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">model.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">&#39;mse&#39;</span>, optimizer<span class="op">=</span><span class="st">&#39;rmsprop&#39;</span>)</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">model.fit(x<span class="op">=</span>x_data, y<span class="op">=</span>y_data, batch_size<span class="op">=</span><span class="dv">128</span>, epochs<span class="op">=</span><span class="dv">200</span>, validation_split<span class="op">=</span><span class="fl">0.15</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1">model <span class="op">=</span> Sequential()</a>
+<a class="sourceLine" id="cb1-2" title="2">model.add(Dense(<span class="dv">15</span>, batch_input_shape<span class="op">=</span>(<span class="va">None</span>, <span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;tanh&#39;</span>))</a>
+<a class="sourceLine" id="cb1-3" title="3">model.add(Dense(<span class="dv">15</span>, activation<span class="op">=</span><span class="st">&#39;tanh&#39;</span>))</a>
+<a class="sourceLine" id="cb1-4" title="4">model.add(Dense(<span class="dv">1</span>, activation<span class="op">=</span><span class="st">&#39;linear&#39;</span>))</a>
+<a class="sourceLine" id="cb1-5" title="5">model.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">&#39;mse&#39;</span>, optimizer<span class="op">=</span><span class="st">&#39;rmsprop&#39;</span>)</a>
+<a class="sourceLine" id="cb1-6" title="6">model.fit(x<span class="op">=</span>x_data, y<span class="op">=</span>y_data, batch_size<span class="op">=</span><span class="dv">128</span>, epochs<span class="op">=</span><span class="dv">200</span>, validation_split<span class="op">=</span><span class="fl">0.15</span>)</a></code></pre></div>
 </section>
 <section id="mdn-architecture" class="slide level2">
 <h2>MDN Architecture:</h2>
@@ -301,70 +299,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 id="feedforward-mdn-solution">Feedforward MDN Solution</h3>
 <p><img data-src="./arcsine-feedforward-mdn-predictions.png" style="width:30.0%" /> <img data-src="./arcsine-feedforward-mdn-loss.png" style="width:40.0%" /></p>
 <p>And, here’s a simple two-hidden-layer MDN (510 parameters), that achieves the above result! Much better!</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">N_MIXES <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">model <span class="op">=</span> Sequential()</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">model.add(Dense(<span class="dv">15</span>, batch_input_shape<span class="op">=</span>(<span class="va">None</span>, <span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>))</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">model.add(Dense(<span class="dv">15</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>))</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">model.add(mdn.MDN(<span class="dv">1</span>, N_MIXES)) <span class="co"># here&#39;s the MDN layer!</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">model.<span class="bu">compile</span>(loss<span class="op">=</span>mdn.get_mixture_loss_func(<span class="dv">1</span>,N_MIXES), optimizer<span class="op">=</span><span class="st">&#39;rmsprop&#39;</span>)</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">model.summary()</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1">N_MIXES <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3">model <span class="op">=</span> Sequential()</a>
+<a class="sourceLine" id="cb2-4" title="4">model.add(Dense(<span class="dv">15</span>, batch_input_shape<span class="op">=</span>(<span class="va">None</span>, <span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>))</a>
+<a class="sourceLine" id="cb2-5" title="5">model.add(Dense(<span class="dv">15</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>))</a>
+<a class="sourceLine" id="cb2-6" title="6">model.add(mdn.MDN(<span class="dv">1</span>, N_MIXES)) <span class="co"># here&#39;s the MDN layer!</span></a>
+<a class="sourceLine" id="cb2-7" title="7">model.<span class="bu">compile</span>(loss<span class="op">=</span>mdn.get_mixture_loss_func(<span class="dv">1</span>,N_MIXES), optimizer<span class="op">=</span><span class="st">&#39;rmsprop&#39;</span>)</a>
+<a class="sourceLine" id="cb2-8" title="8">model.summary()</a></code></pre></div>
 </section>
 <section class="slide level2">
 
 <h3 id="getting-inside-the-mdn-layer">Getting inside the MDN layer</h3>
 <p>Here’s the same network wihtout using the MDN layer abstraction (this is with Keras’ functional API):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">def</span> elu_plus_one_plus_epsilon(x):</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;ELU activation with a very small addition to help prevent NaN in loss.&quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="cf">return</span> (K.elu(x) <span class="op">+</span> <span class="dv">1</span> <span class="op">+</span> <span class="fl">1e-8</span>)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">N_HIDDEN <span class="op">=</span> <span class="dv">15</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">N_MIXES <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">inputs <span class="op">=</span> Input(shape<span class="op">=</span>(<span class="dv">1</span>,), name<span class="op">=</span><span class="st">&#39;inputs&#39;</span>)</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">hidden1 <span class="op">=</span> Dense(N_HIDDEN, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&#39;hidden1&#39;</span>)(inputs)</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">hidden2 <span class="op">=</span> Dense(N_HIDDEN, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&#39;hidden2&#39;</span>)(hidden1)</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">mdn_mus <span class="op">=</span> Dense(N_MIXES, name<span class="op">=</span><span class="st">&#39;mdn_mus&#39;</span>)(hidden2)</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">mdn_sigmas <span class="op">=</span> Dense(N_MIXES, activation<span class="op">=</span>elu_plus_one_plus_epsilon, name<span class="op">=</span><span class="st">&#39;mdn_sigmas&#39;</span>)(hidden2)</a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">mdn_pi <span class="op">=</span> Dense(N_MIXES, name<span class="op">=</span><span class="st">&#39;mdn_pi&#39;</span>)(hidden2)</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16">mdn_out <span class="op">=</span> Concatenate(name<span class="op">=</span><span class="st">&#39;mdn_outputs&#39;</span>)([mdn_mus, mdn_sigmas, mdn_pi])</a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18">model <span class="op">=</span> Model(inputs<span class="op">=</span>inputs, outputs<span class="op">=</span>mdn_out)</a>
-<a class="sourceLine" id="cb3-19" data-line-number="19">model.summary()</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">def</span> elu_plus_one_plus_epsilon(x):</a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="co">&quot;&quot;&quot;ELU activation with a very small addition to help prevent NaN in loss.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="cf">return</span> (K.elu(x) <span class="op">+</span> <span class="dv">1</span> <span class="op">+</span> <span class="fl">1e-8</span>)</a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">N_HIDDEN <span class="op">=</span> <span class="dv">15</span></a>
+<a class="sourceLine" id="cb3-6" title="6">N_MIXES <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb3-7" title="7"></a>
+<a class="sourceLine" id="cb3-8" title="8">inputs <span class="op">=</span> Input(shape<span class="op">=</span>(<span class="dv">1</span>,), name<span class="op">=</span><span class="st">&#39;inputs&#39;</span>)</a>
+<a class="sourceLine" id="cb3-9" title="9">hidden1 <span class="op">=</span> Dense(N_HIDDEN, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&#39;hidden1&#39;</span>)(inputs)</a>
+<a class="sourceLine" id="cb3-10" title="10">hidden2 <span class="op">=</span> Dense(N_HIDDEN, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&#39;hidden2&#39;</span>)(hidden1)</a>
+<a class="sourceLine" id="cb3-11" title="11"></a>
+<a class="sourceLine" id="cb3-12" title="12">mdn_mus <span class="op">=</span> Dense(N_MIXES, name<span class="op">=</span><span class="st">&#39;mdn_mus&#39;</span>)(hidden2)</a>
+<a class="sourceLine" id="cb3-13" title="13">mdn_sigmas <span class="op">=</span> Dense(N_MIXES, activation<span class="op">=</span>elu_plus_one_plus_epsilon, name<span class="op">=</span><span class="st">&#39;mdn_sigmas&#39;</span>)(hidden2)</a>
+<a class="sourceLine" id="cb3-14" title="14">mdn_pi <span class="op">=</span> Dense(N_MIXES, name<span class="op">=</span><span class="st">&#39;mdn_pi&#39;</span>)(hidden2)</a>
+<a class="sourceLine" id="cb3-15" title="15"></a>
+<a class="sourceLine" id="cb3-16" title="16">mdn_out <span class="op">=</span> Concatenate(name<span class="op">=</span><span class="st">&#39;mdn_outputs&#39;</span>)([mdn_mus, mdn_sigmas, mdn_pi])</a>
+<a class="sourceLine" id="cb3-17" title="17"></a>
+<a class="sourceLine" id="cb3-18" title="18">model <span class="op">=</span> Model(inputs<span class="op">=</span>inputs, outputs<span class="op">=</span>mdn_out)</a>
+<a class="sourceLine" id="cb3-19" title="19">model.summary()</a></code></pre></div>
 </section>
 <section id="loss-function-the-tricky-bit." class="slide level2">
 <h2>Loss Function: The Tricky Bit.</h2>
 <p>Loss function for the MDN should be the negative log likelihood:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">def</span> mdn_loss(y_true, y_pred):</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="co"># Split the inputs into paramaters</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">    out_mu, out_sigma, out_pi <span class="op">=</span> tf.split(y_pred, num_or_size_splits<span class="op">=</span>[N_MIXES, N_MIXES, N_MIXES],</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">                                         axis<span class="op">=-</span><span class="dv">1</span>, name<span class="op">=</span><span class="st">&#39;mdn_coef_split&#39;</span>)</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">    mus <span class="op">=</span> tf.split(out_mu, num_or_size_splits<span class="op">=</span>N_MIXES, axis<span class="op">=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">    sigs <span class="op">=</span> tf.split(out_sigma, num_or_size_splits<span class="op">=</span>N_MIXES, axis<span class="op">=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="co"># Construct the mixture models</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">    cat <span class="op">=</span> tfd.Categorical(logits<span class="op">=</span>out_pi)</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">    coll <span class="op">=</span> [tfd.MultivariateNormalDiag(loc<span class="op">=</span>loc, scale_diag<span class="op">=</span>scale) <span class="cf">for</span> loc, scale</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">            <span class="kw">in</span> <span class="bu">zip</span>(mus, sigs)]</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">    mixture <span class="op">=</span> tfd.Mixture(cat<span class="op">=</span>cat, components<span class="op">=</span>coll)</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">    <span class="co"># Calculate the loss function</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">    loss <span class="op">=</span> mixture.log_prob(y_true)</a>
-<a class="sourceLine" id="cb4-14" data-line-number="14">    loss <span class="op">=</span> tf.negative(loss)</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15">    loss <span class="op">=</span> tf.reduce_mean(loss)</a>
-<a class="sourceLine" id="cb4-16" data-line-number="16">    <span class="cf">return</span> loss</a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18">model.<span class="bu">compile</span>(loss<span class="op">=</span>mdn_loss, optimizer<span class="op">=</span><span class="st">&#39;rmsprop&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">def</span> mdn_loss(y_true, y_pred):</a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="co"># Split the inputs into paramaters</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    out_mu, out_sigma, out_pi <span class="op">=</span> tf.split(y_pred, num_or_size_splits<span class="op">=</span>[N_MIXES, N_MIXES, N_MIXES],</a>
+<a class="sourceLine" id="cb4-4" title="4">                                         axis<span class="op">=-</span><span class="dv">1</span>, name<span class="op">=</span><span class="st">&#39;mdn_coef_split&#39;</span>)</a>
+<a class="sourceLine" id="cb4-5" title="5">    mus <span class="op">=</span> tf.split(out_mu, num_or_size_splits<span class="op">=</span>N_MIXES, axis<span class="op">=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb4-6" title="6">    sigs <span class="op">=</span> tf.split(out_sigma, num_or_size_splits<span class="op">=</span>N_MIXES, axis<span class="op">=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="co"># Construct the mixture models</span></a>
+<a class="sourceLine" id="cb4-8" title="8">    cat <span class="op">=</span> tfd.Categorical(logits<span class="op">=</span>out_pi)</a>
+<a class="sourceLine" id="cb4-9" title="9">    coll <span class="op">=</span> [tfd.MultivariateNormalDiag(loc<span class="op">=</span>loc, scale_diag<span class="op">=</span>scale) <span class="cf">for</span> loc, scale</a>
+<a class="sourceLine" id="cb4-10" title="10">            <span class="kw">in</span> <span class="bu">zip</span>(mus, sigs)]</a>
+<a class="sourceLine" id="cb4-11" title="11">    mixture <span class="op">=</span> tfd.Mixture(cat<span class="op">=</span>cat, components<span class="op">=</span>coll)</a>
+<a class="sourceLine" id="cb4-12" title="12">    <span class="co"># Calculate the loss function</span></a>
+<a class="sourceLine" id="cb4-13" title="13">    loss <span class="op">=</span> mixture.log_prob(y_true)</a>
+<a class="sourceLine" id="cb4-14" title="14">    loss <span class="op">=</span> tf.negative(loss)</a>
+<a class="sourceLine" id="cb4-15" title="15">    loss <span class="op">=</span> tf.reduce_mean(loss)</a>
+<a class="sourceLine" id="cb4-16" title="16">    <span class="cf">return</span> loss</a>
+<a class="sourceLine" id="cb4-17" title="17"></a>
+<a class="sourceLine" id="cb4-18" title="18">model.<span class="bu">compile</span>(loss<span class="op">=</span>mdn_loss, optimizer<span class="op">=</span><span class="st">&#39;rmsprop&#39;</span>)</a></code></pre></div>
 <p>Let’s go through bit by bit…</p>
 </section>
 <section id="loss-function-part-1" class="slide level2">
 <h2>Loss Function: Part 1:</h2>
 <p>First we have to extract the mixture paramaters.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Split the inputs into paramaters</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">out_mu, out_sigma, out_pi <span class="op">=</span> tf.split(y_pred, num_or_size_splits<span class="op">=</span>[N_MIXES, N_MIXES, N_MIXES],</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">                                     axis<span class="op">=-</span><span class="dv">1</span>, name<span class="op">=</span><span class="st">&#39;mdn_coef_split&#39;</span>)</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">mus <span class="op">=</span> tf.split(out_mu, num_or_size_splits<span class="op">=</span>N_MIXES, axis<span class="op">=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">sigs <span class="op">=</span> tf.split(out_sigma, num_or_size_splits<span class="op">=</span>N_MIXES, axis<span class="op">=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># Split the inputs into paramaters</span></a>
+<a class="sourceLine" id="cb5-2" title="2">out_mu, out_sigma, out_pi <span class="op">=</span> tf.split(y_pred, num_or_size_splits<span class="op">=</span>[N_MIXES, N_MIXES, N_MIXES],</a>
+<a class="sourceLine" id="cb5-3" title="3">                                     axis<span class="op">=-</span><span class="dv">1</span>, name<span class="op">=</span><span class="st">&#39;mdn_coef_split&#39;</span>)</a>
+<a class="sourceLine" id="cb5-4" title="4">mus <span class="op">=</span> tf.split(out_mu, num_or_size_splits<span class="op">=</span>N_MIXES, axis<span class="op">=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb5-5" title="5">sigs <span class="op">=</span> tf.split(out_sigma, num_or_size_splits<span class="op">=</span>N_MIXES, axis<span class="op">=</span><span class="dv">1</span>)</a></code></pre></div>
 <ul>
 <li class="fragment">Split up the parameters <span class="math inline">\(\boldsymbol\mu\)</span>, <span class="math inline">\(\boldsymbol\sigma\)</span>, and <span class="math inline">\(\boldsymbol\pi\)</span>, remember that there are N_MIXES <span class="math inline">\(= K\)</span> of each of these.</li>
 <li class="fragment"><span class="math inline">\(\boldsymbol\mu\)</span> and <span class="math inline">\(\boldsymbol\sigma\)</span> have to be split <em>again</em> so that we can iterate over them (you can’t iterate over an axis of a tensor…)</li>
@@ -373,11 +371,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="loss-function-part-2" class="slide level2">
 <h2>Loss Function: Part 2:</h2>
 <p>Now we have to construct the mixture model’s PDF.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Construct the mixture models</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">cat <span class="op">=</span> tfd.Categorical(logits<span class="op">=</span>out_pi) </a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">coll <span class="op">=</span> [tfd.Normal(loc<span class="op">=</span>loc, scale<span class="op">=</span>scale) <span class="cf">for</span> loc, scale</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">        <span class="kw">in</span> <span class="bu">zip</span>(mus, sigs)]</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">mixture <span class="op">=</span> tfd.Mixture(cat<span class="op">=</span>cat, components<span class="op">=</span>coll)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># Construct the mixture models</span></a>
+<a class="sourceLine" id="cb6-2" title="2">cat <span class="op">=</span> tfd.Categorical(logits<span class="op">=</span>out_pi) </a>
+<a class="sourceLine" id="cb6-3" title="3">coll <span class="op">=</span> [tfd.Normal(loc<span class="op">=</span>loc, scale<span class="op">=</span>scale) <span class="cf">for</span> loc, scale</a>
+<a class="sourceLine" id="cb6-4" title="4">        <span class="kw">in</span> <span class="bu">zip</span>(mus, sigs)]</a>
+<a class="sourceLine" id="cb6-5" title="5">mixture <span class="op">=</span> tfd.Mixture(cat<span class="op">=</span>cat, components<span class="op">=</span>coll)</a></code></pre></div>
 <ul>
 <li class="fragment">For this, we’re using the <code>Mixture</code> abstraction provided in <code>tensorflow-probability.distributions</code>.</li>
 <li class="fragment">This takes a categorical (a.k.a. softmax, a.k.a. generalized Bernoulli distribution) model, and a list the component distributions.</li>
@@ -388,9 +386,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="loss-function-part-3" class="slide level2">
 <h2>Loss Function: Part 3:</h2>
 <p>Finally, we calculate the loss:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">loss <span class="op">=</span> mixture.log_prob(y_true)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">loss <span class="op">=</span> tf.negative(loss)</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">loss <span class="op">=</span> tf.reduce_mean(loss)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1">loss <span class="op">=</span> mixture.log_prob(y_true)</a>
+<a class="sourceLine" id="cb7-2" title="2">loss <span class="op">=</span> tf.negative(loss)</a>
+<a class="sourceLine" id="cb7-3" title="3">loss <span class="op">=</span> tf.reduce_mean(loss)</a></code></pre></div>
 <ul>
 <li class="fragment"><code>mixture.log_prob(y_true)</code> means “the log-likelihood of sampling <code>y_true</code> from the distribution called <code>mixture</code>.”</li>
 </ul>
@@ -469,15 +467,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="fragment">Axel Brando. 2017. Mixture Density Networks (MDN) for distribution and uncertainty estimation. Master’s thesis. Universitat Politècnica de Catalunya.</li>
 <li class="fragment">A. Graves. 2013. Generating Sequences With Recurrent Neural Networks. ArXiv e-prints (Aug. 2013). <a href="https://arxiv.org/abs/1308.0850">ArXiv:1308.0850</a></li>
 <li class="fragment">David Ha and Douglas Eck. 2017. A Neural Representation of Sketch Drawings. ArXiv e-prints (April 2017). <a href="https://arxiv.org/abs/1704.03477">ArXiv:1704.03477</a></li>
-<li class="fragment">Charles P. Martin and Jim Torresen. 2018. RoboJam: A Musical Mixture Density Network for Collaborative Touchscreen Interaction. In Evolutionary and Biologically Inspired Music, Sound, Art and Design: EvoMUSART ’18, A. Liapis et al. (Ed.). Lecture Notes in Computer Science, Vol. 10783. Springer International Publishing. DOI:<a href="http://dx.doi.org/10.1007/9778-3-319-77583-8_11">10.1007/9778-3-319-77583-8_11</a></li>
+<li class="fragment">Charles P. Martin and Jim Torresen. 2018. RoboJam: A Musical Mixture Density Network for Collaborative Touchscreen Interaction. In Evolutionary and Biologically Inspired Music, Sound, Art and Design: EvoMUSART ’18, A. Liapis et al. (Ed.). Lecture Notes in Computer Science, Vol. 10783. Springer International Publishing. DOI:<a href="http://dx.doi.org/10.1007/9778-3-319-77583-8_11">10.1007/9778-3-319-77583-8_11</a></li>
 <li class="fragment">D. Ha and J. Schmidhuber. 2018. Recurrent World Models Facilitate Policy Evolution. ArXiv e-prints (Sept. 2018). <a href="https://arxiv.org/abs/1809.01999">ArXiv:1809.01999</a></li>
 </ol>
 </section>
     </div>
   </div>
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
-  <script src="reveal.js/js/reveal.js"></script>
+  <script src="../../assets/reveal.js/lib/js/head.min.js"></script>
+  <script src="../../assets/reveal.js/js/reveal.js"></script>
 
   <script>
 
@@ -487,7 +485,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         // Push each slide change to the browser history
         history: true,
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -505,10 +503,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-          { src: 'reveal.js/plugin/math/math.js', async: true },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+          { src: '../../assets/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../../assets/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../../assets/reveal.js/plugin/math/math.js', async: true },
+          { src: '../../assets/reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
     </script>

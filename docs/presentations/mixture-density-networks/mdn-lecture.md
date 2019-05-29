@@ -2,6 +2,7 @@
 title: Mixture Density Networks
 author: Charles Martin
 classoption: "aspectratio=169"
+revealjs-url: "../../assets/reveal.js"
 ---
 <!-- theme: "white" -->
 
