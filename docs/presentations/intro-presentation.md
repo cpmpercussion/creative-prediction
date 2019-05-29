@@ -1,7 +1,7 @@
 ---
 layout: reveal
 title:  Intro to Creative Prediction
-permalink: /intro/
+permalink: /presentations/intro/
 ---
 
 <section data-markdown>
