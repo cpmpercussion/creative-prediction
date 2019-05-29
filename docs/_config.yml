@@ -34,6 +34,11 @@ github_username:  cpmpercussion
 # show_downloads: true
 css_inline: true # Will insert all styles into a single <style> block in the <head> element and remove the style <link> reference
 
+assets:
+  sources:
+    - assets/
+    - assets/reveal.js/css/theme/source/ # required to pick up the ANU reveal.js theme file
+
 
 # Build settings
 markdown: kramdown
