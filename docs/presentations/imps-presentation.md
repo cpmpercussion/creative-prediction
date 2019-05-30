@@ -16,8 +16,6 @@ permalink: /presentations/imps/
 
 </textarea>
 </section>
-<section data-markdown>
-<textarea data-template>
 
 {% include slides/youtube.html id="Kdmhrp2dfHw" %}
 
@@ -31,6 +29,5 @@ permalink: /presentations/imps/
 
 </textarea>
 </section>
-<section data-markdown>
-<textarea data-template>
+
 

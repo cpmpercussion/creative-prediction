@@ -4,7 +4,11 @@ title:  Making Predictive NIMEs with Neural Networks
 permalink: /nime/
 ---
 
-Our workshop has been accepted at NIME 2019! (n.b. work in progress! Come back just before [NIME 2019!](https://www.ufrgs.br/nime2019/))
+A workshop at [NIME 2019](https://www.ufrgs.br/nime2019/)!
+
+![A model of a predictive interaction interface.]({{site.baseurl}}/assets/imps/predictive-interaction-motivation.png)
+
+Do you want apply **machine learning** or **AI** in **creative applications**, but don't know where to start? Do you want to make **NIMEs that play themselves**? Do you want your computer to compose **endless video game soundtracks**? _Then **this** is the workshop for you!_ 
 
 ### Workshop Description
 
@@ -62,8 +66,8 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 (30 minutes talk).
 
 - sequence learning with RNNs and Long Short-Term Memory (LSTM) in Keras and Python
-
-
+- [_Exercise_: Set up Python, Keras, and Jupyter on your computer]({{site.baseurl}}/hack/setup)
+- [_Exercise_: Try out a Google Colab Notebook]({{site.baseurl}}/hack/colab)
 
 #### Generating Text and Music with RNNs {#generating-sequences}
 
@@ -74,23 +78,14 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 - Generating music note-by-note
 - _Demo_: Star Trek Episode Title Generator
 - _Demo_: Zeldic Music Generator
-- _Exercise_: Make your own text/melody generator
+- [_Exercise_: Make your own text generator]({{site.baseurl}}/hack/text/)
+- [_Exercise_: Make your own melody generator]({{site.baseurl}}/hack/melody/)
 
 - **Demo and Tutorial Code**
-    - Generating Text with a CharRNN; inventing Star Trek episode titles. [Notebook](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/1-star-trek-titles-RNN-basic.ipynb) [Colab](https://`)
+    - Generating Text with a CharRNN; inventing Star Trek episode titles. [Notebook](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/1-star-trek-titles-RNN-basic.ipynb) [Colab](https://)
     - Advanced CharRNN techniques ([see Notebook 2](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/2-star-trek-titles-advanced.ipynb))
     - Continuing musical sequences. ([see Notebook 3](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/3-zeldic-musical-RNN.ipynb))
     - Combining multiple sequences in a CharRNN with "Gesture-RNN". ([see Notebook 4](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/4-gesture-rnn.ipynb))
-
-##### Exercise: Make your own text generator.
-
-For this exercise you'll need to be running our Star Trek Episode Title Generator either in Colab or on your own computer.
-
-1. Start by opening the example code for inventing Star Trek episode titles. (try the advanced version which is less verbose)
-2. Step through the code, and make sure that you can get it to generate some interesting text.
-3. Try changing the diversity/temperature to produce more "normal" and more "weird" results.
-4. Now it gets interesting. Think of some data that YOU would like to generate which can be represented as text. This could be actual text, or something else (images, or sound) represented as text characters. Almost everything in computing can be represented as text, so there's a lot of scope for experimentation! Change the LSTM text generator to learn from your dataset and to generate new creative data.
-5. Think about how your creative data generator could be applied in a work of art. Could it be integrated into a website, or some kind of art installation? Come up with a artistic concept that relies on genuine data generation. What questions would this work ask of technology, and of us?
 
 #### Using Mixture Density Networks (MDNs) to predict NIME data with RoboJam {#mixture-density}
 
@@ -100,7 +95,7 @@ For this exercise you'll need to be running our Star Trek Episode Title Generato
 - Gaussian Mixture Models
 - Mixture Density RNNs
 - _Demo_: Kanji Generation
-- _Exercise_: Making a RoboJam model with touchscreen data
+- [_Exercise_: Making a RoboJam model with touchscreen data]({{site.baseurl}}/hack/robojam)
 
 #### Making Predictive Musical Interactions with the IMPS system  {#making-predictive}
 
@@ -111,7 +106,8 @@ For this exercise you'll need to be running our Star Trek Episode Title Generato
 - The "Interactive Music Prediction System": IMPS
 - Setup and interaction scheme
 - _Demo_: IMPS with Lightpad block and Behringer Xtouch Mini
-- _Exercise_: Set up IMPS with 3D prediction (x, y, t) with Processing and Pd
+- [_Exercise_: Set up IMPS with 3D prediction (x, y, t) with Processing and Pd]({{site.baseurl}}/hack/imps-demo)
+- [_Exercise_: Design a predictive NIME]({{site.baseurl}}/hack/design-nime)
 
 #### Future directions for creative neural networks at NIME and beyond {#future-directions}
 
@@ -126,24 +122,21 @@ Let's define the future of predictive NIMEs... _together_.
 
 (60m discussion and brainstorming).
 
-Here's a list of demonstration code for the session:
+Here's a list of example code and starting points for the hacking sessions:
 
 - **Generating Creative Sequences**
-    - Generating Text with a CharRNN; inventing Star Trek episode titles. ([see Notebook 1](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/1-star-trek-titles-RNN-basic.ipynb))
-    - Advanced CharRNN techniques ([see Notebook 2](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/2-star-trek-titles-advanced.ipynb))
-    - Continuing musical sequences. ([see Notebook 3](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/3-zeldic-musical-RNN.ipynb))
-    - Combining multiple sequences in a CharRNN with "Gesture-RNN". ([see Notebook 4](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/4-gesture-rnn.ipynb))
+    - Generating Text with a CharRNN; inventing Star Trek episode titles. ([github]({% include github.html notebook="1-star-trek-titles-RNN-basic.ipynb" %}))
+    - Advanced CharRNN techniques ([see Notebook 2]({% include github.html notebook="2-star-trek-titles-advanced.ipynb" %}))
+    - Continuing musical sequences. ([see Notebook 3]({% include github.html notebook="3-zeldic-musical-RNN.ipynb" %}))
+    - Combining multiple sequences in a CharRNN with "Gesture-RNN". ([see Notebook 4]({% include github.html notebook="4-gesture-rnn.ipynb" %}))
 - **RNNs for continuous-valued data: Mixture Density Layers (MDNs)**
-    - Probability Distributions ([see Jupyter Notebook](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/mdn-talk-examples.ipynb))
+    - Probability Distributions ([see Jupyter Notebook]({% include github.html notebook="mdn-talk-examples.ipynb" %}))
         - comparing continuous and categorical probability distributions
         - modelling data with a normal distribution
         - modelling data with a mixture of normal distributions
-    - Introduction to Mixture Density Layers ([see Notebook 5](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/5-mdn-sine-prediction.ipynb))
-    - Predicting sketching: Kanji generation with a Mixture Density RNN. ([see Notebook 6](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/6-MDN-RNN-kanji-generation.ipynb))
-    - Predicting time and place - musical scribbles with RoboJam. ([see Notebook 7](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/7-MDN-Robojam-touch-generation.ipynb))
-
-<!-- 
-The [ALife schedule is now published!](http://2018.alife.org/schedule/) and this CREative PREdiction ("CREPRE") tutorial will occur on Monday 23 July in two sessions: 11:30am-12:45pm and 16:15pm-17:30pm. The sessions will cover different material, but feel free to come to either or both if you want! The list of topics is below. -->
+    - Introduction to Mixture Density Layers ([see Notebook 5]({% include github.html notebook="5-mdn-sine-prediction.ipynb" %}))
+    - Predicting sketching: Kanji generation with a Mixture Density RNN. ([see Notebook 6]({% include github.html notebook="6-MDN-RNN-kanji-generation.ipynb" %}))
+    - Predicting time and place - musical scribbles with RoboJam. ([see Notebook 7]({% include github.html notebook="7-MDN-Robojam-touch-generation.ipynb" %}))
 
 <!-- - Session 1: Monday 23 July. 11:30am-12:45pm Conference Room Uranus
 - **Introduction to Predictive Interaction (15 minutes)**
@@ -166,5 +159,4 @@ The [ALife schedule is now published!](http://2018.alife.org/schedule/) and this
     - Predicting sketching: Kanji generation with a Mixture Density RNN. ([see Notebook 6](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/6-MDN-RNN-kanji-generation.ipynb))
     - Predicting time and place - musical scribbles with RoboJam. ([see Notebook 7](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/7-MDN-Robojam-touch-generation.ipynb))
 - Time for demonstration, interaction, and live-hacking with these systems. (15+ minutes)
-
-TBA: Hopefully we can have a dinner/discussion meet up later on Monday 23/7 or later in the week! It would be great to keep a discussion about CrePre going! -->
+-->
