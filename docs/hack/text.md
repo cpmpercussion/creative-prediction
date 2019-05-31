@@ -4,6 +4,8 @@ title: Make your own text generator
 permalink: /hack/text/
 ---
 
+![]({{site.baseurl}}/assets/hack/charRNN-example.png)
+
 For this exercise you'll need to be running our Star Trek Episode
 Title Generator either in Colab or on your own computer.
 
