@@ -59,9 +59,9 @@ permalink: /presentations/imps/
 ![]({{site.baseurl}}/assets/imps/demonic_imps.jpg)
 
 <!-- TODO: make fragments -->
-- An opinionated deep learning model for NIMEs
-- An environment for making NIMEs that play themselves
-- "Wekinator" for deep learning?
+- An opinionated deep learning model for NIMEs <!-- .element: class="fragment" -->
+- An environment for making NIMEs that play themselves <!-- .element: class="fragment" -->
+- "Wekinator" for deep learning? <!-- .element: class="fragment" -->
 
 </textarea>
 </section>
@@ -123,11 +123,21 @@ bgsize="contain"
 <textarea data-template>
 ## Three easy steps...
 
-**Collect some data:** IMPS logs interactions automatically to build up a dataset
+<ol>
 
-**Train an MDRNN:** IMPS includes good presets, no need to train for days/weeks.
+<li class="fragment">
+<b>Collect some data:</b> IMPS logs interactions automatically to build up a dataset
+</li>
 
-**Perform!** IMPS includes three interaction modes above, scope to extend in future!
+<li class="fragment">
+<b>Train an MDRNN:</b> IMPS includes good presets, no need to train for days/weeks
+</li>
+
+<li class="fragment">
+<b>Perform!</b> IMPS includes three interaction modes, scope to extend in future!
+</li>
+
+</ol>
 
 </textarea>
 </section>
