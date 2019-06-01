@@ -71,6 +71,8 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 
 #### Generating Text and Music with RNNs {#generating-sequences}
 
+[Slides]({{site.baseurl}}/presentations/deep-dive-on-rnns)
+
 (30m talk, 60m hack).
 
 - Predicting sequences with LSTM networks
@@ -89,6 +91,8 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 
 #### Using Mixture Density Networks (MDNs) to predict NIME data with RoboJam {#mixture-density}
 
+[Slides]({{site.baseurl}}/presentations/mixture-density-networks)
+
 (45m talk, 45m hack).
 
 - Predicting **continuous** data from NIMEs
@@ -101,15 +105,19 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 
 ![The IMPS system in use]({{ site.baseurl }}/assets/IMPS_connection_example.png)
 
+[Slides]({{site.baseurl}}/presentations/imps)
+
 (30m talk, 90m hack).
 
 - The "Interactive Music Prediction System": IMPS
 - Setup and interaction scheme
 - _Demo_: IMPS with Lightpad block and Behringer Xtouch Mini
 - [_Exercise_: Set up IMPS with 3D prediction (x, y, t) with Processing and Pd]({{site.baseurl}}/hack/imps-demo)
-- [_Exercise_: Design a predictive NIME]({{site.baseurl}}/hack/design-nime)
+<!-- - [_Exercise_: Design a predictive NIME]({{site.baseurl}}/hack/design-nime) -->
 
 #### Future directions for creative neural networks at NIME and beyond {#future-directions}
+
+[Slides]({{site.baseurl}}/presentations/future)
 
 Let's define the future of predictive NIMEs... _together_.
 
@@ -121,6 +129,8 @@ Let's define the future of predictive NIMEs... _together_.
 - What's going on with this "Creative AI" field anyway?
 
 (60m discussion and brainstorming).
+
+### Example code from this session.
 
 Here's a list of example code and starting points for the hacking sessions:
 
