@@ -51,14 +51,22 @@ Installers for both of these can be found on their respective websites.
 
 ### 1: Connecting to a musical interface
 
-To start with, let's connect IMPS to a simple demo NIME. This is
+To start with, let's connect IMPS to a simple demo NIME written in
+[Processing](https://processing.org/download/)
+([install](https://processing.org/download/) Processing if you haven't
+got it already). This is called `processing_interface_demo` and is
 contained in the `midi_controllers` folder of the IMPS repository.
 
 This demo NIME consists of a 2D mousing area that controls 2
-synthesiser commands. You can turn off the sounds and send MIDI to
-your favourite synthesiser software if you want to.
+synthesiser parameters (frequency and amplitude).
+
+![World's worst NIME]({{site.baseurl}}/assets/hack/imps-simple-interface.png)
 
 Try making some sounds with the interface to make sure it's working.
+
+_Note that this is possibly the world's worst NIME and that you can, and will, definitely do
+better. Humour me by trying out IMPS with a bad NIME for a bit before
+starting to make your own._
 
 ### 2. Log some training data
 
@@ -79,7 +87,7 @@ There's two steps for training: Generate a dataset file, and train the predictiv
 
 Use the `generate_dataset` command:
 
-    python generate_dataset --dimension=3
+    python generate_dataset.py --dimension=3
     
 This command collates all the logs with dimension "3" in the logging
 directory into a single `.npz` file.
@@ -90,6 +98,8 @@ Hopefully your computer's fan starts making a lot of
 noise---good!---that's how you know it's working!
 
     python train_predictive_music_model.py --dimension=3 --modelsize=xs --earlystopping
+    
+Because we don't have much data, and have set a very small model size, this shouldn't take too long.
 
 ### 4. Perform with your model.
 
@@ -100,7 +110,13 @@ Now that you have a trained model, you can run this command to start making pred
 If your interface software is still running, you should hear it play
 itself! cool!
 
-### 5. Try with your own NIME!
+### 5. Make this terrible NIME better
+
+There's many ways to make this NIME better. You could make the sounds
+nicer, make the visual interface nicer, or just scrap it and start
+again in an environment of your choice! You could also 
+
+### 6. Try with your own NIME!
 
 This is a bit more of a project. First of all, what kind of data does
 your NIME generate? Is it one or many dimensions? Secondly, _when_ are
@@ -121,7 +137,7 @@ predictions? WIll it play the same sounds as your regular instrument,
 or different ones? Will be be visualised or _physicalised_ in some
 way? What benefit is there to having this data during a performances?
 
-### 6. Extend IMPS and use in your own projects!
+### 7. Extend IMPS and use in your own projects!
 
 IMPS is an open source project and I hope that **this community**
 makes some cool music with it. It has shortcomings, and it's
