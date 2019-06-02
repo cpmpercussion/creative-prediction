@@ -92,3 +92,4 @@ ENV/
 datasets/kanji.rdp25.npz
 datasets/gesture_rnn_training_dataset.npz
 notebooks/melody_training_dataset.npz
+*.icloud
