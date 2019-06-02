@@ -4,7 +4,7 @@ title: Make some music with an RNN
 permalink: /hack/melody/
 ---
 
-![]()
+![]({{site.baseurl}}/assets/hack/score_example.png)
 
 Let's make some music with an LSTM-RNN!
 
@@ -39,5 +39,31 @@ the code to see if you can train an RNN with this data.
    instrument or artwork. How would it challenge or extend the role of
    the performer, and of the listener?
 
+### Notes on the MIDI representation:
 
+This script uses a very simple method to represent MIDI melodies as a
+sequence of integers.
+
+- 0-127 play a note at that MIDI note number. (`MELODY_NOTE_ON`)
+- 128 stop whatever note was playing. (`MELODY_NOTE_OFF`)
+- 129 do nothing. (`MELODY_NO_EVENT`)
+
+This encoding is inspired (and borrowed) from Magenta's [Melody\_RNN
+model](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
+
+Note that this is an early and (now) superseded practice for
+representing MIDI data to a deep neural network. The most modern
+models
+like
+[Music Transformer](https://magenta.tensorflow.org/music-transformer)
+and PerformanceRNN tend to use more complicated representations. One
+downside of this representation is that `128` and `129` are extremely
+over-represented in the data which can cause issues with learning very
+large amounts of data or more complicated models.
+
+However, this one is simple and easy to calculate. I have a more
+advanced [script for converting a lot of MIDI files](https://gist.github.com/cpmpercussion/1505b74b573d106df6b820b960951567) if you're
+interested.
+
+<script src="https://gist.github.com/cpmpercussion/1505b74b573d106df6b820b960951567.js"></script>
 
