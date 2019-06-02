@@ -143,5 +143,3 @@ IMPS is an open source project and I hope that **this community**
 makes some cool music with it. It has shortcomings, and it's
 opinionated, so don't hesitate to hack it into a predictive musical
 model that you want! (or the predictive musical model we deserve??)
-
-prefer it@
