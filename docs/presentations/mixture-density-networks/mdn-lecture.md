@@ -6,7 +6,6 @@ revealjs-url: "../../assets/reveal.js"
 ---
 <!-- theme: "white" -->
 
-
 ### So far; RNNs that Model Categorical Data
 
 ::: columns

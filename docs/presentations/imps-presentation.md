@@ -17,7 +17,7 @@ permalink: /presentations/imps/
 <textarea data-template>
 ## Learning to Predict Sequences
 
-![]({{site.baseurl}}/assets/imps/charRNN-example.png)
+![]({{site.baseurl}}/assets/sequence-learning.png)
 </textarea>
 </section>
 

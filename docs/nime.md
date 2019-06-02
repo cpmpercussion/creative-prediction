@@ -46,7 +46,7 @@ All of the **demonstration code** for the workshop is contained in [Jupyter Note
 
 There's links below, but you can [check out all the Jupyter Notebooks for this course (and other!) on Github.](https://github.com/cpmpercussion/creative-prediction/tree/master/notebooks)
 
-Another way to try out the Jupyter Notebooks is with [Google Colaboratory](https://colab.research.google.com), a free-to-use Jupyter notebook environment that has most of the necessary Python libraries pre-installed. It even works on a tablet! If you want to get started quickly without slowing down to get your python install right, we would recommend Colab as a great way to go.
+Another way to try out the Jupyter Notebooks is with [Google Colaboratory](https://colab.research.google.com), a free-to-use Jupyter notebook environment that has most of the necessary Python libraries pre-installed. It even works on a tablet! If you want to get started quickly without slowing down to get your python install right, Colab is a great way to go.
 
 Colab has some amazing features:
 
@@ -56,7 +56,7 @@ Colab has some amazing features:
 There are some downsides though:
 
 - uploading and downloading data is a [bit](https://medium.com/@Keshav31/colab-features-download-and-upload-e1ec537a83df) [fiddly](https://towardsdatascience.com/3-ways-to-load-csv-files-into-colab-7c14fcbdcb92).
-- you can't use Music21's playback features to hear generated MIDI scores, or visualise them with musescore.
+- you can't use music21's playback features to hear generated MIDI scores, or visualise them with musescore.
 - you can't run [IMPS]({% link imps.md %}) in Colab (it's not a jupyter notebook).
 
 The notebooks have some sections with a comment like "Use this if on Colab!" to work around some of the limitations.
