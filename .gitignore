@@ -93,3 +93,10 @@ datasets/kanji.rdp25.npz
 datasets/gesture_rnn_training_dataset.npz
 notebooks/melody_training_dataset.npz
 *.icloud
+notebooks/complex_mixture.png
+notebooks/complex_distribution_hist_and_mixture.png
+notebooks/complex_distribution_hist.png
+notebooks/complex_distribution_hist_and_normal.png
+notebooks/feedforward-mse-prediction-loss-plot.png
+notebooks/mixture_plot.png
+notebooks/categorical_plot.png
