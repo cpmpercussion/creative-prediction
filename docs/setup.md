@@ -19,15 +19,13 @@ Annoyingly, there are _two_ popular ways to set up Python on your computer: one 
 ### Setup Miniconda to get the right Python
 
 - Follow the installation [instructions here](https://conda.io/en/latest/miniconda.html)
-- Get the Python 3.6.x: `conda install python=3.6`
 
 On Windows and confused? Try [this page for help](https://katiekodes.com/setup-python-windows-miniconda/#installing-miniconda--running-a-python-program).
 
 ### Install packages with Pip
 
 - Open a terminal or command line window.
-- First, install Python 3.6.x: `conda install python=3.6` (or otherwise...)
-- Install the libraries with `pip install tensorflow tensorflow-probability keras numpy pandas matplotlib music21 jupyter glob svgwrite` (this might take a while).
+- Install the libraries with `pip install tensorflow tensorflow-probability keras numpy pandas matplotlib music21 jupyter glob3 svgwrite` (this might take a while).
 - Install the MDN library: `pip install git+git://github.com/cpmpercussion/keras-mdn-layer.git#egg=keras-mdn-layer`
 - Start up Jupyter notebook: `jupyter notebook`
 - You're ready!

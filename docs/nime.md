@@ -6,6 +6,8 @@ permalink: /nime/
 
 A workshop at [NIME 2019](https://www.ufrgs.br/nime2019/)!
 
+[Open Google Document for Comments and Ideas](https://docs.google.com/document/d/1f_KFHlFvUVa0Y11cE-C2ImfVE2AVZmmqAM3bLikSlUk/edit?usp=sharing)
+
 ![A model of a predictive interaction interface.]({{site.baseurl}}/assets/imps/predictive-interaction-motivation.png)
 
 Do you want apply **machine learning** or **AI** in **creative applications**, but don't know where to start? Do you want to make **NIMEs that play themselves**? Do you want your computer to compose **endless video game soundtracks**? _Then **this** is the workshop for you!_ 
