@@ -16,24 +16,31 @@ Basically: you need a Python 3 environment with up-to-date versions of: `keras, 
 
 Annoyingly, there are _two_ popular ways to set up Python on your computer: one installs python packages together in a special "environment" for each project you do, and the other sets up the packages for every project on your system.
 
-### Setup with Anaconda
+### Setup Miniconda to get the right Python
 
-- Follow a tutorial to install Anaconda on your system: [MacOS](https://medium.com/@GalarnykMichael/install-python-on-mac-anaconda-ccd9f2014072), [Windows](https://medium.com/@GalarnykMichael/install-python-on-windows-anaconda-c63c7c3d1444), [Linux](https://www.digitalocean.com/community/tutorials/how-to-install-the-anaconda-python-distribution-on-ubuntu-16-04).
-- todo -- fill in the rest of this!
+- Follow the installation [instructions here](https://conda.io/en/latest/miniconda.html)
+- Get the Python 3.6.x: `conda install python=3.6`
 
-### Setup with Pip
+On Windows and confused? Try [this page for help](https://katiekodes.com/setup-python-windows-miniconda/#installing-miniconda--running-a-python-program).
 
-- First, install Python 3: ([Hitchhiker's guide to Python](http://docs.python-guide.org/en/latest/))
+### Install packages with Pip
+
 - Open a terminal or command line window.
-- Install the libraries with `pip install tensorflow keras numpy pandas matplotlib music21 jupyter` (this might take a while).
+- First, install Python 3.6.x: `conda install python=3.6` (or otherwise...)
+- Install the libraries with `pip install tensorflow tensorflow-probability keras numpy pandas matplotlib music21 jupyter glob svgwrite` (this might take a while).
+- Install the MDN library: `pip install git+git://github.com/cpmpercussion/keras-mdn-layer.git#egg=keras-mdn-layer`
 - Start up Jupyter notebook: `jupyter notebook`
 - You're ready!
 
+### Virtual Environments
+
+Many people like to keep their Python libraries in separate "environments" for each project. If you do this, you can access each environment from Jupyter individually which is handy! Here's [how to](https://medium.com/@eleroy/jupyter-notebook-in-a-virtual-environment-virtualenv-8f3c3448247) for this.
+
 ## Running examples in a browsers
 
-You can also (potentially) run these notebooks on Google Colaboratory ([colab.research.google.com](https://colab.research.google.com)), an online Jupyter notebook system that could be useful, however, it's a bit more tricky to distribute the jupyter notebooks so that you can easily open them in Colab. Try moving the notebooks (`ipynb` files from the Github Repo) in your Google Drive and opening them, they should start up a colab instance.
+You can also run these notebooks on Google Colaboratory ([colab.research.google.com](https://colab.research.google.com)), an online Jupyter notebook system that could be useful, however, it's a bit more tricky to distribute the jupyter notebooks so that you can easily open them in Colab.
+
+There's links below, but you can [check out all the Jupyter Notebooks for this course (and other!) on Github.](https://github.com/cpmpercussion/creative-prediction/tree/master/notebooks)
 
 - [Here's a great walkthrough for getting started with Google Colab!](https://medium.com/deep-learning-turkey/google-colab-free-gpu-tutorial-e113627b9f5d)
 - [And there's some more instructions here!](https://colab.research.google.com/notebooks/welcome.ipynb)
-
-I've been running most of my experiments over summer in Colab! It works really well!

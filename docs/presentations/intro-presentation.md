@@ -68,6 +68,15 @@ permalink: /presentations/intro/
 
 <section data-markdown>
 <textarea data-template>
+## Recurrent Neural Networks and LSTM Units
+
+![]({{site.baseurl}}/assets/charRNN-arch.png)
+</textarea>
+</section>
+
+
+<section data-markdown>
+<textarea data-template>
 
 ## Mixture Density RNNs
 
@@ -131,7 +140,35 @@ permalink: /presentations/intro/
 </textarea>
 </section>
 
+<section data-markdown>
+<textarea data-template>
+## Example: Wekinator-style NIMEs
 
+![]({{site.baseurl}}/assets/wekinator-example.jpg)
+
+[Source: FlowerPowa74 (YouTube Video)](https://youtu.be/tcQpnV4ajLY)
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+## Example: RoboJam
+
+![]({{site.baseurl}}/assets/robojam-interaction.png)
+
+[RoboJam Demo](https://youtu.be/n2xSHoB2_uY)
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+## Example: Neural iPad Ensemble
+
+![]({{site.baseurl}}/assets/neural-ipad-band-demo.jpg)
+
+[YouTube Video](https://youtu.be/FpQCAd0zKiU)
+</textarea>
+</section>
 
 <section class="talk-box" data-markdown data-background-color="#aef4e6">
 <textarea data-template>
@@ -148,24 +185,6 @@ what kinds of predictions would you like a NIME to make?
 </textarea>
 </section>
 
-
-
-<section class="info-box" data-markdown data-background-color="#b6daf2">
-<textarea data-template>
-## info
-
-get your tools together
-
-Now's the time to look at the [setup]({{site.baseurl}}/setup) page
-on [creativeprediction.xyz](https://creativeprediction.xyz).
-
-This course works best with Python, Keras, and Jupyter on your computer, but you
-can use (online) Google Colab Notebooks as well for most of the
-examples.
-</textarea>
-</section>
-
-
 <section data-markdown>
 <textarea data-template>
 ## Python is powerful.
@@ -176,7 +195,6 @@ We can all be Python superheroes! <!-- .element: class="fragment" -->
 </textarea>
 </section>
 
-
 <section data-markdown>
 <textarea data-template>
 ## Python setup can be hard.
@@ -184,6 +202,15 @@ We can all be Python superheroes! <!-- .element: class="fragment" -->
 ![](https://imgs.xkcd.com/comics/python_environment.png)
 
 (Sorry) <!-- .element: class="fragment" -->
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+## Colab to the Rescue?
+
+![]({{site.baseurl}}/assets/colab.png)
+
 </textarea>
 </section>
 
@@ -205,3 +232,16 @@ Or use whatever computer music environment you want (needs to send and receive O
 </textarea>
 </section>
 
+
+<section class="info-box" data-markdown data-background-color="#b6daf2">
+<textarea data-template>
+## get your tools together
+
+Now's the time to look at the [setup]({{site.baseurl}}/setup) page
+on [creativeprediction.xyz](https://creativeprediction.xyz).
+
+This course works best with Python, Keras, and Jupyter on your computer, but you
+can use (online) Google Colab Notebooks as well for most of the
+examples.
+</textarea>
+</section>

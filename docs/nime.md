@@ -40,13 +40,31 @@ Future directions for creative neural networks at NIME and beyond (60m discussio
 
 Welcome to the Creative Prediction workshop at NIME! Thanks for coming along!
 
-This workshop will introduce the basics of _deep learning generation of creative sequences_ (e.g., text, music, videos, movements, etc!). We will cover a bit of the theory behind recurrent neural networks, and mixture density networks, and show you how to construct your own with **[Python](https://python.org)** and **[Keras](https://keras.io)**.
+This workshop will introduce the basics of _deep learning generation
+of creative sequences_ (e.g., text, music, videos, movements, etc!).
+We will cover a bit of the theory behind recurrent neural networks,
+and mixture density networks, and show you how to construct your own
+with **[Python](https://python.org)** and
+**[Keras](https://keras.io)**.
 
-All of the **demonstration code** for the workshop is contained in [Jupyter Notebooks](https://jupyter.org), an open standard for mixing code, text, and visualisations in a document that can be opened in web browser. We will display this code on the screen for you to follow along and see how it works, but for maximum fun, you'll want to install [Jupyter, Python, and Keras on your own computer]({% link setup.md %})
+All of the **demonstration code** for the workshop is contained
+in [Jupyter Notebooks](https://jupyter.org), an open standard for
+mixing code, text, and visualisations in a document that can be opened
+in web browser. We will display this code on the screen for you to
+follow along and see how it works, but for maximum fun, you'll want to
+install
+[Jupyter, Python, and Keras on your own computer]({% link setup.md %})
 
-There's links below, but you can [check out all the Jupyter Notebooks for this course (and other!) on Github.](https://github.com/cpmpercussion/creative-prediction/tree/master/notebooks)
+There's links below, but you
+can
+[check out all the Jupyter Notebooks for this course (and other!) on Github.](https://github.com/cpmpercussion/creative-prediction/tree/master/notebooks)
 
-Another way to try out the Jupyter Notebooks is with [Google Colaboratory](https://colab.research.google.com), a free-to-use Jupyter notebook environment that has most of the necessary Python libraries pre-installed. It even works on a tablet! If you want to get started quickly without slowing down to get your python install right, Colab is a great way to go.
+Another way to try out the Jupyter Notebooks is
+with [Google Colaboratory](https://colab.research.google.com), a
+free-to-use Jupyter notebook environment that has most of the
+necessary Python libraries pre-installed. It even works on a tablet!
+If you want to get started quickly without slowing down to get your
+python install right, Colab is a great way to go.
 
 Colab has some amazing features:
 
@@ -63,11 +81,13 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 
 #### Overview of Deep Learning and Creativity {#overview-dl-creativity}
 
+[Slides]({{site.baseurl}}/presentations/intro)
+
 (30 minutes talk).
 
 - sequence learning with RNNs and Long Short-Term Memory (LSTM) in Keras and Python
-- [_Exercise_: Set up Python, Keras, and Jupyter on your computer]({{site.baseurl}}/hack/setup)
-- [_Exercise_: Try out a Google Colab Notebook]({{site.baseurl}}/hack/colab)
+- [_Exercise_: Set up Python, Keras, and Jupyter on your computer]({{site.baseurl}}/setup)
+- [_Exercise_: Try out a Google Colab Notebook]({% include colab.html notebook="0-test-setup.ipynb" %})
 
 #### Generating Text and Music with RNNs {#generating-sequences}
 
@@ -84,10 +104,12 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 - [_Exercise_: Make your own melody generator]({{site.baseurl}}/hack/melody/)
 
 - **Demo and Tutorial Code**
-    - Generating Text with a CharRNN; inventing Star Trek episode titles. [Notebook](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/1-star-trek-titles-RNN-basic.ipynb) [Colab](https://)
-    - Advanced CharRNN techniques ([see Notebook 2](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/2-star-trek-titles-advanced.ipynb))
-    - Continuing musical sequences. ([see Notebook 3](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/3-zeldic-musical-RNN.ipynb))
-    - Combining multiple sequences in a CharRNN with "Gesture-RNN". ([see Notebook 4](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/4-gesture-rnn.ipynb))
+    - Generating Text with a CharRNN; inventing Star Trek episode titles. [github]({% include github.html notebook="1-star-trek-titles-RNN-basic.ipynb" %})  [colab]({% include colab.html notebook="1-star-trek-titles-RNN-basic.ipynb" %})
+    - Advanced CharRNN
+      techniques
+      [github]({% include github.html notebook="2-star-trek-titles-advanced.ipynb" %}) [colab]({% include colab.html notebook="2-star-trek-titles-advanced.ipynb" %})
+    - Continuing musical sequences. [github]({% include github.html notebook="3-zeldic-musical-RNN.ipynb" %}) [colab]({% include colab.html notebook="3-zeldic-musical-RNN.ipynb" %})
+    - Combining multiple sequences in a CharRNN with "Gesture-RNN" (not working right now..). [github]({% include github.html notebook="4-gesture-rnn.ipynb" %}) [colab]({% include colab.html notebook="4-gesture-rnn.ipynb" %})
 
 #### Using Mixture Density Networks (MDNs) to predict NIME data with RoboJam {#mixture-density}
 
@@ -101,11 +123,18 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 - _Demo_: Kanji Generation
 - [_Exercise_: Making a RoboJam model with touchscreen data]({{site.baseurl}}/hack/robojam)
 
+- **Demo and Tutorial Code**
+    - Introduction to Mixture Density Layers [github]({% include github.html notebook="5-mdn-sine-prediction.ipynb" %}) [colab]({% include colab.html notebook="5-mdn-sine-prediction.ipynb" %})
+    - Predicting sketching: Kanji generation with a Mixture Density RNN. [github]({% include github.html notebook="6-MDN-RNN-kanji-generation.ipynb" %}) [colab]({% include colab.html notebook="6-MDN-RNN-kanji-generation.ipynb" %})
+    - Predicting time and place - musical scribbles with RoboJam. [github]({% include github.html notebook="7-MDN-Robojam-touch-generation.ipynb" %}) [colab]({% include colab.html notebook="7-MDN-Robojam-touch-generation.ipynb" %})
+
 #### Making Predictive Musical Interactions with the IMPS system  {#making-predictive}
 
 ![The IMPS system in use]({{ site.baseurl }}/assets/IMPS_connection_example.png)
 
 [Slides]({{site.baseurl}}/presentations/imps)
+
+[IMPS information]({{site.baseurl}}/imps)
 
 (30m talk, 90m hack).
 
@@ -113,7 +142,6 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 - Setup and interaction scheme
 - _Demo_: IMPS with Lightpad block and Behringer Xtouch Mini
 - [_Exercise_: Set up IMPS with 3D prediction (x, y, t) with Processing and Pd]({{site.baseurl}}/hack/imps-demo)
-<!-- - [_Exercise_: Design a predictive NIME]({{site.baseurl}}/hack/design-nime) -->
 
 #### Future directions for creative neural networks at NIME and beyond {#future-directions}
 
