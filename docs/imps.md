@@ -28,9 +28,9 @@ The python requirements can be installed as follows:
 
     pip install -r requirements.txt
 
-The Raspberry Pi requires some care to install matching version of TensorFlow and TensorFlow Probability, so we have provided a special requirements file:
+<!-- The Raspberry Pi requires some care to install matching version of TensorFlow and TensorFlow Probability, so we have provided a special requirements file: -->
 
-    pip install -r utils/pi_requirements.txt
+<!--     pip install -r utils/pi_requirements.txt -->
 
 Some people like to keep Python packages separate in virtual environments, if that's you, here's some terminal commands to install:
 
@@ -110,7 +110,7 @@ It's a good idea to use the "earlystopping" parameter to stop training after the
 
 Now that you have a trained model, you can run this command to start making predictions:
 
-    python predictive_music_model.py -d=(N+1) --modelsize=xs --log
+    python predictive_music_model.py -d=(N+1) --modelsize=xs --log -c
 
 THe `--log` switch logs all of your interactions as well as predictions for later re-training. (The dataset generator filters out RNN records so that you only train on human sourced data).
 

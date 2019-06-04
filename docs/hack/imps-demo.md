@@ -33,13 +33,6 @@ First you should clone this repository or download it to your computer:
 The python requirements can be installed as follows:
 
     pip install -r requirements.txt
-
-Some people like to keep Python packages separate in virtual environments, if that's you, here's some terminal commands to install:
-
-    virtualenv --system-site-packages -p python3 venv
-    source venv/bin/activate
-    pip install -r requirements.txt
-    
     
 In addition, it's handy to have two extra tools on your computer to
 try out IMPs with a demo interface:
@@ -105,7 +98,7 @@ Because we don't have much data, and have set a very small model size, this shou
 
 Now that you have a trained model, you can run this command to start making predictions:
 
-    python predictive_music_model.py -d=3 --modelsize=xs --log
+    python predictive_music_model.py -d=3 --modelsize=xs --log -c
 
 If your interface software is still running, you should hear it play
 itself! cool!
