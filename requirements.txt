@@ -6,5 +6,9 @@ tensorflow-probability
 python-osc
 -e git://github.com/cpmpercussion/keras-mdn-layer.git#egg=keras-mdn-layer
 music21
-glob
+glob3
 svgwrite
+jupyter
+matplotlib
+pygame
+
