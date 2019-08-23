@@ -12,8 +12,6 @@ A workshop at [NIME 2019](https://www.ufrgs.br/nime2019/)!
 
 ![A model of a predictive interaction interface.]({{site.baseurl}}/assets/imps/predictive-interaction-motivation.png)
 
-
-
 Do you want apply **machine learning** or **AI** in **creative applications**, but don't know where to start? Do you want to make **NIMEs that play themselves**? Do you want your computer to compose **endless video game soundtracks**? _Then **this** is the workshop for you!_ 
 
 ### Workshop Description
