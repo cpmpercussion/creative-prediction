@@ -8,6 +8,21 @@ permalink: /presentations/creprepro/
 
 <section data-markdown>
 <textarea data-template>
+## Supervisors
+
+![]({{site.baseurl}}/assets/people/charlesmartin.jpg) <!-- .element: width="30%"-->
+![]({{site.baseurl}}/assets/people/benediktewallace.jpg) <!-- .element: width="30%"-->
+
+**Charles Martin**. Lecturer in Computer Science, Australian
+National University. charles.martin@anu.edu.au
+
+**Benedikte Wallace**. PhD Researcher, University of Oslo.
+benediwa@ifi.uio.no
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
 ## Creative Predictions
 
 ![]({{site.baseurl}}/assets/creative-prediction-image.png) <!-- .element: width="100%"-->
