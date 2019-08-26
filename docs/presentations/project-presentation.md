@@ -29,27 +29,29 @@ permalink: /presentations/creprepro/
 
 ## Melody to Harmony in MicroJam
 
-![]({{site.baseurl}}/assets/robojam-interaction.png) <!-- .element: width="50%"; float="right"-->
+![]({{site.baseurl}}/assets/robojam-interaction.png) <!-- .element: width="50%" -->
 
-1. Gain an overview of current deep learning techniques for music generation.
+1. Gain an overview of DL for music generation.
 2. Develop a melody to harmony sequence to sequence model
-3. Train the model on matched melody/harmony sequences (e.g., from the Lakh music dataset)
+3. Train the model on matched melody/harmony sequences 
 4. Use MicroJam-sourced data as input and see if the generated harmonies make sense!
 
 </textarea>
 </section>
+
+<!-- style="float:right;" -->
 
 <section data-markdown>
 <textarea data-template>
 
 ## Seq-to-Seq Music Generation
 
-![](https://magenta.tensorflow.org/assets/music_transformer/motifs_shaded_boxes.png) <!-- .element: width="50%" float="right"-->
+![](https://magenta.tensorflow.org/assets/music_transformer/motifs_shaded_boxes.png) <!-- .element: width="75%" -->
 
-- Read and understand the techniques behind the Transformer architecture.
-- Implement your own Transformer 
-- Find a musical dataset with matched sequences to try to generate
-- Train your model, listen to the results and find a way to evaluate them.
+1. Understand the Transformer architecture.
+2. Implement your own Transformer (e.g., in Keras).
+3. Find a musical dataset that could be trained.
+4. Train your model, listen to the results and find a way to evaluate them.
 
 </textarea>
 </section>
@@ -57,13 +59,13 @@ permalink: /presentations/creprepro/
 <section data-markdown>
 <textarea data-template>
 
-## Generating colour-palettes from audio data
+## Generating colour palettes from audio data
 
-![]({{site.baseurl}}/assets/nainoa-shizuru-NcdG9mK3PBY-unsplash.jpg) <!-- .element: width="50%" float="right" -->
+![]({{site.baseurl}}/assets/nainoa-shizuru-NcdG9mK3PBY-unsplash.jpg) <!-- .element: width="50%" -->
 
-1. Gain an overview of audio processing techniques used with neural networks.
+1. Gain an overview of DL for audio processing.
 2. Obtain a dataset of audio and video (or colour) data.
-3. Try different neural network designs and evaluate the results. Even a simple fully-connected ANN might work well!
+3. Try different neural network designs and evaluate the results. (Even a simple fully-connected ANN might work well!)
 
 </textarea>
 </section>
