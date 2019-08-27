@@ -1,95 +1,80 @@
 ---
-layout: reveal
+layout: reveal-larger
 title:  Deep Dive on RNNs
 permalink: /presentations/deep-dive-on-rnns/
 ---
 
-<section id="title-slide">
-  <h1 class="title">Deep Dive on RNNs</h1>
-  <p class="author">Charles Martin</p>
-</section>
+{% include slides/title.html %}
 
-<section class="slide level2">
-<h3 id="what-is-an-artificial-neurone">What is an Artificial Neurone?</h3>
-<p><img data-src="./1-artificial-neurone.png" style="width:100.0%" /></p>
+<section>
+<h2>What is an Artificial Neuron?</h2>
+<img data-src="./1-artificial-neurone.png" style="width:85.0%" />
 <p><a href="https://en.wikipedia.org/wiki/File:Blausen_0657_MultipolarNeuron.png">Source - Wikimedia Commons</a></p>
 </section>
 
-<section id="feed-forward-network" class="slide level2">
+<section id="feed-forward-network">
 <h2>Feed-Forward Network</h2>
-<p><img data-src="./2-feed-forward.png" style="width:75.0%" /></p>
+<img data-src="./2-feed-forward.png" style="width:70%" />
 <p>For each unit: <span class="math inline">\(y = \text{tanh}\big(Wx + b \big)\)</span></p>
 </section>
 
 <section id="recurrent-network" class="slide level2">
 <h2>Recurrent Network</h2>
-<p><img data-src="./3-recurrent.png" style="width:75.0%" /></p>
+<img data-src="./3-recurrent.png" style="width:70%" />
 <p>For each unit: <span class="math inline">\(y_t = \text{tanh}\big(Ux_t + Vh_{t-1} + b \big)\)</span></p>
 </section>
 
-<section id="sequence-learning-tasks" class="slide level2">
-<h2>Sequence Learning Tasks</h2>
-<div class="columns">
-<div class="column">
-<p><img data-src="sequence-learning.png" /> <img data-src="sequence-learning2.png" /></p>
-</div><div class="column">
-<p><img data-src="sequence-learning3.jpg" /></p>
-</div>
-</div>
+<section id="sequence-learning-tasks">
+  <h2>Sequence Learning Tasks</h2>
+  <p>
+    <img data-src="sequence-learning.png" style="width:45%" />
+    <img data-src="sequence-learning3.jpg" style="width:50%"/></p>
+  <p><img data-src="sequence-learning2.png" style="width:80%"/></p>
 </section>
 
-<section id="recurrent-network-1" class="slide level2">
+<section id="recurrent-network-1">
 <h2>Recurrent Network</h2>
 <p><img data-src="4-unfolding.png" style="width:75.0%" /></p>
 <p>simplifying…</p>
 </section>
+
 <section id="recurrent-network-2" class="slide level2">
 <h2>Recurrent Network</h2>
 <p><img data-src="5-recurrent-vert.png" style="width:25.0%" /></p>
 <p>simplifying and rotating…</p>
 </section>
 
-<section id="state-in-recurrent-networks" class="slide level2">
-<h2>“State” in Recurrent Networks</h2>
-<div class="columns">
-<div class="column">
-<p><img data-src="5-recurrent-vert.png" style="width:50.0%" /></p>
-</div><div class="column">
-<ul>
-<li class="fragment">Recurrent Networks are all about storing a “state” in between computations.</li>
-<li class="fragment">A “lossy summary of… past sequences”</li>
-<li class="fragment"><em>h</em> is the “hidden state” of our RNN</li>
-<li class="fragment">What influences <em>h</em>?</li>
-</ul>
-</div>
-</div>
+<section id="state-in-recurrent-networks">
+  <h2>“State” in Recurrent Networks</h2>
+  <img data-src="5-recurrent-vert.png" style="width:30%;float:right;" />
+
+  <p class="fragment">Recurrent Networks are all about storing a “state” in between computations.</p>
+  <p class="fragment">A “lossy summary of… past sequences”</p>
+  <p class="fragment"><em>h</em> is the “hidden state” of our RNN</p>
+  <p class="fragment">What influences <em>h</em>?</p>
 </section>
 
-<section class="slide level2">
-
+<section>
 <h3 id="defining-the-rnn-state">Defining the RNN State</h3>
-<div class="columns">
-<div class="column">
-<p><img data-src="5-recurrent-vert.png" style="width:50.0%" /></p>
-</div><div class="column">
+
+<img data-src="5-recurrent-vert.png" style="width:30.0%;float:right;" />
+
 <p>We can define a simplified RNN represented by this diagram as follows:</p>
 <p><span class="math display">\[h_t = \text{tanh}\big(Ux_t + Vh_{t-1} + b \big)\]</span></p>
 <p><span class="math display">\[\hat{y}_t = \text{softmax}(c + Wh_t)\]</span></p>
-</div>
-</div>
 </section>
 
-<section id="unfolding-an-rnn-in-time" class="slide level2">
+<section id="unfolding-an-rnn-in-time">
 <h2>Unfolding an RNN in Time</h2>
-<figure>
-<img data-src="6-recurrent-unroll.png" alt="Unfolding an RNN in Time" /><figcaption>Unfolding an RNN in Time</figcaption>
-</figure>
+<img data-src="6-recurrent-unroll.png" alt="Unfolding an RNN in Time" style="width:80.0%;"/>
+
 <ul>
 <li class="fragment">By unfolding the RNN we can compute <span class="math inline">\(\hat{y}\)</span> for a given length of sequence.</li>
 <li class="fragment">Note that the weight matrices <span class="math inline">\(U\)</span>, <span class="math inline">\(V\)</span>, <span class="math inline">\(W\)</span> are the same for each timestep; this is the big advantage of RNNs!</li>
 </ul>
 </section>
-<section id="forward-propagation" class="slide level2">
+
+<section id="forward-propagation">
 <h2>Forward Propagation</h2>
 <div class="columns">
 <div class="column">
@@ -102,14 +87,14 @@ permalink: /presentations/deep-dive-on-rnns/
 </div>
 </section>
 
-<section id="y-hat-is-softmaxd" class="slide level2">
-<h2>Y-hat is Softmax’d</h2>
-<p><img data-src="softmax-is-probability.png" style="width:75.0%" /></p>
-<p><span class="math inline">\(\hat{y}\)</span> is a probability distribution! A finite number of weights that add to 1:</p>
+<section id="y-hat-is-softmaxd">
+<h3>Y-hat is Softmax’d</h3>
+<img data-src="softmax-is-probability.png" style="width:60%;" />
+<p><span class="math inline">\(\hat{y}\)</span> is a probability distribution!</p>
 <p><span class="math display">\[\sigma(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}} \text{ for } j = 1,\ldots, K\]</span></p>
 </section>
 
-<section id="calculating-loss-categorical-cross-entropy" class="slide level2">
+<section id="calculating-loss-categorical-cross-entropy">
 <h2>Calculating Loss: Categorical Cross Entropy</h2>
 <div class="columns">
 <div class="column">
@@ -126,7 +111,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </section>
 
-<section id="backpropagation-through-time-bptt" class="slide level2">
+<section id="backpropagation-through-time-bptt">
 <h2>Backpropagation Through Time (BPTT)</h2>
 <div class="columns">
 <div class="column">
@@ -137,7 +122,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </section>
 
-<section id="example-character-level-text-model" class="slide level2">
+<section id="example-character-level-text-model">
 <h2>Example: Character-level text model</h2>
 <ul>
 <li class="fragment"><strong>Training data:</strong> a collection of text.</li>
@@ -153,9 +138,9 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <p><img data-src="charRNN-training.png" /></p>
 </div><div class="column">
 <ul>
-<li class="fragment">Target: A probability distribution with <span class="math inline">\(P(n) = 1\)</span></li>
-<li class="fragment">Output: A probability distribution over all next letters.</li>
-<li class="fragment">E.g.: “My cat is named Simon” would lead to <strong>X</strong>: “My cat is named Simo” and <strong>y</strong>: “n”</li>
+<li class="fragment"><strong>Target:</strong> A probability distribution with <span class="math inline">\(P(n) = 1\)</span></li>
+<li class="fragment"><strong>Output:</strong> A probability distribution over all next letters.</li>
+<li class="fragment"><strong>E.g.:</strong> “My cat is named Simon” would lead to <strong>X</strong>: “My cat is named Simo” and <strong>y</strong>: “n”</li>
 </ul>
 </div>
 </div>
@@ -201,13 +186,11 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <p>Shakespeare (Karpathy, 2015):</p>
 <blockquote>
 <p>Second Senator: They are away this miseries, produced upon my soul, Breaking and strongly should be buried, when I perish The earth and thoughts of many states.</p>
-</blockquote>
-<blockquote>
 <p>DUKE VINCENTIO: Well, your wit is in the care of side and that.</p>
 </blockquote>
 </div><div class="column">
 <p>Latex Algebraic Geometry:</p>
-<p><img data-src="charRNN-latex-karpathy.jpeg" /></p>
+<p><img data-src="charRNN-latex-karpathy.jpeg" style="width:70%;"/></p>
 <p>N.B. “<em>Proof.</em> Omitted.” Lol.</p>
 </div>
 </div>
@@ -221,7 +204,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <h2>Bidirectional RNNs</h2>
 <div class="columns">
 <div class="column">
-<p><img data-src="blstm.png" /></p>
+<p><img data-src="blstm.png" style="width:85%;" /></p>
 </div><div class="column">
 <ul>
 <li class="fragment">Useful for tasks where the whole sequence is available.</li>
@@ -234,17 +217,10 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 
 <section id="encoder-decoder-seq-to-seq" class="slide level2">
 <h2>Encoder-Decoder (seq-to-seq)</h2>
-<div class="columns">
-<div class="column">
-<p><img data-src="seq2seq.png" /></p>
-</div><div class="column">
-<ul>
-<li class="fragment">Learns to generate output sequence (<strong>y</strong>) from an input sequence (<strong>x</strong>).</li>
-<li class="fragment">Final hidden state of encoder is used to compute a context variable <em>C</em>.</li>
-<li class="fragment">For example, translation.</li>
-</ul>
-</div>
-</div>
+<img data-src="seq2seq.png" style="width:70%;float:right;"/>
+<p style="text-align:left;" class="fragment">Learns to generate output sequence (<strong>y</strong>) from an input sequence (<strong>x</strong>).</p>
+<p style="text-align:left;" class="fragment">Final hidden state of encoder is used to compute a context variable <em>C</em>.</p>
+<p style="text-align:left;" class="fragment">For example, translation.</p>
 </section>
 
 <section id="deep-rnns" class="slide level2">
