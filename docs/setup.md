@@ -35,6 +35,8 @@ Many people like to keep their Python libraries in separate "environments" for e
 
 ## Running examples in a browser (Google Colab)
 
+[_Exercise_: Try out a Google Colab Notebook]({% include colab.html notebook="0-test-setup.ipynb" %})
+
 You can also run these notebooks on [Google Colaboratory](https://colab.research.google.com), a free-to-use Jupyter notebook environment that has most of the necessary Python libraries pre-installed. It even works on a tablet! If you want to get started quickly without slowing down to get your Python install right, Colab is a great way to go. The [tutorials]({{site.baseurl}}/tutorials/) page has links ot open each example directory in Colab.
 
 Colab has some amazing features:

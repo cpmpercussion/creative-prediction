@@ -100,5 +100,7 @@ We can all be Python superheroes! <!-- .element: class="fragment" -->
 ## get your tools together
 
 Check out the [setup]({{site.baseurl}}/setup) page on [creativeprediction.xyz](https://creativeprediction.xyz).
+
+[_Exercise_: Try out a Google Colab Notebook]({% include colab.html notebook="0-test-setup.ipynb" %})
 </textarea>
 </section>
