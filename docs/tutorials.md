@@ -20,6 +20,11 @@ Here's a list of creative prediction tutorials available right now!
     - Predicting sketching: Kanji generation with a Mixture Density RNN. {% include notebooks.html notebook="6-MDN-RNN-kanji-generation.ipynb" %}
     - Predicting time and place - musical scribbles with RoboJam. {% include notebooks.html notebook="7-MDN-Robojam-touch-generation.ipynb" %}
 
+- **VAE, GAN, and World Models**
+    - DoomVAE example {% include notebooks.html notebook="9-DoomVAE.ipynb" %}
+    - Doom World Model example (not done yet!)
+    - MicroGAN example {% include notebooks.html notebook="8-LittleGAN.ipynb" %}
+
 ### Exercises
 
 - [_Exercise_: Set up Python, Keras, and Jupyter on your computer]({{site.baseurl}}/setup)
