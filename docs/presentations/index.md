@@ -11,3 +11,4 @@ Here's some presentations about neural networks and creative prediction:
 - [Mixture Density RNNs](mixture-density-networks)
 - [Deep Learning in the Cloud](deep-learning-on-cloud)
 - [Using the IMPS System](imps)
+- [Computing Practicalities for IN5490](crepreprac)

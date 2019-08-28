@@ -43,8 +43,6 @@ This workshop will introduce the basics of _deep learning generation of creative
 
 All of the **demonstration code** for the workshop is contained in [Jupyter Notebooks](https://jupyter.org), an open standard for mixing code, text, and visualisations in a document that can be opened in web browser. We will display this code on the screen for you to follow along and see how it works, but for maximum fun, you'll want to install [Jupyter, Python, and Keras on your own computer]({% link setup.md %})
 
-There's links below, but you can check out all the Jupyter Notebooks for this course (and other!) on [Github.](https://github.com/cpmpercussion/creative-prediction/tree/master/notebooks)
-
 Another way to try out the Jupyter Notebooks is with [Google Colaboratory](https://colab.research.google.com), a free-to-use Jupyter notebook environment that has most of the necessary Python libraries pre-installed. It even works on a tablet! If you want to get started quickly without slowing down to get your Python install right, Colab is a great way to go.
 
 Colab has some amazing features:
