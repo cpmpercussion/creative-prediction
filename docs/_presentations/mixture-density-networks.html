@@ -1,13 +1,10 @@
 ---
-layout: reveal
+layout: reveal-larger
 title:  Mixture Density Networks
 permalink: /presentations/mixture-density-networks/
 ---
 
-<section id="title-slide">
-  <h1 class="title">Mixture Density Networks</h1>
-  <p class="author">Charles Martin</p>
-</section>
+{% include slides/title.html %}
 
 <section class="slide level2">
 <h3 id="so-far-rnns-that-model-categorical-data">So far; RNNs that Model Categorical Data</h3>
@@ -26,32 +23,25 @@ permalink: /presentations/mixture-density-networks/
 </ul></li>
 </ul>
 </div><div class="column">
-<p><img data-src="./charRNN-arch.png" style="width:95.0%" /> <img data-src="./charRNN-training.png" style="width:80.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/charRNN-arch.png" style="width:95.0%" /> <img data-src="{{site.baseurl}}/assets/mdn/charRNN-training.png" style="width:80.0%" /></p>
 </div>
 </div>
 </section>
 
 <section class="slide level2">
 <h3 id="expressive-data-is-often-continuous">Expressive Data is Often Continuous</h3>
-<div class="columns">
-<div class="column">
-<p><img data-src="./music-interface-1.jpg" style="width:60.0%" /> <img data-src="./music-interface-2.png" style="width:60.0%" /></p>
-</div><div class="column">
-  <p><img data-src="./music-interface-3.jpg" style="width:60.0%" />
-    <iframe src="https://giphy.com/embed/1AjE1Ci6w3w6fv4D2z" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></p>
-</div>
-</div>
+<img data-src="{{site.baseurl}}/assets/mdn/music-interface-1.jpg" style="width:25%" />
+<img data-src="{{site.baseurl}}/assets/mdn/music-interface-2.png" style="width:25%" /><br />
+<img data-src="{{site.baseurl}}/assets/mdn/music-interface-3.jpg" style="width:25%" />
+<iframe src="https://giphy.com/embed/1AjE1Ci6w3w6fv4D2z" width="300" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 </section>
-<section class="slide level2">
 
+
+<section class="slide level2">
 <h3 id="so-are-bio-signals">So are Bio-Signals</h3>
-<div class="columns">
-<div class="column">
-<p><img data-src="./continuous-data-ecg.png" style="width:60.0%" /></p>
-</div><div class="column">
-<p><img data-src="./continuous-data-eeg.png" style="width:60.0%" /> <img data-src="./continuous-data-music.png" style="width:60.0%" /></p>
-</div>
-</div>
+<img data-src="{{site.baseurl}}/assets/mdn/continuous-data-ecg.png" style="width:25.0%" />
+<img data-src="{{site.baseurl}}/assets/mdn/continuous-data-eeg.png" style="width:25.0%" /><br />
+<img data-src="{{site.baseurl}}/assets/mdn/continuous-data-music.png" style="width:30.0%" />
 <p>Image Credit: Wikimedia</p>
 </section>
 
@@ -59,9 +49,9 @@ permalink: /presentations/mixture-density-networks/
 <h3 id="categorical-vs.continuous-models">Categorical vs. Continuous Models</h3>
 <div class="columns">
 <div class="column">
-<p><img data-src="./categorical_plot.png" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/categorical_plot.png" /></p>
 </div><div class="column">
-<p><img data-src="./mixture_plot.png" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/mixture_plot.png" /></p>
 </div>
 </div>
 </section>
@@ -83,7 +73,7 @@ permalink: /presentations/mixture-density-networks/
 </ul></li>
 </ul>
 </div><div class="column">
-<p><img data-src="./normal_distribution_mu0_sd5.png" style="width:100.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/normal_distribution_mu0_sd5.png" style="width:100.0%" /></p>
 </div>
 </div>
 </section>
@@ -101,7 +91,7 @@ permalink: /presentations/mixture-density-networks/
 <li class="fragment">But this might not fit the data well.</li>
 </ul>
 </div><div class="column">
-<p><img data-src="./complex_distribution_hist_and_normal.png" style="width:100.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/complex_distribution_hist_and_normal.png" style="width:100.0%" /></p>
 </div>
 </div>
 </section>
@@ -122,7 +112,7 @@ permalink: /presentations/mixture-density-networks/
 </ul></li>
 </ul>
 </div><div class="column">
-<p><img data-src="./complex_mixture.png" style="width:100.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/complex_mixture.png" style="width:100.0%" /></p>
 </div>
 </div>
 </section>
@@ -143,30 +133,27 @@ permalink: /presentations/mixture-density-networks/
 </ul>
 <p>In this case, I knew the right parameters, but normally you would have to <em>estimate</em>, or <em>learn</em>, these somehow…</p>
 </div><div class="column">
-<p><img data-src="./complex_distribution_hist_and_mixture.png" style="width:100.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/complex_distribution_hist_and_mixture.png" style="width:100.0%" /></p>
 </div>
 </div>
 </section>
 
-<section id="mixture-density-networks" class="slide level2">
+<section id="mixture-density-networks">
 <h2>Mixture Density Networks</h2>
-<p><img data-src="./mse-network-normal.png" /></p>
+<img data-src="{{site.baseurl}}/assets/mdn/mse-network-normal.png" style="width=70%;" />
 <ul>
-<li class="fragment">Neural networks used to model complicated real-valued data.
-<ul>
+<li class="fragment">Neural networks used to model complicated real-valued data.</li>
 <li class="fragment">i.e., data that might not be very “normal”</li>
-</ul></li>
-<li class="fragment">Usual approach: use a neuron with linear activation to make predictions.
-<ul>
+<li class="fragment">Usual approach: use a neuron with linear activation to make predictions.</li>
 <li class="fragment">Training function could be MSE (mean squared error).</li>
-</ul></li>
-<li class="fragment">Problem! This is equivalent to fitting to a single normal model! 😱</li>
+<li class="fragment">Problem! This is equivalent to fitting to a single normal model!</li>
 <li class="fragment">(See Bishop, C (1994) for proof and more details)</li>
 </ul>
 </section>
+
 <section id="mixture-density-networks-1" class="slide level2">
 <h2>Mixture Density Networks</h2>
-<p><img data-src="./mdn-network.png" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/mdn-network.png" /></p>
 <ul>
 <li class="fragment">Idea: output parameters of a mixture model instead!</li>
 <li class="fragment">Rather than MSE for training, use the PDF of the mixture model.</li>
@@ -176,7 +163,7 @@ permalink: /presentations/mixture-density-networks/
 
 <section id="simple-example-in-keras" class="slide level2">
 <h2>Simple Example in Keras</h2>
-<p><img data-src="./arcsine-function.png" style="width:30.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/arcsine-function.png" style="width:30.0%" /></p>
 <ul>
 <li class="fragment">Difficult data is not hard to find! Think about modelling an inverse sine (arcsine) function.
 <ul>
@@ -190,9 +177,10 @@ permalink: /presentations/mixture-density-networks/
 <textarea data-template>
 <h3 id="feedforward-mse-network">Feedforward MSE Network</h3>
   
-<p><img data-src="./arcsine-feedforward-mse-prediction.png" style="width:30.0%" /> <img data-src="./feedforward-mse-prediction-loss-plot.png" style="width:40.0%" /></p>
+<img data-src="{{site.baseurl}}/assets/mdn/arcsine-feedforward-mse-prediction.png" style="width:30.0%" />
+<img data-src="{{site.baseurl}}/assets/mdn/feedforward-mse-prediction-loss-plot.png" style="width:40.0%" />
 
-Here's a simple two-hidden-layer network (286 parameters), trained to produce the above result.
+Simple two-hidden-layer network (286 parameters):
 
 <pre class="sourceCode numberSource python numberLines"><code class="sourceCode python">
 model = Sequential()
@@ -208,19 +196,19 @@ model.fit(x=x_data, y=y_data, batch_size=128, epochs=200, validation_split=0.15)
 
 <section id="mdn-architecture" class="slide level2">
 <h2>MDN Architecture:</h2>
-<p><img data-src="./mdn-network.png" /></p>
+<img data-src="{{site.baseurl}}/assets/mdn/mdn-network.png" style="width:70%" />
 <ul>
-<li class="fragment">Loss function for MDN is negative log of likelihood function <span class="math inline">\(\mathcal{L}\)</span>.</li>
-<li class="fragment"><span class="math inline">\(\mathcal{L}\)</span> measures likelihood of <span class="math inline">\(t\)</span> being drawn from a mixture parametrised by <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>, and <span class="math inline">\(\pi\)</span> which are generated by the network inputs <span class="math inline">\(x\)</span>:</li>
+<li>Loss function for MDN is negative log of likelihood function <span class="math inline">\(\mathcal{L}\)</span>.</li>
+<li><span class="math inline">\(\mathcal{L}\)</span> measures likelihood of <span class="math inline">\(t\)</span> being drawn from a mixture parametrised by <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>, and <span class="math inline">\(\pi\)</span> which are generated by the network inputs <span class="math inline">\(x\)</span>:</li>
 </ul>
-<p><span class="math display">\[\mathcal{L} = \sum_{i=1}^K\pi_i(\mathbf{x})\mathcal{N}\bigl(\mu_i(\mathbf{x}), \sigma_i^2(\mathbf{x}); \mathbf{t} \bigr)\]</span></p>
+<span class="math display">\[\mathcal{L} = \sum_{i=1}^K\pi_i(\mathbf{x})\mathcal{N}\bigl(\mu_i(\mathbf{x}), \sigma_i^2(\mathbf{x}); \mathbf{t} \bigr)\]</span>
 </section>
 
 <section class="slide level2">
 
 <h3 id="feedforward-mdn-solution">Feedforward MDN Solution</h3>
-<p><img data-src="./arcsine-feedforward-mdn-predictions.png" style="width:30.0%" /> <img data-src="./arcsine-feedforward-mdn-loss.png" style="width:40.0%" /></p>
-<p>And, here’s a simple two-hidden-layer MDN (510 parameters), that achieves the above result! Much better!</p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/arcsine-feedforward-mdn-predictions.png" style="width:30.0%" /> <img data-src="{{site.baseurl}}/assets/mdn/arcsine-feedforward-mdn-loss.png" style="width:40.0%" /></p>
+<p>Two-hidden-layer MDN (510 parameters)---much better!</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python">
 N_MIXES = 5
 
@@ -335,7 +323,7 @@ loss = tf.reduce_mean(loss)
 
 <section id="some-more-details." class="slide level2">
 <h2>Some more details….</h2>
-<p><img data-src="./MultivariateNormal.png" style="width:40.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/MultivariateNormal.png" style="width:40.0%" /></p>
 <ul>
 <li class="fragment">This “version” of a mixture model works for a mixture of 1D normal distributions.</li>
 <li class="fragment">Not too hard to extend to multivariate normal distributions, which are useful for lots of problems.</li>
@@ -345,18 +333,19 @@ loss = tf.reduce_mean(loss)
 
 <section id="mdn-rnns" class="slide level2">
 <h2>MDN-RNNs</h2>
-<p><img data-src="mdn-rnn-movement-example.png" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/mdn-rnn-movement-example.png" /></p>
 <p>MDNs can be handy at the end of an RNN! Imagine a robot calculating moves forward through space, it might have to choose from a number of valid positions, each of which could be modelled by a 2D Normal model.</p>
 </section>
 
 <section id="mdn-rnn-architecture" class="slide level2">
 <h2>MDN-RNN Architecture</h2>
-<p><img data-src="mdn-rnn-architecture-simple.png" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/mdn-rnn-architecture-simple.png" /></p>
 <p>Can be as simple as putting an MDN layer after recurrent layers!</p>
 </section>
 <section id="use-cases-handwriting-generation" class="slide level2">
 <h2>Use Cases: Handwriting Generation</h2>
-<p><img data-src="graves-handwriting-generation.png" style="width:40.0%" /> <img data-src="graves-handwriting2.png" style="width:40.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/graves-handwriting-generation.png" style="width:40.0%" />
+<img data-src="{{site.baseurl}}/assets/mdn/graves-handwriting2.png" style="width:40.0%" /></p>
 <ul>
 <li class="fragment">Handwriting Generation RNN (Graves, 2013).</li>
 <li class="fragment">Trained on handwriting data.</li>
@@ -367,7 +356,7 @@ loss = tf.reduce_mean(loss)
 
 <section id="use-cases-sketchrnn" class="slide level2">
 <h2>Use Cases: SketchRNN</h2>
-<p><img data-src="ha-kanji-example.png" style="width:40.0%" /> <img data-src="ha-sketchrnn.png" style="width:40.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/mdn/ha-kanji-example.png" style="width:40.0%" /> <img data-src="ha-sketchrnn.png" style="width:40.0%" /></p>
 <ul>
 <li class="fragment">SketchRNN Kanji (Ha, 2015); similar to handwriting generation, trained on kanji and then generates new “fake” characters</li>
 <li class="fragment">SketchRNN VAE (Ha et al., 2017); similar again, but trained on human-sourced sketches. VAE architecture with bidirectional RNN encoder and MDN in the decoder part.</li>
@@ -400,7 +389,8 @@ loss = tf.reduce_mean(loss)
 <li class="fragment">Train MDN to predict next <span class="math inline">\(z\)</span>, use this to help train an agent to operate in the environment.</li>
 </ul>
 </div><div class="column">
-<p><img data-src="./mdn-world-model-1.png" style="width:70.0%" /> <img data-src="./mdn-world-model-2.png" style="width:70.0%" /></p>
+  <p><img data-src="{{site.baseurl}}/assets/mdn/mdn-world-model-1.png" style="width:70.0%" />
+    <img data-src="{{site.baseurl}}/assets/mdn/mdn-world-model-2.png" style="width:70.0%" /></p>
 </div>
 </div>
 </section>
