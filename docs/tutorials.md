@@ -6,43 +6,41 @@ permalink: /tutorials/
 
 Here's a list of creative prediction tutorials available right now!
 
+### Tutorials/Demos
+
 - **Generating Creative Sequences**
-    - Generating Text with a CharRNN; inventing Star Trek episode titles. ([see Notebook 1](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/1-star-trek-titles-RNN-basic.ipynb))
-    - Advanced CharRNN techniques ([see Notebook 2](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/2-star-trek-titles-advanced.ipynb))
-    - Continuing musical sequences. ([see Notebook 3](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/3-zeldic-musical-RNN.ipynb))
-    - Combining multiple sequences in a CharRNN with "Gesture-RNN". ([see Notebook 4](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/4-gesture-rnn.ipynb))
+    - Generating Text with a CharRNN; inventing Star Trek episode titles. {% include notebooks.html notebook="1-star-trek-titles-RNN-basic.ipynb" %}
+    - Advanced CharRNN techniques. {% include notebooks.html notebook="2-star-trek-titles-advanced.ipynb" %}
+    - Continuing musical sequences. {% include notebooks.html notebook="3-zeldic-musical-RNN.ipynb" %}
+    - Combining multiple sequences in a CharRNN with "Gesture-RNN" (not working right now..). {% include notebooks.html notebook="4-gesture-rnn.ipynb" %}
+
 - **RNNs for continuous-valued data: Mixture Density Layers (MDNs)**
-    - Probability Distributions ([see Jupyter Notebook](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/mdn-talk-examples.ipynb))
-        - comparing continuous and categorical probability distributions
-        - modelling data with a normal distribution
-        - modelling data with a mixture of normal distributions
-    - Introduction to Mixture Density Layers ([see Notebook 5](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/5-mdn-sine-prediction.ipynb))
-    - Predicting sketching: Kanji generation with a Mixture Density RNN. ([see Notebook 6](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/6-MDN-RNN-kanji-generation.ipynb))
-    - Predicting time and place - musical scribbles with RoboJam. ([see Notebook 7](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/7-MDN-Robojam-touch-generation.ipynb))
+    - Mixture distribution examples {% include notebooks.html notebook="mdn-talk-examples.ipynb" %}
+    - Introduction to Mixture Density Layers  {% include notebooks.html notebook="5-mdn-sine-prediction.ipynb" %}
+    - Predicting sketching: Kanji generation with a Mixture Density RNN. {% include notebooks.html notebook="6-MDN-RNN-kanji-generation.ipynb" %}
+    - Predicting time and place - musical scribbles with RoboJam. {% include notebooks.html notebook="7-MDN-Robojam-touch-generation.ipynb" %}
 
-<!-- 
-The [ALife schedule is now published!](http://2018.alife.org/schedule/) and this CREative PREdiction ("CREPRE") tutorial will occur on Monday 23 July in two sessions: 11:30am-12:45pm and 16:15pm-17:30pm. The sessions will cover different material, but feel free to come to either or both if you want! The list of topics is below. -->
+- **VAE, GAN, and World Models**
+    - DoomVAE example {% include notebooks.html notebook="9-DoomVAE.ipynb" %}
+    - Doom World Model example (not done yet!)
+    - MicroGAN example {% include notebooks.html notebook="8-LittleGAN.ipynb" %}
 
-<!-- - Session 1: Monday 23 July. 11:30am-12:45pm Conference Room Uranus
-- **Introduction to Predictive Interaction (15 minutes)**
-    - Overview of Deep Learning and Creativity.
-    - What is a Recurrent Neural Network?
-    - Sequence learning, classification, and training
-    - Temporal and non-temporal models.
-    - Forward models and bio-inspired prediction.
-- **Generating Creative Sequences (60 minutes)**
-    - RNNs and Long Short-Term Memory (LSTM) with Keras and Python.
-    - Generating Text with a CharRNN; inventing Star Trek episode titles. ([see Notebook 1](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/1-star-trek-titles-RNN-basic.ipynb))
-    - Advanced CharRNN techniques ([see Notebook 2](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/2-star-trek-titles-advanced.ipynb))
-    - Continuing musical sequences. ([see Notebook 3](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/3-zeldic-musical-RNN.ipynb))
-    - Combining multiple sequences in a CharRNN with "Gesture-RNN". ([see Notebook 4](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/4-gesture-rnn.ipynb))
-- Session 2: Monday 23 July. 16:15pm-17:30pm Conference Room Uranus
-- **Interacting with RNNs (15 minutes)**
-    - Introduction to the Neural iPad Ensemble, and Robojam, two projects showing how RNNs can be used in interactive-creativity systems.
-- **RNNs for continuous-valued data: Mixture Density Layers (MDNs) (45 minutes)**
-    - Introduction to Mixture Density Layers ([see Notebook 5](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/5-mdn-sine-prediction.ipynb))
-    - Predicting sketching: Kanji generation with a Mixture Density RNN. ([see Notebook 6](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/6-MDN-RNN-kanji-generation.ipynb))
-    - Predicting time and place - musical scribbles with RoboJam. ([see Notebook 7](https://github.com/cpmpercussion/creative-prediction/blob/master/notebooks/7-MDN-Robojam-touch-generation.ipynb))
-- Time for demonstration, interaction, and live-hacking with these systems. (15+ minutes)
+### Exercises
 
-TBA: Hopefully we can have a dinner/discussion meet up later on Monday 23/7 or later in the week! It would be great to keep a discussion about CrePre going! -->
+- [_Exercise_: Set up Python, Keras, and Jupyter on your computer]({{site.baseurl}}/setup)
+- [_Exercise_: Try out a Google Colab Notebook]({% include colab.html notebook="0-test-setup.ipynb" %})
+- [_Exercise_: Make your own text generator]({{site.baseurl}}/hack/text/)
+- [_Exercise_: Make your own melody generator]({{site.baseurl}}/hack/melody/)
+- [_Exercise_: Making a RoboJam model with touchscreen data]({{site.baseurl}}/hack/robojam)
+- [_Exercise_: Set up IMPS with 3D prediction (x, y, t) with Processing and Pd]({{site.baseurl}}/hack/imps-demo)
+
+
+<!--
+
+TODO:
+
+- VAE (look at the doom VAE)
+- GAN
+- Transformer
+
+-->
