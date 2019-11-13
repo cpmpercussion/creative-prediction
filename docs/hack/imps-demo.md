@@ -65,7 +65,7 @@ starting to make your own._
 
 Start up IMPS in logging only mode with this command
 
-    python predictive_music_model.py --dimension=3 --log -o
+    python3 predictive_music_model.py --dimension=3 --log -o
 
 Note that the dimension is set to "3": this is because our interface
 is 2 dimensions and we need one extra dimension for time.
@@ -80,7 +80,7 @@ There's two steps for training: Generate a dataset file, and train the predictiv
 
 Use the `generate_dataset` command:
 
-    python generate_dataset.py --dimension=3
+    python3 generate_dataset.py --dimension=3
     
 This command collates all the logs with dimension "3" in the logging
 directory into a single `.npz` file.
@@ -90,7 +90,7 @@ with early-stopping enabled so that it doesn't take too long.
 Hopefully your computer's fan starts making a lot of
 noise---good!---that's how you know it's working!
 
-    python train_predictive_music_model.py --dimension=3 --modelsize=xs --earlystopping
+    python3 train_predictive_music_model.py --dimension=3 --modelsize=xs --earlystopping
     
 Because we don't have much data, and have set a very small model size, this shouldn't take too long.
 
@@ -98,7 +98,7 @@ Because we don't have much data, and have set a very small model size, this shou
 
 Now that you have a trained model, you can run this command to start making predictions:
 
-    python predictive_music_model.py -d=3 --modelsize=xs --log -c
+    python3 predictive_music_model.py -d=3 --modelsize=xs --log -c
 
 If your interface software is still running, you should hear it play
 itself! cool!
