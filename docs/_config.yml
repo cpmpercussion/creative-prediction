@@ -25,8 +25,10 @@ assets:
     - assets/reveal.js/css/theme/source/ # required to pick up the ANU reveal.js theme file
 
 markdown: kramdown
-theme: alembic-jekyll-theme
+# theme: alembic-jekyll-theme
+remote_theme: cpmpercussion/alembic
 plugins:
+- jekyll-remote-theme
 - jekyll-sitemap
 - jekyll-mentions
 - jekyll-paginate

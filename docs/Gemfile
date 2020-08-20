@@ -20,11 +20,19 @@ gem "jekyll", "~> 4.1.1"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
-  # gem "jekyll-remote-theme"
+  gem "jekyll-remote-theme"
+  gem "jekyll-sitemap"
+  gem "jekyll-mentions"
+  gem "jekyll-paginate"
+  gem "jekyll-seo-tag"
+  gem "jekyll-redirect-from"
+  gem "jekyll-commonmark"
+  gem "jekyll-include-cache"
+  gem "jemoji"
   # Scholar
   # gem 'jekyll-scholar'
   # Theme
-  gem "alembic-jekyll-theme", "~> 3.2.0", git: "https://github.com/cpmpercussion/alembic"
+  # gem "alembic-jekyll-theme", "~> 3.2.0", git: "https://github.com/cpmpercussion/alembic"
 end
 
 
