@@ -1,4 +1,5 @@
 ---
+layout: page
 title: Creative Prediction
 feature_image: "assets/creative-prediction-header.png"
 feature_text: |
