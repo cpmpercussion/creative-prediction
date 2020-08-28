@@ -1,5 +1,5 @@
 ---
-layout: reveal-larger
+layout: reveal
 title:  Creative Prediction Practicalities
 permalink: /presentations/crepreprac/
 ---

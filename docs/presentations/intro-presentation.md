@@ -1,5 +1,5 @@
 ---
-layout: reveal-larger
+layout: reveal
 title:  Making Predictive NIMEs with Neural Networks
 permalink: /presentations/intro/
 ---

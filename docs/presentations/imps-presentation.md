@@ -1,5 +1,5 @@
 ---
-layout: reveal-larger
+layout: reveal
 title: An Interactive Musical Prediction System with MDRNNs
 permalink: /presentations/imps/
 ---

@@ -11,7 +11,7 @@ email: charlepm@ifi.uio.no
 repo: "https://github.com/cpmpercussion/creative-prediction"
 
 description: >- # this means to ignore newlines until "baseurl:"
-  Tutorials and Examples for Artistic Deep Learning 
+  A course in ML/AI for creative expression
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://creativeprediction.xyz" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: cpmpercussion

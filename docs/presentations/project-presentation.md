@@ -1,5 +1,5 @@
 ---
-layout: reveal-larger
+layout: reveal
 title: Creative Prediction Projects
 permalink: /presentations/creprepro/
 ---

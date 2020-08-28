@@ -1,17 +1,19 @@
-<section data-markdown>
-<textarea data-template>
+<section class="title-slide center">
+  <header>
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+  </header>
 
-# {{page.title}}
+<h2>{{page.title}}</h2>
 
-Charles Martin - The Australian National University
+<p>Charles Martin - The Australian National University</p>
 
 {% comment %}
 ![]({{site.baseurl}}/assets/logo-bar.png)
 {% endcomment %}
 
 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-  <img src="{{ site.baseurl }}/assets/resources/by-nc-sa.svg" style="height:1em; margin-left:0;">
+	<img src="{% link assets/resources/by-nc-sa.svg %}" style="height:1.5rem; margin-left:0;">
 </a>
 
-</textarea>
 </section>
