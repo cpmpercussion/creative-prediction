@@ -96,14 +96,14 @@ $extensionColour: #9b59b6;
 // the main reveal slides div
 // each slide will be in a standalone section
 .reveal .slides section {
-	// width: 90vw;
-	// padding: 0 5vw;
+	width: 90vw;
+	padding: 0 5vw;
 
 	// a bit of margin at the top
-	//margin-top: 1rem;
+	margin-top: 1rem;
 
 	// give everything room to breathe
-	//&>* { margin-bottom: 1rem; }
+	&>* { margin-bottom: 1rem; }
 
 	// text
 	font-weight: 300;

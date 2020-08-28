@@ -1,7 +1,7 @@
 <section
     {% if include.bgcol %}data-background-color="{{ include.bgcol }}"{% endif %}
     {% if include.id %}id="{{ include.id }}"{% endif %}
-    data-background-image="{{site.basurl}}{{include.image}}"
+    data-background-image="{% if include.image contains "http" %}{{ include.image }}{% else %}{% link {{ include.image }}  %}{% endif %}"
     data-background-size="{{ include.bgsize | default: "cover" }}"
 >
   {% if include.heading %}
