@@ -8,56 +8,55 @@ permalink: /presentations/deep-dive-on-rnns/
 
 <section>
 <h2>What is an Artificial Neuron?</h2>
-<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/1-artificial-neurone.png" style="width:85.0%" />
+<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/1-artificial-neurone.png" style="width:80%;  display: block; margin-left: auto; margin-right: auto;" />
 <p><a href="https://en.wikipedia.org/wiki/File:Blausen_0657_MultipolarNeuron.png">Source - Wikimedia Commons</a></p>
 </section>
 
 <section id="feed-forward-network">
 <h2>Feed-Forward Network</h2>
-<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/2-feed-forward.png" style="width:70%" />
+<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/2-feed-forward.png" style="width:60%;  display: block; margin-left: auto; margin-right: auto;" />
 <p>For each unit: <span class="math inline">\(y = \text{tanh}\big(Wx + b \big)\)</span></p>
 </section>
 
 <section id="recurrent-network" class="slide level2">
 <h2>Recurrent Network</h2>
-<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/3-recurrent.png" style="width:70%" />
+<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/3-recurrent.png" style="width:60%;  display: block; margin-left: auto; margin-right: auto;" />
 <p>For each unit: <span class="math inline">\(y_t = \text{tanh}\big(Ux_t + Vh_{t-1} + b \big)\)</span></p>
 </section>
 
 <section id="sequence-learning-tasks">
   <h2>Sequence Learning Tasks</h2>
-  <p>
-    <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/sequence-learning.png" style="width:45%" />
+  <p style="text-align:center;"><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/sequence-learning.png" style="width:45%" />
     <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/sequence-learning3.jpg" style="width:50%"/></p>
-  <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/sequence-learning2.png" style="width:80%"/></p>
+  <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/sequence-learning2.png" style="width:80%; display: block; margin-left: auto; margin-right: auto;"/></p>
 </section>
 
 <section id="recurrent-network-1">
 <h2>Recurrent Network</h2>
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/4-unfolding.png" style="width:75.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/4-unfolding.png" style="width:75.0%; display: block; margin-left: auto; margin-right: auto;" /></p>
 <p>simplifying…</p>
 </section>
 
 <section id="recurrent-network-2" class="slide level2">
 <h2>Recurrent Network</h2>
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/5-recurrent-vert.png" style="width:25.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/5-recurrent-vert.png" style="width:25.0%; display: block; margin-left: auto; margin-right: auto;" /></p>
 <p>simplifying and rotating…</p>
 </section>
 
 <section id="state-in-recurrent-networks">
   <h2>“State” in Recurrent Networks</h2>
-  <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/5-recurrent-vert.png" style="width:30%;float:right;" />
+  <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/5-recurrent-vert.png" style="width:25%; float:right;" />
 
-  <p class="fragment">Recurrent Networks are all about storing a “state” in between computations.</p>
-  <p class="fragment">A “lossy summary of… past sequences”</p>
+  <p>Recurrent Networks are all about storing a “state” in between computations...</p>
+  <p class="fragment">A "lossy summary of... past sequences"</p>
   <p class="fragment"><em>h</em> is the “hidden state” of our RNN</p>
   <p class="fragment">What influences <em>h</em>?</p>
 </section>
 
 <section>
-<h3 id="defining-the-rnn-state">Defining the RNN State</h3>
+<h2 id="defining-the-rnn-state">Defining the RNN State</h2>
 
-<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/5-recurrent-vert.png" style="width:30.0%;float:right;" />
+<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/5-recurrent-vert.png" style="height:25%; float:right;" />
 
 <p>We can define a simplified RNN represented by this diagram as follows:</p>
 <p><span class="math display">\[h_t = \text{tanh}\big(Ux_t + Vh_{t-1} + b \big)\]</span></p>
@@ -66,7 +65,8 @@ permalink: /presentations/deep-dive-on-rnns/
 
 <section id="unfolding-an-rnn-in-time">
 <h2>Unfolding an RNN in Time</h2>
-<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/6-recurrent-unroll.png" alt="Unfolding an RNN in Time" style="width:80.0%;"/>
+<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/6-recurrent-unroll.png" alt="Unfolding an RNN in Time" style="width:80.0%; display: block;
+    margin-left: auto; margin-right: auto;"/>
 
 <ul>
 <li class="fragment">By unfolding the RNN we can compute <span class="math inline">\(\hat{y}\)</span> for a given length of sequence.</li>
@@ -88,9 +88,9 @@ permalink: /presentations/deep-dive-on-rnns/
 </section>
 
 <section id="y-hat-is-softmaxd">
-<h3>Y-hat is Softmax’d</h3>
-<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/softmax-is-probability.png" style="width:60%;" />
-<p><span class="math inline">\(\hat{y}\)</span> is a probability distribution!</p>
+<h2>Y-hat is Softmax’d</h2>
+<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/softmax-is-probability.png" style="width:60%; display: block; margin-left: auto; margin-right: auto;" />
+<p style="text-align:center;"><span class="math inline">\(\hat{y}\)</span> is a probability distribution!</p>
 <p><span class="math display">\[\sigma(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}} \text{ for } j = 1,\ldots, K\]</span></p>
 </section>
 
@@ -197,7 +197,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </section>
 
 <section id="rnn-architectures-and-lstm" class="slide level2">
-<h2>RNN Architectures and LSTM</h2>
+<h1>RNN Architectures and LSTM</h1>
 </section>
 
 <section id="bidirectional-rnns" class="slide level2">
@@ -227,7 +227,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <h2>Deep RNNs</h2>
 <div class="columns">
 <div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/rnn-deep.png" style="width:30.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/rnn-deep.png" style="width:25.0%; display: block; margin-left: auto; margin-right: auto;" /></p>
 </div><div class="column">
 <ul>
 <li class="fragment">Does adding deeper layers to an RNN make it work better?</li>
@@ -289,16 +289,14 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <h2>Gated RNNs</h2>
 <div class="columns">
 <div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/gated-rnn.png" /></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/gated-rnn.png" style="width:90%; display: block; margin-left: auto; margin-right: auto;"/></p>
 </div><div class="column">
 <ul>
-<li class="fragment">Possible solution!</li>
-<li class="fragment">Provide a gate that can change the hidden state a little bit at each step.</li>
-<li class="fragment">The gates are controlled by <strong>learnable weights</strong> as well!</li>
-<li class="fragment">Hidden state weights that may <strong>change</strong> at each time step.</li>
-<li class="fragment">Create <strong>paths through time</strong> with derivatives that do not vanish/explode.</li>
-<li class="fragment">Gates choose information to <strong>accumulate</strong> or <strong>forget</strong> at each time step.</li>
-<li class="fragment"><strong>Most effective sequence models used in practice!</strong></li>
+  <li>Provide <strong>gates</strong> that can change the hidden state a little bit at each step.</li>
+  <li class="fragment">The gates are controlled by <strong>learnable weights</strong> as well!</li>
+  <li class="fragment">Hidden state weights that may <strong>change</strong> at each time step.</li>
+  <li class="fragment">Create <strong>paths through time</strong> with derivatives that do not vanish/explode.</li>
+  <li class="fragment">Gates choose information to <strong>accumulate</strong> or <strong>forget</strong> at each step.</li>
 </ul>
 </div>
 </div>
@@ -309,7 +307,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <div class="columns">
 <div class="column">
 <ul>
-<li class="fragment">Self-loop containing an internal state (c).</li>
+<li class="fragment">Self-loop containing internal state (c).</li>
 <li class="fragment">Three extra gating units:
 <ul>
 <li class="fragment"><strong>Forget gate</strong>: controls how much memory is preserved.</li>
@@ -317,14 +315,15 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <li class="fragment"><strong>Output gate</strong>: control how much of state is shown to output.</li>
 </ul></li>
 <li class="fragment">Each gate has own <strong>weights</strong> and <strong>biases</strong>, so this uses <em>lots</em> more parameters.</li>
-<li class="fragment">Some variants on this design, e.g., use c as additional input to three gate units.</li>
+<!-- <li class="fragment">Some variants on this design, e.g., use c as additional input to three gate units.</li> -->
 </ul>
 </div><div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/lstm.png" style="width:70.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/lstm.png" style="width:60%; display: block; margin-left: auto; margin-right: auto;" /></p>
 </div>
 </div>
 </section>
 
+{% comment %}
 <section id="long-short-term-memory-1" class="slide level2">
 <h2>Long Short-Term Memory</h2>
 <div class="columns">
@@ -337,22 +336,24 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <li class="fragment">Output: <em>h</em></li>
 </ul>
 </div><div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/lstm.png" style="width:70.0%" /></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/lstm.png" style="width:60%; display: block; margin-left: auto; margin-right: auto;" /></p>
 </div>
 </div>
 </section>
+{% endcomment %}
 
 <section id="other-gating-units" class="slide level2">
 <h2>Other Gating Units</h2>
 <div class="columns">
 <div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/gru.png" style="width:100.0%" /> Source: <a href="https://youtu.be/FpQCAd0zKiU">(Olah, C. 2015.)</a></p>
+  <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/gru.png" style="width:100.0%" />
+    Source: <a href="https://youtu.be/FpQCAd0zKiU">(Olah, C. 2015.)</a></p>
 </div><div class="column">
 <ul>
-<li class="fragment">Are three gates necessary?</li>
-<li class="fragment">Other gating units are simpler, e.g., Gated Recurrent Unit (GRU)</li>
-<li class="fragment">For the moment, LSTMs are winning in practical use.</li>
-<li class="fragment">Maybe someone wants to explore alternatives in a project?</li>
+<li>Are three gates necessary?</li>
+<li>Other gating units are simpler, e.g., Gated Recurrent Unit (GRU)</li>
+<li>For the moment, LSTMs are winning in practical use.</li>
+<li>Alternative unit design: project idea?</li>
 </ul>
 </div>
 </div>
@@ -376,10 +377,10 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <h2>Other CharRNN Applications</h2>
 <div class="columns">
   <div class="column">
-    <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/rnn-monet.png" />
+    <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/rnn-monet.png" style="width:85.0%; display: block; margin-left: auto; margin-right: auto;"/>
 <p> <a href="http://blog.manugarri.com/teaching-recurrent-neural-networks-about-monet/">Teaching Recurrent Neural Networks about Monet</a></p>
   </div><div class="column">
-    <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/rnn-paint-colours.png" />
+    <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/rnn-paint-colours.png" style="width:50%; display: block; margin-left: auto; margin-right: auto;"/>
 <p> <a href="http://aiweirdness.com/post/160776374467/new-paint-colors-invented-by-neural-network">New Paint Colours Invented by Neural Network</a></p>
 </div>
 </div>
@@ -389,16 +390,16 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <h2>Google Magenta Performance RNN</h2>
 <div class="columns">
 <div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/performance-rnn.jpg" /></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/performance-rnn.jpg" style="width:50%; display: block; margin-left: auto; margin-right: auto;"/></p>
 </div><div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/performance-rnn2.png" /></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/performance-rnn2.png" style="width:50%; display: block; margin-left: auto; margin-right: auto;"/></p>
 </div>
 </div>
 <ul>
-<li class="fragment">State-of-the-art in music generating RNNs.</li>
-<li class="fragment">Encode MIDI musical sequences as categorical data.</li>
-<li class="fragment">Now supports polyphony (multiple notes), dynamics (volume), expressive timing (rubato).</li>
-<li class="fragment">E.g.: <a href="https://youtu.be/JVf6esaXeLE">YouTube demo</a></li>
+<li>State-of-the-art in music generating RNNs.</li>
+<li>Encode MIDI musical sequences as categorical data.</li>
+<li>Now supports polyphony (multiple notes), dynamics (volume), expressive timing (rubato).</li>
+<li>E.g.: <a href="https://youtu.be/JVf6esaXeLE">YouTube demo</a></li>
 </ul>
 </section>
 
@@ -406,7 +407,10 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <h2>Neural iPad Band, another CharRNN</h2>
 <div class="columns">
 <div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/neural-ipad-screen.jpg" /> <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/neural-ipad-diagram.png" /></p>
+  <p>
+    <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/neural-ipad-screen.jpg" style="display: block; margin-left: auto; margin-right: auto;" />
+    <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/neural-ipad-diagram.png" style="display: block; margin-left: auto; margin-right: auto;" />
+  </p>
 </div><div class="column">
 <ul>
 <li>iPad music transcribed as sequence of numbers for each performer.</li>
