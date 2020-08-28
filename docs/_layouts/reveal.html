@@ -6,13 +6,12 @@
     <meta name="generator" content="jekyll">
     <title>{{ page.title | escape }}</title>
 
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/reveal.js/css/reset.css">
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/reset.css %}">
+    <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/reveal.css %}">
+    <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/theme/white.css %}">
 
     <!-- Theme used for syntax highlighting of code -->
-    <!-- <link rel="stylesheet" href="{{site.baseurl}}/assets/reveal.js/lib/css/monokai.css"> -->
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/highlight/atelier-estuary-light.css">
+    <link rel="stylesheet" href="{% link assets/vendor/highlight.js/styles/atelier-estuary-light.css %}">
     <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -43,23 +42,20 @@
 				border: none;			
 		  }
     </style>
-    
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '{{site.baseurl}}/assets/reveal.js/css/print/pdf.css' : '{{site.baseurl}}/assets/reveal.js/css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
   </head>
+  
   <body>
     <div class="reveal">
       <div class="slides">
         {{content}}
       </div>
     </div>
-    <script src="{{site.baseurl}}/assets/reveal.js/js/reveal.js"></script>
+    <script src="{% link assets/vendor/reveal.js/dist/reveal.js %}"></script>
+    <script src="{% link assets/vendor/reveal.js/plugin/notes/notes.js %}"></script>
+		<script src="{% link assets/vendor/reveal.js/plugin/markdown/markdown.js %}"></script>
+		<script src="{% link assets/vendor/reveal.js/plugin/highlight/highlight.js %}"></script>
+    <script src="{% link assets/vendor/reveal.js/plugin/chalkboard/chalkboard.js %}"></script>
+    <script src="{% link assets/vendor/reveal.js/plugin/math/math.js %}"></script>
 
     <script>
       // More info about config & dependencies:
@@ -72,7 +68,7 @@
         transition: 'fade',
         history: true,
         slideNumber: true,
-        controls: false,
+        controls: true,
         math: {
           mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
           config: 'TeX-AMS_HTML-full',
@@ -89,15 +85,8 @@
             processClass: 'tex2jax_process'
           },
         },
-        dependencies: [
-          { src: '{{site.baseurl}}/assets/reveal.js/plugin/markdown/marked.js' },
-          { src: '{{site.baseurl}}/assets/reveal.js/plugin/markdown/markdown.js' },
-          { src: '{{site.baseurl}}/assets/reveal.js/plugin/notes/notes.js', async: true },
-          { src: '{{site.baseurl}}/assets/reveal.js/plugin/highlight/highlight.js', async: true },
-          { src: '{{site.baseurl}}/assets/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '{{site.baseurl}}/assets/reveal.js/plugin/zoom-js/zoom.js', async: true },
-          { src: '{{site.baseurl}}/assets/reveal.js/plugin/math/math.js', async: true }
-        ]
+          plugins: [  RevealMarkdown, RevealHighlight, RevealNotes,
+                      RevealChalkboard, RevealMath ]          
       });
     </script>
   </body>
