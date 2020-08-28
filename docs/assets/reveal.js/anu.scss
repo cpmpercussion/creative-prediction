@@ -1,0 +1,306 @@
+---
+---
+
+// fonts and typography
+
+// @import "./variables.scss";
+$text-color: #333;
+$background-color: #fafafa;
+$anu-blue: #80a2cc;
+$highlight-color: #05bf85;
+$link-color: $highlight-color;
+$text-grey: #777;
+
+// colours follow the anu style guide: http://webpublishing.anu.edu.au/web-style-guide/style-sampler.php
+$errorColour: #f00;
+$warnColour: #fc3;
+$infoColour: #3498db;
+$successColour: #2ecc71;
+
+// these are my own custom colours
+$thinkColour: #e84393;
+$talkColour: #1abc9c;
+$pushColour: #d35400;
+$extensionColour: #9b59b6;
+
+@mixin lab-content-box ($colour){
+
+	h2 {
+		background-color: $colour;
+		color: #ffffff;
+		padding-left: 1em;
+		border: none;
+	}
+}
+
+.reveal .slides {
+	.error-box {
+		@include lab-content-box($errorColour);
+	}
+	.warn-box {
+		@include lab-content-box($warnColour);
+	}
+	.info-box {
+		@include lab-content-box($infoColour);
+	}
+	.success-box {
+		@include lab-content-box($successColour);
+	}
+	.think-box {
+		@include lab-content-box($thinkColour);
+	}
+	.talk-box {
+		@include lab-content-box($talkColour);
+	}
+	.push-box {
+		@include lab-content-box($pushColour);
+	}
+	.extension-box {
+		@include lab-content-box($extensionColour);
+	}
+}
+
+// @import "./reveal-box-slides.scss";
+
+@import url('https://rsms.me/inter/inter-ui.css');
+
+// use self-hosted Courier Prime (it's not on Google fonts or anything)
+@font-face {
+	font-family: "Courier Prime";
+	src: font-files(
+		"{% link assets/fonts/courier-prime/courier-prime.ttf %}",
+		"{% link assets/fonts/courier-prime/courier-prime-bold.ttf %}",
+		"{% link assets/fonts/courier-prime/courier-prime-italic.ttf %}",
+		"{% link assets/fonts/courier-prime/courier-prime-bold-italic.ttf %}"
+	);
+}
+
+:root {
+	background-color: $background-color;
+	color: $text-color;
+	font-family: "Inter UI", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 2.0vw;
+}
+
+@supports (font-variation-settings: normal) {
+	:root {
+		font-family: "Inter UI var alt", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	}
+}
+
+// a pretty ghetto attempt to make these slides show up ok on mobile screens in portrait layout
+//@media (max-aspect-ratio: 2/3) {
+//	:root { font-size: 3vh; }
+//}
+
+// the main reveal slides div
+// each slide will be in a standalone section
+.reveal .slides section {
+	// width: 90vw;
+	// padding: 0 5vw;
+
+	// a bit of margin at the top
+	//margin-top: 1rem;
+
+	// give everything room to breathe
+	//&>* { margin-bottom: 1rem; }
+
+	// text
+	font-weight: 300;
+	line-height: 1.3;
+	text-align: left;
+
+	// inline emphasis
+	em { font-style: italic; }
+	strong { font-weight: 900; }
+
+	// links
+	a {
+		color: $link-color;
+		text-decoration: none;
+		font-weight: 900;
+
+		&:hover {
+			color: $background-color;
+			background-color: $text-color;
+		}
+
+		transition-property: color, background-color;
+		transition-duration: 0.5s;
+	}
+
+    // headers
+	h1 {
+		font-size: 1.6rem;
+		font-weight: 900;
+		border-bottom-color: $highlight-color;
+		border-bottom-style: solid;
+		border-bottom-width: 5px;
+	}
+	h2 {
+		font-size: 1.2rem;
+		font-weight: 900;
+	}
+	// make headings on background image slides readable
+    &[data-background-image] {
+        h1,h2,p {
+            background-color: adjust-color(#FFFFFF, $alpha: -0.25);
+            display: table;
+            padding: 0.2em 0.4em;
+        }
+    }
+
+	// lists
+
+	ul,ol { padding-left: 1rem; }
+
+	li {
+		margin-bottom: 0.4rem;
+	}
+
+	// tables
+	table {
+		width: 100%;
+	}
+
+	// title slide
+	&.title-slide {
+		header {
+			h1,p {
+				border: none;
+				margin: 0;
+				padding: 0 0 0.5rem 0;
+			}
+			border-bottom-color: $highlight-color;
+			border-bottom-style: solid;
+			border-bottom-width: 5px;
+		}
+		h2 {
+			font-size: 1rem;
+		}
+	}
+
+    // impact slides
+	// slide background needs to be provided through data-background-color
+    &.impact {
+        font-size: 2rem;
+        text-align: center;
+        color: $background-color;
+        font-weight: 900;
+        strong { color: #f39c12; }
+		a { color: lighten($highlight-color, 30%); }
+    }
+
+	// source code display
+	code {
+		font-family: "Courier Prime", "Courier", monospace;
+		font-weight: 400;
+		padding: 0.2rem;
+		border-radius: 0.2rem;
+		color: darken($highlight-color, 10%);
+		background: linear-gradient(to right, lighten($highlight-color, 42%), lighten($highlight-color, 35%));
+	}
+	a > code:hover {
+		color: $background-color;
+		background: linear-gradient(to right, darken($highlight-color, 20%), $highlight-color);
+	}
+	pre > code {
+		color: $background-color;
+		border: none;
+		background: linear-gradient(to right, #282c34, lighten(#282c34, 10%));
+		padding: 1em;
+		line-height: 1.2;
+	}
+
+	// pretty blockquotes
+    // from https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/
+    blockquote {
+		margin: 0;
+        background-color: darken($background-color, 8%);
+        border-left: 10px solid #ccc;
+        padding: 0.5em 0.5em;
+        quotes: "\201C""\201D""\2018""\2019";
+    }
+    blockquote:before {
+        color: #ccc;
+        content: open-quote;
+        font-size: 3em;
+        line-height: 0.1em;
+        vertical-align: -0.4em;
+    }
+    blockquote p {
+        display: inline;
+		font-style: normal;
+    }
+
+	.image-credit {
+		$creditOpacity: 0.5;
+        background-color: adjust-color($background-color, $alpha: -$creditOpacity);
+		color: adjust-color($text-color, $alpha: -0.1);
+		padding: 0.5em;
+		margin: 0;
+		font-size: 0.6em;
+        display: table;
+
+		// attach to bottom(ish)
+		// setting "bottom" doesn't work because reveal.js shenanigans
+		position: fixed;
+		top: 60vh;
+		left: 0;
+
+		p {
+			background-color: unset;
+			margin: 0.3em;
+		}
+
+		.image-credit-artist { font-weight: 900; }
+		/* .image-credit-title { font-style: italic; } */
+		.image-credit-year { font-style: italic; }
+
+		// links undecorated except on mouse-over
+		a {
+			color: adjust-color($link-color, $alpha: -$creditOpacity);
+			&:hover{
+				color: $background-color;
+			}
+		}
+
+		// transition to opaque on hover
+		transition: all 0.5s ease-out;
+		&:hover{
+			background-color: $background-color;
+			color: $text-color;
+		}
+	}
+}
+
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%; }
+
+
+// slide-number boxes in bottom-right-hand-corner
+.reveal {
+	.slide-number {
+
+		a {
+			text-decoration: none;
+			// font-size: 0.8rem;
+		}
+
+		// pretty pink highlighting on mouseover
+		&:hover {
+			background-color: $highlight-color;
+		}
+		transition-property: background-color;
+		transition-duration: 0.5s;
+	}
+
+    // progress bar
+    .progress {
+	    color: $highlight-color;
+        height: 0.4rem;
+    }
+}

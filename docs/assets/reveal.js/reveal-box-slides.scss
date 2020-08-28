@@ -1,0 +1,55 @@
+---
+---
+
+// "box" slides (most of this stuff copy-pasted from _sass/custom.scss
+// in the main jekyll site, but I can't be bothered refactoring it -
+// this'll do for now)
+
+// colours follow the anu style guide: http://webpublishing.anu.edu.au/web-style-guide/style-sampler.php
+$errorColour: #f00;
+$warnColour: #fc3;
+$infoColour: #3498db;
+$successColour: #2ecc71;
+
+// these are my own custom colours
+$thinkColour: #e84393;
+$talkColour: #1abc9c;
+$pushColour: #d35400;
+$extensionColour: #9b59b6;
+
+@mixin lab-content-box ($colour){
+
+	h2 {
+		background-color: $colour;
+		color: #ffffff;
+		padding-left: 1em;
+		border: none;
+	}
+}
+
+.reveal .slides {
+	.error-box {
+		@include lab-content-box($errorColour);
+	}
+	.warn-box {
+		@include lab-content-box($warnColour);
+	}
+	.info-box {
+		@include lab-content-box($infoColour);
+	}
+	.success-box {
+		@include lab-content-box($successColour);
+	}
+	.think-box {
+		@include lab-content-box($thinkColour);
+	}
+	.talk-box {
+		@include lab-content-box($talkColour);
+	}
+	.push-box {
+		@include lab-content-box($pushColour);
+	}
+	.extension-box {
+		@include lab-content-box($extensionColour);
+	}
+}
