@@ -85,7 +85,7 @@ heading="Ngunnawal & Ngambri & Ngarigu Country"
 <div class="column">
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/forward-prop.png" /></p>
 </div><div class="column">
-<p>We can now use the following equations to compute <span class="math inline">\(\hat{y}_3\)</span>, by computing <span class="math inline">\(h\)</span> for the previous steps:</p>
+<p>We can now use the following equations to compute <span class="math inline">\(\hat{y}_t\)</span>, by computing <span class="math inline">\(h\)</span> for the previous steps:</p>
 <p><span class="math display">\[h_t = \text{tanh}\big(Ux_t + Vh_{t-1} + b \big)\]</span></p>
 <p><span class="math display">\[\hat{y}_t = \text{softmax}(c + Wh_t)\]</span></p>
 </div>
@@ -120,7 +120,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <h2>Backpropagation Through Time (BPTT)</h2>
 <div class="columns">
 <div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/7-recurrent-loss.png" /></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/7-recurrent-loss.png" style="width:85%; display: block; margin-left: auto; margin-right: auto;" /></p>
 </div><div class="column">
 <p>Propagates error correction backwards through the network graph, adjusting all parameters (<em>U</em>, <em>V</em>, <em>W</em>) to minimise loss.</p>
 </div>
@@ -143,9 +143,9 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/charRNN-training.png" /></p>
 </div><div class="column">
 <ul>
-<li class="fragment"><strong>Target:</strong> A probability distribution with <span class="math inline">\(P(n) = 1\)</span></li>
-<li class="fragment"><strong>Output:</strong> A probability distribution over all next letters.</li>
-<li class="fragment"><strong>E.g.:</strong> “My cat is named Simon” would lead to <strong>X</strong>: “My cat is named Simo” and <strong>y</strong>: “n”</li>
+<li><strong>Target:</strong> A probability distribution with <span class="math inline">\(P(n) = 1\)</span></li>
+<li><strong>Output:</strong> A probability distribution over all next letters.</li>
+<li><strong>E.g.:</strong> “My cat is named Simon” would lead to <strong>X</strong>: “My cat is named Simo” and <strong>y</strong>: “n”</li>
 </ul>
 </div>
 </div>
@@ -209,7 +209,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <h2>Bidirectional RNNs</h2>
 <div class="columns">
 <div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/blstm.png" style="width:85%;" /></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/blstm.png" style="width:75%; display: block; margin-left: auto; margin-right: auto;" /></p>
 </div><div class="column">
 <ul>
 <li class="fragment">Useful for tasks where the whole sequence is available.</li>
@@ -294,7 +294,7 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <h2>Gated RNNs</h2>
 <div class="columns">
 <div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/gated-rnn.png" style="width:90%; display: block; margin-left: auto; margin-right: auto;"/></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/gated-rnn.png" style="width:80%; display: block; margin-left: auto; margin-right: auto;"/></p>
 </div><div class="column">
 <ul>
   <li>Provide <strong>gates</strong> that can change the hidden state a little bit at each step.</li>
