@@ -9,7 +9,15 @@
 
     <!-- <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/reset.css %}"> -->
     <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/reveal.css %}">
+
+    {% if page.theme == "white" %}
+    <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/theme/white.css %}">
+    {% else if page.theme == "anu" %}
     <link rel="stylesheet" type="text/css" href="{% link assets/revealthemes/anu.scss %}">
+    {% else %}
+    <link rel="stylesheet" type="text/css" href="{% link assets/revealthemes/anu.scss %}">
+    {% endif %}    
+    <!-- <link rel="stylesheet" type="text/css" href="{% link assets/revealthemes/anu.scss %}"> -->
     <!-- <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/theme/white.css %}"> -->
 
     <!-- Theme used for syntax highlighting of code -->
@@ -56,12 +64,12 @@
 
     <script>
       Reveal.initialize({
-          center: false,
+          center: {% if page.center %}true{% else %}false{% endif %},
           controls: true,
           transition: 'fade',
-          width: '100%',
-          height: '100%',
-          margin: 0.0,
+          width: {% if page.width %}{{ page.width }}{% else %}'100%'{% endif %},
+          height: {% if page.height %}{{ page.height }}{% else %}'100%'{% endif %},
+          margin: {% if page.margin %}{{ page.margin }}{% else %}0.0{% endif %},
           history: true,
           slideNumber: true,
         math: {
