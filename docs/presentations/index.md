@@ -12,3 +12,4 @@ Here's some presentations about neural networks and creative prediction:
 - [Deep Learning in the Cloud](deep-learning-on-cloud)
 - [Using the IMPS System](imps)
 - [Computing Practicalities for IN5490](crepreprac)
+- [Creating Intelligent Instruments](creating-intelligent-instruments)
