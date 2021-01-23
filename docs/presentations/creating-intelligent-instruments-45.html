@@ -310,27 +310,90 @@ Instrument]({% link
   data-background="#000000">
 </section>
 
-<!-- <section data-markdown id="physicalintelligentvideo"
+<!-- IMPS -->
+
+<section
+  id="imps"
+  data-background-video="{% link
+         assets/predictive-models-in-interactive-music/imps-lightpad-loop.mp4
+  %}"
+  data-background-video-loop
+  data-background-opacity=0.7
+  data-background-video-muted
+  data-background="#000000">
+  <h1>IMPS system</h1>
+</section>
+
+<section data-markdown id="imps-details">
+<textarea data-template>
+  ## IMPS System
+
+  ![]({% link
+         assets/predictive-models-in-interactive-music/IMPS_connection_example.png
+         %}) <!-- .element: width="80%" -->
+
+  - Opinionated Neural Network for interacting with NIMES.
+  - Automatically collects data and trains.
+  - "Wekinator" for deep learning?
+  
+  <aside class="notes">
+    - very small datasets work! (for something)
+    - training on regular computers works! (up to a point)
+    - automatic data recording leads to a kind of "practice" for the
+    neural network
+    - do we need data curation as well?
+    - looking for users!
+</aside>
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+## Three easy steps...
+
+- <b>Collect some data:</b> IMPS logs interactions automatically to build up a dataset
+- <b>Train an MDRNN:</b> IMPS includes good presets, no need to train for days/weeks
+- <b>Perform!</b> IMPS includes three interaction modes, scope to extend in future!
+</textarea>
+</section>
+
+<section
+  id="impslightpad"
+  data-background-video="{% link
+         assets/predictive-models-in-interactive-music/imps-lightpad-loop.mp4
+  %}"
+  data-background-video-loop
+  data-background="#000000">
+</section>
+
+<section data-markdown id="impsxtouch"
          data-background-video="{% link
-         assets/predictive-models-in-interactive-music/physical-intelligent-instrument.mp4
+         assets/predictive-models-in-interactive-music/imps-xtouch-loop.mp4
          %}"
          data-background-video-loop
          data-background="#000000">
-</section> -->
+</section>
+
+<section data-markdown id="impsglissrnn"
+         data-background-video="{% link
+         assets/predictive-models-in-interactive-music/glissrnn.mp4 %}"
+         data-background-video-loop
+         data-background="#000000">
+</section>
+
+<!-- EMPI -->
 
 <section id="slide"
   id="empititle"
   data-background-video="{% link
-         assets/predictive-models-in-interactive-music/empi-short-demo.mp4
+         assets/predictive-models-in-interactive-music/empi-micro-demo.mp4
   %}"
-  data-background-video-loop
-  data-background-opacity=0.7
-  data-background="#000000">
+         data-background-video-loop
+         data-background-opacity=0.7
+         data-background-video-muted
+         data-background="#000000">
 <h1> Embodied Predictive Musical Instrument (EMPI)</h1>
 </section>
-
-  <!-- data-background-video-muted -->
-
 
 <section data-markdown id="empidetails">
 <textarea data-template>
@@ -354,13 +417,6 @@ Instrument]({% link
 </textarea>
 </section>
 
-<section data-markdown id="empivideo"
-         data-background-video="{% link
-         assets/predictive-models-in-interactive-music/empi-short-demo.mp4
-         %}"
-         data-background-video-loop
-         data-background="#000000">
-</section>
 
 <section id="empihardware"
          data-background-image="{% link assets/predictive-models-in-interactive-music/empi_open.jpg %}"
@@ -413,96 +469,60 @@ Instrument]({% link
          data-background="#000000">
 </section>
 
-<section data-markdown>
-<textarea data-template>
-<!-- .slide: data-background="#000000" -->
-# Is this even _practical_?
 
-# Is this even _useful_?
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-## Test Systems
-
-![Test computers]({{site.baseurl}}/assets/imps/imps-test-computers.jpg)
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-## Results: Time per prediction
-
-![Time per prediction vs LSTM units]({{site.baseurl}}/assets/imps/prediction_time_against_units.png)
-
-Time per prediction (ms) with different sizes of LSTM layers.
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-## Results: Time per prediction
-
-![Time per prediction vs MDN dimension]({{site.baseurl}}/assets/imps/prediction_time_against_dimension_64units.png)
-
-Time per prediction (ms) with different MDN output dimensions. (64
-LSTM units)
-
-</textarea>
-</section>
-
-
-
+<!--
 <section
   id="imps"
   data-background-video="{% link
-         assets/predictive-models-in-interactive-music/imps-lightpad-loop.mp4
+         assets/predictive-models-in-interactive-music/training-capture.mp4
   %}"
   data-background-video-loop
   data-background-opacity=0.7
   data-background="#000000">
-  <h1>IMPS system</h1>
+  <h1>Training EMPI</h1>
+</section>
+-->
+
+<section data-markdown>
+  <textarea data-template>
+    ## Training Data
+    ![Human Data]({% link assets/predictive-models-in-interactive-music/training_human.png %})
+    ![Sine Data]({% link assets/predictive-models-in-interactive-music/training_sine.png %})  <!-- .element: width="25%" -->
+    ![Square Data]({% link assets/predictive-models-in-interactive-music/training_square.png %})  <!-- .element: width="25%" -->
+    ![Saw Data]({% link assets/predictive-models-in-interactive-music/training_saw.png %})  <!-- .element: width="25%" -->
+    ![Noise Data]({% link assets/predictive-models-in-interactive-music/training_noise.png %})  <!-- .element: width="25%" -->
+  </textarea>
 </section>
 
-  <!-- data-background-video-muted -->
-
-
-<section data-markdown id="imps-details">
-<textarea data-template>
-  ## IMPS System
-
-  ![]({% link
-         assets/predictive-models-in-interactive-music/IMPS_connection_example.png
-         %}) <!-- .element: width="80%" -->
-
-  - Opinionated Neural Network for interacting with NIMES.
-  - Automatically collects data and trains.
-  - "Wekinator" for deep learning?
-  
-  <aside class="notes">
-    - very small datasets work! (for something)
-    - training on regular computers works! (up to a point)
-    - automatic data recording leads to a kind of "practice" for the
-    neural network
-    - do we need data curation as well?
-    - looking for users!
-</aside>
-</textarea>
+<section data-markdown>
+  <textarea data-template>
+    ## Generated Data
+    ![Human Generation]({% link assets/predictive-models-in-interactive-music/generation_human_4500points.png %}) <!-- .element: width="50%" -->
+    ![Synth Generation]({% link assets/predictive-models-in-interactive-music/generation_synth.png %}) <!-- .element: width="50%" -->
+    ![Noise Generation]({% link assets/predictive-models-in-interactive-music/generation_noise.png %}) <!-- .element: width="50%" -->
+  </textarea>
 </section>
 
-<!-- <section data-markdown id="impsvideo"
+<section data-markdown id="empihuman"
          data-background-video="{% link
-         assets/predictive-models-in-interactive-music/imps-xtouch-loop.mp4
+         assets/predictive-models-in-interactive-music/empi-short-demo.mp4
          %}"
-         data-background-video-loop
          data-background="#000000">
-</section> -->
+</section>
+
+<section data-markdown id="empinoise"
+         data-background-video="{% link
+         assets/predictive-models-in-interactive-music/empi_synth.mp4
+         %}"
+         data-background="#000000">
+</section>
+
+<section data-markdown id="empinoise"
+         data-background-video="{% link
+         assets/predictive-models-in-interactive-music/empi_noise.mp4
+         %}"
+         data-background="#000000">
+</section>
 
 <!-- <section data-markdown id="rohanensemble" -->
 <!--          data-background-image="{% link
@@ -567,17 +587,9 @@ LSTM units)
   </ul>
 </section>
 
-<section data-markdown id="glissrnnvideo"
-         data-background-video="{% link
-         assets/predictive-models-in-interactive-music/glissrnn.mp4 %}"
-         data-background-video-loop
-         data-background="#000000">
-  <h1>IMPS works with traditional instruments too!</h1>
-</section>
-
 <section data-markdown>
 <textarea data-template>
-## Try out IMPS!
+## Try out IMPS or EMPI!
 
 <img src="{% link
          assets/predictive-models-in-interactive-music/imps-github.png
@@ -719,6 +731,48 @@ https://magenta.tensorflow.org/gansynth
 <!--   AB mentioned to me. "notes are easy, rhythm is hard" -->
 <!-- </aside> -->
 <!-- </textarea> -->
-<!-- </section> -->
+  <!-- </section> -->
+
+<section data-markdown>
+<textarea data-template>
+# Is this even _practical_?
+
+# Is this even _useful_?
+</textarea>
+</section>
+
+
+<section data-markdown>
+<textarea data-template>
+## Test Systems
+
+![Test computers]({{site.baseurl}}/assets/imps/imps-test-computers.jpg)
+
+</textarea>
+</section>
+
+
+<section data-markdown>
+<textarea data-template>
+## Results: Time per prediction
+
+![Time per prediction vs LSTM units]({{site.baseurl}}/assets/imps/prediction_time_against_units.png) <!-- .element: width="75%" -->
+
+Time per prediction (ms) with different sizes of LSTM layers.
+</textarea>
+</section>
+
+
+<section data-markdown>
+<textarea data-template>
+## Results: Time per prediction
+
+![Time per prediction vs MDN dimension]({% link assets/imps/prediction_time_against_dimension_64units.png %}) <!-- .element: width="75%" -->
+
+Time per prediction (ms) with different MDN output dimensions. (64
+LSTM units)
+</textarea>
+</section>
+
 
 {% endcomment %}
