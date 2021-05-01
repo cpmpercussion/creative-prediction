@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="generator" content="jekyll">
+    <title>{{ page.title | escape }}</title>
+
+
+    <!-- <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/reset.css %}"> -->
+    <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/reveal.css %}">
+
+    {% if page.theme == "white" %}
+    <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/theme/white.css %}">
+    {% else if page.theme == "anu" %}
+    <link rel="stylesheet" type="text/css" href="{% link assets/revealthemes/anu.scss %}">
+    {% else %}
+    <link rel="stylesheet" type="text/css" href="{% link assets/revealthemes/anu.scss %}">
+    {% endif %}    
+    <!-- <link rel="stylesheet" type="text/css" href="{% link assets/revealthemes/anu.scss %}"> -->
+    <!-- <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/theme/white.css %}"> -->
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="{% link assets/vendor/highlight.js/styles/atelier-estuary-light.css %}">
+    
+    <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width:50%;}
+      .twocolumn {display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px;}
+    </style>
+    <style type="text/css">
+      .talk-box h2 {
+ 				background-color: #1abc9c;
+				color: #ffffff;
+				padding-left: 1em;
+				border: none;			
+		  }
+      .info-box h2 {
+ 				background-color: #3498db;
+				color: #ffffff;
+				padding-left: 1em;
+				border: none;			
+		  }
+    </style>
+  </head>
+  
+  <body>
+    <!-- actual content -->
+    {{ content | revealify }}
+
+    <!-- load scripts and plugins -->
+    <script src="{% link assets/vendor/reveal.js/dist/reveal.js %}"></script>
+    <script src="{% link assets/vendor/reveal.js/plugin/notes/notes.js %}"></script>
+		<script src="{% link assets/vendor/reveal.js/plugin/markdown/markdown.js %}"></script>
+		<script src="{% link assets/vendor/reveal.js/plugin/highlight/highlight.js %}"></script>
+    <script src="{% link assets/vendor/reveal.js/plugin/chalkboard/chalkboard.js %}"></script>
+    <script src="{% link assets/vendor/reveal.js/plugin/math/math.js %}"></script>
+
+    <script>
+      Reveal.initialize({
+          center: {% if page.center %}true{% else %}false{% endif %},
+          controls: true,
+          transition: 'fade',
+          width: {% if page.width %}{{ page.width }}{% else %}'100%'{% endif %},
+          height: {% if page.height %}{{ page.height }}{% else %}'100%'{% endif %},
+          margin: {% if page.margin %}{{ page.margin }}{% else %}0.0{% endif %},
+          history: true,
+          slideNumber: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+          plugins: [  RevealMarkdown, RevealHighlight, RevealNotes, RevealChalkboard, RevealMath ]
+      });
+    </script>
+  </body>
+</html>
