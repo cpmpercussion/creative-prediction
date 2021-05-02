@@ -2,7 +2,9 @@
 layout: reveal
 title: "Creative Machine Learning with ml5.js"
 permalink: /presentations/creml5js/
-revealified: True
+theme: white
+center: true
+revealified: true
 width: 1280
 height: 800
 margin: 0.04
@@ -110,6 +112,8 @@ Trick 3: big fast computers with **lots of data** to learn from
 By the way, another name for a perceptron is an _artificial neuron_. So the above is a... _neural network_...
 
 
+
+
 {% include slides/theme.html slide="big-picture" heading="Some terminology" id="terminology" %}
 
 **Model**: an instance of a trainable algorithm
@@ -120,13 +124,18 @@ By the way, another name for a perceptron is an _artificial neuron_. So the abov
 
 **Prediction/Inference**: using a trained model to generate an output using  _unseen_ data 
 
-**Clasification**: an ML task for choosing a "class" (or description) for a  piece of data
+**Classification**: an ML task for choosing a "class" (or description) for a  piece of data
+
+
+{% comment %}
 
 {% include slides/theme.html slide="feeling-lost" heading="Wait, where's all the maths?" id="maths" %}
 
 Want to make the learning process work faster? **Great idea** to have a maths/CS major.
 
 Want to make interesting art with the most relevant new technology of today? **Ok, you're ready to go!**
+
+{% endcomment %}
 
 
 ## ml5.js: Friendly Machine Learning

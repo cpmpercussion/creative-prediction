@@ -71,7 +71,7 @@
 
     <script>
       Reveal.initialize({
-          center: {% if page.center %}true{% else %}false{% endif %},
+          center: {% if page.center %}{{ page.center }}{% else %}true{% endif %},
           controls: true,
           transition: 'fade',
           width: {% if page.width %}{{ page.width }}{% else %}'100%'{% endif %},
