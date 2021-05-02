@@ -48,11 +48,18 @@
   
   <body>
     <!-- actual content -->
+
+    <!-- revealified -->
+    {% if page.revealify == True %}
+    {{ content | revealify }}
+    {% else %}
+    <!-- standard reveal -->
     <div class="reveal">
       <div class="slides">
         {{content}}
       </div>
     </div>
+    {% endif %}
 
     <!-- load scripts and plugins -->
     <script src="{% link assets/vendor/reveal.js/dist/reveal.js %}"></script>

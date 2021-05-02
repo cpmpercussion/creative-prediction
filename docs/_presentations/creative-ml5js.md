@@ -1,7 +1,11 @@
 ---
-layout: revealified
+layout: reveal
 title: "Creative Machine Learning with ml5.js"
 permalink: /presentations/creml5js/
+revealified: True
+width: 1280
+height: 800
+margin: 0.04
 ---
 
 {% include slides/title.html %}
@@ -19,7 +23,7 @@ How can we make art with this?
 What is ML anyway?
 
 {:.fragment}
-<p>Creating computer programs without explicitly programming them.</p>
+Creating computer programs without explicitly programming them.
 
 {:.fragment}
 Algorithms that improve through experience.
@@ -34,7 +38,7 @@ kindof problematic!
 
 Suppose the boss says **"Write me a program to change the screen (400 pixels wide) to red if the mouse is in the right hand side."**
 
-```javascript
+```
 if (mouseX > ??) {
     background(255,0,0);
 } else {
@@ -138,7 +142,7 @@ Related to and inspired by `p5.js`.
 Just need to load it in our `index.html`:
 
 {:. style="font-size:.85em;"}
-```html
+```
 <script src="https://unpkg.com/ml5@0.5.0/dist/ml5.min.js" type="text/javascript"></script>
 ```
 
@@ -149,7 +153,7 @@ Open up a [p5 web editor sketch](https://editor.p5js.org/charlesmatarles/sketche
 Let's classify some doggos. We'll use a pretrained model called `MobileNet`
 
 {:. style="font-size:.85em;"}
-```javascript
+```
 // load the classifier
 classifier = ml5.imageClassifier('MobileNet');
 // classify an image
@@ -161,7 +165,7 @@ Where does the result go? Need to define a _callback_ function `gotResult(error,
 
 We can access a webcam in our sketch:
 {:. style="font-size:.85em;"}
-```javascript
+```
 video = createCapture(VIDEO);
 video.size(320, 240);
 video.hide();
@@ -169,7 +173,7 @@ video.hide();
 
 And we can just ask the classifier to only make predictions from this video stream:
 {:. style="font-size:.85em;"}
-```javascript
+```
 classifier = ml5.imageClassifier('MobileNet', video);
 classifier.classify(gotResult); // classify one frame
 ```
@@ -195,7 +199,7 @@ Each "prediction" is a pen movement in `x` and `y` coordinates.
 ## Using SketchRNN {#sketchrnn2}
 
 {:. style="font-size:.85em;"}
-```javascript
+```
 model = ml5.sketchRNN('cat'); // load the model with a "class" to draw.
 ```
 
@@ -213,7 +217,6 @@ Many (e.g., posenet) are related to image classification and processing (images 
 There are also sound recognition models.
 
 And text generation models.
-
 
 {% include slides/background-image.html image="assets/creml5js/compasses-allisonparrish.png" bgcol="black" bgsize="contain" %}
 

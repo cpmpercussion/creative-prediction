@@ -56,12 +56,10 @@ navigation_header:
 navigation_footer:
 - title: Created by Charles Martin
   url: https://charlesmartin.com.au
-- title: Part of EPEC (RCN Project no. 240862)
+- title: UiO EPEC Project
   url: https://www.hf.uio.no/ritmo/english/projects/all/epec/
-- title: Part of the RTMO Centre for Interdisciplinary Studies in Rhythm Time and Motion (RCN Project no. 262762)
+- title: RTMO Centre for Interdisciplinary Studies in Rhythm Time and Motion
   url: https://www.hf.uio.no/ritmo/english/
-- title: Supported by COINMAC (RCN Project no. 261645)
-  url: https://www.mn.uio.no/ifi/english/research/projects/coinmac/index.html
 
 exclude:
 - README.md

@@ -2,6 +2,9 @@
 layout: reveal
 title: An Interactive Musical Prediction System with MDRNNs
 permalink: /presentations/imps/
+theme: white
+center: true
+margin: 0.04
 ---
 
 {% include slides/title.html %}
