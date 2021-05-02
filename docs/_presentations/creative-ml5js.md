@@ -2,7 +2,7 @@
 layout: reveal
 title: "Creative Machine Learning with ml5.js"
 permalink: /presentations/creml5js/
-theme: white
+theme: anu
 center: true
 revealified: true
 width: 1280
