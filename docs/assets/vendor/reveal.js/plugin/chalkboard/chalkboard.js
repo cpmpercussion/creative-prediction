@@ -3,7 +3,7 @@
 **
 ** A plugin for reveal.js adding a chalkboard.
 **
-** Version: 1.0.4
+** Version: 1.1.0
 **
 ** License: MIT license (see LICENSE.md)
 **
@@ -21,10 +21,14 @@ window.RevealChalkboard = window.RevealChalkboard || {
     configure: function(config) { configure(config); },
     toggleNotesCanvas: function() { toggleNotesCanvas(); },
     toggleChalkboard: function() { toggleChalkboard(); },
+    colorIndex: function() { colorIndex(); },
     colorNext: function() { colorNext(); },
     colorPrev: function() {colorPrev(); },
+    clear: function() { clear(); },
     reset: function() { reset(); },
     resetAll: function() { resetAll(); },
+    updateStorage: function() { updateStorage(); },
+    getData: function() { return getData(); },
     download: function() { download(); },
 };
 
@@ -86,6 +90,7 @@ const initChalkboard = function(Reveal){
 	var keyBindings = { 
 		toggleNotesCanvas: { keyCode: 67, key: 'C', description: 'Toggle notes canvas' },
 		toggleChalkboard: { keyCode: 66, key: 'B', description: 'Toggle chalkboard' },
+		clear: { keyCode: 171, key: '+', description: 'Clear drawings on slide' },
 		reset: { keyCode: 46, key: 'DEL', description: 'Reset drawings on slide' },
 		resetAll: { keyCode: 8, key: 'BACKSPACE', description: 'Reset all drawings' },
 		colorNext: { keyCode: 88, key: 'X', description: 'Next color' },
@@ -113,11 +118,11 @@ const initChalkboard = function(Reveal){
 
 		if ( config.boardmarkerWidth || config.penWidth ) boardmarkerWidth = config.boardmarkerWidth || config.penWidth;
 		if ( config.chalkWidth ) chalkWidth = config.chalkWidth;
-		if ( "chalkEffect" in config ) chalkEffect = ("chalkEffect" in config);
+		if ( config.chalkEffect ) chalkEffect = config.chalkEffect;
 		if ( config.rememberColor ) rememberColor = config.rememberColor;
 		if ( config.eraser ) eraser = config.eraser;
-		if ("boardmarkers" in config) boardmarkers = config.boardmarkers;
-		if ("chalks" in config) chalks = config.chalks;
+		if ( config.boardmarkers ) boardmarkers = config.boardmarkers;
+		if ( config.chalks) chalks = config.chalks;
 
 		if ( config.theme ) theme = config.theme;
 		switch ( theme ) {
@@ -158,18 +163,11 @@ const initChalkboard = function(Reveal){
 
 	function whenReady( callback ) {
 		// wait for drawings to be loaded and markdown to be parsed
-		if ( loaded !== null ) {
-			for (var i = 0; i < storage[1].data.length; i++) {
-				var slide = Reveal.getSlide( storage[1].data[i].slide.h, storage[1].data[i].slide.v );
-				if ( !slide ) {
-console.log("Wait for presentation to be ready"); 
-					setTimeout( whenReady, 500, callback )
-				}
-			}
+		if ( document.querySelectorAll(".pdf-page").length && loaded !== null ) {
 			callback();
 		}
 		else {
-console.log("Wait for drrawings to be loaded"); 
+console.log("Wait for pdf pages to be created and drawings to be loaded"); 
 			setTimeout( whenReady, 500, callback )
 		}
 	}
@@ -301,11 +299,44 @@ console.log("Wait for drrawings to be loaded");
 		{ width: Reveal.getConfig().width, height: Reveal.getConfig().height, data: []},
 		{ width: Reveal.getConfig().width, height: Reveal.getConfig().height, data: []}
 	];
-//console.log( JSON.stringify(storage));
 
 	var loaded = null;
-	if ( config.src != null ) {
+
+        if ( config.storage ) {
+		// Get chalkboard drawings from session storage 
+		loaded = initStorage( sessionStorage.getItem( config.storage ) );
+	}
+	
+	if ( !loaded && config.src != null ) {
+		// Get chalkboard drawings from the given file
 		loadData( config.src );
+	}
+
+	/**
+	 * Initialize storage.
+	 */
+	function initStorage( json ) {
+		var success = false;
+		try {
+			var data = JSON.parse( json );
+			for (var id = 0; id < data.length; id++) {
+				if ( drawingCanvas[id].width != data[id].width || drawingCanvas[id].height != data[id].height ) {
+					drawingCanvas[id].scale = Math.min( drawingCanvas[id].width/data[id].width, drawingCanvas[id].height/data[id].height);
+					drawingCanvas[id].xOffset = (drawingCanvas[id].width - data[id].width * drawingCanvas[id].scale)/2;
+					drawingCanvas[id].yOffset = (drawingCanvas[id].height - data[id].height * drawingCanvas[id].scale)/2;
+				}
+				if ( config.readOnly ) {
+					drawingCanvas[id].container.style.cursor = 'default';
+					drawingCanvas[id].canvas.style.cursor = 'default';
+				}
+			}
+			success = true;
+			storage = data;
+		}
+		catch ( err ) {
+			console.warn( "Cannot initialise storage!" );
+		}
+		return success;
 	}
 
 
@@ -316,20 +347,8 @@ console.log("Wait for drrawings to be loaded");
 		var xhr = new XMLHttpRequest();
 		xhr.onload = function() {
 			if (xhr.readyState === 4 && xhr.status != 404 ) {
-				storage = JSON.parse(xhr.responseText);
-				for (var id = 0; id < storage.length; id++) {
-					if ( drawingCanvas[id].width != storage[id].width || drawingCanvas[id].height != storage[id].height ) {
-						drawingCanvas[id].scale = Math.min( drawingCanvas[id].width/storage[id].width, drawingCanvas[id].height/storage[id].height);
-						drawingCanvas[id].xOffset = (drawingCanvas[id].width - storage[id].width * drawingCanvas[id].scale)/2;
-						drawingCanvas[id].yOffset = (drawingCanvas[id].height - storage[id].height * drawingCanvas[id].scale)/2;
-					}
-					if ( config.readOnly ) {
-						drawingCanvas[id].container.style.cursor = 'default';
-						drawingCanvas[id].canvas.style.cursor = 'default';
-					}
-				}
-				loaded = true;
-//console.log("Drawings loaded");
+				loaded = initStorage(xhr.responseText);
+console.log("Drawings loaded from file");
 			}
 			else {
 				config.readOnly = undefined;
@@ -351,6 +370,31 @@ console.log("Wait for drrawings to be loaded");
 		}
 	}
 
+
+	function updateStorage() {
+		var json = JSON.stringify( storage )
+		if ( config.storage ) {
+			sessionStorage.setItem( config.storage, json )
+		}
+		return json;
+	}
+
+	/**
+	 * Get data as json string.
+	 */
+	function getData() {
+		// cleanup slide data without events
+		for (var id = 0; id < 2; id++) {
+			for (var i = storage[id].data.length-1; i >= 0; i--) {
+				if (storage[id].data[i].events.length == 0) {
+					storage[id].data.splice(i, 1);
+				}
+			}
+		}
+
+		return updateStorage();
+	}
+
 	/**
 	 * Download data.
 	 */
@@ -358,16 +402,8 @@ console.log("Wait for drrawings to be loaded");
 		var a = document.createElement('a');
 		document.body.appendChild(a);
 		try {
-			// cleanup slide data without events
-			for (var id = 0; id < 2; id++) {
-				for (var i = storage[id].data.length-1; i >= 0; i--) {
-					if (storage[id].data[i].events.length == 0) {
-						storage[id].data.splice(i, 1);
-					}
-				}
-			}
 			a.download = "chalkboard.json";
-			var blob = new Blob( [ JSON.stringify( storage ) ], { type: "application/json"} );
+			var blob = new Blob( [ getData() ], { type: "application/json"} );
 			a.href = window.URL.createObjectURL( blob );
 		} catch( error ) {
 			a.innerHTML += " (" + error + ")";
@@ -419,111 +455,165 @@ console.log("Wait for drrawings to be loaded");
 //console.log("createPrintout" + printMode)
 
 	function createPrintout( ) {
+console.warn(Reveal.getTotalSlides(),Reveal.getSlidesElement());
 		if ( storage[1].data.length == 0 ) return; 
 console.log( 'Create printout for ' + storage[1].data.length + " slides");
 		drawingCanvas[0].container.style.opacity = 0; // do not print notes canvas
 		drawingCanvas[0].container.style.visibility = 'hidden';
-		var nextSlide = [];
-		for (var i = 0; i < storage[1].data.length; i++) {
-			var slide = Reveal.getSlide( storage[1].data[i].slide.h, storage[1].data[i].slide.v );
-			if ( !slide ) {
-alert("Something went wrong creating printouts for drawings.");
-				return;
-			}
-			nextSlide.push( slide.nextSibling );
-		}
 
 		var patImg = new Image();
 		patImg.onload = function () {
-			var width = Reveal.getConfig().width;
-			var height = Reveal.getConfig().height;
-			var scale = 1;
-			var xOffset = 0;
-			var yOffset = 0;
-			if ( width != storage[1].width || height != storage[1].height ) {
-				scale = Math.min( width/storage[1].width, height/storage[1].height);
-				xOffset = (width - storage[1].width * scale)/2;
-				yOffset = (height - storage[1].height * scale)/2;
-			}
-			mode = 1;
-
-			for (var i = 0; i < storage[1].data.length; i++) {
+			var slides = getSlidesArray();
+			for (var i = storage[1].data.length-1; i>=0; i--) {
 console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + storage[1].data[i].slide.v );
-				var parent = Reveal.getSlide( storage[1].data[i].slide.h, storage[1].data[i].slide.v ).parentElement;
 				var slideData = getSlideData( storage[1].data[i].slide, 1 );
-
-				var imgCanvas = document.createElement('canvas');
-				imgCanvas.width = width;
-				imgCanvas.height = height;
-
-				var imgCtx = imgCanvas.getContext("2d");
-				imgCtx.fillStyle = imgCtx.createPattern( patImg ,'repeat');
-				imgCtx.rect(0,0,imgCanvas.width,imgCanvas.height);
-				imgCtx.fill();
-
-				for (var j = 0; j < slideData.events.length; j++) {
-					switch ( slideData.events[j].type ) {
-						case "draw":
-							for (var k = 1; k < slideData.events[j].curve.length; k++) {
-								draw[1]( imgCtx,
-									xOffset + slideData.events[j].curve[k-1].x*scale,
-									yOffset + slideData.events[j].curve[k-1].y*scale,
-									xOffset + slideData.events[j].curve[k].x*scale,
-									yOffset + slideData.events[j].curve[k].y*scale
-								);
-							}
-							break;
-						case "erase":
-							for (var k = 0; k < slideData.events[j].curve.length; k++) {
-								eraseWithSponge( imgCtx,
-									xOffset + slideData.events[j].curve[k].x*scale,
-									yOffset + slideData.events[j].curve[k].y*scale
-								);
-							}
-							break;
-						case "setcolor":
-								setColor(slideData.events[j].index);
-								break;
-						case "clear":
-							addPrintout( parent, nextSlide[i], imgCanvas, patImg );
-							imgCtx.clearRect(0,0,imgCanvas.width,imgCanvas.height);
-							imgCtx.fill();
-							break;
-						default:
-							break;
-					}
-				}
-				mode = 0;
-				if ( slideData.events.length ) {
-					addPrintout( parent, nextSlide[i], imgCanvas, patImg );
-				}
+				var drawings = createDrawings( slideData, patImg );
+				var slide = slides[ storage[1].data[i].slide.h][ storage[1].data[i].slide.v ];
+//console.log("Slide:", slide);
+				addDrawings( slide, drawings );
+				
 			}
-			Reveal.sync();
+//			Reveal.sync();
 		};
 		patImg.src = background[1];
 	}
 
-	function addPrintout( parent, nextSlide, imgCanvas, patImg ) {
-		var slideCanvas = document.createElement('canvas');
-		slideCanvas.width = Reveal.getConfig().width;
-		slideCanvas.height = Reveal.getConfig().height;
-		var ctx = slideCanvas.getContext("2d");
-		ctx.fillStyle = ctx.createPattern( patImg ,'repeat');
-		ctx.rect(0,0,slideCanvas.width,slideCanvas.height);
-		ctx.fill();
-		ctx.drawImage(imgCanvas, 0, 0);
-
-		var newSlide = document.createElement( 'section' );
-		newSlide.classList.add( 'present' );
-		newSlide.innerHTML = '<h1 style="visibility:hidden">Drawing</h1>';
-		newSlide.setAttribute("data-background-size", '100% 100%' );
-		newSlide.setAttribute("data-background-repeat", 'norepeat' );
-		newSlide.setAttribute("data-background", 'url("' + slideCanvas.toDataURL("image/png") +'")' );
-		if ( nextSlide != null ) {
-			parent.insertBefore( newSlide, nextSlide );
+	function getSlidesArray() {
+		var horizontal = document.querySelectorAll('.slides > div.pdf-page > section, .slides > section');
+		var slides = [];
+		var slidenumber = undefined;
+		for ( var i=0; i < horizontal.length; i++) {
+			if ( horizontal[i].parentElement.classList.contains("pdf-page") ) {
+				// Horizontal slide
+				if ( horizontal[i].getAttribute("data-slide-number") != slidenumber ) {
+					// new slide
+					slides.push([]);
+					slides[slides.length-1].push(horizontal[i]);
+					slidenumber = horizontal[i].getAttribute("data-slide-number");
+				}
+				else {
+					// fragment of same slide
+					slides[slides.length-1][slides[slides.length-1].length-1] = horizontal[i];
+				}
+			}
+			else {		
+				// Vertical slides
+				var vertical = horizontal[i].querySelectorAll('section'); 
+				slides.push([]);
+				var slidenumber = undefined;
+				for ( var j=0; j < vertical.length; j++) {
+					if ( vertical[j].getAttribute("data-slide-number") != slidenumber ) {
+						// new slide
+						slides[slides.length-1].push(vertical[j]);
+						slidenumber = vertical[j].getAttribute("data-slide-number");
+					}
+					else {
+						// fragment of same slide
+						slides[slides.length-1][slides[slides.length-1].length-1] = vertical[j];
+					}
+				}
+			}
 		}
-		else {
-			parent.append( newSlide );
+//console.log("Slides:", slides);
+		return slides;
+	}
+
+	function cloneCanvas(oldCanvas) {
+		//create a new canvas
+		var newCanvas = document.createElement('canvas');
+		var context = newCanvas.getContext('2d');
+		//set dimensions
+		newCanvas.width = oldCanvas.width;
+		newCanvas.height = oldCanvas.height;
+		//apply the old canvas to the new one
+		context.drawImage(oldCanvas, 0, 0);
+		//return the new canvas
+		return newCanvas;
+	}
+
+	function createDrawings( slideData, patImg ) {
+		var width = Reveal.getConfig().width;
+		var height = Reveal.getConfig().height;
+		var scale = 1;
+		var xOffset = 0;
+		var yOffset = 0;
+		if ( width != storage[1].width || height != storage[1].height ) {
+			scale = Math.min( width/storage[1].width, height/storage[1].height);
+			xOffset = (width - storage[1].width * scale)/2;
+			yOffset = (height - storage[1].height * scale)/2;
+		}
+		mode = 1;
+console.log( 'Create printout for slide ', slideData/*+ data.slide.h + "." + data.slide.v */);
+//		var parent = Reveal.getSlide( data.slide.h, data.slide.v ).parentElement;
+//		var slideData = getSlideData( data.slide, 1 );
+
+		var drawings = [];
+		var imgCanvas = document.createElement('canvas');
+		imgCanvas.width = width;
+		imgCanvas.height = height;
+
+		var imgCtx = imgCanvas.getContext("2d");
+		imgCtx.fillStyle = imgCtx.createPattern( patImg ,'repeat');
+		imgCtx.rect(0,0,imgCanvas.width,imgCanvas.height);
+		imgCtx.fill();
+
+		for (var j = 0; j < slideData.events.length; j++) {
+			switch ( slideData.events[j].type ) {
+				case "draw":
+					for (var k = 1; k < slideData.events[j].curve.length; k++) {
+						draw[1]( imgCtx,
+							xOffset + slideData.events[j].curve[k-1].x*scale,
+							yOffset + slideData.events[j].curve[k-1].y*scale,
+							xOffset + slideData.events[j].curve[k].x*scale,
+							yOffset + slideData.events[j].curve[k].y*scale
+						);
+					}
+					break;
+				case "erase":
+					for (var k = 0; k < slideData.events[j].curve.length; k++) {
+						eraseWithSponge( imgCtx,
+								xOffset + slideData.events[j].curve[k].x*scale,
+								yOffset + slideData.events[j].curve[k].y*scale
+						);
+					}
+					break;
+				case "setcolor":
+					setColor(slideData.events[j].index);
+					break;
+				case "clear":
+					drawings.push( cloneCanvas(imgCanvas) );
+//					addPrintout( parent, nextSlide[i], imgCanvas, patImg );
+					imgCtx.clearRect(0,0,imgCanvas.width,imgCanvas.height);
+					imgCtx.fill();
+					break;
+				default:
+					break;
+			}
+		}
+		drawings.push( cloneCanvas(imgCanvas) );
+
+		mode = 0;
+
+		return drawings;
+	}
+
+	function addDrawings( slide, drawings ) {
+		var parent = slide.parentElement.parentElement;
+		var nextSlide = slide.parentElement.nextElementSibling;
+
+		for (var i = 0; i < drawings.length; i++) {
+			var newPDFPage = document.createElement( 'div' );
+			newPDFPage.classList.add('pdf-page');
+			newPDFPage.style.height = Reveal.getConfig().height;
+//			newPDFPage.innerHTML = '<h1>Drawing should be here!</h1>';
+			newPDFPage.append(drawings[i]);
+//console.log("Add drawing", newPDFPage);
+			if ( nextSlide != null ) {
+				parent.insertBefore( newPDFPage, nextSlide );
+			}
+			else {
+				parent.append( newPDFPage );
+			}
 		}
 	}
 
@@ -740,66 +830,86 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 /*****************************************************************
 ** Broadcast
 ******************************************************************/
+
+	var eventQueue = [];
+
 	document.addEventListener( 'received', function ( message ) {
-//console.log(JSON.stringify(message));
 		if ( message.content && message.content.sender == 'chalkboard-plugin' ) {
-			switch ( message.content.type ) {
-				case 'showChalkboard':
-					showChalkboard();
-					break;
-				case 'closeChalkboard':
-					closeChalkboard();
-					break;
-				case 'startDrawing':
-					startDrawing(message.content.x, message.content.y, message.content.erase);
-					break;
-				case 'startErasing':
-					if ( message.content ) {
-						message.content.type = "erase";
-						message.content.begin = Date.now() - slideStart;
-						eraseWithSponge(drawingCanvas[mode].context, message.content.x, message.content.y);
-					}
-					break;
-				case 'drawSegment':
-					drawSegment(message.content.x, message.content.y, message.content.erase);
-					break;
-				case 'stopDrawing':
-					stopDrawing();
-					break;
-				case 'clear':
-					clear();
-					break;
-				case 'setcolor':
-					setColor(message.content.index);
-					break;
-				case 'resetSlide':
-					resetSlide(true);
-					break;
-				case 'init':
-					storage = message.content.storage;
-					for (var id = 0; id < 2; id++ ) {
-						drawingCanvas[id].scale = Math.min( drawingCanvas[id].width/storage[id].width, drawingCanvas[id].height/storage[id].height );
-						drawingCanvas[id].xOffset = (drawingCanvas[id].width - storage[id].width * drawingCanvas[id].scale)/2;
-						drawingCanvas[id].yOffset = (drawingCanvas[id].height - storage[id].height * drawingCanvas[id].scale)/2;
-					}
-					clearCanvas( 0 );
-					clearCanvas( 1 );
-					if ( !playback ) {
-						slidechangeTimeout = setTimeout( startPlayback, transition, getSlideDuration(), 0 );
-					}
-					if ( mode == 1 && message.content.mode == 0) {
-						setTimeout( closeChalkboard, transition + 50 );
-					}
-					if ( mode == 0 && message.content.mode == 1) {
-						setTimeout( showChalkboard, transition + 50 );
-					}
-					mode = message.content.mode;
-					break;
-				default:
-					break;
-			}
+			// add message to queue
+			eventQueue.push(message);
 		}
+		if ( eventQueue.length == 1 ) processQueue();
 	});
+
+//console.log(JSON.stringify(message));
+	function processQueue() {
+		// take first message from queue
+		var message = eventQueue.shift();
+
+		switch ( message.content.type ) {
+			case 'showChalkboard':
+				showChalkboard();
+				break;
+			case 'closeChalkboard':
+				closeChalkboard();
+				break;
+			case 'startDrawing':
+				startDrawing(message.content.x, message.content.y, message.content.erase);
+				break;
+			case 'startErasing':
+				if ( message.content ) {
+					message.content.type = "erase";
+					message.content.begin = Date.now() - slideStart;
+					eraseWithSponge(drawingCanvas[mode].context, message.content.x, message.content.y);
+				}
+				break;
+			case 'drawSegment':
+				drawSegment(message.content.x, message.content.y, message.content.erase);
+				break;
+			case 'stopDrawing':
+				stopDrawing();
+				break;
+			case 'clear':
+				clear();
+				break;
+			case 'setcolor':
+				setColor(message.content.index);
+				break;
+			case 'resetSlide':
+				resetSlide(true);
+				break;
+			case 'init':
+				storage = message.content.storage;
+				for (var id = 0; id < 2; id++ ) {
+					drawingCanvas[id].scale = Math.min( drawingCanvas[id].width/storage[id].width, drawingCanvas[id].height/storage[id].height );
+					drawingCanvas[id].xOffset = (drawingCanvas[id].width - storage[id].width * drawingCanvas[id].scale)/2;
+					drawingCanvas[id].yOffset = (drawingCanvas[id].height - storage[id].height * drawingCanvas[id].scale)/2;
+				}
+				clearCanvas( 0 );
+				clearCanvas( 1 );
+				if ( !playback ) {
+					slidechangeTimeout = setTimeout( startPlayback, transition, getSlideDuration(), 0 );
+				}
+				if ( mode == 1 && message.content.mode == 0) {
+					setTimeout( closeChalkboard, transition + 50 );
+				}
+				if ( mode == 0 && message.content.mode == 1) {
+					setTimeout( showChalkboard, transition + 50 );
+				}
+				mode = message.content.mode;
+				break;
+			default:
+				break;
+		}
+
+		// continue with next message if queued
+		if ( eventQueue.length > 0 ) { 
+			processQueue();
+		}
+		else {
+			updateStorage();
+		}
+	}
 
 	document.addEventListener( 'newclient', function() {
 		// broadcast storage
@@ -1055,6 +1165,7 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 			if ( event.type == "erase" || event.curve.length > 1 ) {
 				// do not save a line with a single point only
 				recordEvent( event );
+				updateStorage();
 			}
 			event = null;
 		}
@@ -1312,9 +1423,11 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 				event.timestamp = 0;
 				document.dispatchEvent( event );
 			}
+			updateStorage();
 			updateReadOnlyMode();
 		}
 		else {
+console.log("Create printout when ready");
 			whenReady( createPrintout );
 		}
 	});
@@ -1336,6 +1449,7 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 				document.dispatchEvent( event );
 			}
 
+			updateStorage();
 			updateReadOnlyMode();
 		}
 	});
@@ -1416,7 +1530,8 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 						let idx = color[mode];
 						setColor(idx);
 						recordEvent( { type:"setcolor", index: idx, begin: Date.now() - slideStart } );
-					} else {
+					} else {				updateStorage();
+
 						color[mode] = 0;
 					}
 					notescanvas.style.background = background[0]; //'rgba(255,0,0,0.5)';
@@ -1432,6 +1547,7 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 			event = null;
 			if ( !readOnly ) {
 				recordEvent( { type:"close", begin: Date.now() - slideStart } );
+				updateStorage();
 			}
 			closeChalkboard();
 		}
@@ -1462,6 +1578,17 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 			document.dispatchEvent( message );
 		}
 	};
+
+	function colorIndex( idx ) {
+		if ( !readOnly ) {
+			setColor(idx);
+			recordEvent( { type: "setcolor", index: idx, begin: Date.now() - slideStart } );
+			// broadcast
+			var message = new CustomEvent('send');
+			message.content = { sender: 'chalkboard-plugin', type: 'setcolor', index: idx };
+			document.dispatchEvent( message );
+		}
+	}
 
 	function colorNext() {
 		if ( !readOnly ) {
@@ -1508,6 +1635,7 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 			slideData.duration = 0;
 			slideData.events = [];
 
+			updateStorage();
 			updateReadOnlyMode();
 			// broadcast
 			var message = new CustomEvent('send');
@@ -1532,6 +1660,9 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 					{ width: drawingCanvas[1].width, height: drawingCanvas[1].height, data: []}
 				];
 
+			if ( config.storage ) {
+				sessionStorage.setItem( config.storage, null )
+			}
 			updateReadOnlyMode();
 			// broadcast
 			var message = new CustomEvent('send');
@@ -1545,15 +1676,18 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 	this.drawWithBoardmarker = drawWithBoardmarker;
 	this.drawWithChalk = drawWithChalk;
 	this.startRecording = startRecording;
-	this.clear = clear;
 */
 	this.toggleNotesCanvas = toggleNotesCanvas;
 	this.toggleChalkboard = toggleChalkboard;
+	this.colorIndex = colorIndex;
 	this.colorNext = colorNext;
 	this.colorPrev = colorPrev;
+	this.clear = clear;
 	this.reset = resetSlide;
 	this.resetAll = resetStorage;
 	this.download = downloadData;
+	this.updateStorage = updateStorage;
+	this.getData = getData;
 	this.configure = configure;
 
 
@@ -1562,8 +1696,6 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 			Reveal.addKeyBinding( keyBindings[key], RevealChalkboard[key] );
 		}
 	};
-
-	Reveal.addKeyBinding( { keyCode: 65, key: 'A', description: 'Test' }, function() { reset(); } );
 
 	return this;
 };
