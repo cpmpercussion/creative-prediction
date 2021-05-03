@@ -73,4 +73,6 @@ exclude:
 collections:
   presentations:
     output: true
+  hack:
+    output: true
 

@@ -34,13 +34,3 @@ Here's a list of creative prediction tutorials available right now!
 - [_Exercise_: Making a RoboJam model with touchscreen data]({{site.baseurl}}/hack/robojam)
 - [_Exercise_: Set up IMPS with 3D prediction (x, y, t) with Processing and Pd]({{site.baseurl}}/hack/imps-demo)
 
-
-<!--
-
-TODO:
-
-- VAE (look at the doom VAE)
-- GAN
-- Transformer
-
--->
