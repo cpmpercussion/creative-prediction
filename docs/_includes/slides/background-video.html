@@ -1,0 +1,13 @@
+<section
+  {% if include.bgcol %}data-background-color="{{ include.bgcol }}"{% endif %}
+  {% if include.id %}id="{{ include.id }}"{% endif %}
+  data-background-video="{% if include.image contains "http" %}{{ include.image }}{% else %}{% link {{ include.image }}  %}{% endif %}"
+  data-background-size="{{ include.bgsize | default: "cover" }}"
+  data-background-video-muted="true"
+  data-background-video-loop="true"
+>
+  {% if include.heading %}
+  <h2>{{include.heading}}</h2>
+  {% endif %}
+</section>
+

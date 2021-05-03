@@ -11,7 +11,7 @@ revealified: true
 
 {% include slides/welcometocountry.html %}
 
-{% include slides/theme.html slide="code-theory" heading="Creative Machine Learning" %}
+{% include slides/theme.html slide="code-theory" heading="Creative Machine Learning with ml5.js" %}
 
 What is machine learning (ML)?
 
@@ -34,7 +34,7 @@ Algorithms that learn through experience.
 Kind of a big deal ($$$)
 
 {:.fragment}
-Kind of problematic!
+Kind of problematic (!!!)
 
 ## Let's Solve a Problem
 
@@ -53,7 +53,7 @@ Suppose the boss wants a program where the screen colour **changes to red** when
 
 ## How would you do it?
 
-Let's write a **configurable algorithm!**
+Let's write a [**configurable algorithm!**](https://editor.p5js.org/charlesmatarles/sketches/r7ZTvg7_g)
 
 ```
 if (mouseX > ??) {
@@ -63,23 +63,33 @@ if (mouseX > ??) {
 }
 ```
 
-## OK. What if we had more inputs?
-
-
-![a doggo]({% link assets/creml5js/ashleigh-robertson-yqL-06P89Hg-unsplash.jpg %}){:style="float:right;width:30%"}
-
-Can we represent pictures as numbers?
+{:.fragment}
+one **decision** (red or black background)
 
 {:.fragment}
-Yep! It's just a 2D array of colours!
+one **input** (`mouseX`)
+
+## What if we had more inputs?
+
+{:.fragment}
+Maybe we could make **more complicated** decisions?
+
+{:.fragment}
+Likely to get **more complicated** to **configure** the algorithm.
+
+ 
+{% include slides/background-image.html 
+image="assets/creml5js/ashleigh-robertson-yqL-06P89Hg-unsplash.jpg"
+heading="Pictures as Inputs"
+%}
+
+{:.fragment}
+Pictures are 2D arrays of colours! (represented as numbers)
 
 {:.fragment}
 So we had **enough** `if`s and `else`s then maybe we could make a _doggo classifier_!
 
-{:.fragment}
-sort of!
-
-{:. style="font-size:.5em;float:right;"}
+{:. style="font-size:.5em;"}
 (<span>Photo by <a href="https://unsplash.com/@a5hleighh?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ashleigh Robertson</a> on <a href="https://unsplash.com/s/photos/doggo?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>)
 
 
@@ -89,7 +99,7 @@ sort of!
 
 One trick we often use is to design a **configurable algorithm** which can:
 
-- take lots of numbers as inputs 
+- take **lots of numbers** as inputs 
 - boil this all down to **just one number** as output.
 
 {:.fragment}
@@ -114,7 +124,6 @@ By the way, another name for a perceptron is an _artificial neuron_. So the abov
 
 
 
-
 {% include slides/theme.html slide="big-picture" heading="Some terminology" id="terminology" %}
 
 **Model**: an instance of a trainable algorithm
@@ -129,13 +138,11 @@ By the way, another name for a perceptron is an _artificial neuron_. So the abov
 
 
 {% comment %}
-
 {% include slides/theme.html slide="feeling-lost" heading="Wait, where's all the maths?" id="maths" %}
 
 Want to make the learning process work faster? **Great idea** to have a maths/CS major.
 
 Want to make interesting art with the most relevant new technology of today? **Ok, you're ready to go!**
-
 {% endcomment %}
 
 
@@ -160,7 +167,7 @@ Open up a [p5 web editor sketch](https://editor.p5js.org/charlesmatarles/sketche
 
 ## Classifying Images {#images}
 
-Let's classify some doggos. We'll use a pretrained model called `MobileNet`
+[Let's classify some doggos](https://editor.p5js.org/charlesmatarles/sketches/qVr2_p4mi). We'll use a pretrained model called `MobileNet`
 
 {:. style="font-size:.85em;"}
 ```
@@ -173,7 +180,7 @@ Where does the result go? Need to define a _callback_ function `gotResult(error,
 
 ## Classifying Video {#video}
 
-We can access a webcam in our sketch:
+We can access a webcam in our [sketch](https://editor.p5js.org/charlesmatarles/sketches/kWvnx9M5c):
 {:. style="font-size:.85em;"}
 ```
 video = createCapture(VIDEO);
@@ -188,6 +195,39 @@ classifier = ml5.imageClassifier('MobileNet', video);
 classifier.classify(gotResult); // classify one frame
 ```
 
+{% include slides/background-image.html 
+image="assets/creml5js/ashleigh-robertson-yqL-06P89Hg-unsplash.jpg"
+heading="What is problematic about doggos?"
+%}
+
+{% include slides/background-image.html 
+image="assets/creml5js/alina-grubnyak-ZiQkhI7417A-unsplash.jpg"
+heading="What is MobileNet?"
+%}
+
+{%comment%}
+What is [MobileNet](https://arxiv.org/abs/1704.04861)?
+{%endcomment%}
+
+{:. style="font-size:.5em;"}
+<span>Photo by <a href="https://unsplash.com/@alinnnaaaa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alina Grubnyak</a> on <a href="https://unsplash.com/s/photos/network?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+
+{% include slides/background-video.html 
+image="assets/creml5js/imagenet-labels.mp4"
+heading=""
+%}
+
+[What was the training data?](https://image-net.org/challenges/LSVRC/2012/browse-synsets.php)
+
+{% include slides/background-image.html 
+image="assets/creml5js/ml-co2-impact.jpg"
+heading="Are there hidden costs?"
+%}
+
+{%comment%}
+What was [carbon cost](https://mlco2.github.io/impact/) of training?
+{%endcomment%}
+
 ## Artistinal Bespoke Machine Learning {#training}
 
 Let's make _our own_ custom image classifier with [Teachable Machine](https://teachablemachine.withgoogle.com/)
@@ -195,38 +235,8 @@ Let's make _our own_ custom image classifier with [Teachable Machine](https://te
 ![Teachable Charles]({% link assets/creml5js/teachablecharles.jpg %}){:style="display:block;margin-left:auto;margin-right:auto;width:60%"}
 
 
-## SketchRNN {#sketchrnn}
-
-![Sketch Cats]({% link assets/creml5js/cats.jpg %}){:style="float:right;width:30%;"}
-
-Sketch RNN is a model that generates a drawing by moving an imaginary pen around the screen.
-
-Each "prediction" is a pen movement in `x` and `y` coordinates.
-
-(This is a really fun model to try out).
 
 
-## Using SketchRNN {#sketchrnn2}
-
-{:. style="font-size:.85em;"}
-```
-model = ml5.sketchRNN('cat'); // load the model with a "class" to draw.
-```
-
-The prediction is an object with `x`, `y`, and `pen` states (the pen can move up and down to make spaces in the drawing.
-
-Here's an [example](https://editor.p5js.org/charlesmatarles/sketches/0J6q4leZj)
-
-
-## More ml5.js models
-
-There are _lots_ of models available! (check the [reference](https://learn.ml5js.org/#/reference))
-
-Many (e.g., posenet) are related to image classification and processing (images are so hot right now).
-
-There are also sound recognition models.
-
-And text generation models.
 
 {% include slides/background-image.html image="assets/creml5js/compasses-allisonparrish.png" bgcol="black" bgsize="contain" %}
 
@@ -260,18 +270,47 @@ And text generation models.
    year="2019"
 %}
 
-<section
-data-background-color="black"
-id="dancegeneration"
-data-background-video="{% link assets/creml5js/benediktewallace-dance.mp4 %}"
-data-background-size="contain"
-data-background-video-muted="true"
->
-
+{% include slides/background-video.html image="assets/creml5js/benediktewallace-dance.mp4" bgcol="black" bgsize="contain" %}
 
 {% include slides/image-credit.html
    artist="Benedikte Wallace"
    title="Dance Generation Neural Network"
    year="2020"
 %}
-</section>
+
+{% comment %}
+
+{% include slides/background-image.html 
+image="assets/creml5js/cats.jpg"
+heading="SketchRNN"
+%}
+
+Sketch RNN is a model that generates a drawing by moving an imaginary pen around the screen.
+
+Each "prediction" is a pen movement in `x` and `y` coordinates.
+
+(This is a really fun model to try out).
+
+## Using SketchRNN {#sketchrnn2}
+
+{:. style="font-size:.85em;"}
+```
+model = ml5.sketchRNN('cat'); // load the model with a "class" to draw.
+```
+
+The prediction is an object with `x`, `y`, and `pen` states (the pen can move up and down to make spaces in the drawing.
+
+Here's an [example](https://editor.p5js.org/charlesmatarles/sketches/0J6q4leZj)
+
+
+## More ml5.js models
+
+There are _lots_ of models available! (check the [reference](https://learn.ml5js.org/#/reference))
+
+Many (e.g., posenet) are related to image classification and processing (images are so hot right now).
+
+There are also sound recognition models.
+
+And text generation models.
+
+{% endcomment %}
