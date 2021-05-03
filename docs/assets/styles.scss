@@ -1,0 +1,60 @@
+---
+title: false
+styles: true
+---
+
+// Set main fonts
+$header-font: "'Lato', sans-serif";
+$body-font: "'Source Sans Pro', sans-serif";
+
+// Background colours
+$backgroundColour: #ffffff;
+$codeBackgroundColour: #fafafa;
+$featureBackgroundColour: #f9fafa;
+$accentColour: #797986;
+
+// Text colours
+$headingColour: #956937;
+$bodyColour: #2B2118;
+$linkColour: #858585;
+$hoverColour: #33312E;
+$focusColour: #EE6C4D;
+$captionColour: #a8adac;
+$white: #ECF0F1;
+
+// Typography
+$bodytype: (
+  font-family: $body-font,
+  regular: 400,
+  bold: 700,
+  italic: italic,
+  cap-height: 0.75
+);
+
+$headingtype: (
+  font-family: $header-font,
+  regular: 400,
+  bold: 700,
+  cap-height: 0.75
+);
+
+$monospacetype: (
+  font-family: "Menlo, monospace",
+  regular: 400,
+  cap-height: 0.68
+);
+
+@import "alembic";
+
+@import url('https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro&display=swap');
+
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.collapse {
+  display: none;
+&.show {
+    display: block;
+  }
+}

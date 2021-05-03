@@ -17,7 +17,7 @@ url: "https://creativeprediction.xyz" # the base hostname & protocol for your si
 twitter_username: cpmpercussion
 github_username:  cpmpercussion
 # show_downloads: true
-css_inline: true # Will insert all styles into a single <style> block in the <head> element and remove the style <link> reference
+css_inline: false # Will insert all styles into a single <style> block in the <head> element and remove the style <link> reference
 
 assets:
   sources:
@@ -41,16 +41,16 @@ plugins:
 navigation_header:
 - title: Home
   url: /
-- title: NIME
-  url: /nime/
+- title: Workshop
+  url: /workshop/
 - title: Tutorials
-  url: /tutorials/
+  url: /hack/
 - title: Presentations
   url: /presentations/
 - title: IMPS
   url: /imps/
 - title: Setup
-  url: /setup/
+  url: /hack/setup/
 
 navigation_footer:
 - title: Created by Charles Martin

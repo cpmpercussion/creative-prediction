@@ -1,14 +1,15 @@
 ---
 layout: page
 title:  Making Predictive NIMEs with Neural Networks
-permalink: /nime/
+permalink: /workshop/
 ---
 
+{% comment %}
 A workshop at [NIME 2019](https://www.ufrgs.br/nime2019/)!
 
 [Open Google Document for Comments and Ideas](https://docs.google.com/document/d/1f_KFHlFvUVa0Y11cE-C2ImfVE2AVZmmqAM3bLikSlUk/edit?usp=sharing)
 
-[Github Repository to download all examples](https://github.com/cpmpercussion/creative-prediction/)
+{% endcomment %}
 
 ![A model of a predictive interaction interface.]({{site.baseurl}}/assets/imps/predictive-interaction-motivation.png)
 
@@ -41,7 +42,7 @@ Welcome to the Creative Prediction workshop at NIME! Thanks for coming along!
 
 This workshop will introduce the basics of _deep learning generation of creative sequences_ (e.g., text, music, videos, movements, etc!). We will cover a bit of the theory behind recurrent neural networks, and mixture density networks, and show you how to construct your own with **[Python](https://python.org)** and **[Keras](https://keras.io)**.
 
-All of the **demonstration code** for the workshop is contained in [Jupyter Notebooks](https://jupyter.org), an open standard for mixing code, text, and visualisations in a document that can be opened in web browser. We will display this code on the screen for you to follow along and see how it works, but for maximum fun, you'll want to install [Jupyter, Python, and Keras on your own computer]({% link setup.md %})
+All of the **demonstration code** for the workshop is contained in [Jupyter Notebooks](https://jupyter.org), an open standard for mixing code, text, and visualisations in a document that can be opened in web browser. We will display this code on the screen for you to follow along and see how it works, but for maximum fun, you'll want to install [Jupyter, Python, and Keras on your own computer]({% link _hack/01-setup.md %})
 
 Another way to try out the Jupyter Notebooks is with [Google Colaboratory](https://colab.research.google.com), a free-to-use Jupyter notebook environment that has most of the necessary Python libraries pre-installed. It even works on a tablet! If you want to get started quickly without slowing down to get your Python install right, Colab is a great way to go.
 
@@ -58,6 +59,8 @@ There are some downsides though:
 
 The notebooks have some sections with a comment like "Use this if on Colab!" to work around some of the limitations.
 
+Feel free to [download all examples](https://github.com/cpmpercussion/creative-prediction/) (and this website) from our GitHub repository if you want :-D
+
 #### Overview of Deep Learning and Creativity {#overview-dl-creativity}
 
 [Slides]({{site.baseurl}}/presentations/intro)
@@ -65,7 +68,7 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 (30 minutes talk).
 
 - sequence learning with RNNs and Long Short-Term Memory (LSTM) in Keras and Python
-- [_Exercise_: Set up Python, Keras, and Jupyter on your computer]({{site.baseurl}}/setup)
+- [_Exercise_: Set up Python, Keras, and Jupyter on your computer]({% link _hack/01-setup.md %})
 - [_Exercise_: Try out a Google Colab Notebook]({% include colab.html notebook="0-test-setup.ipynb" %})
 
 #### Generating Text and Music with RNNs {#generating-sequences}
@@ -110,9 +113,9 @@ The notebooks have some sections with a comment like "Use this if on Colab!" to 
 
 ![The IMPS system in use]({{ site.baseurl }}/assets/IMPS_connection_example.png)
 
-[Slides]({{site.baseurl}}/presentations/imps)
+[Slides]({{ site.baseurl }}/presentations/imps/)
 
-[IMPS information]({{site.baseurl}}/imps)
+[IMPS information]({% link imps.md %})
 
 (30m talk, 90m hack).
 

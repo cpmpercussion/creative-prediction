@@ -5,40 +5,55 @@ permalink: /presentations/creml5js/
 theme: anu
 center: true
 revealified: true
-width: 1280
-height: 800
-margin: 0.04
 ---
 
 {% include slides/title.html %}
 
-{% include slides/theme.html slide="code-theory" heading="creative machine learning" %}
+{% include slides/welcometocountry.html %}
 
-What is machine learning?
+{% include slides/theme.html slide="code-theory" heading="Creative Machine Learning" %}
+
+What is machine learning (ML)?
 
 How can I use ML in p5?
 
 How can we make art with this?
 
-## Machine Learning
-
-What is ML anyway?
+## What is Machine Learning Anyway?
 
 {:.fragment}
 Creating computer programs without explicitly programming them.
 
 {:.fragment}
-Algorithms that improve through experience.
+Algorithms that learn by example.
 
 {:.fragment}
-kindof a big deal ($$$)
+Algorithms that learn through experience.
 
 {:.fragment}
-kindof problematic!
+Kind of a big deal ($$$)
 
-## Simple Example
+{:.fragment}
+Kind of problematic!
 
-Suppose the boss says **"Write me a program to change the screen (400 pixels wide) to red if the mouse is in the right hand side."**
+## Let's Solve a Problem
+
+Suppose the boss wants a program where the screen colour **changes to red** when the mouse moves to certain locations.
+
+| mouseX | red background |
+|--------|-----|
+| 15     | no  |
+| 75     | no  |
+| 173    | no  |
+| 250    | yes |
+| 312    | yes |
+| 375    | yes |
+
+(N.B.: the screen is 400 pixels wide)
+
+## How would you do it?
+
+Let's write a **configurable algorithm!**
 
 ```
 if (mouseX > ??) {
@@ -47,20 +62,6 @@ if (mouseX > ??) {
     background(0,0,0);
 }
 ```
-
-## Machine learning way...
-
-Suppose the boss says, **"Write me a program so that the following is true:"**
-
-| mouseX | red background |
-|--------|-----|
-| 250    | yes |
-| 15     | no  |
-| 375    | yes |
-| 312    | yes |
-| 75     | no  |
-| 173    | no  |
-
 
 ## OK. What if we had more inputs?
 
