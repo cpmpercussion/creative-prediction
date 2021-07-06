@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="generator" content="jekyll">
+    <title>Creative Prediction Projects</title>
+
+
+    <!-- <link rel="stylesheet" href="/assets/vendor/reveal.js/dist/reset.css"> -->
+    <link rel="stylesheet" href="/assets/vendor/reveal.js/dist/reveal.css">
+
+    
+    <link rel="stylesheet" type="text/css" href="/assets/revealthemes/anu.css">
+        
+    <!-- <link rel="stylesheet" type="text/css" href="/assets/revealthemes/anu.css"> -->
+    <!-- <link rel="stylesheet" href="/assets/vendor/reveal.js/dist/theme/white.css"> -->
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="/assets/vendor/highlight.js/styles/atelier-estuary-light.css">
+    
+    <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width:50%;}
+      .twocolumn {display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px;}
+    </style>
+    <style type="text/css">
+      .talk-box h2 {
+ 				background-color: #1abc9c;
+				color: #ffffff;
+				padding-left: 1em;
+				border: none;			
+		  }
+      .info-box h2 {
+ 				background-color: #3498db;
+				color: #ffffff;
+				padding-left: 1em;
+				border: none;			
+		  }
+    </style>
+  </head>
+  
+  <body>
+    <!-- actual content -->
+
+    <!-- revealified -->
+    
+    <div class="reveal"><div class="slides">
+
+
+
+
+
+
+
+
+
+<!-- style="float:right;" -->
+
+
+
+
+
+
+<section class="title-slide center">
+  <header>
+    <h1>Creative Prediction with Neural Networks</h1>
+    <p>A course in ML/AI for creative expression</p>
+  </header>
+
+<h2>Creative Prediction Projects</h2>
+
+<p>Charles Martin - The Australian National University</p>
+
+
+
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+	<img src="/assets/resources/by-nc-sa.svg" style="height:1.5rem; margin-left:0;">
+</a>
+
+</section><section data-markdown="">
+<textarea data-template="">
+## Supervisors
+
+![](/assets/people/charlesmartin.jpg) <!-- .element: width="30%"-->
+![](/assets/people/benediktewallace.jpg) <!-- .element: width="30%"-->
+
+**Charles Martin**. Lecturer in Computer Science, Australian
+National University. charles.martin@anu.edu.au
+
+**Benedikte Wallace**. PhD Researcher, University of Oslo.
+benediwa@ifi.uio.no
+</textarea>
+</section><section data-markdown="">
+<textarea data-template="">
+## Creative Predictions
+
+![](/assets/creative-prediction-image.png) <!-- .element: width="100%"-->
+
+</textarea>
+</section><section data-markdown="">
+<textarea data-template="">
+## Learning to Predict Sequences
+
+![](/assets/sequence-learning.png) <!-- .element: width="100%"-->
+
+</textarea>
+</section><section data-markdown="">
+<textarea data-template="">
+
+## Melody to Harmony in MicroJam
+
+![](/assets/robojam-interaction.png) <!-- .element: width="50%" -->
+
+1. Gain an overview of DL for music generation.
+2. Develop a melody to harmony sequence to sequence model
+3. Train the model on matched melody/harmony sequences 
+4. Use MicroJam-sourced data as input and see if the generated harmonies make sense!
+
+</textarea>
+</section><section data-markdown="">
+<textarea data-template="">
+
+## Seq-to-Seq Music Generation
+
+![](https://magenta.tensorflow.org/assets/music_transformer/motifs_shaded_boxes.png) <!-- .element: width="75%" -->
+
+1. Understand the Transformer architecture.
+2. Implement your own Transformer (e.g., in Keras).
+3. Find a musical dataset that could be trained.
+4. Train your model, listen to the results and find a way to evaluate them.
+
+</textarea>
+</section><section data-markdown="">
+<textarea data-template="">
+
+## Generating colour palettes from audio data
+
+![](/assets/nainoa-shizuru-NcdG9mK3PBY-unsplash.jpg) <!-- .element: width="50%" -->
+
+1. Gain an overview of DL for audio processing.
+2. Obtain a dataset of audio and video (or colour) data.
+3. Try different neural network designs and evaluate the results. (Even a simple fully-connected ANN might work well!)
+
+</textarea>
+</section><section data-markdown="">
+<textarea data-template="">
+
+## Motion-to-Motion Generators
+
+![](/assets/motion-to-motion.png) <!-- .element: width="80%" -->
+
+1. Gain an overview of the main DL methods used for motion generation including RNNs, MDRNNs, and world models.
+2. Find a dataset of motion capture or other movement data (or capture one yourself!)
+3. Train the ANN and evaluate its generative abilities.
+
+</textarea>
+</section>
+</div></div>
+    
+
+    <!-- load scripts and plugins -->
+    <script src="/assets/vendor/reveal.js/dist/reveal.js"></script>
+    <script src="/assets/vendor/reveal.js/plugin/notes/notes.js"></script>
+		<script src="/assets/vendor/reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="/assets/vendor/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="/assets/vendor/reveal.js/plugin/chalkboard/chalkboard.js"></script>
+    <script src="/assets/vendor/reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      Reveal.initialize({
+          center: true,
+          controls: true,
+          transition: 'fade',
+          width: '100%',
+          height: '100%',
+          margin: 0.0,
+          history: true,
+          slideNumber: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+          plugins: [  RevealMarkdown, RevealHighlight, RevealNotes, RevealChalkboard, RevealMath ]
+      });
+    </script>
+  </body>
+</html>
