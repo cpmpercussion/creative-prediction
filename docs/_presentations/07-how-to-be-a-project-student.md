@@ -20,7 +20,7 @@ It's a loose network of academics, HDR students, and Master/Undergrad project st
 - Sometimes we have a formal project (e.g., Charles is my supervisor).
 - Sometimes we have a collaboration (e.g., I'm working on a paper with Yichen and Charles).
 - Sometimes it's part of a job (e.g., I'm a research assistant working for Henry).
-- Sometimes we just participate (e.g., I'm going to go to Santiago's seminar today to hear about generative soundscapes).
+- Sometimes we just participate (e.g., I'm going to go to Ben's seminar today to hear about live coding).
 
 ## What is this lecture about?
 
@@ -115,4 +115,76 @@ A group meeting for delivering information with relevance to multiple people. Th
 - Seminar: _just_ for 1-to-N information delivery (like this)
 
 ## The shape of a project
+
+**Getting started**
+
+- Defining research topic and objectives
+- Background reading
+- Finding your "unsolved problem"
+- Discovering code frameworks and starting points.
+
+**The Work**
+
+- Coding up a system
+- Iterating on a design
+- Running experiments
+
+**The Write-up**
+
+- Expressing your process
+- Analysing and discussing results
+- Making images and plots
+- Coming up with your _findings_ and _contributions_
+- Writing documentation and packaging code
+
+
+{% include slides/theme.html slide="code-theory" heading="Important Note!" %}
+
+Your grade is based on a combination of your **written report**, **artefact**, and **presentations**.
+
+Examiners look for your ability to:
+
+understand and synthesise existing research
+
+create an artefact, or code project skillfully, and explain it
+
+perform experiments or critically engage with your research problem.
+
+Your grade is **not** based on your results (really!) (see [Honours marking guidelines](http://users.cecs.anu.edu.au/~jks/Hons_May_17/Thesis_marking_guide.html))
+
+If you get "good" results (yay!) but don't discuss them in detail, or critically engage in _why_ they are good, you won't do well. (and the converse)
+
+## Project Planning
+
+### A bad project plan
+
+- **Getting started**: Weeks 1-9
+- **The Work**: Weeks 10-11
+- **The Write-up**: Week 12
+
+### A better project plan
+
+- **Getting started**: Weeks 1-6
+- **The Work**: Weeks 3-10
+- **The Write-up**: Week 6 and Weeks 9-12
+
+# To help, here's some deadlines:
+
+## 1-Semester Project
+
+- End of week 6: Draft of report _Introduction_ and _Background_ sections (and draft code repository)
+- End of week 8: Draft of report _System Design_ section (and draft code repository)
+- Start of week 11: Draft full report
+
+## 2-Semester Project.
+
+- S1: End of week 6: Draft of report _Introduction_
+- S1: End of week 8: Draft of report _Background_ section
+- S1: End of week 11: Draft code repository and/or report _System Design_ sections
+- S2: End of week 6: Draft of _Experimental Methodology_ and _Results_ sections
+- S2: End of week 8: Full report, draft 1
+- S2: End of week 11: Full report, draft 2
+
+# Research Planning
+
 
