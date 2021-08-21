@@ -2,7 +2,7 @@
 layout: reveal
 title: How to be a Project Student in the Intelligent Music Lab
 permalink: /presentations/intro/
-theme: anu
+theme: assets/revealthemes/crepre.scss
 center: true
 revealified: true
 ---

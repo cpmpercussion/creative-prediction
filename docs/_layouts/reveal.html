@@ -1,3 +1,17 @@
+{% assign theme = "assets/vendor/reveal.js/dist/theme/white.css" %}
+
+{% if site.revealify.theme %}
+  {% assign theme = site.revealify.theme %}
+{% endif %}
+
+{% if layout.theme %}
+  {% assign theme = layout.theme %}
+{% endif %}
+
+{% if page.theme %}
+  {% assign theme = page.theme %}
+{% endif %}
+
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -6,20 +20,10 @@
     <meta name="generator" content="jekyll">
     <title>{{ page.title | escape }}</title>
 
-
-    <!-- <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/reset.css %}"> -->
+    <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/reset.css %}">
     <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/reveal.css %}">
-
-    {% if page.theme == "white" %}
-    <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/theme/white.css %}">
-    {% else if page.theme == "anu" %}
-    <link rel="stylesheet" type="text/css" href="{% link assets/revealthemes/anu.scss %}">
-    {% else %}
-    <link rel="stylesheet" type="text/css" href="{% link assets/revealthemes/anu.scss %}">
-    {% endif %}    
-    <!-- <link rel="stylesheet" type="text/css" href="{% link assets/revealthemes/anu.scss %}"> -->
-    <!-- <link rel="stylesheet" href="{% link assets/vendor/reveal.js/dist/theme/white.css %}"> -->
-
+    <link rel="stylesheet" type="text/css" href="{% link {{ theme }} %}">
+    
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="{% link assets/vendor/highlight.js/styles/atelier-estuary-light.css %}">
     
@@ -76,7 +80,7 @@
           transition: 'fade',
           width: {% if page.width %}{{ page.width }}{% else %}'100%'{% endif %},
           height: {% if page.height %}{{ page.height }}{% else %}'100%'{% endif %},
-          margin: {% if page.margin %}{{ page.margin }}{% else %}0.0{% endif %},
+          margin: {% if page.margin %}{{ page.margin }}{% else %}0.1{% endif %},
           history: true,
           slideNumber: true,
         math: {

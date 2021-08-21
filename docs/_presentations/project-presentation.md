@@ -2,6 +2,7 @@
 layout: reveal
 title: Creative Prediction Projects
 permalink: /presentations/creprepro/
+theme: assets/revealthemes/crepre.scss
 ---
 
 {% include slides/title.html %}

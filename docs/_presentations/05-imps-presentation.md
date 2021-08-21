@@ -2,7 +2,7 @@
 layout: reveal
 title: An Interactive Musical Prediction System with MDRNNs
 permalink: /presentations/imps/
-theme: white
+theme:  assets/vendor/reveal.js/dist/theme/white.css
 center: true
 margin: 0.04
 ---
