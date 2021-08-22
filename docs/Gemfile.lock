@@ -1,3 +1,12 @@
+GIT
+  remote: https://gitlab.cecs.anu.edu.au/lucy/jekyll-revealify-plugin.git
+  revision: 97a900a3911f512b62b4460077ec180f51da3ce1
+  branch: master
+  specs:
+    jekyll-revealify-plugin (2.1.0)
+      jekyll
+      nokogiri
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -115,6 +124,7 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-redirect-from
   jekyll-remote-theme
+  jekyll-revealify-plugin!
   jekyll-seo-tag
   jekyll-sitemap
   jemoji

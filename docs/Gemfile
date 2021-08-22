@@ -33,7 +33,7 @@ group :jekyll_plugins do
   # gem 'jekyll-scholar'
   # Theme
   # gem "alembic-jekyll-theme", "~> 3.2.0", git: "https://github.com/cpmpercussion/alembic"
-  # gem "jekyll-revealify-plugin", :git => "https://gitlab.cecs.anu.edu.au/lucy/jekyll-revealify-plugin.git", :branch => 'master'
+  gem "jekyll-revealify-plugin", :git => "https://gitlab.cecs.anu.edu.au/lucy/jekyll-revealify-plugin.git", :branch => 'master'
 end
 
 
