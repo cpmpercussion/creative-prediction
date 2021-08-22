@@ -5,12 +5,13 @@ center: true
 width: 1280
 height: 800
 margin: 0.04
+theme: assets/revealthemes/crepre.scss
 ---
 
-<section data-markdown id="title">
-<textarea data-template>
+{% include slides/title.html %}
 
-# Creating Intelligent Instruments with Machine Learning
+{% comment %}
+## Creating Intelligent Instruments with Machine Learning
 
 Charles P Martin
 
@@ -20,19 +21,15 @@ web: [charlesmartin.com.au](https://charlesmartin.com.au)   twitter/github: @cpm
 
 ![]({% link assets/predictive-models-in-interactive-music/anu-logo.png
 %}) <!-- .element: width="20%" -->
+{% endcomment %}
 
-<!-- TODO: QR code or some logo or something -->
-
-<aside class="notes">
-  Welcome
-</aside>
-</textarea>
-</section>
 
 {% include slides/background-image.html
 image="/assets/canberra1.jpg"
 heading="Ngunnawal & Ngambri & Ngarigu Country"
 %}
+
+
 
 <section id="vision"
          data-background-image="{% link
@@ -68,23 +65,10 @@ heading="Ngunnawal & Ngambri & Ngarigu Country"
   <h2>making intelligent musical predictions</h2>
 </section>
 
-<section data-markdown id="sequences">
-<textarea data-template>
-## predicting sequences
 
-![]({% link
-         assets/predictive-models-in-interactive-music/sequence-learning.png
-         %})
-
-<aside class="notes">
-  So this is sequence learning where we train a model to predict the
-  next element of a sequence.
-  RNNs have long history.
-  Can now generate new data.
-</aside>
-</textarea>
-</section>
-
+{% include slides/background-image.html
+image="assets/predictive-models-in-interactive-music/sequence-learning.png"
+bgsize="contain" heading="predicting sequences" %}
 
 <section data-markdown id="interaction">
 <textarea data-template>

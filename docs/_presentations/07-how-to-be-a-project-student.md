@@ -1,7 +1,7 @@
 ---
 layout: reveal
 title: How to be a Project Student in the Intelligent Music Lab
-permalink: /presentations/intro/
+permalink: /presentations/how-to-be-project-student/
 theme: assets/revealthemes/crepre.scss
 center: true
 revealified: true
@@ -116,20 +116,28 @@ A group meeting for delivering information with relevance to multiple people. Th
 
 ## The shape of a project
 
-**Getting started**
+1. **Getting started**
+
+2. **The Work**
+
+3. **The Write-up**
+
+Let's go through these in detail...
+
+## Getting started
 
 - Defining research topic and objectives
 - Background reading
 - Finding your "unsolved problem"
 - Discovering code frameworks and starting points.
 
-**The Work**
+## The Work
 
 - Coding up a system
 - Iterating on a design
 - Running experiments
 
-**The Write-up**
+## The Write-up
 
 - Expressing your process
 - Analysing and discussing results
@@ -185,6 +193,13 @@ If you get "good" results (yay!) but don't discuss them in detail, or critically
 - S2: End of week 8: Full report, draft 1
 - S2: End of week 11: Full report, draft 2
 
-# Research Planning
+## Conclusions
 
+- communication and critical analysis of your project is most important aspect in grading
+
+- expect the "work" to take a long time, need to prioritise getting this started early in project
+
+- start write up as soon as your start your project
+
+- meetings are **precious** --- most issues can be handled in team meetings. individual meetings only for critical issues / inflection points in project.
 

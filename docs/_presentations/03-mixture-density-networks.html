@@ -172,8 +172,7 @@ theme: assets/revealthemes/crepre.scss
 </ul>
 </section>
 
-<section data-markdown>
-<textarea data-template>
+<section>
   <h2 id="feedforward-mse-network">Feedforward MSE Network</h2>
   <p>Simple two-hidden-layer network (286 parameters):</p>
   <pre class="sourceCode numberSource python numberLines"><code class="sourceCode python">
@@ -184,15 +183,12 @@ model.add(Dense(1, activation='linear'))
 model.compile(loss='mse', optimizer='rmsprop')
 model.fit(x=x_data, y=y_data, batch_size=128, epochs=200, validation_split=0.15)
   </code></pre>
-</textarea>
 </section>
 
-<section data-markdown>
-<textarea data-template>
+<section>
   <h2 id="feedforward-mse-network-results">Feedforward MSE Network (Result)</h2>
   <p>Simple two-hidden-layer network (286 parameters):</p>
 <p style="text-align:center;"><img data-src="{{site.baseurl}}/assets/mdn/arcsine-feedforward-mse-prediction.png" style="width:30.0%" /><img data-src="{{site.baseurl}}/assets/mdn/feedforward-mse-prediction-loss-plot.png" style="width:40.0%" /></p>
-</textarea>
 </section>
 
 <section id="mdn-architecture" class="slide level2">

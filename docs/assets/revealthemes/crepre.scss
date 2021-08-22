@@ -314,3 +314,9 @@ $extensionColour: #9b59b6;
         height: 0.4rem;
     }
 }
+
+// Columns
+.columns {
+  display: grid;
+  grid-auto-flow: column;
+}
