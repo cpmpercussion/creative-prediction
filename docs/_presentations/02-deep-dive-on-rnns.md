@@ -14,76 +14,75 @@ image="/assets/canberra1.jpg"
 heading="Ngunnawal & Ngambri & Ngarigu Country"
 %}
 
-<section>
-<h2>What is an Artificial Neuron?</h2>
-<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/1-artificial-neurone.png" style="width:80%;  display: block; margin-left: auto; margin-right: auto;" />
-<p><a href="https://en.wikipedia.org/wiki/File:Blausen_0657_MultipolarNeuron.png">Source - Wikimedia Commons</a></p>
-</section>
+## What is an Artificial Neuron? {#artificial-neuron}
 
-<section id="feed-forward-network">
-<h2>Feed-Forward Network</h2>
+{:.style="width:80%;  display: block; margin-left: auto; margin-right: auto;"}
+![]({% link assets/deep-dive-on-rnns/1-artificial-neurone.png %})
+
+[Source - Wikimedia Commons](https://en.wikipedia.org/wiki/File:Blausen_0657_MultipolarNeuron.png)
+
+## Feed-Forward Network {#feed-forward}
+
 <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/2-feed-forward.png" style="width:60%;  display: block; margin-left: auto; margin-right: auto;" />
 <p>For each unit: <span class="math inline">\(y = \text{tanh}\big(Wx + b \big)\)</span></p>
-</section>
 
-<section id="recurrent-network" class="slide level2">
-<h2>Recurrent Network</h2>
+## Recurrent Network {#recurrent-network}
+
 <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/3-recurrent.png" style="width:60%;  display: block; margin-left: auto; margin-right: auto;" />
 <p>For each unit: <span class="math inline">\(y_t = \text{tanh}\big(Ux_t + Vh_{t-1} + b \big)\)</span></p>
-</section>
 
-<section id="sequence-learning-tasks">
-  <h2>Sequence Learning Tasks</h2>
-  <p style="text-align:center;"><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/sequence-learning.png" style="width:45%" />
-    <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/sequence-learning3.jpg" style="width:50%"/></p>
-  <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/sequence-learning2.png" style="width:80%; display: block; margin-left: auto; margin-right: auto;"/></p>
-</section>
 
-<section id="recurrent-network-1">
-<h2>Recurrent Network</h2>
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/4-unfolding.png" style="width:75.0%; display: block; margin-left: auto; margin-right: auto;" /></p>
-<p>simplifying…</p>
-</section>
+## Sequence Learning Tasks {#sequence-learning}
 
-<section id="recurrent-network-2" class="slide level2">
-<h2>Recurrent Network</h2>
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/5-recurrent-vert.png" style="width:25.0%; display: block; margin-left: auto; margin-right: auto;" /></p>
-<p>simplifying and rotating…</p>
-</section>
+<p style="text-align:center;"><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/sequence-learning.png" style="width:45%" />
+<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/sequence-learning3.jpg" style="width:50%"/></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/sequence-learning2.png" style="width:80%; display: block; margin-left: auto; margin-right: auto;"/></p>
 
-<section id="state-in-recurrent-networks">
-  <h2>“State” in Recurrent Networks</h2>
-  <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/5-recurrent-vert.png" style="width:25%; float:right;" />
 
-  <p>Recurrent Networks are all about storing a “state” in between computations...</p>
-  <p class="fragment">A "lossy summary of... past sequences"</p>
-  <p class="fragment"><em>h</em> is the “hidden state” of our RNN</p>
-  <p class="fragment">What influences <em>h</em>?</p>
-</section>
+## Recurrent Network {#recurrent-network-1}
 
-<section>
-<h2 id="defining-the-rnn-state">Defining the RNN State</h2>
+<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/4-unfolding.png" style="width:75.0%; display: block; margin-left: auto; margin-right: auto;" />
+
+simplifying…
+
+## Recurrent Network {#recurrent-network-2}
+
+<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/5-recurrent-vert.png" style="width:25.0%; display: block; margin-left: auto; margin-right: auto;" />
+
+simplifying and rotating…
+
+
+## “State” in Recurrent Networks {#state-in-recurrent-networks}
 
 <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/5-recurrent-vert.png" style="width:25%; float:right;" />
 
-<p>We can define a simplified RNN represented by this diagram as follows:</p>
-<p><span class="math display">\[h_t = \text{tanh}\big(Ux_t + Vh_{t-1} + b \big)\]</span></p>
-<p><span class="math display">\[\hat{y}_t = \text{softmax}(c + Wh_t)\]</span></p>
-</section>
+- Recurrent Networks are all about storing a “state” in between computations...
+- A "lossy summary of... past sequences"
+- _h_ is the “hidden state” of our RNN
+- What influences _h_?
 
-<section id="unfolding-an-rnn-in-time">
-<h2>Unfolding an RNN in Time</h2>
+## Defining the RNN State {#defining-the-rnn-state}
+
+<img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/5-recurrent-vert.png" style="width:25%; float:right;" />
+
+We can define a simplified RNN represented by this diagram as follows:
+
+\\[h_t = \text{tanh}\big(Ux_t + Vh_{t-1} + b \big)\\]
+
+\\[\hat{y}_t = \text{softmax}(c + Wh_t)\\]
+
+
+## Unfolding an RNN in Time {#unfolding-an-rnn-in-time}
+
 <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/6-recurrent-unroll.png" alt="Unfolding an RNN in Time" style="width:80.0%; display: block;
     margin-left: auto; margin-right: auto;"/>
 
-<ul>
-<li class="fragment">By unfolding the RNN we can compute <span class="math inline">\(\hat{y}\)</span> for a given length of sequence.</li>
-<li class="fragment">Note that the weight matrices <span class="math inline">\(U\)</span>, <span class="math inline">\(V\)</span>, <span class="math inline">\(W\)</span> are the same for each timestep; this is the big advantage of RNNs!</li>
-</ul>
-</section>
+- By unfolding the RNN we can compute \\(\hat{y}\\) for a given length of sequence.
+- Note that the weight matrices \\(U\\), \\(V\\), \\(W\\) are the same for each timestep; this is the big advantage of RNNs!
 
-<section id="forward-propagation">
-<h2>Forward Propagation</h2>
+
+## Forward Propagation {#forward-propagation}
+
 <div class="columns">
 <div class="column">
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/forward-prop.png" /></p>
@@ -93,17 +92,18 @@ heading="Ngunnawal & Ngambri & Ngarigu Country"
 <p><span class="math display">\[\hat{y}_t = \text{softmax}(c + Wh_t)\]</span></p>
 </div>
 </div>
-</section>
 
-<section id="y-hat-is-softmaxd">
-<h2>Y-hat is Softmax’d</h2>
+## Y-hat is Softmax’d {#y-hat-is-softmaxd}
+
 <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/softmax-is-probability.png" style="width:60%; display: block; margin-left: auto; margin-right: auto;" />
-<p style="text-align:center;"><span class="math inline">\(\hat{y}\)</span> is a probability distribution!</p>
-<p><span class="math display">\[\sigma(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}} \text{ for } j = 1,\ldots, K\]</span></p>
-</section>
 
-<section id="calculating-loss-categorical-cross-entropy">
-<h2>Calculating Loss: Categorical Cross Entropy</h2>
+<p style="text-align:center;"><span class="math inline">\(\hat{y}\)</span> is a probability distribution!</p>
+
+<p><span class="math display">\[\sigma(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}} \text{ for } j = 1,\ldots, K\]</span></p>
+
+
+## Calculating Loss: Categorical Cross Entropy {#calculating-loss-categorical-cross-entropy}
+
 <div class="columns">
 <div class="column">
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/calculating-loss.png" /></p>
@@ -117,10 +117,10 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 \end{align*}\]</span></p>
 </div>
 </div>
-</section>
 
-<section id="backpropagation-through-time-bptt">
-<h2>Backpropagation Through Time (BPTT)</h2>
+
+## Backpropagation Through Time (BPTT) {#backpropagation-through-time-bptt}
+
 <div class="columns">
 <div class="column">
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/7-recurrent-loss.png" style="width:85%; display: block; margin-left: auto; margin-right: auto;" /></p>
@@ -128,19 +128,19 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <p>Propagates error correction backwards through the network graph, adjusting all parameters (<em>U</em>, <em>V</em>, <em>W</em>) to minimise loss.</p>
 </div>
 </div>
-</section>
 
-<section id="example-character-level-text-model">
-<h2>Example: Character-level text model</h2>
+
+## Example: Character-level text model {#example-character-level-text-model}
+
 <ul>
 <li class="fragment"><strong>Training data:</strong> a collection of text.</li>
 <li class="fragment"><strong>Input (<em>X</em>):</strong> snippets of 30 characters from the collection.</li>
 <li class="fragment"><strong>Target output (<em>y</em>)</strong>: 1 character, the next one after the 30 in each <em>X</em>.</li>
 </ul>
-</section>
 
-<section id="training-the-character-level-model" class="slide level2">
-<h2>Training the Character-level Model</h2>
+
+## Training the Character-level Model {#training-the-character-level-model}
+
 <div class="columns">
 <div class="column">
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/charRNN-training.png" /></p>
@@ -152,10 +152,10 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </ul>
 </div>
 </div>
-</section>
 
-<section id="using-the-trained-model-to-generate-text" class="slide level2">
-<h2>Using the trained model to generate text</h2>
+
+## Using the trained model to generate text {#using-the-trained-model-to-generate-text}
+
 <div class="columns">
 <div class="column">
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/charRNN-sampling.png" /></p>
@@ -167,10 +167,10 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </ul>
 </div>
 </div>
-</section>
 
-<section id="char-rnn" class="slide level2">
-<h2>Char-RNN</h2>
+
+## Char-RNN {#char-rnn}
+
 <div class="columns">
 <div class="column">
 <ul>
@@ -185,10 +185,10 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <p>See: <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Karpathy, A. (2015). The unreasonable effectiveness of recurrent neural networks.</a></p>
 </div>
 </div>
-</section>
 
-<section id="char-rnn-examples" class="slide level2">
-<h2>Char-RNN Examples</h2>
+
+## Char-RNN Examples {#char-rnn-examples}
+
 <div class="columns">
 <div class="column">
 <p>Shakespeare (Karpathy, 2015):</p>
@@ -202,14 +202,13 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 <p>N.B. “<em>Proof.</em> Omitted.” Lol.</p>
 </div>
 </div>
-</section>
 
-<section id="rnn-architectures-and-lstm" class="slide level2">
-<h1>RNN Architectures and LSTM</h1>
-</section>
 
-<section id="bidirectional-rnns" class="slide level2">
-<h2>Bidirectional RNNs</h2>
+# RNN Architectures and LSTM {#rnn-architectures-and-lstm}
+
+
+## Bidirectional RNNs {#bidirectional-rnns}
+
 <div class="columns">
 <div class="column">
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/blstm.png" style="width:75%; display: block; margin-left: auto; margin-right: auto;" /></p>
@@ -221,18 +220,18 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </ul>
 </div>
 </div>
-</section>
 
-<section id="encoder-decoder-seq-to-seq" class="slide level2">
-<h2>Encoder-Decoder (seq-to-seq)</h2>
+
+## Encoder-Decoder (seq-to-seq) {#encoder-decoder-seq-to-seq}
+
 <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/seq2seq.png" style="width:70%;float:right;"/>
 <p style="text-align:left;" class="fragment">Learns to generate output sequence (<strong>y</strong>) from an input sequence (<strong>x</strong>).</p>
 <p style="text-align:left;" class="fragment">Final hidden state of encoder is used to compute a context variable <em>C</em>.</p>
 <p style="text-align:left;" class="fragment">For example, translation.</p>
-</section>
 
-<section id="deep-rnns" class="slide level2">
-<h2>Deep RNNs</h2>
+
+## Deep RNNs {#deep-rnns}
+
 <div class="columns">
 <div class="column">
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/rnn-deep.png" style="width:25.0%; display: block; margin-left: auto; margin-right: auto;" /></p>
@@ -246,10 +245,10 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </ul>
 </div>
 </div>
-</section>
 
-<section id="long-term-dependencies" class="slide level2">
-<h2>Long-Term Dependencies</h2>
+
+## Long-Term Dependencies {#long-term-dependencies}
+
 <div class="columns">
 <div class="column">
 <ul>
@@ -272,10 +271,10 @@ h_t &amp;= Q\Lambda ^t Qh_0
 \end{align*}\]</span></p>
 </div>
 </div>
-</section>
 
-<section id="vanishing-and-exploding-gradients" class="slide level2">
-<h2>Vanishing and Exploding Gradients</h2>
+
+## Vanishing and Exploding Gradients {#vanishing-and-exploding-gradients}
+
 <div class="columns">
 <div class="column">
 <ul>
@@ -291,10 +290,10 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </ul>
 </div>
 </div>
-</section>
 
-<section id="gated-rnns" class="slide level2">
-<h2>Gated RNNs</h2>
+
+## Gated RNNs {#gated-rnns}
+
 <div class="columns">
 <div class="column">
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/gated-rnn.png" style="width:80%; display: block; margin-left: auto; margin-right: auto;"/></p>
@@ -308,10 +307,10 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </ul>
 </div>
 </div>
-</section>
 
-<section id="long-short-term-memory" class="slide level2">
-<h2>Long Short-Term Memory</h2>
+
+## Long Short-Term Memory {#long-short-term-memory}
+
 <div class="columns">
 <div class="column">
 <ul>
@@ -329,11 +328,11 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/lstm.png" style="width:60%; display: block; margin-left: auto; margin-right: auto;" /></p>
 </div>
 </div>
-</section>
+
 
 {% comment %}
-<section id="long-short-term-memory-1" class="slide level2">
-<h2>Long Short-Term Memory</h2>
+## Long Short-Term Memory {#long-short-term-memory-1}
+
 <div class="columns">
 <div class="column">
 <ul>
@@ -347,11 +346,11 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/lstm.png" style="width:60%; display: block; margin-left: auto; margin-right: auto;" /></p>
 </div>
 </div>
-</section>
 {% endcomment %}
 
-<section id="other-gating-units" class="slide level2">
-<h2>Other Gating Units</h2>
+
+## Other Gating Units {#other-gating-units}
+
 <div class="columns">
 <div class="column">
   <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/gru.png" style="width:100.0%" />
@@ -365,24 +364,24 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </ul>
 </div>
 </div>
-</section>
 
-<section id="visualising-lstm-activations" class="slide level2">
-<h2>Visualising LSTM activations</h2>
+
+## Visualising LSTM activations {#visualising-lstm-activations}
+
 <p>Sometimes, the LSTM cell state corresponds with features of the sequential data:</p>
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/lstm-state-visualisation.png" style="width:70.0%" /></p>
 <p>Source: <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">(Karpathy, 2015)</a></p>
-</section>
 
-<section id="charrnn-applications-folkrnn" class="slide level2">
-<h2>CharRNN Applications: FolkRNN</h2>
+
+## CharRNN Applications: FolkRNN {#charrnn-applications-folkrnn}
+
 <p>Some kinds of music can be represented in a text-like manner.</p>
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/folk-rnn.png" style="width:70.0%" /></p>
 <p>Source: <a href="https://core.ac.uk/download/pdf/55873381.pdf">Sturm et al. 2015. Folk Music Style Modelling by Recurrent Neural Networks with Long Short Term Memory Units</a></p>
-</section>
 
-<section id="other-charrnn-applications" class="slide level2">
-<h2>Other CharRNN Applications</h2>
+
+## Other CharRNN Applications {#other-charrnn-applications}
+
 <div class="columns">
   <div class="column">
     <img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/rnn-monet.png" style="width:85.0%; display: block; margin-left: auto; margin-right: auto;"/>
@@ -392,10 +391,10 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <p> <a href="http://aiweirdness.com/post/160776374467/new-paint-colors-invented-by-neural-network">New Paint Colours Invented by Neural Network</a></p>
 </div>
 </div>
-</section>
 
-<section id="google-magenta-performance-rnn" class="slide level2">
-<h2>Google Magenta Performance RNN</h2>
+
+## Google Magenta Performance RNN {#google-magenta-performance-rnn}
+
 <div class="columns">
 <div class="column">
 <p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/performance-rnn.jpg" style="width:50%; display: block; margin-left: auto; margin-right: auto;"/></p>
@@ -409,10 +408,10 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <li>Now supports polyphony (multiple notes), dynamics (volume), expressive timing (rubato).</li>
 <li>E.g.: <a href="https://youtu.be/JVf6esaXeLE">YouTube demo</a></li>
 </ul>
-</section>
 
-<section id="neural-ipad-band-another-charrnn" class="slide level2">
-<h2>Neural iPad Band, another CharRNN</h2>
+
+## Neural iPad Band, another CharRNN {#neural-ipad-band-another-charrnn}
+
 <div class="columns">
 <div class="column">
   <p>
@@ -427,10 +426,13 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </ul>
 </div>
 </div>
-</section>
 
-<section id="books-and-learning-references" class="slide level2">
-<h2>Books and Learning References</h2>
+{% comment %}
+{% include slides/theme.html slide="further-reading-code" heading="Books and Learning References" id="reading" %}
+{% endcomment %}
+
+Further Reading...
+
 <ul>
 <li><a href="http://www.deeplearningbook.org">Ian Goodfellow, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press.</a></li>
 <li><a href="https://www.manning.com/books/deep-learning-with-python">François Chollet. 2018. Manning.</a></li>
@@ -440,14 +442,12 @@ h_t &amp;= Q\Lambda ^t Qh_0
 <li><a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Karpathy. 2015. The Unreasonable Effectiveness of RNNs</a></li>
 <li><a href="http://shop.oreilly.com/product/0636920189817.do">Foster. 2019. Generative Deep Learning: Teaching Machines to Paint, Write, Compose, and Play</a></li>
 </ul>
-</section>
 
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
-<ul>
-<li>Recurrent Neural Networks let us capture and model the structure of sequential data.</li>
-<li>Sampling from trained RNNs allow us to generate new, creative sequences.</li>
-<li>The internal state of RNNs make them interesting for interactive applications, since it lets them capture and continue from the current context or “style”.</li>
-<li>LSTM units are able to overcome the vanishing gradient problem to some extent.</li>
-</ul>
-</section>
+
+## Summary {#summary}
+
+- Recurrent Neural Networks let us capture and model the structure of sequential data.
+- Sampling from trained RNNs allow us to generate new, creative sequences.
+- The internal state of RNNs make them interesting for interactive applications, since it lets them capture and continue from the current context or “style”.
+- LSTM units are able to overcome the vanishing gradient problem to some extent.
+
