@@ -36,6 +36,7 @@
   id="{{ include.id | default: slide }}"
   data-background-image="{% link assets/lectures/{{theme_image}} %}"
   data-background-size="cover"
+  data-background-opacity="0.8"
 >{{ include.heading }}</h2>
 {% else %}
 <hr

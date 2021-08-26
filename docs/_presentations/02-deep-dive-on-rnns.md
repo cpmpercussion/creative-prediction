@@ -2,7 +2,7 @@
 layout: reveal
 title:  Deep Dive on RNNs
 permalink: /presentations/deep-dive-on-rnns/
-theme: assets/revealthemes/crepre.scss
+theme: assets/revealthemes/crepre-dark.scss
 margin: 0.1
 center: False
 ---
@@ -203,8 +203,15 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 </div>
 </div>
 
+{% include slides/theme.html slide="praxis" heading="Time to Hack" id="startrekrnn" %}
 
-# RNN Architectures and LSTM {#rnn-architectures-and-lstm}
+Making an RNN that generates Star Trek titles
+
+[open in Colab]({% include colab.html notebook="1-star-trek-titles-RNN-basic.ipynb" %})
+
+{% include slides/impact.html id="rnn-architectures-and-lstm" %}
+
+RNN Architectures and **LSTM**
 
 
 ## Bidirectional RNNs {#bidirectional-rnns}
@@ -234,7 +241,7 @@ L_t &amp;= -y_t \cdot \text{log}(\hat{y}_t) \\
 
 <div class="columns">
 <div class="column">
-<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/rnn-deep.png" style="width:25.0%; display: block; margin-left: auto; margin-right: auto;" /></p>
+<p><img data-src="{{site.baseurl}}/assets/deep-dive-on-rnns/rnn-deep.png" style="width:75%; display: block; margin-left: auto; margin-right: auto;" /></p>
 </div><div class="column">
 <ul>
 <li class="fragment">Does adding deeper layers to an RNN make it work better?</li>
@@ -427,22 +434,31 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </div>
 </div>
 
-{% comment %}
 {% include slides/theme.html slide="further-reading-code" heading="Books and Learning References" id="reading" %}
-{% endcomment %}
 
-Further Reading...
+[Ian Goodfellow, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press.](http://www.deeplearningbook.org)
 
-<ul>
-<li><a href="http://www.deeplearningbook.org">Ian Goodfellow, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press.</a></li>
-<li><a href="https://www.manning.com/books/deep-learning-with-python">François Chollet. 2018. Manning.</a></li>
-<li><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">Chris Olah. 2015. Understanding LSTMs</a></li>
-<li><a href="https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html">RNNs in Tensorflow</a></li>
-<li><a href="https://towardsdatascience.com/the-fall-of-rnn-lstm-2d1594c74ce0">Maybe RNN/LSTM is dead? CNNs can work similarly to BLSTMs</a></li>
-<li><a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Karpathy. 2015. The Unreasonable Effectiveness of RNNs</a></li>
-<li><a href="http://shop.oreilly.com/product/0636920189817.do">Foster. 2019. Generative Deep Learning: Teaching Machines to Paint, Write, Compose, and Play</a></li>
-</ul>
+[François Chollet. 2018. Manning.](https://www.manning.com/books/deep-learning-with-python)
 
+[Chris Olah. 2015. Understanding LSTMs](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+
+[RNNs in Tensorflow](https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html)
+
+[Maybe RNN/LSTM is dead? CNNs can work similarly to BLSTMs](https://towardsdatascience.com/the-fall-of-rnn-lstm-2d1594c74ce0)
+
+[Karpathy. 2015. The Unreasonable Effectiveness of RNNs](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+
+[Foster. 2019. Generative Deep Learning: Teaching Machines to Paint, Write, Compose, and Play](http://shop.oreilly.com/product/0636920189817.do)
+
+{% include slides/theme.html slide="praxis" heading="Time to Hack" id="examples" %}
+
+These examples run in Google Colaboratory, just click the link to start them up.
+
+Star Trek RNN ([open in Colab]({% include colab.html notebook="1-star-trek-titles-RNN-basic.ipynb" %}))
+
+Advanced CharRNN ([open in Colab]({% include colab.html notebook="2-star-trek-titles-advanced.ipynb" %}))
+
+Melody Generation ([open in Colab]({% include colab.html notebook="3-zeldic-musical-RNN.ipynb" %}))
 
 ## Summary {#summary}
 

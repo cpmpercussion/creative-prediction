@@ -4,14 +4,21 @@
 // fonts and typography
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
+// https://coolors.co/4c4c57-565656-bcb8b1-f4f3ee-ff4a1c
+/* SCSS HEX */
+$dark-liver: #4C4C57;
+$davys-grey: #565656;
+$pale-silver: #bcb8b1;
+$alabaster: #f4f3ee;
+$red-orange-color-wheel: #ff4a1c;
 
 // @import "./variables.scss";
-$text-color: #EEF1EF;
-$background-color: #565656;
-$anu-blue: #A9B4C2;
-$highlight-color: #f35b04;
+$text-color: $alabaster;
+$background-color: $davys-grey;
+$blue: $dark-liver;
+$highlight-color: $red-orange-color-wheel;
 $link-color: $highlight-color;
-$text-grey: #777;
+$text-grey: $pale-silver;
 
 // colours follow the anu style guide: http://webpublishing.anu.edu.au/web-style-guide/style-sampler.php
 $errorColour: #f00;

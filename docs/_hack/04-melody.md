@@ -16,7 +16,7 @@ hear the generated music as easily so it's not quite as much fun.
 
 **Notebook: Zeldic RNN**
 ([Github]({% include github.html notebook="3-zeldic-musical-RNN.ipynb" %}))
-([open in Colab]({% include colab.html notebook="2-star-trek-titles-advanced.ipynb" %}))
+([open in Colab]({% include colab.html notebook="3-zeldic-musical-RNN.ipynb" %}))
 
 The melody RNN needs a few extra pieces of software to work correctly.
 You'll need to install the Python library [`music21`]() to read and
