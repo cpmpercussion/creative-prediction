@@ -6,15 +6,15 @@
 
 
 // @import "./variables.scss";
-$text-color: #2F4550;
-$background-color: #FFF;
-$anu-blue: #586F7C;
+$text-color: #EEF1EF;
+$background-color: #565656;
+$anu-blue: #A9B4C2;
 $highlight-color: #f35b04;
 $link-color: $highlight-color;
-$text-grey: #ccc5b9;
+$text-grey: #777;
 
 // colours follow the anu style guide: http://webpublishing.anu.edu.au/web-style-guide/style-sampler.php
-$errorColour: #eb5e28;
+$errorColour: #f00;
 $warnColour: #fc3;
 $infoColour: #3498db;
 $successColour: #2ecc71;
@@ -77,15 +77,22 @@ $extensionColour: #9b59b6;
 	);
 }
 
+// Dark mode activated.
+.reveal {
+    background-color: $background-color;
+	  color: $text-color;
+}
+
 :root {
+	background-color: $background-color;
+	color: $text-color;
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	font-size: 36px;
+	// font-family: "Inter UI", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 50px; //2.0vw;
 }
 
 @supports (font-variation-settings: normal) {
 	  :root {
-        background-color: $background-color;
-        color: $text-color;
         font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         //font-family: "Inter UI var alt", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	}
@@ -96,18 +103,11 @@ $extensionColour: #9b59b6;
 //	:root { font-size: 3vh; }
 //}
 
-.reveal-viewport {
-    background-color: $background-color;
-    color: $text-color;
-}
-
 // the main reveal slides div
 // each slide will be in a standalone section
 .reveal .slides section {
-
-
 	//width: 90vw;
-	  //padding: 0 5vw;
+	//padding: 0 5vw;
 
 	// a bit of margin at the top
 	margin-top: 1rem;
@@ -154,7 +154,8 @@ $extensionColour: #9b59b6;
 	// make headings on background image slides readable
     &[data-background-image] {
         h1,h2,p {
-            background-color: adjust-color(#FFFFFF, $alpha: -0.25);
+            background-color: adjust-color($text-color, $alpha: -0.25);
+            color: $background-color;
             display: table;
             padding: 0.2em 0.4em;
         }
@@ -195,7 +196,7 @@ $extensionColour: #9b59b6;
     &.impact {
         font-size: 2rem;
         text-align: center;
-        color: $background-color;
+        color: #fafafa;
         font-weight: 900;
         strong { color: #f39c12; }
 		a { color: lighten($highlight-color, 30%); }
@@ -244,43 +245,44 @@ $extensionColour: #9b59b6;
     }
 
 	.image-credit {
-		$creditOpacity: 0.5;
-        background-color: adjust-color($background-color, $alpha: -$creditOpacity);
-		color: adjust-color($text-color, $alpha: -0.1);
-		padding: 0.5em;
-		margin: 0;
-		font-size: 0.5em;
+		  $creditOpacity: 0.5;
+      $linkOpacity: 0.1;
+        background-color: adjust-color($text-color      , $alpha: -$creditOpacity);
+		    color: adjust-color($text-color, $alpha: -0.1);
+		    padding: 0.5em;
+		    margin: 0;
+		    font-size: 0.5em;
         display: table;
 
-		// attach to bottom(ish)
-		// setting "bottom" doesn't work because reveal.js shenanigans
-		position: fixed;
-		top: 65vh;
-		left: 0;
+		    // attach to bottom(ish)
+		    // setting "bottom" doesn't work because reveal.js shenanigans
+		    position: fixed;
+		    top: 65vh;
+		    left: 0;
+        
+		    p {
+			      background-color: unset;
+			      margin: 0em;
+		    }
 
-		p {
-			background-color: unset;
-			margin: 0em;
-		}
+		    .image-credit-artist { font-weight: 900; }
+		    /* .image-credit-title { font-style: italic; } */
+		    .image-credit-year { font-style: italic; }
 
-		.image-credit-artist { font-weight: 900; }
-		/* .image-credit-title { font-style: italic; } */
-		.image-credit-year { font-style: italic; }
+		    // links undecorated except on mouse-over
+		    a {
+			      color: adjust-color($link-color, $alpha: -$linkOpacity);
+			      &:hover{
+				        color: $link-color;
+			      }
+		    }
 
-		// links undecorated except on mouse-over
-		a {
-			color: adjust-color($link-color, $alpha: -$creditOpacity);
-			&:hover{
-				color: $background-color;
-			}
-		}
-
-		// transition to opaque on hover
-		transition: all 0.5s ease-out;
-		&:hover{
-			background-color: $background-color;
-			color: $text-color;
-		}
+		    // transition to opaque on hover
+		    transition: all 0.5s ease-out;
+		    &:hover{
+			      background-color: $text-color;
+			      color: $background-color;
+		    }
 	}
 }
 
