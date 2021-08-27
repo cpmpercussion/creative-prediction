@@ -7,19 +7,28 @@ styles: true
 $header-font: "'Lato', sans-serif";
 $body-font: "'Source Sans Pro', sans-serif";
 
+
+// https://coolors.co/4c4c57-565656-bcb8b1-f4f3ee-ff4a1c
+/* SCSS HEX */
+$dark-liver: #4C4C57;
+$davys-grey: #565656;
+$pale-silver: #bcb8b1;
+$alabaster: #f4f3ee;
+$red-orange-color-wheel: #ff4a1c;
+
 // Background colours
-$backgroundColour: #ffffff;
+$backgroundColour: $dark-liver;
 $codeBackgroundColour: #fafafa;
 $featureBackgroundColour: #f9fafa;
-$accentColour: #797986;
+$accentColour: $red-orange-color-wheel;
 
 // Text colours
-$headingColour: #956937;
-$bodyColour: #2B2118;
-$linkColour: #858585;
-$hoverColour: #33312E;
-$focusColour: #EE6C4D;
-$captionColour: #a8adac;
+$headingColour: $red-orange-color-wheel;
+$bodyColour: $alabaster;
+$linkColour: $red-orange-color-wheel;
+$hoverColour: $alabaster;
+$focusColour: $red-orange-color-wheel;
+$captionColour: $alabaster;
 $white: #ECF0F1;
 
 // Typography
