@@ -2,7 +2,7 @@
 layout: reveal
 title: An Interactive Musical Prediction System with MDRNNs
 permalink: /presentations/imps/
-theme:  assets/vendor/reveal.js/dist/theme/white.css
+theme:  assets/revealthemes/reveal/white.scss
 center: true
 margin: 0.04
 ---
@@ -54,19 +54,19 @@ margin: 0.04
 
 ## Mixture Density Recurrent Neural Network
 
-![]({{site.baseurl}}/assets/imps/mdn-motivation.png)
+![]({% link assets/imps/mdn-motivation.png %})
 
 
 ## Mixture Density RNN
 
-![]({{site.baseurl}}/assets/imps/mdn-examples.jpg)
+![]({% link assets/imps/mdn-examples.jpg %})
 
 Good at predicting creative, continuous, multi-dimensional data: handwriting, sketches... musical gestures?
 
 
 ## What to do with predictions?
 
-![]({{site.baseurl}}/assets/imps/predictive-interactions.png) <!-- .element: width="50%" -->
+![]({% link assets/imps/predictive-interactions.png%}){:style="width:50%"}
 
 1. Call-and-Response: Continue gestures when performer stops
 2. Layered predictions: Always predict next move from current gesture
@@ -113,19 +113,19 @@ bgsize="contain"
 
 ## Test Systems
 
-![Test computers]({{site.baseurl}}/assets/imps/imps-test-computers.jpg)
+![Test computers]({% link assets/imps/imps-test-computers.jpg %})
 
 
 ## Results: Time per prediction
 
-![Time per prediction vs LSTM units]({{site.baseurl}}/assets/imps/prediction_time_against_units.png)
+![Time per prediction vs LSTM units]({% link assets/imps/prediction_time_against_units.png %})
 
 Time per prediction (ms) with different sizes of LSTM layers.
 
 
 ## Results: Time per prediction
 
-![Time per prediction vs MDN dimension]({{site.baseurl}}/assets/imps/prediction_time_against_dimension_64units.png)
+![Time per prediction vs MDN dimension]({% link assets/imps/prediction_time_against_dimension_64units.png %})
 
 Time per prediction (ms) with different MDN output dimensions. (64
 LSTM units)
@@ -133,7 +133,7 @@ LSTM units)
 
 ## Results: Training Error vs Validation Set Error
 
-![]({{site.baseurl}}/assets/imps/training_loss_12K_lightpad_model.png)
+![]({% link assets/imps/training_loss_12K_lightpad_model.png %})
 
 12K sample dataset (15 minutes of performance)
 
@@ -143,7 +143,7 @@ too long.
 
 ## Results: Training Error vs Validation Set Error
 
-![]({{site.baseurl}}/assets/imps/training_loss_100K_lightpad_model.png)
+![]({% link assets/imps/training_loss_100K_lightpad_model.png %})
 
 100K sample dataset (15 minutes of performance)
 
@@ -152,14 +152,14 @@ Takeaway: **64- and 128-unit model still best!**
 
 ## Results: Exploring Generation
 
-<img src="{{site.baseurl}}/assets/imps/robojam_temperature_sampling_0.png" width="50%">
+<img src="{% link assets/imps/robojam_temperature_sampling_0.png %}" width="50%">
 
 <p>Takeaway: Make Gaussians <b>less diverse</b>, make categorical <b>more diverse</b>.</p>
 
 
 ## Try it out!
 
-<img src="{{site.baseurl}}/assets/imps/imps-github.png" style="float:right;width:45%;">
+<img src="{% link assets/imps/imps-github.png %}" style="float:right;width:45%;">
 
 - Available on [GitHub](https://github.com/cpmpercussion/imps)
 - Try with your NIMEs!
