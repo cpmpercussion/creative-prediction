@@ -1,6 +1,7 @@
 ---
 layout: reveal
 title: Recent Progress in Intelligent Musical Instruments
+summary: 
 center: true
 width: 1280
 height: 800
@@ -8,21 +9,7 @@ margin: 0.04
 theme: assets/revealthemes/crepre.scss
 ---
 
-{% include slides/title.html %}
-
-{% comment %}
-## Creating Intelligent Instruments with Machine Learning
-
-Charles P Martin
-
-ANU School of Computing
-
-web: [charlesmartin.com.au](https://charlesmartin.com.au)   twitter/github: @cpmpercussion
-
-![]({% link assets/predictive-models-in-interactive-music/anu-logo.png
-%}){:style="width:20%"}
-{% endcomment %}
-
+{% include slides/research-title.html %}
 
 {% include slides/background-image.html
 image="/assets/canberra1.jpg"
