@@ -7,36 +7,25 @@ center: true
 margin: 0.04
 ---
 
-{% include slides/title.html %}
+{% include slides/research-title.html %}
 
-<section data-markdown>
-<textarea data-template>
-<!-- .slide: data-background="#000000" -->
+
 # What is this?
-</textarea>
-</section>
 
-<section data-markdown>
-<textarea data-template>
+
 ## Learning to Predict Sequences
 
-![]({{site.baseurl}}/assets/sequence-learning.png)
-</textarea>
-</section>
+![]({% link assets/sequence-learning.png %})
 
 
-<section data-markdown>
-<textarea data-template>
 ## Interacting with Musical Predictions
 
-![]({{site.baseurl}}/assets/imps/predictive-interaction-motivation-hires.png)
-</textarea>
-</section>
+![]({% link assets/imps/predictive-interaction-motivation-hires.png %})
 
-<section data-markdown>
-<textarea data-template>
 
 ## Why is this needed?
+
+![]({% link assets/imps/imps-nimes-examples.jpg %})
 
 | Creative Deep Learning Systems             | NIMEs                                         |
 |--------------------------------------------|-----------------------------------------------|
@@ -46,46 +35,27 @@ margin: 0.04
 | Rhythm on 16th note grid                   | Complex or no rhythm                          |
 | Focus on categorical data                  | Continuous data more interesting              |
 
-![]({{site.baseurl}}/assets/imps/imps-nimes-examples.jpg)
-
-</textarea>
-</section>
-
 
 {% include slides/youtube.html id="Kdmhrp2dfHw" %}
 
-<section data-markdown>
-<textarea data-template>
 
 ## IMPS: Interactive Musial Prediction System
 
-![]({{site.baseurl}}/assets/imps/demonic_imps.jpg)
+![]({% link assets/imps/demonic_imps.jpg %})
 
-<!-- TODO: make fragments -->
-- An opinionated deep learning model for NIMEs <!-- .element: class="fragment" -->
-- An environment for making NIMEs that play themselves <!-- .element: class="fragment" -->
-- "Wekinator" for deep learning? <!-- .element: class="fragment" -->
+{:.fragment}
+- An opinionated deep learning model for NIMEs
+- An environment for making NIMEs that play themselves
+- "Wekinator" for deep learning?
 
-</textarea>
-</section>
 
-<section data-markdown>
-<textarea data-template>
-<!-- .slide: data-background="#000000" -->
 # How does it work?
-</textarea>
-</section>
 
-<section data-markdown>
-<textarea data-template>
+
 ## Mixture Density Recurrent Neural Network
 
 ![]({{site.baseurl}}/assets/imps/mdn-motivation.png)
-</textarea>
-</section>
 
-<section data-markdown>
-<textarea data-template>
 
 ## Mixture Density RNN
 
@@ -93,11 +63,6 @@ margin: 0.04
 
 Good at predicting creative, continuous, multi-dimensional data: handwriting, sketches... musical gestures?
 
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
 
 ## What to do with predictions?
 
@@ -107,23 +72,15 @@ Good at predicting creative, continuous, multi-dimensional data: handwriting, sk
 2. Layered predictions: Always predict next move from current gesture
 3. Duet: Two interdependent processes
 
-</textarea>
-</section>
 
-<section data-markdown>
-<textarea data-template>
-<!-- .slide: data-background="#000000" -->
 # Ok, how do I _use_ it?
-</textarea>
-</section>
+
 
 {% include slides/background-image.html
 image="/assets/imps/IMPS_connection_example_hires.png"
 bgsize="contain"
 %}
 
-<section data-markdown>
-<textarea data-template>
 ## Three easy steps...
 
 <ol>
@@ -142,18 +99,9 @@ bgsize="contain"
 
 </ol>
 
-</textarea>
-</section>
 
-<section data-markdown>
-<textarea data-template>
-<!-- .slide: data-background="#000000" -->
 # Is this even _practical_?
-</textarea>
-</section>
 
-<section data-markdown>
-<textarea data-template>
 
 ## Deep Learning in NIMEs??
 
@@ -162,21 +110,11 @@ bgsize="contain"
 - What are "good defaults" for training parameters?
 - Do you need a powerful/expensive computer?
 
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
 
 ## Test Systems
 
 ![Test computers]({{site.baseurl}}/assets/imps/imps-test-computers.jpg)
 
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
 
 ## Results: Time per prediction
 
@@ -184,11 +122,6 @@ bgsize="contain"
 
 Time per prediction (ms) with different sizes of LSTM layers.
 
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
 
 ## Results: Time per prediction
 
@@ -197,11 +130,6 @@ Time per prediction (ms) with different sizes of LSTM layers.
 Time per prediction (ms) with different MDN output dimensions. (64
 LSTM units)
 
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
 
 ## Results: Training Error vs Validation Set Error
 
@@ -212,12 +140,6 @@ LSTM units)
 Takeaway: **Smallest model best for small datasets.** Don't bother training for
 too long.
 
-</textarea>
-</section>
-
-
-<section data-markdown>
-<textarea data-template>
 
 ## Results: Training Error vs Validation Set Error
 
@@ -227,21 +149,13 @@ too long.
 
 Takeaway: **64- and 128-unit model still best!**
 
-</textarea>
-</section>
 
-<section>
-
-<h2>Results: Exploring Generation</h2>
+## Results: Exploring Generation
 
 <img src="{{site.baseurl}}/assets/imps/robojam_temperature_sampling_0.png" width="50%">
 
 <p>Takeaway: Make Gaussians <b>less diverse</b>, make categorical <b>more diverse</b>.</p>
 
-</section>
-
-<section data-markdown>
-<textarea data-template>
 
 ## Try it out!
 
@@ -255,7 +169,3 @@ Takeaway: **64- and 128-unit model still best!**
 Twitter: [@cpmpercussion](https://www.twitter.com/cpmpercussion)
 
 Website: [creativeprediction.xyz/imps](https://creativeprediction.xyz/imps)
-
-
-</textarea>
-</section>

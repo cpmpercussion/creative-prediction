@@ -6,7 +6,7 @@ center: true
 width: 1280
 height: 800
 margin: 0.04
-theme: assets/revealthemes/crepre.scss
+theme: assets/revealthemes/crepre-dark.scss
 ---
 
 {% include slides/research-title.html %}
