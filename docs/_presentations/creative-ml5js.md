@@ -213,7 +213,7 @@ What is [MobileNet](https://arxiv.org/abs/1704.04861)?
 <span>Photo by <a href="https://unsplash.com/@alinnnaaaa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alina Grubnyak</a> on <a href="https://unsplash.com/s/photos/network?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
 
 {% include slides/background-video.html 
-image="assets/creml5js/imagenet-labels.mp4"
+video="assets/creml5js/imagenet-labels.mp4"
 heading=""
 %}
 
@@ -270,7 +270,7 @@ Let's make _our own_ custom image classifier with [Teachable Machine](https://te
    year="2019"
 %}
 
-{% include slides/background-video.html image="assets/creml5js/benediktewallace-dance.mp4" bgcol="black" bgsize="contain" %}
+{% include slides/background-video.html video="assets/creml5js/benediktewallace-dance.mp4" bgcol="black" bgsize="contain" %}
 
 {% include slides/image-credit.html
    artist="Benedikte Wallace"
