@@ -1,13 +1,14 @@
 <section
-  {% if include.bgcol %}data-background-color="{{ include.bgcol }}"{% endif %}
   {% if include.id %}id="{{ include.id }}"{% endif %}
-  data-background-video="{% if include.image contains "http" %}{{ include.image }}{% else %}{% link {{ include.image }}  %}{% endif %}"
+  data-background-video="{% if include.video contains "http" %}{{ include.video }}{% else %}{% link {{ include.video }}  %}{% endif %}"
   data-background-size="{{ include.bgsize | default: "cover" }}"
-  data-background-video-muted="true"
-  data-background-video-loop="true"
->
+  {% if include.muted %}data-background-video-muted="{{ include.muted }}"{% endif %}
+  data-background-video-loop="{{ include.loop | default:"true" }}"
+  data-background="{{ include.background | default: "#000000" }}"
+  data-background-opacity="{{ include.opacity | default: "1.0" }}"
+  >
   {% if include.heading %}
-  <h2>{{include.heading}}</h2>
+  <h1>{{include.heading}}</h1>
   {% endif %}
 </section>
 
