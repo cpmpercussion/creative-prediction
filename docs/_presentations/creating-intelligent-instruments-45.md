@@ -1,6 +1,6 @@
 ---
 layout: reveal
-title: Recent Progress in Intelligent Musical Instruments
+title: Creating Intelligent Musical Instruments
 summary: 
 center: true
 width: 1280
