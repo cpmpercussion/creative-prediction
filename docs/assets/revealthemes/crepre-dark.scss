@@ -150,9 +150,9 @@ $extensionColour: #9b59b6;
 	h1 {
 		font-size: 1.6rem;
 		font-weight: 900;
-		border-bottom-color: $highlight-color;
-		border-bottom-style: solid;
-		border-bottom-width: 5px;
+		//border-bottom-color: $highlight-color;
+		//border-bottom-style: solid;
+		//border-bottom-width: 5px;
 	}
 	h2 {
 		font-size: 1.2rem;
@@ -160,6 +160,15 @@ $extensionColour: #9b59b6;
 	}
 	// make headings on background image slides readable
     &[data-background-image] {
+        h1,h2,p {
+            background-color: adjust-color($text-color, $alpha: -0.25);
+            color: $background-color;
+            display: table;
+            padding: 0.2em 0.4em;
+        }
+    }
+	// make headings on background image slides readable
+    &[data-background-video] {
         h1,h2,p {
             background-color: adjust-color($text-color, $alpha: -0.25);
             color: $background-color;
