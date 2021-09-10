@@ -229,7 +229,7 @@ video="assets/predictive-models-in-interactive-music/glissrnn.mp4"
 
 {% include slides/background-video.html
 id="empititle"
-video="assets/predictive-models-in-interactive-music/empi-micro-demo.mp4"
+video="assets/empi/empi-micro-demo.mp4"
 loop="true"
 opacity="0.7"
 muted="true"
@@ -240,7 +240,7 @@ heading="Embodied Predictive Musical Instrument (EMPI)"
 
 ## Embodied Predictive Musical Instrument (EMPI) {#empidetails}
 
-![]({% link assets/predictive-models-in-interactive-music/EMPI-system-diagram.jpg %}){:style="width:50%;"}
+![]({% link assets/empi/EMPI-system-diagram.jpg %}){:style="width:50%;"}
 
 - Predicts next movement and time, represents physically.
 - Experiments with interaction mappings; mainly focussed on call-response
@@ -248,7 +248,7 @@ heading="Embodied Predictive Musical Instrument (EMPI)"
 
 {% include slides/background-image.html
 id="empihardware"
-image="assets/predictive-models-in-interactive-music/empi_open.jpg"
+image="assets/empi/empi_open.jpg"
 bgcol="#000000"
 %}
 
@@ -274,76 +274,63 @@ Software starts on boot on the RPi, can configure over a network.
 
 {% include slides/background-image.html
 id="empiproofofconcept"
-image="assets/predictive-models-in-interactive-music/empi_00.jpg"
+image="assets/empi/empi_00.jpg"
 %}
 
 {% include slides/background-image.html
 id="empi0"
-image="assets/predictive-models-in-interactive-music/empi_0.jpg"
+image="assets/empi/empi_0.jpg"
 %}
 
 {% include slides/background-image.html
 id="empi1"
-image="assets/predictive-models-in-interactive-music/empi_1.jpg"
+image="assets/empi/empi_1.jpg"
 %}
 
 {% include slides/background-image.html
 id="empicases"
-image="assets/predictive-models-in-interactive-music/empi_designs.jpg"
+image="assets/empi/empi_designs.jpg"
 %}
 
 {% include slides/background-image.html
 id="empi2"
-image="assets/predictive-models-in-interactive-music/empi_2.jpg"
+image="assets/empi/empi_2.jpg"
 %}
 
 {% include slides/background-image.html
 id="empi3"
-image="assets/predictive-models-in-interactive-music/empi_3.jpg"
+image="assets/empi/empi_3.jpg"
 %}
 
 
-<!--
-<section
-  id="imps"
-  data-background-video="{% link
-         assets/predictive-models-in-interactive-music/training-capture.mp4
-  %}"
-  data-background-video-loop
-  data-background-opacity=0.7
-  data-background="#000000">
-  <h1>Training EMPI</h1>
-</section>
--->
-
 ## Training Data
 
-![Human Data]({% link assets/predictive-models-in-interactive-music/training_human.png %})
-![Sine Data]({% link assets/predictive-models-in-interactive-music/training_sine.png %}){:style="width:24%" }
-![Square Data]({% link assets/predictive-models-in-interactive-music/training_square.png %}){:style="width:24%" }
-![Saw Data]({% link assets/predictive-models-in-interactive-music/training_saw.png %}){:style="width:24%" }
-![Noise Data]({% link assets/predictive-models-in-interactive-music/training_noise.png %}){:style="width:24%" }
+![Human Data]({% link assets/empi/training_human.png %})
+![Sine Data]({% link assets/empi/training_sine.png %}){:style="width:24%" }
+![Square Data]({% link assets/empi/training_square.png %}){:style="width:24%" }
+![Saw Data]({% link assets/empi/training_saw.png %}){:style="width:24%" }
+![Noise Data]({% link assets/empi/training_noise.png %}){:style="width:24%" }
 
 ## Generated Data
 
-![Human Generation]({% link assets/predictive-models-in-interactive-music/generation_human_4500points.png %}){:style="width:50%" }
-![Synth Generation]({% link assets/predictive-models-in-interactive-music/generation_synth.png %}){:style="width:50%" }
-![Noise Generation]({% link assets/predictive-models-in-interactive-music/generation_noise.png %}){:style="width:50%" }
+![Human Generation]({% link assets/empi/generation_human_4500points.png %}){:style="width:50%" }
+![Synth Generation]({% link assets/empi/generation_synth.png %}){:style="width:50%" }
+![Noise Generation]({% link assets/empi/generation_noise.png %}){:style="width:50%" }
 
 
 {% include slides/background-video.html
 id="empihuman"
-video="assets/predictive-models-in-interactive-music/empi-short-demo.mp4"
+video="assets/empi/empi-short-demo.mp4"
 %}
 
 {% include slides/background-video.html
 id="empinoise"
-video="assets/predictive-models-in-interactive-music/empi_synth.mp4"
+video="assets/empi/empi_synth.mp4"
 %}
 
 {% include slides/background-video.html
 id="empinoise"
-video="assets/predictive-models-in-interactive-music/empi_noise.mp4"
+video="assets/empi/empi_noise.mp4"
 %}
 
 <!-- <section data-markdown id="rohanensemble" -->

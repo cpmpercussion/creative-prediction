@@ -229,7 +229,7 @@ video="assets/predictive-models-in-interactive-music/glissrnn.mp4"
 
 {% include slides/background-video.html
 id="empititle"
-video="assets/predictive-models-in-interactive-music/empi-micro-demo.mp4"
+video="assets/empi/empi-micro-demo.mp4"
 loop="true"
 opacity="0.7"
 muted="true"
@@ -240,7 +240,7 @@ heading="Embodied Predictive Musical Instrument (EMPI)"
 
 ## Embodied Predictive Musical Instrument (EMPI) {#empidetails}
 
-![]({% link assets/predictive-models-in-interactive-music/EMPI-system-diagram.jpg %}){:style="width:50%;"}
+![]({% link assets/empi/EMPI-system-diagram.jpg %}){:style="width:50%;"}
 
 - Predicts next movement and time, represents physically.
 - Experiments with interaction mappings; mainly focussed on call-response
@@ -248,7 +248,7 @@ heading="Embodied Predictive Musical Instrument (EMPI)"
 
 {% include slides/background-image.html
 id="empihardware"
-image="assets/predictive-models-in-interactive-music/empi_open.jpg"
+image="assets/empi/empi_open.jpg"
 bgcol="#000000"
 %}
 
@@ -274,76 +274,74 @@ Software starts on boot on the RPi, can configure over a network.
 
 {% include slides/background-image.html
 id="empiproofofconcept"
-image="assets/predictive-models-in-interactive-music/empi_00.jpg"
+image="assets/empi/empi_00.jpg"
 %}
 
 {% include slides/background-image.html
 id="empi0"
-image="assets/predictive-models-in-interactive-music/empi_0.jpg"
+image="assets/empi/empi_0.jpg"
 %}
 
 {% include slides/background-image.html
 id="empi1"
-image="assets/predictive-models-in-interactive-music/empi_1.jpg"
+image="assets/empi/empi_1.jpg"
 %}
 
 {% include slides/background-image.html
 id="empicases"
-image="assets/predictive-models-in-interactive-music/empi_designs.jpg"
+image="assets/empi/empi_designs.jpg"
 %}
 
 {% include slides/background-image.html
 id="empi2"
-image="assets/predictive-models-in-interactive-music/empi_2.jpg"
+image="assets/empi/empi_2.jpg"
 %}
 
 {% include slides/background-image.html
 id="empi3"
-image="assets/predictive-models-in-interactive-music/empi_3.jpg"
+image="assets/empi/empi_3.jpg"
 %}
 
 
-<!--
-<section
-  id="imps"
-  data-background-video="{% link
-         assets/predictive-models-in-interactive-music/training-capture.mp4
-  %}"
-  data-background-video-loop
-  data-background-opacity=0.7
-  data-background="#000000">
-  <h1>Training EMPI</h1>
-</section>
--->
+{% include slides/background-video.html
+id="training"
+video="assets/predictive-models-in-interactive-music/training-capture.mp4"
+loop="true"
+opacity="0.7"
+muted="true"
+background="#000000"
+heading="Training..."
+%}
+
 
 ## Training Data
 
-![Human Data]({% link assets/predictive-models-in-interactive-music/training_human.png %})
-![Sine Data]({% link assets/predictive-models-in-interactive-music/training_sine.png %}){:style="width:24%" }
-![Square Data]({% link assets/predictive-models-in-interactive-music/training_square.png %}){:style="width:24%" }
-![Saw Data]({% link assets/predictive-models-in-interactive-music/training_saw.png %}){:style="width:24%" }
-![Noise Data]({% link assets/predictive-models-in-interactive-music/training_noise.png %}){:style="width:24%" }
+![Human Data]({% link assets/empi/training_human.png %})
+![Sine Data]({% link assets/empi/training_sine.png %}){:style="width:24%" }
+![Square Data]({% link assets/empi/training_square.png %}){:style="width:24%" }
+![Saw Data]({% link assets/empi/training_saw.png %}){:style="width:24%" }
+![Noise Data]({% link assets/empi/training_noise.png %}){:style="width:24%" }
 
 ## Generated Data
 
-![Human Generation]({% link assets/predictive-models-in-interactive-music/generation_human_4500points.png %}){:style="width:50%" }
-![Synth Generation]({% link assets/predictive-models-in-interactive-music/generation_synth.png %}){:style="width:50%" }
-![Noise Generation]({% link assets/predictive-models-in-interactive-music/generation_noise.png %}){:style="width:50%" }
+![Human Generation]({% link assets/empi/generation_human_4500points.png %}){:style="width:50%" }
+![Synth Generation]({% link assets/empi/generation_synth.png %}){:style="width:50%" }
+![Noise Generation]({% link assets/empi/generation_noise.png %}){:style="width:50%" }
 
 
 {% include slides/background-video.html
 id="empihuman"
-video="assets/predictive-models-in-interactive-music/empi-short-demo.mp4"
+video="assets/empi/empi-short-demo.mp4"
 %}
 
 {% include slides/background-video.html
 id="empinoise"
-video="assets/predictive-models-in-interactive-music/empi_synth.mp4"
+video="assets/empi/empi_synth.mp4"
 %}
 
 {% include slides/background-video.html
 id="empinoise"
-video="assets/predictive-models-in-interactive-music/empi_noise.mp4"
+video="assets/empi/empi_noise.mp4"
 %}
 
 <!-- <section data-markdown id="rohanensemble" -->
@@ -377,20 +375,6 @@ Model a performer's personal style
 Modify/improve performance actions in place
 
 
-
-<!-- ## what to do with predictions? -->
-
-<!-- <\!-- ![]({% link
-         assets/predictive-models-in-interactive-music/predictive-interactions.png
-         %}) <\\!-- .element: width="50%" -\\-> -\-> -->
-
-<!-- 1. Call-and-Response: Generate responses/harmonies/layers <\!-- .element: class="fragment" -\-> -->
-<!-- 2. Continuate: Continue performer's style <\!-- .element: class="fragment" -\-> -->
-<!-- 2. Filter: Immediately predict next move <\!-- .element: class="fragment" -\-> -->
-<!-- 3. Duet: Two interdependent processes <\!-- .element: class="fragment" -\-> -->
-<!-- 4. Representing predictions physically <\!-- .element: class="fragment" -\-> -->
-<!-- 5. Using same/different sound for predictions <\!-- .element: class="fragment" -\-> -->
-
 {% include slides/background-image.html
 id="evaluation"
 image="assets/predictive-models-in-interactive-music/metatone-20170529-ifi.jpg"
@@ -418,174 +402,115 @@ Is this useful to musicians?
 - Homepage: [charlesmartin.com.au](https://charlesmartin.com.au)
 
 
-{% comment %}
-
-<!-- 
-Other links:
-https://magenta.tensorflow.org/gansynth
--->
-
-<!-- <section id="issuessection"> -->
-<!--   <h1>issues</h1> -->
-<!--   <aside class="notes"> -->
-<!-- </aside> -->
-<!-- </section> -->
+<!-- Unused and spare -->
 
 
-<!-- <section data-markdown id="technologies"> -->
-<!-- <textarea data-template> -->
-<!-- ## technologies -->
+## what to do with predictions?
 
-<!-- - LSTM-RNN still has some life <\!-- .element: class="fragment" -\-> -->
-<!-- - MDN-RNNs hard to train, learned a lot of lessons <\!-- .element: class="fragment" -\-> -->
-<!-- - still looking for easy-to-apply digital audio model <\!-- .element: class="fragment" -\-> -->
-<!-- - sequence learning less popular than images <\!-- .element: class="fragment" -\-> -->
-<!-- - sequence-to-sequence experiments haven't worked out as well <\!-- .element: class="fragment" -\-> -->
+![]({% link assets/predictive-models-in-interactive-music/predictive-interactions.png %}){:style="width:50%;float:right;"}
 
-<!-- <aside class="notes"> -->
-<!-- </aside> -->
-<!-- </textarea> -->
-<!-- </section> -->
+1. Call-and-Response: Generate responses/harmonies/layers
+2. Continuate: Continue performer's style
+2. Filter: Immediately predict next move
+3. Duet: Two interdependent processes
+4. Representing predictions physically
+5. Using same/different sound for predictions
 
-<!-- <section data-markdown id="slide"> -->
-<!-- <textarea data-template> -->
-<!--   ## data -->
 
-<!--   - Small data sources possible (desirable?) <\!-- .element: class="fragment" -\-> -->
-<!--   - Data curation not yet explored <\!-- .element: class="fragment" -\-> -->
-<!--   - Web-scrape MIDI databases not great <\!-- .element: class="fragment" -\-> -->
-<!--   - Can a dataset represent a practice? <\!-- .element: class="fragment" -\-> -->
-<!-- <aside class="notes"> -->
-<!-- </aside> -->
-<!-- </textarea> -->
-<!-- </section> -->
+# issues {#issues}
 
-<!-- <section data-markdown id="howtorepresentpred"> -->
-<!-- <textarea data-template> -->
-<!-- ## how to represent predictions? -->
 
-<!-- - same sound as performer? <\!-- .element: class="fragment" -\-> -->
-<!-- - "AI" musician? <\!-- .element: class="fragment" -\-> -->
-<!-- - extra sound/fx from instrument? <\!-- .element: class="fragment" -\-> -->
-<!-- - physical motions? <\!-- .element: class="fragment" -\-> -->
-<!-- - visual representations? <\!-- .element: class="fragment" -\-> -->
-<!-- </textarea> -->
-<!-- </section> -->
+## technologies {#technologies}
 
-<!-- <section data-markdown id="answers"> -->
-<!-- <textarea data-template> -->
-<!--   ## answers? -->
+- LSTM-RNN still has some life
+- MDN-RNNs hard to train, learned a lot of lessons
+- still looking for easy-to-apply digital audio model
+- sequence learning less popular than images
+- sequence-to-sequence experiments haven't worked out as well
 
-<!--   - my answer is to use the IMPS system <\!-- .element: class="fragment" -\-> -->
-<!--   - accelerates data collection and training <\!-- .element: class="fragment" -\-> -->
-<!--   - start to explore how dataset and practice might be interellated <\!-- .element: class="fragment" -\-> -->
-<!--   - still work to be done on interaction: why do we need predictions anyway? <\!-- .element: class="fragment" -\-> -->
 
-<!-- </textarea> -->
-<!-- </section> -->
+## data {#dataavailability}
 
-<!-- <section id="impseg"> -- -->
-<!--   <h2>IMPS: Interactive Music Prediction System</h2> -- -->
-<!--   <img src="{% link -->
-<!--          assets/predictive-models-in-interactive-music/imps-github.png -->
-<!--             %}" width="40%"><br /> --   -->
-<!--   <a href="https://github.com/cpmpercussion/imps">github.com/cpmpercussion/imps</a> -- -->
-<!-- </section> -->
+- Small data sources possible (desirable?)
+- Data curation not yet explored 
+- Web-scrape MIDI databases not great
+- Can a dataset represent a practice?
 
-<!-- <section data-markdown id="representation"> -->
-<!-- <textarea data-template> -->
 
-<!-- ### Data Representations -->
+## how to represent predictions? {#howtoreppreds}
 
-<!-- | **System**              | **Representation**        | -->
-<!-- |-------------------------|---------------------------| -->
-<!-- | MelodyRNN               | MIDI note-ish, 16th grid  | -->
-<!-- | PerformanceRNN          | MIDI note-ish             | -->
-<!-- | Music Transformer       | MIDI note-ish             |  -->
-<!-- | WaveNet / SampleRNN     | Digital Audio (lo res)    | -->
-<!-- | IMPS System (me)        | control data + time delta | -->
-  
-<!-- <aside class="notes"> -->
-<!--   AB mentioned to me. "notes are easy, rhythm is hard" -->
-<!-- </aside> -->
-<!-- </textarea> -->
-  <!-- </section> -->
+- same sound as performer?
+- "AI" musician?
+- extra sound/fx from instrument?
+- physical motions?
+- visual representations?
 
-<!-- <section data-markdown id="training"> -->
-<!-- <textarea data-template> -->
-<!--   ## training -->
 
-<!--   - tends to scale with dataset size <\!-- .element: class="fragment" -\-> -->
-<!--   - GPU still 10x faster (use Colab?) <\!-- .element: class="fragment" -\-> -->
-<!--   - Small datasets... fast training? <\!-- .element: class="fragment" -\-> -->
-<!--   - Difficult to know good training parameters.  <\!-- .element: class="fragment" -\-> -->
-  
-<!--   <img src="{% link
-         assets/predictive-models-in-interactive-music/colab.png %}" style="float:right;width:40%;"> -->
-  
-<!--   <aside class="notes"> -->
-<!--   </aside> -->
-<!--   </textarea> -->
-<!-- </section> -->
+## answers? {#answers}
 
-<!-- <section data-markdown id="representation"> -->
-<!-- <textarea data-template> -->
+  - my answer is to use the IMPS system
+  - accelerates data collection and training
+  - start to explore how dataset and practice might be interellated
+  - still work to be done on interaction: why do we need predictions anyway?
 
-<!-- ### Where does data come from? -->
 
-<!-- | **Dataset**             | **Source**                | -->
-<!-- |-------------------------|---------------------------| -->
-<!-- | MAESTRO                 | Piano Competition         | -->
-<!-- | Lakh MIDI dataset       | MIDI scraped from the net | -->
-<!-- | FolkRNN                 | Transcribed Folk Songs    | -->
-<!-- | Groove MIDI Dataset     | Studio Drumset Recordings | -->
-  
-<!-- <aside class="notes"> -->
-<!--   AB mentioned to me. "notes are easy, rhythm is hard" -->
-<!-- </aside> -->
-<!-- </textarea> -->
-  <!-- </section> -->
+## Data Representations {#representations}
 
-<section data-markdown>
-<textarea data-template>
+| **System**              | **Representation**        |
+|-------------------------|---------------------------|
+| MelodyRNN               | MIDI note-ish, 16th grid  |
+| PerformanceRNN          | MIDI note-ish             |
+| Music Transformer       | MIDI note-ish             |
+| WaveNet / SampleRNN     | Digital Audio (lo res)    |
+| IMPS System (me)        | control data + time delta |
+
+
+
+## training {#training-in-general}
+
+![]({% link assets/predictive-models-in-interactive-music/colab.png %}){:style="float:right;width:40%;"}
+
+- tends to scale with dataset size
+- GPU still 10x faster (use Colab?)
+- Small datasets... fast training?
+- Difficult to know good training parameters.
+
+
+## Where does data come from? {#datasets}
+
+| **Dataset**             | **Source**                |
+|-------------------------|---------------------------|
+| MAESTRO                 | Piano Competition         |
+| Lakh MIDI dataset       | MIDI scraped from the net |
+| FolkRNN                 | Transcribed Folk Songs    |
+| Groove MIDI Dataset     | Studio Drumset Recordings |
+
+
 # Is this even _practical_?
 
+
 # Is this even _useful_?
-</textarea>
-</section>
 
 
-<section data-markdown>
-<textarea data-template>
 ## Test Systems
 
-![Test computers]({{site.baseurl}}/assets/imps/imps-test-computers.jpg)
-
-</textarea>
-</section>
+![Test computers]({% link assets/imps/imps-test-computers.jpg %})
 
 
-<section data-markdown>
-<textarea data-template>
 ## Results: Time per prediction
 
-![Time per prediction vs LSTM units]({{site.baseurl}}/assets/imps/prediction_time_against_units.png) <!-- .element: width="75%" -->
+![Time per prediction vs LSTM units]({% link assets/imps/prediction_time_against_units.png %}){:style="width:75%;"}
 
 Time per prediction (ms) with different sizes of LSTM layers.
-</textarea>
-</section>
 
 
-<section data-markdown>
-<textarea data-template>
 ## Results: Time per prediction
 
-![Time per prediction vs MDN dimension]({% link assets/imps/prediction_time_against_dimension_64units.png %}) <!-- .element: width="75%" -->
+![Time per prediction vs MDN dimension]({% link assets/imps/prediction_time_against_dimension_64units.png %}){:style="width:75%;"}
 
-Time per prediction (ms) with different MDN output dimensions. (64
-LSTM units)
-</textarea>
-</section>
+Time per prediction (ms) with different MDN output dimensions. (64 LSTM units)
 
+<!-- EMPI figures and research part -->
 
-{% endcomment %}
+## Experiments with the EMPI
+
