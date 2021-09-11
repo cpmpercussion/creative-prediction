@@ -344,6 +344,7 @@ id="empinoise"
 video="assets/empi/empi_noise.mp4"
 %}
 
+
 <!-- <section data-markdown id="rohanensemble" -->
 <!--          data-background-image="{% link
          assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG
@@ -512,5 +513,39 @@ Time per prediction (ms) with different MDN output dimensions. (64 LSTM units)
 
 <!-- EMPI figures and research part -->
 
-## Experiments with the EMPI
+
+# Experiments with the EMPI
+
+
+{% include slides/background-image.html
+id="empi-experiment"
+image="assets/empi/study-image.jpg"
+heading="Improvisations with EMPI"
+%}
+
+12 participants
+
+two independent factors: _model_ and _feedback_
+
+model: human, synthetic, noise
+
+feedback: motor on, motor off
+
+## Procedure
+
+each participant performed six improvisations (<= 5 minutes)
+
+survey after each improvisation
+
+interview after session
+
+
+## Survey Results
+
+![]({% link assets/empi/survey_boxplot_results.jpg %}){:style="width:80%;"}
+
+## Performance Length
+
+![]({% link assets/empi/performance_length.jpg %}){:style="width:80%;"}
+
 
