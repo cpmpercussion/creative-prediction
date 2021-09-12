@@ -1,5 +1,5 @@
 ---
-layout: reveal
+layout: crepre-reveal
 title: Recent Progress in Intelligent Musical Instruments
 summary: 
 center: true
@@ -60,14 +60,16 @@ bgsize="contain" heading="predicting sequences" %}
 ![]({% link assets/predictive-models-in-interactive-music/predictive-interaction-motivation.png %})
 
 ## History
-    
-- "Experiments in Musical Intelligence" (1987)
+
+- George E. Lewis - _Voyager_ (1986-1988)
+- David Cope - "Experiments in Musical Intelligence" (1987)
 - Neural Networks for recognising musical gestures (1991)
 - LSTM RNNs for generating music (2002)
 - OMax Musical Agent (2006)
 - Wekinator (2009)
 - Google Magenta MelodyRNN (2016)
 - Magenta Studio (Ableton Plugins) (2019)
+
 
 {% comment %}
 - Voyager
