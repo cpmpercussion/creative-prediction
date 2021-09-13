@@ -6,19 +6,17 @@ center: true
 width: 1280
 height: 800
 margin: 0.04
-theme: assets/revealthemes/crepre-dark.scss
+theme: assets/revealthemes/reveal/white.scss
 ---
+
+<!-- crepre-dark.scss -->
 
 {% include slides/research-title.html %}
 
-{% include slides/background-image.html
-image="/assets/canberra1.jpg"
-heading="Ngunnawal & Ngambri & Ngarigu Country"
-%}
+{% include slides/welcometocountry.html %}
 
-
-{:.id="vision"}
 {% include slides/background-image.html
+id="vision"
 image="assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG"
 bgcol="#000000"
 opacity="0.5" 
@@ -28,8 +26,9 @@ heading="vision"
 _Intelligent Musical Instruments_ become a normal part of musical
 performance and production.
 
-{:.id="why"}
+
 {% include slides/background-image.html
+id="why"
 image="assets/predictive-models-in-interactive-music/2015-11-28-Electrofringe-Workshop-2.jpg"
 bgcol="#000000"
 opacity="0.5" 
@@ -42,8 +41,8 @@ Engage novice musicians & students
 
 Create _new kinds of music!_
 
-{:.id="musical-predictions"}
 {% include slides/background-image.html
+id="musical-predictions"
 image="assets/predictive-models-in-interactive-music/musical-performance-predictions.jpg"
 bgcol="#000000"
 opacity="0.5" 
@@ -51,14 +50,19 @@ heading="making intelligent musical predictions"
 %}
 
 
-{% include slides/background-image.html
-image="assets/predictive-models-in-interactive-music/sequence-learning.png"
-bgsize="contain" heading="predicting sequences" %}
+## Predicting sequences {#predictingsequences}
+
+![]({% link assets/predictive-models-in-interactive-music/sequence-learning.png %})
+
 
 ## Interacting with predictions
 
 ![]({% link assets/predictive-models-in-interactive-music/predictive-interaction-motivation.png %})
 
+# History
+
+
+{% comment%}
 ## History
 
 - George E. Lewis - _Voyager_ (1986-1988)
@@ -69,27 +73,64 @@ bgsize="contain" heading="predicting sequences" %}
 - Wekinator (2009)
 - Google Magenta MelodyRNN (2016)
 - Magenta Studio (Ableton Plugins) (2019)
-
-
-{% comment %}
-- Voyager
-- Rebeccar Fiebrink
-- etc
-maybe split into multiple slides
 {% endcomment %}
+
+
+{% include slides/background-image.html
+id="voyager"
+image="assets/intmusinstruments/GeorgeLewis-1999-credit-IanCummings.jpg"
+heading="Voyager - George E Lewis (1986-)"
+opacity=0.9
+bgcol="#000000"
+%}
+
+{% include slides/background-image.html
+id="continuator"
+image="assets/intmusinstruments/continuator-francoispachet.jpg"
+heading="Continuator - François Pachet (2001)"
+opacity=0.9
+bgcol="#000000"
+%}
+
+{% include slides/background-image.html
+id="wekinator"
+image="assets/intmusinstruments/rebecca-fiebrink-wekinator.jpg"
+heading="Wekinator - Rebecca Fiebrink (2009-)"
+opacity=0.9
+bgcol="#000000"
+%}
+
+{% include slides/background-image.html
+id="magenta"
+image="assets/intmusinstruments/magenta-demos.jpg"
+bgcol="#FFFFFF"
+opacity=0.9
+bgsize="contain"
+heading="Magenta Project - Google (2016-)"
+%}
+
+
+# where are all the intelligent musical instruments?
 
 
 ## Performance data is diverse {#perfdata}
 
 ![]({% link assets/predictive-models-in-interactive-music/imps-nimes-examples.jpg %})
 
-| Music Systems                   | Data                               |
+| **Music Systems**               | **Data**                           |
 |---------------------------------|------------------------------------|
 | Score / Notation                | Symbolic Music, Image              |
 | Digital Instruments             | MIDI                               |
 | Recording & Production          | Digital  Audio                     |
 | New Musical Interfaces          | Gestural and Sensor Data           |
 | Show Control                    | Video, Audio, Lighting, Control Signals |
+
+
+# creating an orchestra of intelligent instruments... {#orchestra}
+
+
+<!-- Interactive RNN Instrument -->
+
 
 ## Interactive RNN Instrument
 
@@ -111,6 +152,9 @@ heading="Physical Intelligent Instrument"
 %}
 
 
+<!-- Gesture RNN -->
+
+
 {% include slides/background-video.html 
 id="gesture-rnn-title" 
 video="assets/predictive-models-in-interactive-music/neural-ensemble-interaction.mp4" 
@@ -119,23 +163,6 @@ background="#000000"
 opacity="0.7"
 heading="GestureRNN"
 %}
-
-
-<!-- <section id="models">
-  <h2>Machine Learning Models</h2>
-
-  <img src="{% link
-         assets/predictive-models-in-interactive-music/mdn-motivation.png
-         %}" />
-
-  <ul>
-    <li>Deep learning sequence generation models (e.g., LSTM RNN)</li>
-    <li>Mixture Density Recurrent Neural Networks</li>
-  </ul>
-</section> -->
-<!-- TODO: add something about Benedikte PSCA -->
-<!-- TODO: add something about Sichao and Vikram projects -->
-<!-- TODO: distill a "what are predictions used for" in each example -->
 
 
 ## GestureRNN {#gesture-rnn-details}
@@ -153,7 +180,29 @@ loop="true"
 background="#000000"
 opacity="0.7"
 heading="RoboJam"
+bgsize="contain"
 %}
+
+
+{% comment %}
+
+{% include slides/background-image.html
+id="metatoneclassifier"
+image="assets/predictive-models-in-interactive-music/MetatoneClassifier-SystemDiagram.jpg"
+%}
+
+<!-- Laptop Ensemble NIMEs -->
+
+{% include slides/background-image.html
+id="rohanensemble"
+image="assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG"
+heading="Intelligent Laptop Ensembles.."
+bgcol="#000000"
+%}
+
+{% endcomment %}
+
+<!-- Robojam and Microjam -->
 
 
 ## Robojam and Microjam {#robojamdetails}
@@ -226,6 +275,60 @@ video="assets/predictive-models-in-interactive-music/glissrnn.mp4"
 %}
 
 
+## Experiment: Is this _practical_? {#imps-practical}
+
+- Is it practical for real-time use?
+- How do the MDRNN parameters affect time per prediction?
+- What are "good defaults" for training parameters?
+- Do you need a powerful/expensive computer?
+
+
+## Test Systems {#imps-testsystems}
+
+![Test computers]({% link assets/imps/imps-test-computers.jpg %})
+
+
+## Results: Time per prediction {#imps-timeperpredunits}
+
+![Time per prediction vs LSTM units]({% link assets/imps/prediction_time_against_units.png %})
+
+Time per prediction (ms) with different sizes of LSTM layers.
+
+
+## Results: Time per prediction {#imps-timeperpreddim}
+
+![Time per prediction vs MDN dimension]({% link assets/imps/prediction_time_against_dimension_64units.png %})
+
+Time per prediction (ms) with different MDN output dimensions. (64
+LSTM units)
+
+
+## Results: Training Error vs Validation Set Error {#imps-training-small}
+
+![]({% link assets/imps/training_loss_12K_lightpad_model.png %})
+
+12K sample dataset (15 minutes of performance)
+
+Takeaway: **Smallest model best for small datasets.** Don't bother training for
+too long.
+
+
+## Results: Training Error vs Validation Set Error {#imps-training-medium}
+
+![]({% link assets/imps/training_loss_100K_lightpad_model.png %})
+
+100K sample dataset (120 minutes of performance)
+
+Takeaway: **64- and 128-unit model still best!**
+
+
+## Results: Exploring Generation {#imps-generation}
+
+![]({% link assets/imps/robojam_temperature_sampling_0.png %}){:style="width:50%"}
+
+Takeaway: Make Gaussians **less diverse**, make categorical **more diverse**.
+
+
 <!-- EMPI -->
 
 
@@ -255,6 +358,9 @@ bgcol="#000000"
 %}
 
 
+{% comment %}
+<!-- How to build an EMPI -->
+
 ## How to build one {#empihardwaredetails}
 
 - **Brain**: Raspberry Pi 3/4
@@ -272,6 +378,11 @@ bgcol="#000000"
   - **Interface to MCU**: MIDI over USB
 
 Software starts on boot on the RPi, can configure over a network.
+
+{% include slides/background-image.html
+id="empi2"
+image="assets/empi/empi_2.jpg"
+%}
 
 
 {% include slides/background-image.html
@@ -294,26 +405,14 @@ id="empicases"
 image="assets/empi/empi_designs.jpg"
 %}
 
-{% include slides/background-image.html
-id="empi2"
-image="assets/empi/empi_2.jpg"
-%}
+
 
 {% include slides/background-image.html
 id="empi3"
 image="assets/empi/empi_3.jpg"
 %}
 
-
-{% include slides/background-video.html
-id="training"
-video="assets/predictive-models-in-interactive-music/training-capture.mp4"
-loop="true"
-opacity="0.7"
-muted="true"
-background="#000000"
-heading="Training..."
-%}
+{% endcomment %}
 
 
 ## Training Data
@@ -347,26 +446,68 @@ video="assets/empi/empi_noise.mp4"
 %}
 
 
-<!-- <section data-markdown id="rohanensemble" -->
-<!--          data-background-image="{% link
-         assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG
-         %}" -->
-<!--          data-background="#000000"> -->
-<!-- </section> -->
+{% include slides/background-image.html
+id="empi-experiment"
+image="assets/empi/study-image.jpg"
+heading="Improvisations with EMPI"
+bgcol="#000000"
+opacity=0.8
+%}
 
-<!-- <section data-markdown id="metatoneclassifier" -->
-<!--          data-background-image="{% link
-         assets/predictive-models-in-interactive-music/MetatoneClassifier-SystemDiagram.jpg
-         %}" -->
-<!--          data-background="#000000"> -->
-<!-- </section> -->
+- 12 participants
+
+- two independent factors: _model_ and _feedback_
+
+- model: human, synthetic, noise
+
+- feedback: motor on, motor off
+
+## Results: Survey {#empi-survey}
+
+![]({% link assets/empi/survey_boxplot_results.jpg %}){:style="width:80%;"}
+
+Change of ML model had significant effect: Q2, Q4, Q5, Q6, Q7
+
+## Results: Survey {#empi-survey-takeaway}
+
+- human model most "related", noise was least
+- human model most "musically creative"
+- human model easiest to "influence"
+- noise model not rated badly!
+
+Participants generally preferred human or synth, but one preferred the noise model!
+
+## Results: Performance Length {#empi-perf-length}
+
+![]({% link assets/empi/performance_length.jpg %}){:style="width:80%;"}
+
+Takeaway: for human and synth, more range of performance lengths with motor on than off
+
+
+## Takeaways
+
+Working towards the question: how can _intelligent_ instruments affect genuine performance?
+
+Does physical representation help or hinder?
+
+How do performers perceive ML model responses? 
+
+Can a constrained, intelligent instrument produce a compelling experience?
+
+{% comment %}
+ML model's training dataset affects how performers perceive the model's responses, the extent to which they are able to influence it and use it as a source of inspiration.
+Different performers appreciate different models.
+{% endcomment %}
+
+# What's next
+
 
 {% include slides/background-image.html
 id="whattodo"
 image="assets/predictive-models-in-interactive-music/ipad-ensemble-2015.jpg"
 opacity="0.5"
 bgcol="#000000"
-heading="Using Predictions to Make Music"
+heading="how can we use predictions to make music?"
 %}
 
 Emulate or enhance ensemble experience
@@ -379,18 +520,36 @@ Modify/improve performance actions in place
 
 
 {% include slides/background-image.html
+id="creating-more"
+image="assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG"
+heading="how can we create more intelligent instruments?"
+bgcol="#000000"
+opacity="0.5"
+%}
+
+Can we recruit performers to invent new intelligent instruments?
+
+What happens when musicians and instrument _co-adapt_?
+
+Can a musical practice be represented as a dataset?
+
+
+{% include slides/background-image.html
 id="evaluation"
 image="assets/predictive-models-in-interactive-music/metatone-20170529-ifi.jpg"
 opacity="0.5"
 bgcol="#000000"
-heading="Evaluating Predictive Instruments?"
+heading="how can we evaluate intelligent instruments?"
 %}
 
-Does the ML model make good predictions?
+Do ML models make good predictions?
 
-Is this computationally practical?
+Are they computationally practical?
 
 Is this useful to musicians?
+
+What does a intelligent instrument album sound like?
+
 
 ## Try out IMPS or EMPI!
 
@@ -405,6 +564,19 @@ Is this useful to musicians?
 - Homepage: [charlesmartin.com.au](https://charlesmartin.com.au)
 
 
+{% include slides/background-video.html
+id="training"
+video="assets/predictive-models-in-interactive-music/training-capture.mp4"
+loop="true"
+opacity="0.7"
+muted="true"
+background="#000000"
+heading="training..."
+%}
+
+
+
+{% comment %}
 <!-- Unused and spare -->
 
 
@@ -489,65 +661,5 @@ Is this useful to musicians?
 | Groove MIDI Dataset     | Studio Drumset Recordings |
 
 
-# Is this even _practical_?
-
-
-# Is this even _useful_?
-
-
-## Test Systems
-
-![Test computers]({% link assets/imps/imps-test-computers.jpg %})
-
-
-## Results: Time per prediction
-
-![Time per prediction vs LSTM units]({% link assets/imps/prediction_time_against_units.png %}){:style="width:75%;"}
-
-Time per prediction (ms) with different sizes of LSTM layers.
-
-
-## Results: Time per prediction
-
-![Time per prediction vs MDN dimension]({% link assets/imps/prediction_time_against_dimension_64units.png %}){:style="width:75%;"}
-
-Time per prediction (ms) with different MDN output dimensions. (64 LSTM units)
-
-<!-- EMPI figures and research part -->
-
-
-# Experiments with the EMPI
-
-
-{% include slides/background-image.html
-id="empi-experiment"
-image="assets/empi/study-image.jpg"
-heading="Improvisations with EMPI"
-%}
-
-12 participants
-
-two independent factors: _model_ and _feedback_
-
-model: human, synthetic, noise
-
-feedback: motor on, motor off
-
-## Procedure
-
-each participant performed six improvisations (<= 5 minutes)
-
-survey after each improvisation
-
-interview after session
-
-
-## Survey Results
-
-![]({% link assets/empi/survey_boxplot_results.jpg %}){:style="width:80%;"}
-
-## Performance Length
-
-![]({% link assets/empi/performance_length.jpg %}){:style="width:80%;"}
-
+{% endcomment %}
 

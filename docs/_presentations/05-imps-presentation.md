@@ -145,16 +145,16 @@ too long.
 
 ![]({% link assets/imps/training_loss_100K_lightpad_model.png %})
 
-100K sample dataset (15 minutes of performance)
+100K sample dataset (120 minutes of performance)
 
 Takeaway: **64- and 128-unit model still best!**
 
 
 ## Results: Exploring Generation
 
-<img src="{% link assets/imps/robojam_temperature_sampling_0.png %}" width="50%">
+![]({% link assets/imps/robojam_temperature_sampling_0.png %}){:style="width:50%"}
 
-<p>Takeaway: Make Gaussians <b>less diverse</b>, make categorical <b>more diverse</b>.</p>
+Takeaway: Make Gaussians **less diverse**, make categorical **more diverse**.
 
 
 ## Try it out!
