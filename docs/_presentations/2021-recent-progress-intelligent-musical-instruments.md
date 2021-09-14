@@ -15,6 +15,7 @@ theme: assets/revealthemes/reveal/white.scss
 
 {% include slides/welcometocountry.html %}
 
+
 {% include slides/background-image.html
 id="vision"
 image="assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG"
@@ -39,7 +40,10 @@ Assist professional musicians & composers
 
 Engage novice musicians & students
 
+Reveal _creative interaction_ with intelligent systems
+
 Create _new kinds of music!_
+
 
 {% include slides/background-image.html
 id="musical-predictions"
@@ -49,15 +53,6 @@ opacity="0.5"
 heading="making intelligent musical predictions"
 %}
 
-
-## Predicting sequences {#predictingsequences}
-
-![]({% link assets/predictive-models-in-interactive-music/sequence-learning.png %})
-
-
-## Interacting with predictions
-
-![]({% link assets/predictive-models-in-interactive-music/predictive-interaction-motivation.png %})
 
 # History
 
@@ -75,6 +70,14 @@ heading="making intelligent musical predictions"
 - Magenta Studio (Ableton Plugins) (2019)
 {% endcomment %}
 
+
+{% include slides/background-image.html
+id="digitalmusicalinstruments"
+image="assets/intmusinstruments/don-banks-ANU.jpg"
+heading="Digital Musical Instruments (1979ish-)"
+opacity=0.9
+bgcol="#000000"
+%}
 
 {% include slides/background-image.html
 id="voyager"
@@ -112,6 +115,14 @@ heading="Magenta Project - Google (2016-)"
 
 # where are all the intelligent musical instruments?
 
+<!-- here's where I come in -->
+
+{% include slides/background-image.html
+id="venn-diagram"
+image="assets/charlesmartin-background.jpg"
+bgcol="#FFFFFF"
+bgsize="contain"
+%}
 
 ## Performance data is diverse {#perfdata}
 
@@ -124,6 +135,16 @@ heading="Magenta Project - Google (2016-)"
 | Recording & Production          | Digital  Audio                     |
 | New Musical Interfaces          | Gestural and Sensor Data           |
 | Show Control                    | Video, Audio, Lighting, Control Signals |
+
+## Predicting sequences {#predictingsequences}
+
+![]({% link assets/predictive-models-in-interactive-music/sequence-learning.png %})
+
+
+## Interacting with predictions
+
+![]({% link assets/predictive-models-in-interactive-music/predictive-interaction-motivation.png %})
+
 
 
 # creating an orchestra of intelligent instruments... {#orchestra}
@@ -351,14 +372,14 @@ heading="Embodied Predictive Musical Instrument (EMPI)"
 - Experiments with interaction mappings; mainly focussed on call-response
 - Weird and confusing/fun?
 
+{% comment %}
+
 {% include slides/background-image.html
 id="empihardware"
 image="assets/empi/empi_open.jpg"
 bgcol="#000000"
 %}
 
-
-{% comment %}
 <!-- How to build an EMPI -->
 
 ## How to build one {#empihardwaredetails}
@@ -451,7 +472,7 @@ id="empi-experiment"
 image="assets/empi/study-image.jpg"
 heading="Improvisations with EMPI"
 bgcol="#000000"
-opacity=0.8
+opacity=0.4
 %}
 
 - 12 participants
@@ -471,11 +492,14 @@ Change of ML model had significant effect: Q2, Q4, Q5, Q6, Q7
 ## Results: Survey {#empi-survey-takeaway}
 
 - human model most "related", noise was least
+
 - human model most "musically creative"
+
 - human model easiest to "influence"
+
 - noise model not rated badly!
 
-Participants generally preferred human or synth, but one preferred the noise model!
+Participants generally preferred human or synth, but not always!
 
 ## Results: Performance Length {#empi-perf-length}
 
@@ -486,28 +510,27 @@ Takeaway: for human and synth, more range of performance lengths with motor on t
 
 ## Takeaways
 
-Working towards the question: how can _intelligent_ instruments affect genuine performance?
+Studied self-contained intelligent instrument in **genuine performance**.
 
-Does physical representation help or hinder?
+Physical representation could be **polarising**.
 
-How do performers perceive ML model responses? 
+Performers work hard to **understand** and **influence** ML model.
 
-Can a constrained, intelligent instrument produce a compelling experience?
+Constrained, intelligent instrument can produce a **compelling experience**.
 
 {% comment %}
 ML model's training dataset affects how performers perceive the model's responses, the extent to which they are able to influence it and use it as a source of inspiration.
 Different performers appreciate different models.
 {% endcomment %}
 
-# What's next
-
+<!-- what's next -->
 
 {% include slides/background-image.html
 id="whattodo"
 image="assets/predictive-models-in-interactive-music/ipad-ensemble-2015.jpg"
 opacity="0.5"
 bgcol="#000000"
-heading="how can we use predictions to make music?"
+heading="How can intelligent instruments help us make music?"
 %}
 
 Emulate or enhance ensemble experience
@@ -518,66 +541,51 @@ Model a performer's personal style
 
 Modify/improve performance actions in place
 
-
 {% include slides/background-image.html
-id="creating-more"
-image="assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG"
-heading="how can we create more intelligent instruments?"
+id="evaluation"
+image="assets/predictive-models-in-interactive-music/metatone-20170529-ifi.jpg"
+opacity="0.4"
 bgcol="#000000"
-opacity="0.5"
+heading="Research questions..."
 %}
 
-Can we recruit performers to invent new intelligent instruments?
+Are ML models practical for musical prediction?
+
+Are intelligent instruments useful to musicians?
 
 What happens when musicians and instrument _co-adapt_?
 
 Can a musical practice be represented as a dataset?
 
+What does a intelligent instrument **album / concert** sound like?
 
-{% include slides/background-image.html
-id="evaluation"
-image="assets/predictive-models-in-interactive-music/metatone-20170529-ifi.jpg"
-opacity="0.5"
-bgcol="#000000"
-heading="how can we evaluate intelligent instruments?"
-%}
+<!-- Neurofeedback 2020 video  -->
+{% include slides/youtube.html id="WumtMGHAuV8" %}
+<!-- https://youtu.be/WumtMGHAuV8 -->
 
-Do ML models make good predictions?
+## Thanks! {#thanks}
 
-Are they computationally practical?
+![]({% link assets/charlesgif.gif %}){:style="width:25%;"} 
 
-Is this useful to musicians?
-
-What does a intelligent instrument album sound like?
-
-
-## Try out IMPS or EMPI!
-
-![]({% link assets/predictive-models-in-interactive-music/imps-github.png %}){:style="float:right;width:40%;"} 
-
-- Available on [GitHub](https://github.com/cpmpercussion/imps)
-- [creativeprediction.xyz/imps](https://creativeprediction.xyz/imps)
-- Try with your digital musical instruments!
-- Hack if you want!
-- Add an issue with problems/results!
+- IMPS on [GitHub](https://github.com/cpmpercussion/imps)
+- creative ML: [creativeprediction.xyz](https://creativeprediction.xyz/)
 - Twitter/Github: [@cpmpercussion](https://www.twitter.com/cpmpercussion)
 - Homepage: [charlesmartin.com.au](https://charlesmartin.com.au)
 
 
-{% include slides/background-video.html
-id="training"
-video="assets/predictive-models-in-interactive-music/training-capture.mp4"
-loop="true"
-opacity="0.7"
-muted="true"
-background="#000000"
-heading="training..."
+{% comment %}
+<!-- Unused and spare -->
+
+
+{% include slides/background-image.html
+id="creating-more"
+image="assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG"
+heading="Orchestra of intelligent instruments?"
+bgcol="#000000"
+opacity="0.4"
 %}
 
 
-
-{% comment %}
-<!-- Unused and spare -->
 
 
 ## what to do with predictions?
