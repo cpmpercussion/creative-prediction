@@ -345,7 +345,7 @@ Takeaway: **64- and 128-unit model still best!**
 
 ## Results: Exploring Generation {#imps-generation}
 
-![]({% link assets/imps/robojam_temperature_sampling_0.png %}){:style="width:50%"}
+![]({% link assets/imps/robojam_temperature_sampling_0.png %}){:style="width:45%"}
 
 Takeaway: Make Gaussians **less diverse**, make categorical **more diverse**.
 
@@ -505,7 +505,10 @@ Participants generally preferred human or synth, but not always!
 
 ![]({% link assets/empi/performance_length.jpg %}){:style="width:80%;"}
 
-Takeaway: for human and synth, more range of performance lengths with motor on than off
+Human and synth: **more range** of performance lengths with motor on.
+
+Noise: **more range** with motor off.
+
 
 
 ## Takeaways
