@@ -1,29 +1,139 @@
 ---
 layout: reveal
 title: References, Citations, Publishing, and Authorship
-theme: assets/revealthemes/crepre.scss
+theme: assets/revealthemes/crepre-dark.scss
 center: true
 revealified: true
 ---
-
 
 {% include slides/title.html %}
 
 ## What is a research paper?
 
-## from manuscript to published paper...
+- Written record of research discoveries
+
+- Communication to other researchers
+
+- Package up research for **peer-review and criticism**!
+
+- Preserve important knowledge forever (or at least for a **long time**).
+
+## How do we know a paper isn't lies?
+
+You don't!
+
+After all, anybody can write anything and put it on the internet.
+
+This [happens](https://www.theregister.com/2019/10/14/ravel_ai_youtube/)!
+
+At least if a paper has been **peer-reviewed**, other researchers have also agreed that it is **probably not lies**.
+
+[See more about this](https://www.uio.no/studier/emner/matnat/ifi/IN5490/h19/bruno_01--how_to_write_paper.pdf)
+
+## Why do we care?
+
+When you **cite** references in your own research, you are building on knowledge.
+
+Your **references section** provides information about **where that knowledge comes from**. 
+
+Examiners will **read your reference section**! Why?
+
+- shows student's ability to critically engage with knowledge
+
+- shows student engaging with recent research, cutting edge, and "difficult" sources
+
+
+## From research to published paper...
+
+![]({% link assets/authorship/research-authoring-pathway.png %})
+
+There is a pathway from research to a published paper!
+
+All research outputs are valuable, but they have different properties.
+
+Ask yourself: **how do I know this output isn't lies?**
+
+## Citing the right paper
+
+Multiple versions of a paper can exist! How do we cite the right one?
+
+- Pre-print version on `arxiv.org`
+- Publisher's version on a journal website (behind paywall!)
+- "Post-print" version on university website (often required by law!)
+- Version on author's own website (e.g., [charlesmartin.com.au/publications](https://charlesmartin.com.au/publications))
+
+As a first preference, **always cite the publisher's version!** (this is the one that has been peer-reviewed).
+
+If a paper is not published, **cite the ArXiv** or author's version but remember: it might not be peer-reviewed.
+
+_Finding_ the publisher's version can take some research, particularly for CS conference publications!
 
 ## citations
 
-## BibTeX
+![]({% link assets/authorship/author-date-citation-apastyle.png %}){: style="width:50%;float:right;"}
+
+A citation is an **accurate** way to find a reference.
+
+Need to include: **what** (title), **who** (authors), **when** (date), **where it came from** (publisher, source), **where to find it** (DOI, URL)
+
+[Image Credit: Author-Date Citation System (APA Style Guidelines)](https://apastyle.apa.org/style-grammar-guidelines/citations/basic-principles/author-date)
+
+Totally valid to cite blog posts, youtube videos, tweets, etc etc, see the [APA Style Blog](https://apastyle.apa.org/blog) for ideas.
 
 ## DOIs (Digital Object Identifier)
 
-## Our aim:
+There's a special kind of URL called a ["DOI"](https://en.wikipedia.org/wiki/Digital_object_identifier) available for many academic publications. The idea is that the DOI will be unique and never change (unlike URLs).
 
-- Our aim with this course is that every group would prepare a paper that could be published in an academic conference!
+An example DOI is: `10.1000/182`
+
+And we can follow it by going to: <https://doi.org/10.1000/182>
+
+The `prefix/suffix` format identifies the publisher or registrant (prefix) and the specific object (suffix).
+
+DOIs aren't just for papers! They can be for any piece of data (code, files, videos, images, figures, etc.)
+
+**If a DOI is available, use it instead of a URL!**
+
+## BibTeX
+
+I expect everybody to organise their references with a BibTeX database: here's some [info](https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex)
+
+```bibtex
+@inproceedings{McArthur2021vj,
+  author = {McArthur, Robert Neil and Martin, Charles Patrick},
+  title = {An Application for Evolutionary Music Composition Using Autoencoders},
+  year = {2021}
+  booktitle = {Artificial Intelligence in Music, Sound, Art and Design: 10th International Conference, EvoMUSART 2021},
+  pages = {443--458},
+  doi = {10.1007/978-3-030-72914-1_29},
+  publisher = {Springer International Publishing},
+}
+```
+
+## BibTeX for difficult items...
+
+Some things don't fit well into BibTeX... you can use the `unpublished` or `misc` type and experiment with how to include appropriate information.
+
+```bibtex
+@unpublished{Martin2017ap,
+  author = {Martin, Charles and Hunter, Alexander},
+  title = {Andromeda is Coming [Album]},
+  year = {2017}
+  month = jul,
+  note = {Music recording.},
+  url = {https://collectedresonances.bandcamp.com/album/andromeda-is-coming},
+}
+```
+
+{% include slides/impact.html %}
+Writing your own papers...
+
+## Authoring your own papers!
+
+Many honours/Masters/research projects can be formulated in an academic paper.
+
 - Your final paper may not be quite acceptable for publication yet.
-- We can help you get it up to scratch.
+- Your supervisor(s) can help you get it up to scratch.
 - We can also help you attend a conference to present your work.
 - ( We would expect to be co-authors of a paper after collaborating on these tasks! :-D )
 
