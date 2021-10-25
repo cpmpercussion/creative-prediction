@@ -130,12 +130,14 @@ Let's go through these in detail...
 - Background reading
 - Finding your "unsolved problem"
 - Discovering code frameworks and starting points.
+- If studying humans: applying for [ethics approval](https://services.anu.edu.au/research-support/ethics-integrity/getting-ethics-approval).
 
 ## The Work
 
 - Coding up a system
 - Iterating on a design
 - Running experiments
+
 
 ## The Write-up
 
@@ -193,6 +195,17 @@ If you get "good" results (yay!) but don't discuss them in detail, or critically
 - S2: End of week 8: Full report, draft 1
 - S2: End of week 11: Full report, draft 2
 
+## Ethics Approval
+
+If you are studying humans (surveys, questionnaires, user studies) you **need** [ethics approval](https://services.anu.edu.au/research-support/ethics-integrity/getting-ethics-approval).
+
+> All Australian National University researchers (staff or students) who intend on conducting research involving the collection of data from human participants need to apply for ANU Human Ethics approval before starting their data collection.
+
+- Gaining ethics approval is an important part of research work. 
+- Many CS student projects do not need user studies to be successful. 
+- Consider what "evaluation" looks like early in your project (esp. 1-semester projects)
+- Ethics approval should be done in first semester of 2-semester projects or before week 6 in 1-semester projects.
+
 ## Conclusions
 
 - communication and critical analysis of your project is most important aspect in grading
@@ -203,3 +216,4 @@ If you get "good" results (yay!) but don't discuss them in detail, or critically
 
 - meetings are **precious** --- most issues can be handled in team meetings. individual meetings only for critical issues / inflection points in project.
 
+- studies with humans require ethics approval---no exceptions.
