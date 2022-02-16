@@ -8,7 +8,7 @@
   data-background-opacity="{{ include.opacity | default: "1.0" }}"
   >
   {% if include.heading %}
-  <h1>{{include.heading}}</h1>
+  {% if include.h2 %}<h2>{% else %}<h1>{% endif %}{{include.heading}}{% if include.h2 %}</h2>{% else %}</h1>{% endif %}
   {% endif %}
 </section>
 
