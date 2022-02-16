@@ -13,9 +13,9 @@ theme: assets/revealthemes/reveal/white.scss
 
 {% include slides/research-title.html %}
 
+{% comment %}
 {% include slides/welcometocountry.html %}
 
-{% comment %}
 
 1. What is generative AI?
 2. What can generative AI do in music?
@@ -109,8 +109,7 @@ id="gesture-rnn-title"
 video="assets/predictive-models-in-interactive-music/neural-ensemble-interaction.mp4" 
 loop="true"
 background="#000000"
-opacity="0.7"
-heading="GestureRNN"
+opacity="1.0"
 %}
 
 {% include slides/background-video.html 
@@ -118,8 +117,7 @@ id="gesture-rnn-muted"
 video="assets/predictive-models-in-interactive-music/neural-ensemble-interaction.mp4" 
 loop="true"
 background="#000000"
-opacity="0.7"
-heading="GestureRNN"
+opacity="1.0"
 muted="true"
 %}
 
@@ -129,8 +127,7 @@ id="robojamtitle"
 video="assets/predictive-models-in-interactive-music/robojam-drum-response.mp4" 
 loop="true"
 background="#000000"
-opacity="0.7"
-heading="RoboJam"
+opacity="1.0"
 bgsize="contain"
 %}
 
@@ -220,6 +217,7 @@ heading="Where will the data come from?"
 id="impsglissrnn"
 video="assets/predictive-models-in-interactive-music/glissrnn.mp4"
 heading="Hand-Crafted Boutique Artisanal Datasets"
+opacity="0.5" 
 h2="true"
 muted="true"
 %}
@@ -272,6 +270,8 @@ muted="true"
 | FolkRNN                 | Transcribed Folk Songs    |
 | Groove MIDI Dataset     | Studio Drumset Recordings |
 
+
+Gradient: AI adapts actions based on data for specified goal
 
 {% endcomment %}
 
