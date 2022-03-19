@@ -1,3 +1,5 @@
+---
+---
 /**
  * Black theme for reveal.js. This is the opposite of the 'white' theme.
  *
@@ -6,14 +8,9 @@
 
 
 // Default mixins and settings -----------------
-@import "../template/mixins";
-@import "../template/settings";
+@import "mixins";
+@import "settings";
 // ---------------------------------------------
-
-
-// Include theme-specific fonts
-@import url(./fonts/source-sans-pro/source-sans-pro.css);
-
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #191919;
@@ -26,7 +23,7 @@ $mainFont: 'Source Sans Pro', Helvetica, sans-serif;
 $headingFont: 'Source Sans Pro', Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
+$headingTextTransform: none;
 $headingFontWeight: 600;
 $linkColor: #42affa;
 $linkColorHover: lighten( $linkColor, 15% );
@@ -42,5 +39,5 @@ $heading4Size: 1.0em;
 
 
 // Theme template ------------------------------
-@import "../template/theme";
+@import "theme";
 // ---------------------------------------------

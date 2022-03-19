@@ -1,5 +1,6 @@
 ---
 layout: reveal
+type: research
 title: An Interactive Musical Prediction System with MDRNNs
 permalink: /presentations/imps/
 theme:  assets/revealthemes/reveal/white.scss

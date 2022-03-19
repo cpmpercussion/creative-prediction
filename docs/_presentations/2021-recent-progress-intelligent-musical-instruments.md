@@ -1,5 +1,6 @@
 ---
 layout: crepre-reveal
+type: research
 title: Recent Progress in Intelligent Musical Instruments
 summary: 
 center: true

@@ -1,5 +1,6 @@
 ---
 layout: reveal
+type: teaching
 title:  Making Predictive NIMEs with Neural Networks
 permalink: /presentations/intro/
 theme: assets/revealthemes/crepre.scss

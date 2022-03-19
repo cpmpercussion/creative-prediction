@@ -1,3 +1,5 @@
+---
+---
 /**
  * Solarized Light theme for reveal.js.
  * Author: Achim Staebler
@@ -8,13 +10,6 @@
 @import "mixins";
 @import "settings";
 // ---------------------------------------------
-
-
-
-// Include theme-specific fonts
-@import url(./fonts/league-gothic/league-gothic.css);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
-
 
 /**
  * Solarized colors by Ethan Schoonover
@@ -55,8 +50,6 @@ $selectionBackgroundColor: $magenta;
 // @mixin bodyBackground() {
 // 	@include radial-gradient( rgba($base3,1), rgba(lighten($base3, 20%),1) );
 // }
-
-
 
 // Theme template ------------------------------
 @import "theme";

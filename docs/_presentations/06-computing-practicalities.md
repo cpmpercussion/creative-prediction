@@ -1,5 +1,6 @@
 ---
 layout: reveal
+type: teaching
 title:  Creative Prediction Practicalities
 permalink: /presentations/crepreprac/
 theme: assets/revealthemes/crepre.scss

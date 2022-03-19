@@ -1,3 +1,5 @@
+---
+---
 /**
  * Solarized Dark theme for reveal.js.
  * Author: Achim Staebler
@@ -5,15 +7,9 @@
 
 
 // Default mixins and settings -----------------
-@import "../template/mixins";
-@import "../template/settings";
+@import "mixins";
+@import "settings";
 // ---------------------------------------------
-
-
-
-// Include theme-specific fonts
-@import url(./fonts/league-gothic/league-gothic.css);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 
 /**
  * Solarized colors by Ethan Schoonover
@@ -46,13 +42,26 @@ $mainColor: $base1;
 $headingColor: $base2;
 $headingTextShadow: none;
 $backgroundColor: $base03;
-$linkColor: $blue;
-$linkColorHover: lighten( $linkColor, 20% );
-$selectionBackgroundColor: $magenta;
 
-// Change text colors against light slide backgrounds
+$linkColor: $orange;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$mainFontSize: 42px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
 @include light-bg-text-color(#222);
 
 // Theme template ------------------------------
-@import "../template/theme";
+@import "theme";
 // ---------------------------------------------

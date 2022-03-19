@@ -1,5 +1,6 @@
 ---
 layout: reveal
+type: teaching
 title: The future of predictive NIMEs?
 permalink: /presentations/future/
 theme: assets/revealthemes/crepre.scss

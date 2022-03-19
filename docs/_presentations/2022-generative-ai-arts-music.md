@@ -1,5 +1,6 @@
 ---
 layout: crepre-reveal
+type: research
 title: Generative AI and Music 
 summary: 
 center: true

@@ -1,5 +1,6 @@
 ---
 layout: reveal
+type: research
 title: Creating Intelligent Musical Instruments
 summary: 
 center: true

@@ -1,5 +1,6 @@
 ---
 layout: reveal
+type: teaching
 title:  Deep Dive on RNNs
 permalink: /presentations/deep-dive-on-rnns/
 theme: assets/revealthemes/crepre-dark.scss

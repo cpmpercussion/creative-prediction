@@ -1,5 +1,6 @@
 ---
 layout: reveal
+type: teaching
 title: How to be a Project Student in the Intelligent Music Lab
 permalink: /presentations/how-to-be-project-student/
 theme: assets/revealthemes/crepre.scss
