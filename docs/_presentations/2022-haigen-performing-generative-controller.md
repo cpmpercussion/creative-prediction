@@ -19,10 +19,10 @@ theme: assets/revealthemes/reveal/moon.scss
 {% comment %}
 ## Outline
 
-1. Introduction: An embodied approach to music generation
-2. The Instrument: An 8-channel mixing controller
-3. The generative AI System
-4. Performances and Experiences
+1. introduction: an embodied approach to music generation
+2. the instrument: an 8-channel mixing controller
+3. the generative AI system
+4. performances and experiences
 {% endcomment %}
 
 {% include slides/background-video.html
@@ -39,11 +39,11 @@ opacity="0.4"
 heading="Embodied Music Generation"
 %}
 
-- **Note Generation**: generate "symbolic" music---notes (A, B, C, half-note, quaver, etc.). Abstract version of sounds created by _some_ musical instruments.
+- **note generation**: generate "symbolic" music---notes (A, B, C, half-note, quaver, etc.). Abstract version of sounds created by _some_ musical instruments.
 
-- **Embodied Gesture Generation**: generate the _movements_ a performer makes to operate a particular musical instrument.
+- **embodied gesture generation**: generate the _movements_ a performer makes to operate a particular musical instrument.
 
-This project explores **Embodied Gesture Generation** in an improvised electronic music context!
+this project explores **embodied gesture generation** in an improvised electronic music context!
 
 {% include slides/background-image.html
 id="xtouch"
@@ -58,9 +58,9 @@ heading="Why do this?"
 
 - e.g., turntable, mixer, modular synthesiser, effects pedal, etc
 
-- what does "intelligence" look like in these instruments?
+- what does "intelligence" and "co-creation" look like in these instruments?
 
-- Can we incorporate generative AI into a longer-term performance practice?
+- can we incorporate generative AI into a longer-term performance practice?
 
 {% include slides/background-image.html
 id="xtouch"
@@ -68,6 +68,8 @@ image="assets/performing-generative-controller/xtouch-annotated.jpg"
 bgcol="#000000"
 bgsize="contain"
 %}
+
+{% comment %}
 
 {% include slides/background-image.html
 id="xtouch"
@@ -90,13 +92,21 @@ heading="Sound Design"
 
 <!-- Not something for pop music, but not unfamiliar in experimental, electronic, contemporary classical world. -->
 
+{% endcomment %}
+
 ## Generative AI System
 
-- gestural predictions are made by a Mixture Density Recurrent Neural Network
+- gestural predictions are made by a Mixture Density Recurrent Neural Network (implemented using ["Interactive Music Prediction System"---IMPS](https://creativeprediction.xyz/imps/))
 
-- this is an extension of common LSTM/RNN designs to allow expressive predictions of multiple continuous variables.
+- MDRNN: an extension of common LSTM/RNN designs to allow expressive predictions of multiple continuous variables.
 
 - MDRNN specs: 2 32-unit LSTM layers, 9-dimensional mixture density layer (8 knobs + time)
+
+- IMPS: A CLI Python program that provides MDRNN, data collection, training and interaction features.
+
+- communicates with music software over OSC (Open Sound Control)
+
+- in this case, MDRNN is configured for **"call-and-response"** interaction (or **"continuation"**)
 
 {% include slides/background-image.html
 id="xtouch"
@@ -105,37 +115,44 @@ bgcol="#FFFFFF"
 bgsize="contain"
 %}
 
-## Data Collection / Training / Interactions
-
-- This project applies the ["Interactive Music Prediction System" (IMPS)](https://creativeprediction.xyz/imps/)
-
-- IMPS: A CLI Python program that provides MDRNN, data collection, training and interaction features.
-
-- Communicates with music software over OSC (Open Sound Control)
-
-- In this case, MDRNN is configured for **"call-and-response"** interaction (or **"continuation"**)
-
 {% include slides/background-image.html
 id="xtouch"
 image="assets/performing-generative-controller/xtouch-imps-2.jpg"
 bgcol="#000000"
 bgsize="cover"
+opacity=0.6
+heading="Performances and Experiences"
 %}
-
-{% include slides/background-image.html
-id="xtouch"
-image="assets/performing-generative-controller/xtouch-imps-1.jpg"
-bgcol="#000000"
-bgsize="contain"
-%}
-
-## Performances and Experiences
 
 - deployed in performance since 2019
 
 - so it works! and it's practical!
 
 - but is it better than a **random walk generator?**
+
+{% comment %}
+{% include slides/background-image.html
+id="xtouch"
+image="assets/performing-generative-controller/xtouch-imps-1.jpg"
+bgcol="#000000"
+bgsize="contain"
+%}
+{% endcomment %}
+
+{% include slides/background-video.html
+id="impsxtouch"
+video="assets/performing-generative-controller/xtouch-1-sine-tone-solo.mp4"
+%}
+
+{% include slides/background-video.html
+id="impsxtouch"
+video="assets/performing-generative-controller/xtouch-2-noise-switchover.mp4"
+%}
+
+{% include slides/background-video.html
+id="impsxtouch"
+video="assets/performing-generative-controller/xtouch-3-samples-independent.mp4"
+%}
 
 {% include slides/background-image.html
 id="xtouch"
@@ -151,6 +168,11 @@ heading="Influence and Co-Creation"
 - tends to continue adjusting knobs the performer last used
 
 - learns interesting behaviours from data (moving one vs multiple knobs, pauses, continuous changes)
+
+- good to for performer to have a different task to work on.
+
+- also important to allow performer to "just listen"
+
 
 {% include slides/background-image.html
 image="assets/lectures/all-demo.jpg"
@@ -171,44 +193,16 @@ id="impsxtouch"
 video="assets/predictive-models-in-interactive-music/imps-xtouch-loop.mp4"
 muted="true"
 opacity="0.4"
-heading="Roles and Interplay"
+heading="Thanks!"
 %}
-
-- Who's driving the bus?
-
-- Added envelope control and extra synth voice after initial performances
-
-- Gives performer a different-level task to work on.
-
-- Also important to allow performer to "just listen"
-
-<!-- Neurofeedback 2020 video  -->
-{% include slides/youtube.html id="WumtMGHAuV8" %}
-<!-- https://youtu.be/WumtMGHAuV8 -->
-
-## Thanks! {#thanks}
-
-![]({% link assets/charlesgif.gif %}){:style="width:25%;"} 
 
 - IMPS on [GitHub](https://github.com/cpmpercussion/imps)
 - creative ML: [creativeprediction.xyz](https://creativeprediction.xyz/)
 - Twitter/Github: [@cpmpercussion](https://www.twitter.com/cpmpercussion)
 - Homepage: [charlesmartin.com.au](https://charlesmartin.com.au)
 
-
 {% comment %}
-
-## Interacting with Musical Predictions
-
-![]({% link assets/imps/predictive-interaction-motivation-hires.png %})
-
-
-## What to do with predictions?
-
-![]({% link assets/imps/predictive-interactions.png%}){:style="width:50%"}
-
-1. Call-and-Response: Continue gestures when performer stops
-2. Layered predictions: Always predict next move from current gesture
-3. Duet: Two interdependent processes
-
+<!-- Neurofeedback 2020 video  -->
+{% include slides/youtube.html id="WumtMGHAuV8" %}
+<!-- https://youtu.be/WumtMGHAuV8 -->
 {% endcomment %}
