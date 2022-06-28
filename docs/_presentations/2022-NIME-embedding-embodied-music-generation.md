@@ -239,3 +239,7 @@ heading="Thanks!"
 - Twitter/Github: [@cpmpercussion](https://www.twitter.com/cpmpercussion)
 - Homepage: [charlesmartin.com.au](https://charlesmartin.com.au)
 
+Charles Patrick Martin and Jim Torresen. 2019. **An Interactive Musical Prediction System with Mixture Density Recurrent Neural Networks**. Proceedings of the International Conference on New Interfaces for Musical Expression, UFRGS, pp. 260–265.
+
+Charles Patrick Martin, Kyrre Glette, Tønnes Frostad Nygaard, and Jim Torresen. 2020. **Understanding Musical Predictions with an Embodied Interface for Musical Machine Learning**. Frontiers in Artificial Intelligence 3, 6. http://doi.org/10.3389/frai.2020.00006
+
