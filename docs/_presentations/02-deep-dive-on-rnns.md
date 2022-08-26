@@ -260,9 +260,9 @@ RNN Architectures and **LSTM**
 <div class="columns">
 <div class="column">
 <ul>
-<li class="fragment">Learning long dependencies is a mathematical challenge.</li>
-<li class="fragment">Basically: gradients propagated through the same weights tend to vanish (mostly) or explode (rarely)</li>
-<li class="fragment">E.g., consider a simplified RNN with no nonlinear activation function or input.</li>
+<li class="fragment">Big mathematical challenge!</li>
+<li class="fragment">Gradients propagated through the <em>same weights</em> tend to vanish (mostly) or explode (rarely)</li>
+<li class="fragment">E.g., consider an RNN with no nonlinear activation function or input.</li>
 <li class="fragment">Each time step multiplies <em>h(0)</em> by <em>W</em>.</li>
 <li class="fragment">This corresponds to raising power of eigenvalues in <span class="math inline">\(\Lambda\)</span>.</li>
 <li class="fragment">Eventually, components of <em>h(0)</em> not aligned with the largest eigenvector will be discarded.</li>
@@ -280,24 +280,6 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </div>
 </div>
 
-
-## Vanishing and Exploding Gradients {#vanishing-and-exploding-gradients}
-
-<div class="columns">
-<div class="column">
-<ul>
-<li class="fragment">“in order to store memories in a way that is robust to small perturbations, the RNN must enter a region of parameter space where gradients vanish”</li>
-<li class="fragment">“whenever the model is able to represent long term dependencies, the gradient of a long term interaction has exponentially smaller magnitude than the gradient of a short term interaction.”</li>
-</ul>
-</div><div class="column">
-<ul>
-<li class="fragment">Note that this problem is only relevant for recurrent networks since the weights <strong>W</strong> affecting the hidden state are the same at each time step.</li>
-<li class="fragment">Goodfellow and Benigo (2016): “the problem of learning long-term dependencies remains one of the main challenges in deep learning”</li>
-<li class="fragment"><a href="http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/">WildML (2015). Backpropagation Through Time and Vanishing Gradients</a></li>
-<li class="fragment"><a href="https://ml4a.github.io/ml4a/RNNs/">ML for artists</a></li>
-</ul>
-</div>
-</div>
 
 
 ## Gated RNNs {#gated-rnns}
@@ -435,22 +417,6 @@ h_t &amp;= Q\Lambda ^t Qh_0
 </div>
 </div>
 
-{% include slides/theme.html slide="further-reading-code" heading="Books and Learning References" id="reading" %}
-
-[Ian Goodfellow, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press.](http://www.deeplearningbook.org)
-
-[François Chollet. 2018. Manning.](https://www.manning.com/books/deep-learning-with-python)
-
-[Chris Olah. 2015. Understanding LSTMs](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
-
-[RNNs in Tensorflow](https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html)
-
-[Maybe RNN/LSTM is dead? CNNs can work similarly to BLSTMs](https://towardsdatascience.com/the-fall-of-rnn-lstm-2d1594c74ce0)
-
-[Karpathy. 2015. The Unreasonable Effectiveness of RNNs](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
-
-[Foster. 2019. Generative Deep Learning: Teaching Machines to Paint, Write, Compose, and Play](http://shop.oreilly.com/product/0636920189817.do)
-
 {% include slides/theme.html slide="praxis" heading="Time to Hack" id="examples" %}
 
 These examples run in Google Colaboratory, just click the link to start them up.
@@ -461,10 +427,17 @@ Advanced CharRNN ([open in Colab]({% include colab.html notebook="2-star-trek-ti
 
 Melody Generation ([open in Colab]({% include colab.html notebook="3-zeldic-musical-RNN.ipynb" %}))
 
-## Summary {#summary}
+{% include slides/theme.html slide="further-reading-code" heading="Books and Learning References" id="reading" %}
 
-- Recurrent Neural Networks let us capture and model the structure of sequential data.
-- Sampling from trained RNNs allow us to generate new, creative sequences.
-- The internal state of RNNs make them interesting for interactive applications, since it lets them capture and continue from the current context or “style”.
-- LSTM units are able to overcome the vanishing gradient problem to some extent.
+[Ian Goodfellow, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press.](http://www.deeplearningbook.org)
+
+[François Chollet. 2018. Manning.](https://www.manning.com/books/deep-learning-with-python)
+
+[Chris Olah. 2015. Understanding LSTMs](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+
+[RNNs in Tensorflow](https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html)
+
+[Karpathy. 2015. The Unreasonable Effectiveness of RNNs](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+
+[Foster. 2019. Generative Deep Learning: Teaching Machines to Paint, Write, Compose, and Play](http://shop.oreilly.com/product/0636920189817.do)
 
