@@ -164,5 +164,13 @@ Computing at ANU: Bachelor of IT (BIT), Bachelor of Adv. Computing (BAC), Master
 
 (evolved from UK system)
 
+{% include slides/background-image.html
+id="bush"
+image="assets/lectures/canberra-bush.jpg"
+heading="Bush Capital"
+bgcol="#000000"
+opacity="0.8"
+%}
 
+Come visit!
 
