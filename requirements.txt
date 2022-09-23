@@ -4,6 +4,7 @@ python-osc
 music21
 svgwrite
 matplotlib
+seaborn
 pygame
 tensorflow-macos
 tensorflow-probability
