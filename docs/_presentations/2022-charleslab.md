@@ -42,9 +42,31 @@ completed in [2018](https://architectureck.com.au/project/anu-computer-science-i
 {:.fragment} 
 contains half of the School of Computing (College of Engineering and Computer Science) and the whole of the Mathematical Sciences Institute (College of Science)
 
+
+## Universities in Australia
+
+- ~1.5M university students in Australia (Population: ~25M)
+- ~0.5M international students
+- international students have a _significant_ effect on Australian society 
+- education is [#4 export](https://www.smh.com.au/national/foreign-students-are-our-fourth-largest-export-even-with-the-pandemic-20210218-p573pz.html) industry in Australia 
+
+COVID-19 fallout: ~30% of my students still not attending in-person in Feb 2022 
+
+## University Degrees in Australia
+
+- 3 year undergraduate degrees
+- extra (4th) undergrad year is called "Honours"
+- master programs 1-2 years.
+- research degrees: MPhil or PhD.
+
+Computing at ANU: 
+
+- **Bachelor of Adv. Computing (BAC)**, 
+- **Master of Computing (MComp)**
+
 ## charleslab mission
 
-- Pursue research in between music technology, human-centred computing, and creative AI.
+- Research in music technology, human-centred computing, and creative AI.
 
 - Advance _creative computing_ as an alternative pathway through computing.
 
@@ -68,8 +90,10 @@ bgcol="#000000"
 opacity="0.8"
 %}
 
+{:.fragment}
 PhD Researcher from Sep 2021
 
+{:.fragment}
 Creates sonic experiences for augmented reality systems 
 
 {% include slides/background-image.html
@@ -80,8 +104,10 @@ bgcol="#000000"
 opacity="0.8"
 %}
 
+{:.fragment}
 PhD Researcher from Jan 2022
 
+{:.fragment}
 Creates ML models for processing audio data
 
 {% include slides/background-image.html
@@ -92,9 +118,9 @@ bgcol="#000000"
 opacity="0.8"
 %}
 
+{:.fragment}
 Research Assistant for Open Form Composition for Synchronised and Coordinated Action project
 
-Sessional Academic (Associate Lecturer/Tutor)
 
 ## Outputs since 2020
 
@@ -104,65 +130,117 @@ Sessional Academic (Associate Lecturer/Tutor)
 - 3 Honours Theses 
 - 17 student research projects (not honours)
 
-
+# Projects
 
 {% include slides/background-image.html
-id="projects"
+id="ofcsca"
 image="assets/lectures/charleslab/ipad-performance.jpg"
-heading="Projects"
+heading="Open Form Composition for Synchronised and Coordinated Action"
 bgcol="#000000"
 opacity="0.8"
 %}
 
-**Open Form Composition for Synchronised and Coordinated Action (2022)**
+{:.fragment}
+Create systems for (new) iPad ensemble performances ([metatone.net](http://metatone.net))
 
+{:.fragment}
 $30K Defence Science and Technology Group (Government R&D)
 
-**The Augmented Urban Web (2019)**
+{% include slides/background-image.html
+id="augmented-urban-web"
+image="assets/lectures/charleslab/listening-2persons.jpg"
+heading="Sonic Sculpture (The Augmented Urban Web)"
+bgcol="#000000"
+opacity="1.0"
+%}
 
+{:.fragment}
+Explore augmented reality system for sonifying real objects.
+
+{:.fragment}
 $20K CSIRO / Data 61 (Government R&D)
 
 {% include slides/background-image.html
-id="courses"
+id="magic-lanterns"
+image="assets/lectures/charleslab/magiclantern-2021-charles.jpg"
+heading="Magic Lantern Performances"
+bgcol="#000000"
+%}
+
+{:.fragment}
+Performances led by Martyn Jolley (historian and artist) with Alec Hunter, Rachel Thoms, et al.
+
+{% include slides/background-image.html
+id="carillon"
+image="assets/lectures/charleslab/20191223-carillon1.jpg"
+heading="Christmas Carillon Installation"
+bgcol="#000000"
+%}
+
+
+{% include slides/background-video.html
+id="impsxtouch"
+video="assets/predictive-models-in-interactive-music/imps-xtouch-loop.mp4"
+muted="true"
+%}
+
+
+{% include slides/background-video.html
+id="impsxtouch"
+video="assets/performing-generative-controller/xtouch-1-sine-tone-solo.mp4"
+%}
+
+{% include slides/background-video.html
+id="impsxtouch"
+video="assets/performing-generative-controller/xtouch-2-noise-switchover.mp4"
+%}
+
+{% include slides/background-video.html
+id="impsxtouch"
+video="assets/performing-generative-controller/xtouch-3-samples-independent.mp4"
+%}
+
+
+
+{% include slides/background-image.html
+id="smc"
 image="assets/lectures/charleslab/laptop-ensemble.jpg"
-heading="Courses"
+heading="Course: Sound and Music Computing"
 bgcol="#000000"
 opacity="0.8"
 %}
 
-**COMP1720/6720: Art and Interaction Computing:** 
-
-first year elective focussed on creating interactive artworks with computers (`p5.js`). Enrolments from 140-240 per year. Running since ~2005.
-
-**COMP4350/8350: Sound and Music Computing:**
-
+{:.fragment}
 *new* advanced level course focussed on creating collaborative music with computers. Evolved from a "special topic" 2019-2022.
 
-**Major/Minor/Specialisations** in _Human Centred and Creative Computing_. 
 
-New sub-programs to study computing applications in HCI, design, games, music and art.
+{% include slides/background-image.html
+id="artinteraction"
+image="assets/lectures/charleslab/comp1720.jpg"
+heading="Course: Art and Interaction Computing"
+bgcol="#000000"
+opacity="0.8"
+%}
 
+{:.fragment}
+first year elective focussed on creating interactive artworks with computers (`p5.js`). 
 
-## Universities in Australia
+{:.fragment}
+Enrolments from 140-240 per year. Running since ~2005.
 
-- ~1.5M university students in Australia (Population: ~25M)
-- ~0.5M international students
-- international students have a _significant_ affect on Australian society 
-- education is [#4 export](https://www.smh.com.au/national/foreign-students-are-our-fourth-largest-export-even-with-the-pandemic-20210218-p573pz.html) industry in Australia 
+{% include slides/background-image.html
+id="subprograms"
+image="assets/lectures/charleslab/laptop-ensemble.jpg"
+heading="Programs: Human-Centred and Creative Computing"
+bgcol="#000000"
+opacity="0.8"
+%}
 
-COVID-19 fallout: ~30% of my students still not attending in-person in Feb 2022 
+{:.fragment}
+Goal: _create study programs in HCI and creative computing available to all computing students at ANU_
 
-## University Degrees in Australia
-
-- 3 year undergraduate degrees
-- extra (4th) undergrad year is called "Honours"
-- some degrees have "integrated honours", e.g., BEng.
-- master programs 1-2 years.
-- research degrees always (?) called MPhil or PhD---both are 100% research. 2 or 3.5 years.
-
-Computing at ANU: Bachelor of IT (BIT), Bachelor of Adv. Computing (BAC), Master of Computing (MComp), Master of Adv. Computing (MComp Adv.), MPhil, PhD
-
-(evolved from UK system)
+{:.fragment}
+**Major/Minor/Specialisations** in _Human Centred and Creative Computing_. New sub-programs to study computing applications in HCI, design, games, music and art.
 
 {% include slides/background-image.html
 id="bush"
