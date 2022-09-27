@@ -121,7 +121,7 @@ opacity="0.8"
 {:.fragment}
 Research Assistant for Open Form Composition for Synchronised and Coordinated Action project
 
-
+{% comment %}
 ## Outputs since 2020
 
 - 2 PhD students started up (funding for two more)
@@ -131,10 +131,11 @@ Research Assistant for Open Form Composition for Synchronised and Coordinated Ac
 - 17 student research projects (not honours)
 
 # Projects
+{% endcomment %}
 
 {% include slides/background-image.html
 id="ofcsca"
-image="assets/lectures/charleslab/ipad-performance.jpg"
+image="assets/lectures/charleslab/ipad-application.jpg"
 heading="Open Form Composition for Synchronised and Coordinated Action"
 bgcol="#000000"
 opacity="0.8"
@@ -160,6 +161,22 @@ Explore augmented reality system for sonifying real objects.
 {:.fragment}
 $20K CSIRO / Data 61 (Government R&D)
 
+{% include slides/background-video.html
+id="sonic-sculpture-video"
+video="assets/lectures/charleslab/sonic-sculpture-excerpt.mp4"
+bgcol="#000000"
+opacity="1.0"
+%}
+
+{% include slides/background-image.html
+id="yichen-instrument"
+image="assets/lectures/charleslab/yichen-instrument.jpg"
+heading="AR Musical Instruments"
+bgcol="#000000"
+bgsize="contain"
+opacity="0.8"
+%}
+
 {% include slides/background-image.html
 id="magic-lanterns"
 image="assets/lectures/charleslab/magiclantern-2021-charles.jpg"
@@ -170,10 +187,25 @@ bgcol="#000000"
 {:.fragment}
 Performances led by Martyn Jolley (historian and artist) with Alec Hunter, Rachel Thoms, et al.
 
+{% include slides/background-video.html
+id="magic-lantern-video"
+video="assets/lectures/charleslab/magic-lantern-excerpt-720.mp4"
+bgcol="#000000"
+%}
+
+
+
 {% include slides/background-image.html
 id="carillon"
 image="assets/lectures/charleslab/20191223-carillon1.jpg"
 heading="Christmas Carillon Installation"
+bgcol="#000000"
+%}
+
+{% include slides/background-video.html
+id="carillonvideo"
+video="assets/lectures/charleslab/2019-electro-carillon-short.mp4"
+heading="Bela-powered Carillon Clavier"
 bgcol="#000000"
 %}
 
@@ -182,7 +214,20 @@ bgcol="#000000"
 id="impsxtouch"
 video="assets/predictive-models-in-interactive-music/imps-xtouch-loop.mp4"
 muted="true"
+heading="Intelligent Musical Instruments"
+bgcol="#000000"
+opacity="0.8"
 %}
+
+{:.fragment}
+lots of musical instruments **don't use "notes"**
+
+
+{:.fragment}
+**embodied gesture generation**: generate the _movements_ a performer makes to operate a particular musical instrument.
+
+{:.fragment}
+can we incorporate generative ai into a longer-term performance practice?
 
 
 {% include slides/background-video.html
@@ -200,6 +245,38 @@ id="impsxtouch"
 video="assets/performing-generative-controller/xtouch-3-samples-independent.mp4"
 %}
 
+
+{% include slides/background-video.html
+id="empititle"
+video="assets/empi/empi-micro-demo.mp4"
+loop="true"
+opacity="0.7"
+muted="true"
+background="#000000"
+heading="Embodied Predictive Musical Instrument (EMPI)"
+%}
+
+## Generated Data
+
+![Human Generation]({% link assets/empi/generation_human_4500points.png %}){:style="width:50%" }
+![Synth Generation]({% link assets/empi/generation_synth.png %}){:style="width:50%" }
+![Noise Generation]({% link assets/empi/generation_noise.png %}){:style="width:50%" }
+
+
+{% include slides/background-video.html
+id="empihuman"
+video="assets/empi/empi-short-demo.mp4"
+%}
+
+{% include slides/background-video.html
+id="empinoise"
+video="assets/empi/empi_synth.mp4"
+%}
+
+{% include slides/background-video.html
+id="empinoise"
+video="assets/empi/empi_noise.mp4"
+%}
 
 
 {% include slides/background-image.html
@@ -230,7 +307,7 @@ Enrolments from 140-240 per year. Running since ~2005.
 
 {% include slides/background-image.html
 id="subprograms"
-image="assets/lectures/charleslab/laptop-ensemble.jpg"
+image="assets/lectures/charleslab/ccc-lab.jpg"
 heading="Programs: Human-Centred and Creative Computing"
 bgcol="#000000"
 opacity="0.8"
@@ -241,6 +318,9 @@ Goal: _create study programs in HCI and creative computing available to all comp
 
 {:.fragment}
 **Major/Minor/Specialisations** in _Human Centred and Creative Computing_. New sub-programs to study computing applications in HCI, design, games, music and art.
+
+{:.fragment}
+[HCCC presentation](https://youtu.be/bLXn8lJ-ldk)
 
 {% include slides/background-image.html
 id="bush"

@@ -54,13 +54,13 @@ opacity="0.4"
 heading="Why do this?"
 %}
 
-- Lots of musical instruments **don't use "notes"**
+- lots of musical instruments **don't use "notes"**
 
 - e.g., turntable, mixer, modular synthesiser, effects pedal, etc
 
 - what does "intelligence" and "co-creation" look like in these instruments?
 
-- can we incorporate generative AI into a longer-term performance practice?
+- can we incorporate generative ai into a longer-term performance practice?
 
 {% include slides/background-image.html
 id="xtouch"
