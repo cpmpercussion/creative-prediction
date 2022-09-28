@@ -49,6 +49,21 @@ opacity="1.0"
    - activate speaker
    - use non-volatile memory
 
+## Toolchain
+
+- Visual Studio Code
+
+- [COMP2300 extension](https://marketplace.visualstudio.com/items?itemName=comp2300-anu.comp2300-2021-extension)
+  - [Cortex Debug Extension](https://github.com/Marus/cortex-debug)
+
+- [COMP2300 toolchain](https://github.com/cpmpercussion/comp2300-toolchain)
+  - [xPack](https://xpack.github.io/openocd/) OpenOCD
+  - [xPack](https://xpack.github.io/arm-none-eabi-gcc/) GNU Arm Embedded GCC (`arm-none-eabi`)
+  - [COMP2300 discoserver](https://github.com/cpmpercussion/comp2300-discoserver): ARM m4 CPU emulator (by Benjamin Grey)
+
+- [baremetal microbit vscode template](https://github.com/cpmpercussion/microbit-vscode-simple)
+
+- [baremetal example](https://github.com/cpmpercussion/microbit-v2-baremetal)
 
 ## Context: Computer Organisation and Program Execution
 
@@ -241,7 +256,7 @@ Assessments students want to do (crazy concept)
 
 "I thought assembly would be boring, but it was really fun!"
 
-
+"I feel like I learnt a lot from taking this course."
 
 
 
