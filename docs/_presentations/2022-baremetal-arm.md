@@ -33,9 +33,8 @@ opacity="0.8"
 {% include slides/background-image.html
 id="microbit-mcus"
 image="assets/lectures/arm/microbit-mcus.jpg"
-heading="BBC micro:bit v2"
 bgcol="#000000"
-opacity="0.8"
+opacity="1.0"
 %}
 
 
@@ -74,29 +73,154 @@ opacity="0.8"
 12. Revision
 
 
-## Labs
 
-**Core of the course:** 12 3-hour lab sessions where students code (almost) exclusively in ARM assembly.
+{% include slides/background-image.html
+id="megabit"
+image="assets/lectures/arm/megabit.jpg"
+heading="Learning Activities"
+bgcol="#000000"
+opacity="0.8"
+%}
 
-Starts with `mov r0, #1`, ends with implementing context switching between two programs (YourNameOS 1.0).
+{:.fragment}
+Labs: **core of the course** starts with `mov r0, #1`, ends with implementing context switching between two programs (YourNameOS 1.0).
 
-Crucial labs:
+{:.fragment}
+Assignments: **two** open-ended, creative programming tasks in ARM assembly.
 
-- 4. [Blinky](https://comp.anu.edu.au/courses/comp2300/labs/04-blinky/)
-- 5. [Sound and Light](https://comp.anu.edu.au/courses/comp2300/labs/05-sound-and-light/)
-- 8. [Buttons and Interrupts](https://comp.anu.edu.au/courses/comp2300/labs/08-interrupts/) 
-- 9. [Inputs and Outputs](https://comp.anu.edu.au/courses/comp2300/labs/09-inputs-and-outputs/)
+{% include slides/background-image.html
+id="lightshow"
+image="assets/lectures/arm/arno-senoner-FDtJZDU8kws-unsplash.jpg"
+heading="Assignment 1: Lightshow"
+bgcol="#000000"
+opacity="0.8"
+%}
 
-## Assessments
+use the LEDs to create a [light show](https://comp.anu.edu.au/courses/comp2300/assessments/light-show/) that changes over time
 
-Two assignments:
+**can** use the speaker to create [sound](https://comp.anu.edu.au/courses/comp2300/labs/05-sound-and-light/)
 
-- [Light Show](https://comp.anu.edu.au/courses/comp2300/assessments/light-show/)
-- [Digital Pet](https://comp.anu.edu.au/courses/comp2300/assessments/digital-pet/)
+**input** peripherals not allowed!
 
-Both open-ended and highly scaffolded by previous labs. 
+## Lightshow Scaffolding
 
-Students required to complete a "pre-submission" for each one, and explain to their tutor what they plan to do, and how they will do it.
+Need:
+
+- ALU operations: `add`, `sub`
+- memory operations: `ldr`, `str`
+- conditional branching: `ble` etc
+- control structions: if/then/while/for in ASM ([Blinky](https://comp.anu.edu.au/courses/comp2300/labs/04-blinky/))
+
+Helps:
+
+- functions
+- shifting operations
+- reading comprehension of the nrf52833 manual 
+
+{% include slides/background-image.html
+id="digitalpet"
+image="assets/lectures/arm/cosmoh-love-unlm6Fxxvjw-unsplash.jpg"
+heading="Assignment 2: Digital Pet"
+bgcol="#000000"
+opacity="0.8"
+%}
+
+must use the LED display to show a [digital pet](https://comp.anu.edu.au/courses/comp2300/assessments/digital-pet/)
+
+must use (at least one) data structure in memory to store the “state” of the digital pet
+
+must use interrupts to detect interactions with the microbit’s buttons
+
+**can** use sound and **any** peripheral available on the microbit
+
+## Digital Pet Scaffolding:
+
+Need:
+
+- functions `bl`, `bx lr`
+- memory directives, labels, `ldr=` pseudo-instruction
+- calling convention
+- **interrupts** ([Buttons and Interrupts](https://comp.anu.edu.au/courses/comp2300/labs/08-interrupts/))
+- arrays/structs in ASM
+
+Helps:
+
+- SysTick and timers
+- high comprehension of the nrf52833 manual
+- patience
+
+
+{% include slides/background-image.html
+id="connections"
+image="assets/lectures/arm/john-carlisle-539580-unsplash.jpg"
+heading="IO and Networks"
+bgcol="#000000"
+opacity="0.8"
+%}
+
+How can computers connect to each other? How can we interpret voltage on a wire?
+
+Interrupts leads to parallel or serial data transmission.
+
+Construct basic UART (RS232/Serial) from first principles and using on-chip peripherals
+
+## Serial Output
+
+![]({% link assets/lectures/arm/0b10101010.jpg %})
+
+## MIDI
+
+![]({% link assets/lectures/arm/midi-message.png %})
+
+{% include slides/background-image.html
+id="serial-experiments"
+image="assets/lectures/arm/serial-experiments-charles.jpg"
+heading="Serial Experiments Charles"
+bgcol="#000000"
+opacity="0.8"
+%}
+
+
+{% include slides/background-image.html
+id="jurassic-park"
+image="assets/lectures/arm/jurassic-park-unix-2.jpg"
+heading="It's a UNIX system! I know this!"
+bgcol="#000000"
+opacity="0.8"
+%}
+
+{:.fragment}
+Lightning intro to operating systems. What's the connection to ARM?
+
+{:.fragment}
+context switch, threads, scheduling, privilege, supervisor calls, exception model...
+
+## YourOS 1.0
+
+_Challenge Lab_: build a handcrafted context switch, then change between two programs (blinking one LED vs another)
+
+```
+.data
+process_table:
+.word 0 @ index of currently-operating process
+.word 0x20008000 @ stack pointer 1
+.word 0x20007000 @ stack pointer 2
+```
+
+
+{% include slides/background-image.html
+id="macrobit"
+image="assets/lectures/arm/macrobit.jpg"
+heading="Reflections"
+bgcol="#000000"
+opacity="0.8"
+%}
+
+{:.fragment}
+What can go wrong?
+
+{:.fragment}
+What can go right?
 
 ## What can go wrong? Surprisingly little!
 
@@ -105,9 +229,18 @@ Students required to complete a "pre-submission" for each one, and explain to th
 - 1-2 instances of students breaking microbit
 - 2 instances of bricking the microbit
 
-Turns out: turning the GPIO on/off as fast as possible (1 cycle loop) messes up the USB connection: saved by special firmware prepared by microbit developers for us.
+Turns out: turning the GPIO on/off as fast as possible (1 cycle loop) messes up
+the USB connection: saved by special firmware prepared by microbit developers
+for us.
 
 ## What can go right?
+
+Assessments students want to do (crazy concept)
+
+"This is the best course I've ever taken"
+
+"I thought assembly would be boring, but it was really fun!"
+
 
 
 
