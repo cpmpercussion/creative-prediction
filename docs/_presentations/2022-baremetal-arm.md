@@ -13,11 +13,12 @@ revealified: true
 
 ## Idea:
 
-Teaching second-year computing with a focus on coding in ARM assembly on real hardware.
+Teaching second-year computing by coding in ARM assembly on real hardware.
 
-Using live-coding in lectures, and lab activities to scaffold substantial open-ended creative projects.
+Goals:
 
-Goal is to build and cement mental models for computer organisation and code execution, and have the transformational experience of running code right on the metal with no guard rails!
+- to build and cement mental models for computer organisation and code execution,
+- have the transformational experience of running code right on the metal with no guard rails!
 
 tl;dr: Can students do it? **yes!**
 
@@ -38,16 +39,54 @@ opacity="1.0"
 %}
 
 
-## Bare-metal ARM Assembly
+## Bare-metal ARM Assembly - minimal example
 
-- Coding programs on the BBC micro:bit in assembly
-- No libraries! 
-- Need to access micro:bit hardware directly to do anything:
-   - turn on LEDs
-   - access buttons
-   - use timers
-   - activate speaker
-   - use non-volatile memory
+
+{: style="font-size:0.8em;"}
+
+```arm
+    .thumb
+    .syntax unified
+        .global __reset
+
+    .section .vectors
+    .word __stack
+    .word __reset
+
+    .text
+    .thumb_func
+__reset:
+    mov r0, #0
+loop:
+    add r0, #1
+    nop
+    b loop
+```
+
+Build and flash with [this](https://github.com/cpmpercussion/microbit-v2-baremetal/blob/main/nRF52833.ld) `.ld` file and [this](https://github.com/cpmpercussion/microbit-v2-baremetal/blob/main/Makefile) `Makefile`.
+
+## COMP2300 template
+
+{: style="font-size:0.8em;"}
+
+```arm
+.syntax unified
+.global main
+
+.type main, %function
+main:
+  nop
+  ldr r0, =hello
+
+  b main
+.size main, .-main
+
+.data
+hello:
+.word 0x424242
+```
+
+Short `startup.S` [program](https://github.com/cpmpercussion/microbit-vscode-simple/blob/master/lib/startup.S) to load static `.data` to RAM and setup interrupt vector
 
 ## Toolchain
 
@@ -58,11 +97,11 @@ opacity="1.0"
 
 - [COMP2300 toolchain](https://github.com/cpmpercussion/comp2300-toolchain)
   - [xPack](https://xpack.github.io/openocd/) OpenOCD
-  - [xPack](https://xpack.github.io/arm-none-eabi-gcc/) GNU Arm Embedded GCC (`arm-none-eabi`)
+  - [xPack](https://xpack.github.io/arm-none-eabi-gcc/) GNU Arm Embedded GCC (`arm-none-eabi`) - `gcc`, `gdb`, `ld`, `objcopy`, `as`
   - [COMP2300 discoserver](https://github.com/cpmpercussion/comp2300-discoserver): ARM m4 CPU emulator (by Benjamin Grey)
+  - `make`
 
 - [baremetal microbit vscode template](https://github.com/cpmpercussion/microbit-vscode-simple)
-
 - [baremetal example](https://github.com/cpmpercussion/microbit-v2-baremetal)
 
 ## Context: Computer Organisation and Program Execution
@@ -72,7 +111,7 @@ opacity="1.0"
 - Since 2020: >400 students at start of semester, 325 passed in 2022.
 - Lectures and labs [available online](https://comp.anu.edu.au/courses/comp2300/)
 
-## Topics:
+---
 
 1. Digital Logic, CPU architecture (high level)
 2. Machine instructions, ALU operations
@@ -132,6 +171,14 @@ Helps:
 - shifting operations
 - reading comprehension of the nrf52833 manual 
 
+
+{% include slides/background-video.html
+id="microbit-show-ball"
+video="assets/lectures/arm/microbit-show-ball.mp4"
+bgcol="#000000"
+opacity="1.0"
+%}
+
 {% include slides/background-image.html
 id="digitalpet"
 image="assets/lectures/arm/cosmoh-love-unlm6Fxxvjw-unsplash.jpg"
@@ -181,7 +228,8 @@ Construct basic UART (RS232/Serial) from first principles and using on-chip peri
 
 ## Serial Output
 
-![]({% link assets/lectures/arm/0b10101010.jpg %})
+
+![]({% link assets/lectures/arm/0b10101010.jpg %}){:style="width:50%;"}
 
 ## MIDI
 
@@ -194,6 +242,15 @@ heading="Serial Experiments Charles"
 bgcol="#000000"
 opacity="0.8"
 %}
+
+{% include slides/background-video.html
+id="microbit-midi-demo"
+video="assets/lectures/arm/midi-demo-720.mp4"
+bgcol="#000000"
+opacity="1.0"
+%}
+
+
 
 
 {% include slides/background-image.html
