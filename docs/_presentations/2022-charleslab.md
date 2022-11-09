@@ -1,7 +1,7 @@
 ---
 layout: reveal
 type: research
-title: charleslab---sound and music computing at ANU
+title: smcclab---sound, music and creative computing at ANU
 theme: assets/revealthemes/crepre-dark.scss
 center: true
 revealified: true
@@ -42,6 +42,7 @@ completed in [2018](https://architectureck.com.au/project/anu-computer-science-i
 {:.fragment} 
 contains half of the School of Computing (College of Engineering and Computer Science) and the whole of the Mathematical Sciences Institute (College of Science)
 
+{% comment %}
 
 ## Universities in Australia
 
@@ -64,7 +65,35 @@ Computing at ANU:
 - **Bachelor of Adv. Computing (BAC)**, 
 - **Master of Computing (MComp)**
 
-## charleslab mission
+{% endcomment %}
+
+
+
+{% include slides/background-image.html
+id="history"
+image="assets/predictive-models-in-interactive-music/metatone-20170529-ifi.jpg"
+opacity="0.7"
+bgcol="#000000"
+heading="charles history"
+%}
+
+{:.fragment}
+Undergrad at ANU (BSc Hons in maths) with many music courses in percussion
+
+{:.fragment}
+Master of Music (ANU)
+
+{:.fragment}
+Master of Fine Arts (percussion performance), Luleå University of Technology (Sweden) - Piteå Musikhögskolan
+
+{:.fragment}
+PhD in Computing (ANU) 2016
+
+{:.fragment}
+Postdoc at University of Oslo, Department of Informatics 2016--2019
+
+
+## smcclab mission
 
 - Research in music technology, human-centred computing, and creative AI.
 
@@ -176,6 +205,12 @@ bgcol="#000000"
 bgsize="contain"
 opacity="0.8"
 %}
+
+<!-- Yichen Smith's performance -->
+{% include slides/youtube.html
+id="uR7LbpRMMVM"
+%}
+<!-- https://youtu.be/uR7LbpRMMVM -->
 
 {% include slides/background-image.html
 id="magic-lanterns"
