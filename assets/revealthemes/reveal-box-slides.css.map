@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "reveal-box-slides.css",
+	"sources": [
+		"reveal-box-slides.scss"
+	],
+	"sourcesContent": [
+		"// \"box\" slides (most of this stuff copy-pasted from _sass/custom.scss\n// in the main jekyll site, but I can't be bothered refactoring it -\n// this'll do for now)\n\n// colours follow the anu style guide: http://webpublishing.anu.edu.au/web-style-guide/style-sampler.php\n$errorColour: #f00;\n$warnColour: #fc3;\n$infoColour: #3498db;\n$successColour: #2ecc71;\n\n// these are my own custom colours\n$thinkColour: #e84393;\n$talkColour: #1abc9c;\n$pushColour: #d35400;\n$extensionColour: #9b59b6;\n\n@mixin lab-content-box ($colour){\n\n\th2 {\n\t\tbackground-color: $colour;\n\t\tcolor: #ffffff;\n\t\tpadding-left: 1em;\n\t\tborder: none;\n\t}\n}\n\n.reveal .slides {\n\t.error-box {\n\t\t@include lab-content-box($errorColour);\n\t}\n\t.warn-box {\n\t\t@include lab-content-box($warnColour);\n\t}\n\t.info-box {\n\t\t@include lab-content-box($infoColour);\n\t}\n\t.success-box {\n\t\t@include lab-content-box($successColour);\n\t}\n\t.think-box {\n\t\t@include lab-content-box($thinkColour);\n\t}\n\t.talk-box {\n\t\t@include lab-content-box($talkColour);\n\t}\n\t.push-box {\n\t\t@include lab-content-box($pushColour);\n\t}\n\t.extension-box {\n\t\t@include lab-content-box($extensionColour);\n\t}\n}\n"
+	],
+	"names": [],
+	"mappings": "AA0BA,AARC,OAQM,CAAC,OAAO,CACd,UAAU,CATV,EAAE,AAAC,CACF,gBAAgB,CAdJ,GAAI,CAehB,KAAK,CAAE,OAAO,CACd,YAAY,CAAE,GAAG,CACjB,MAAM,CAAE,IAAI,CACZ,AAGF,AARC,OAQM,CAAC,OAAO,CAId,SAAS,CAZT,EAAE,AAAC,CACF,gBAAgB,CAbL,IAAI,CAcf,KAAK,CAAE,OAAO,CACd,YAAY,CAAE,GAAG,CACjB,MAAM,CAAE,IAAI,CACZ,AAGF,AARC,OAQM,CAAC,OAAO,CAOd,SAAS,CAfT,EAAE,AAAC,CACF,gBAAgB,CAZL,OAAO,CAalB,KAAK,CAAE,OAAO,CACd,YAAY,CAAE,GAAG,CACjB,MAAM,CAAE,IAAI,CACZ,AAGF,AARC,OAQM,CAAC,OAAO,CAUd,YAAY,CAlBZ,EAAE,AAAC,CACF,gBAAgB,CAXF,OAAO,CAYrB,KAAK,CAAE,OAAO,CACd,YAAY,CAAE,GAAG,CACjB,MAAM,CAAE,IAAI,CACZ,AAGF,AARC,OAQM,CAAC,OAAO,CAad,UAAU,CArBV,EAAE,AAAC,CACF,gBAAgB,CARJ,OAAO,CASnB,KAAK,CAAE,OAAO,CACd,YAAY,CAAE,GAAG,CACjB,MAAM,CAAE,IAAI,CACZ,AAGF,AARC,OAQM,CAAC,OAAO,CAgBd,SAAS,CAxBT,EAAE,AAAC,CACF,gBAAgB,CAPL,OAAO,CAQlB,KAAK,CAAE,OAAO,CACd,YAAY,CAAE,GAAG,CACjB,MAAM,CAAE,IAAI,CACZ,AAGF,AARC,OAQM,CAAC,OAAO,CAmBd,SAAS,CA3BT,EAAE,AAAC,CACF,gBAAgB,CANL,OAAO,CAOlB,KAAK,CAAE,OAAO,CACd,YAAY,CAAE,GAAG,CACjB,MAAM,CAAE,IAAI,CACZ,AAGF,AARC,OAQM,CAAC,OAAO,CAsBd,cAAc,CA9Bd,EAAE,AAAC,CACF,gBAAgB,CALA,OAAO,CAMvB,KAAK,CAAE,OAAO,CACd,YAAY,CAAE,GAAG,CACjB,MAAM,CAAE,IAAI,CACZ"
+}

@@ -1,0 +1,274 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    
+	<title>Making Predictive NIMEs with Neural Networks</title>
+    
+
+    
+
+    
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reveal.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revealthemes/crepre.css">
+  </head>
+  <body>
+    <div class="reveal"><div class="slides">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="title-slide center" data-background-color="0x000000" data-background-image="/assets/charles-setup.jpg" data-background-size="cover" data-background-opacity="0.7">
+
+
+<header>
+    <h1>Creative Prediction with Neural Networks</h1>
+    <p>A course in ML/AI for creative expression</p>
+</header>
+
+<h2>Making Predictive NIMEs with Neural Networks</h2>
+
+<p>Charles Martin - The Australian National University</p>
+
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+	<img src="/assets/resources/by-nc-sa.svg" style="height:1.5rem; margin-left:0;">
+</a>
+
+</section><section id="outline"><h2>Outline</h2>
+<h3 id="what-kinds-of-neural-networks-are-useful-in-nimes">What kinds of neural networks are useful in NIMEs?</h3>
+<h3 id="how-do-recurrent-neural-networks-work-">How do recurrent neural networks work? <!-- .element: class="fragment" -->
+</h3>
+<h3 id="how-can-we-use-them-to-generate-creative-data-">How can we use them to generate creative data? <!-- .element: class="fragment" -->
+</h3>
+<h3 id="is-there-a-more-convenient-way-to-do-this-">Is there a more convenient way to do this? <!-- .element: class="fragment" -->
+</h3></section><section id="outline-1"><h2>Outline</h2>
+<h3 id="focus-on-hands-on-experiments">Focus on hands on experiments</h3>
+<h3 id="focus-on-small-data-">Focus on small data <!-- .element: class="fragment" -->
+</h3>
+<h3 id="use-widely-available-tools-">Use widely available tools <!-- .element: class="fragment" -->
+</h3>
+<h3 id="everybody-will-train-a-neural-network--">Everybody will train a neural network (?) <!-- .element: class="fragment" -->
+</h3></section><section id="rough-plan"><h2>Rough Plan</h2>
+<ul>
+  <li>9:00 Meeting, Intro, and Python Setup</li>
+  <li>9:15 <a href="/nime/#overview-dl-creativity">Overview of Deep Learning and Creativity</a>
+</li>
+  <li>9:45 <a href="/nime/#generating-sequences">Generating Text and Music with RNNs (practical)</a>
+</li>
+  <li>10:30 (coffee break)</li>
+  <li>10:45 Hack: inventing Star Trek episode titles</li>
+  <li>11:30 <a href="/nime/#mixture-density">Using Mixture Density Networks (MDNs)</a>
+</li>
+  <li>13:00 Lunch (90 minutes)</li>
+  <li>14:30 <a href="/nime/#making-predictive">Making Predictive Musical Interactions with the IMPS system</a>
+</li>
+  <li>16:00 (coffee break)</li>
+  <li>16:15 <a href="/nime/#future-directions">Future directions for creative neural networks at NIME and beyond</a>
+</li>
+</ul></section><section id="learning-to-predict-sequences"><h2>Learning to Predict Sequences</h2>
+<p><img src="/assets/sequence-learning.png" alt=""></p></section><section id="recurrent-neural-networks-and-lstm-units"><h2>Recurrent Neural Networks and LSTM Units</h2>
+<p><img src="/assets/charRNN-arch.png" alt=""></p></section><section id="mixture-density-rnns"><h2>Mixture Density RNNs</h2>
+<p><img src="/assets/imps/mdn-examples.jpg" alt=""></p></section><section id="interacting-with-musical-predictions"><h2>Interacting with Musical Predictions</h2>
+<p><img src="/assets/imps/predictive-interaction-motivation-hires.png" alt=""></p></section><section id="starting-a-community"><h2>Starting a community</h2>
+<p><img src="/assets/imps/imps-nimes-examples.jpg" alt=""></p></section><section id="predictions"><h1>Predictions</h1></section><section id="musical-predictions"><h2>Musical Predictions</h2>
+<p><img src="/assets/intro/musical-performance-predictions.jpg" alt=""></p></section><section id="what-are-predictions"><h2>What are predictions?</h2>
+<p><img src="/assets/intro/predictive-models-overview.png" alt=""></p></section><section id="where-can-they-fit-into-a-nime"><h2>Where can they fit into a NIME?</h2>
+<p><img src="/assets/intro/interactive-music-model-rowe.png" alt=""></p></section><section id="where-can-they-fit-into-a-performance"><h2>Where can they fit into a performance?</h2>
+<p><img src="/assets/intro/prediction-location.png" alt=""></p></section><section id="example-wekinator-style-nimes"><h2>Example: Wekinator-style NIMEs</h2>
+<p><img src="/assets/wekinator-example.jpg" alt=""></p>
+<p><a href="https://youtu.be/tcQpnV4ajLY">Source: FlowerPowa74 (YouTube Video)</a></p></section><section id="example-robojam"><h2>Example: RoboJam</h2>
+<p><img src="/assets/robojam-interaction.png" alt=""></p>
+<p><a href="https://youtu.be/n2xSHoB2_uY">RoboJam Demo</a></p></section><section id="example-neural-ipad-ensemble"><h2>Example: Neural iPad Ensemble</h2>
+<p><img src="/assets/neural-ipad-band-demo.jpg" alt=""></p>
+<p><a href="https://youtu.be/FpQCAd0zKiU">YouTube Video</a></p></section><section id="talk"><h2>talk</h2>
+<p>what kinds of predictions would you like a NIME to make?</p></section><section id="tools"><h1>Tools</h1></section><section id="python-is-powerful"><h2>Python is powerful.</h2>
+<p><img src="https://imgs.xkcd.com/comics/python.png" alt=""></p>
+<p>We can all be Python superheroes! <!-- .element: class="fragment" --></p></section><section id="python-setup-can-be-hard"><h2>Python setup can be hard.</h2>
+<p><img src="https://imgs.xkcd.com/comics/python_environment.png" alt=""></p>
+<p>(Sorry) <!-- .element: class="fragment" --></p></section><section id="colab-to-the-rescue"><h2>Colab to the Rescue?</h2>
+<p><img src="/assets/colab.png" alt=""></p></section><section id="extra-tools"><h2>extra tools</h2>
+<p><a href="https://processing.org">Processing</a></p>
+<p><a href="https://puredata.info/downloads/pure-data">Pure Data</a></p>
+<p>Or use whatever computer music environment you want (needs to send and receive OSC messages).</p></section><section id="get-your-tools-together"><h2>get your tools together</h2>
+<p>Now’s the time to look at the <a href="/setup">setup</a> page
+on <a href="https://creativeprediction.xyz">creativeprediction.xyz</a>.</p>
+<p>This course works best with Python, Keras, and Jupyter on your computer, but you
+can use (online) Google Colab Notebooks as well for most of the
+examples.</p></section>
+</div></div>
+
+    
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    
+    <script src="/chalkboard-redux/plugin.js"></script>
+    
+
+    <script src="/reveal.js/reveal.js"></script>
+    <script>
+// this is the reveal config
+Reveal.initialize(
+  {
+  width: 1920,
+  height: 1080,
+  margin: 0.1,
+  center: false,
+  controls: false,
+  transition: 'none',
+  history: true,
+  slideNumber: true,
+  plugins: [
+    ChalkboardRedux,
+    RevealMath
+  ],
+  math: {
+    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+    config: 'TeX-AMS_HTML-full',
+  }
+}
+
+);
+    </script>
+
+    <!-- we don't use reveal.js's highlight.js plugin because it doesn't play -->
+    <!-- nice with the "revealified" markdown-fenced-code-blocks -->
+
+    <!-- basically, this is a consequence of this whole thing being hacks-upon-hacks -->
+
+    <script src="/reveal.js/hljs/highlight.pack.js"></script>
+    <script src="/reveal.js/hljs/extempore.min.js"></script>
+    <link rel="stylesheet" href="/reveal.js/hljs/atom-one-dark.css">
+
+    <script>
+     hljs.highlightAll();
+    </script>
+
+  </body>
+</html>

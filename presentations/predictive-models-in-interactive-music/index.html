@@ -1,0 +1,586 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    
+	<title>Predictive Models in Interactive Music</title>
+    
+
+    
+
+    
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reveal.css">
+    <link rel="stylesheet" type="text/css" href="/reveal.js/theme/white.css">
+  </head>
+  <body>
+    <div class="reveal"><div class="slides">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- History/Background Section -->
+<!-- TODO: make a one slide background overview -->
+
+<!-- <section data-markdown id="interaction">
+<textarea data-template>    
+## history
+    
+- "Experiments in Musical Intelligence" (1987)
+- Neural Networks for recognising musical gestures (1991)
+- LSTM RNNs for generating music (2002)
+- OMax Musical Agent (2006)
+- Wekinator (2009)
+- Google Magenta MelodyRNN (2016)
+- Magenta Studio (Ableton Plugins) (2019)
+<aside class="notes">
+</aside>
+</textarea>
+</section> -->
+
+<!-- <section data-markdown id="why"> -->
+<!-- <textarea data-template> -->
+
+<!-- ### Performance data is diverse -->
+
+<!-- ![](/assets/predictive-models-in-interactive-music/imps-nimes-examples.jpg) -->
+
+<!-- | "Creative Deep Learning"                   | Performing Systems                            | -->
+<!-- |--------------------------------------------|-----------------------------------------------| -->
+<!-- | Focus on MIDI                              | Variety of data                               | -->
+<!-- | Focus on digital audio                     | Focus on performer gestures                   | -->
+<!-- | Focus on final artefact                    | Focus on interaction                          | -->
+<!-- | Rhythm on 16th note grid                   | Complex or no rhythm                          | -->
+<!-- | Categorical data                           | Continuous data more interesting              | -->
+
+<!-- <aside class="notes"> -->
+<!-- </aside> -->
+<!-- </textarea> -->
+<!-- </section> -->
+
+
+
+<!-- <section id="models">
+  <h2>Machine Learning Models</h2>
+
+  <img src="/assets/predictive-models-in-interactive-music/mdn-motivation.png" />
+
+  <ul>
+    <li>Deep learning sequence generation models (e.g., LSTM RNN)</li>
+    <li>Mixture Density Recurrent Neural Networks</li>
+  </ul>
+</section> -->
+
+<!-- TODO: add something about Benedikte PSCA -->
+<!-- TODO: add something about Sichao and Vikram projects -->
+<!-- TODO: distill a "what are predictions used for" in each example -->
+
+
+
+  <!-- data-background-video-muted -->
+
+
+
+
+<!-- <section
+  id="gesture-rnn-perf"
+  data-background-video="/assets/predictive-models-in-interactive-music/neural-ensemble-interaction.mp4
+  data-background-video-loop
+  data-background="#000000">
+</section> -->
+
+
+
+  <!-- data-background-video-muted -->
+
+
+
+
+<!-- <section
+  id="robojamperf"
+  data-background-video="/assets/predictive-models-in-interactive-music/robojam-one-loop.mp4"
+  data-background-video-loop
+  data-background="#000000">
+</section> -->
+
+
+
+
+
+
+<!-- <section data-markdown id="physicalintelligentvideo"
+         data-background-video="/assets/predictive-models-in-interactive-music/physical-intelligent-instrument.mp4"
+         data-background-video-loop
+         data-background="#000000">
+</section> -->
+
+
+
+  <!-- data-background-video-muted -->
+
+
+
+
+
+
+
+
+
+<!-- <section data-markdown id="impsvideo"
+         data-background-video="/assets/predictive-models-in-interactive-music/imps-xtouch-loop.mp4"
+         data-background-video-loop
+         data-background="#000000">
+</section> -->
+
+<!-- <section data-markdown id="rohanensemble" -->
+<!--          data-background-image="/assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG" -->
+<!--          data-background="#000000"> -->
+<!-- </section> -->
+
+<!-- <section data-markdown id="metatoneclassifier" -->
+<!--          data-background-image="/assets/predictive-models-in-interactive-music/MetatoneClassifier-SystemDiagram.jpg" -->
+<!--          data-background="#000000"> -->
+<!-- </section> -->
+
+
+<!-- <textarea data-template> -->
+<!-- ## what to do with predictions? -->
+
+<!-- <\!-- ![](/assets/predictive-models-in-interactive-music/predictive-interactions.png) <\\!-- .element: width="50%" -\\-> -\-> -->
+
+<!-- 1. Call-and-Response: Generate responses/harmonies/layers <\!-- .element: class="fragment" -\-> -->
+<!-- 2. Continuate: Continue performer's style <\!-- .element: class="fragment" -\-> -->
+<!-- 2. Filter: Immediately predict next move <\!-- .element: class="fragment" -\-> -->
+<!-- 3. Duet: Two interdependent processes <\!-- .element: class="fragment" -\-> -->
+<!-- 4. Representing predictions physically <\!-- .element: class="fragment" -\-> -->
+<!-- 5. Using same/different sound for predictions <\!-- .element: class="fragment" -\-> -->
+
+<!-- <aside class="notes"> -->
+<!-- We have predictions but how do we use them in an interactive loop? -->
+<!-- (We're already playing the NIME). -->
+<!-- </aside> -->
+<!-- </textarea> -->
+<!-- </section> -->
+
+
+
+
+
+<!-- <section data-markdown>
+<textarea data-template>
+## Try out IMPS!
+
+<img src="/assets/predictive-models-in-interactive-music/imps-github.png" style="float:right;width:40%;">
+
+- Available on [GitHub](https://github.com/cpmpercussion/imps)
+- Try with your digital musical instruments!
+- Hack if you want!
+- Add an issue with problems/results!
+- Twitter: [@cpmpercussion](https://www.twitter.com/cpmpercussion)
+- Website: [creativeprediction.xyz/imps](https://creativeprediction.xyz/imps)
+</textarea>
+</section>
+ -->
+
+<!-- 
+
+Other links:
+https://magenta.tensorflow.org/gansynth
+
+
+
+
+-->
+
+<!-- <section id="issuessection"> -->
+<!--   <h1>issues</h1> -->
+<!--   <aside class="notes"> -->
+<!-- </aside> -->
+<!-- </section> -->
+
+
+<!-- <section data-markdown id="technologies"> -->
+<!-- <textarea data-template> -->
+<!-- ## technologies -->
+
+<!-- - LSTM-RNN still has some life <\!-- .element: class="fragment" -\-> -->
+<!-- - MDN-RNNs hard to train, learned a lot of lessons <\!-- .element: class="fragment" -\-> -->
+<!-- - still looking for easy-to-apply digital audio model <\!-- .element: class="fragment" -\-> -->
+<!-- - sequence learning less popular than images <\!-- .element: class="fragment" -\-> -->
+<!-- - sequence-to-sequence experiments haven't worked out as well <\!-- .element: class="fragment" -\-> -->
+
+<!-- <aside class="notes"> -->
+<!-- </aside> -->
+<!-- </textarea> -->
+<!-- </section> -->
+
+<!-- <section data-markdown id="slide"> -->
+<!-- <textarea data-template> -->
+<!--   ## data -->
+
+<!--   - Small data sources possible (desirable?) <\!-- .element: class="fragment" -\-> -->
+<!--   - Data curation not yet explored <\!-- .element: class="fragment" -\-> -->
+<!--   - Web-scrape MIDI databases not great <\!-- .element: class="fragment" -\-> -->
+<!--   - Can a dataset represent a practice? <\!-- .element: class="fragment" -\-> -->
+<!-- <aside class="notes"> -->
+<!-- </aside> -->
+<!-- </textarea> -->
+<!-- </section> -->
+
+<!-- <section data-markdown id="howtorepresentpred"> -->
+<!-- <textarea data-template> -->
+<!-- ## how to represent predictions? -->
+
+<!-- - same sound as performer? <\!-- .element: class="fragment" -\-> -->
+<!-- - "AI" musician? <\!-- .element: class="fragment" -\-> -->
+<!-- - extra sound/fx from instrument? <\!-- .element: class="fragment" -\-> -->
+<!-- - physical motions? <\!-- .element: class="fragment" -\-> -->
+<!-- - visual representations? <\!-- .element: class="fragment" -\-> -->
+<!-- </textarea> -->
+<!-- </section> -->
+
+<!-- <section data-markdown id="answers"> -->
+<!-- <textarea data-template> -->
+<!--   ## answers? -->
+
+<!--   - my answer is to use the IMPS system <\!-- .element: class="fragment" -\-> -->
+<!--   - accelerates data collection and training <\!-- .element: class="fragment" -\-> -->
+<!--   - start to explore how dataset and practice might be interellated <\!-- .element: class="fragment" -\-> -->
+<!--   - still work to be done on interaction: why do we need predictions anyway? <\!-- .element: class="fragment" -\-> -->
+
+<!-- </textarea> -->
+<!-- </section> -->
+
+<!-- <section id="impseg"> -->
+<!--   <h2>IMPS: Interactive Music Prediction System</h2> -->
+<!--   <img src="/assets/predictive-models-in-interactive-music/imps-github.png" width="40%"><br /> -->  
+<!--   <a href="https://github.com/cpmpercussion/imps">github.com/cpmpercussion/imps</a> -->
+<!-- </section> -->
+
+<!-- <section data-markdown id="representation"> -->
+<!-- <textarea data-template> -->
+
+<!-- ### Data Representations -->
+
+<!-- | **System**              | **Representation**        | -->
+<!-- |-------------------------|---------------------------| -->
+<!-- | MelodyRNN               | MIDI note-ish, 16th grid  | -->
+<!-- | PerformanceRNN          | MIDI note-ish             | -->
+<!-- | Music Transformer       | MIDI note-ish             |  -->
+<!-- | WaveNet / SampleRNN     | Digital Audio (lo res)    | -->
+<!-- | IMPS System (me)        | control data + time delta | -->
+  
+<!-- <aside class="notes"> -->
+<!--   AB mentioned to me. "notes are easy, rhythm is hard" -->
+<!-- </aside> -->
+<!-- </textarea> -->
+  <!-- </section> -->
+
+<!-- <section data-markdown id="training"> -->
+<!-- <textarea data-template> -->
+<!--   ## training -->
+
+<!--   - tends to scale with dataset size <\!-- .element: class="fragment" -\-> -->
+<!--   - GPU still 10x faster (use Colab?) <\!-- .element: class="fragment" -\-> -->
+<!--   - Small datasets... fast training? <\!-- .element: class="fragment" -\-> -->
+<!--   - Difficult to know good training parameters.  <\!-- .element: class="fragment" -\-> -->
+  
+<!--   <img src="/assets/predictive-models-in-interactive-music/colab.png" style="float:right;width:40%;"> -->
+  
+<!--   <aside class="notes"> -->
+<!--   </aside> -->
+<!--   </textarea> -->
+<!-- </section> -->
+
+<!-- <section data-markdown id="representation"> -->
+<!-- <textarea data-template> -->
+
+<!-- ### Where does data come from? -->
+
+<!-- | **Dataset**             | **Source**                | -->
+<!-- |-------------------------|---------------------------| -->
+<!-- | MAESTRO                 | Piano Competition         | -->
+<!-- | Lakh MIDI dataset       | MIDI scraped from the net | -->
+<!-- | FolkRNN                 | Transcribed Folk Songs    | -->
+<!-- | Groove MIDI Dataset     | Studio Drumset Recordings | -->
+  
+<!-- <aside class="notes"> -->
+<!--   AB mentioned to me. "notes are easy, rhythm is hard" -->
+<!-- </aside> -->
+<!-- </textarea> -->
+<!-- </section> -->
+<section class="title-slide center" data-background-color="0x000000" data-background-image="/assets/charles-setup.jpg" data-background-size="cover" data-background-opacity="0.7">
+
+
+<header>
+    <h1>Creative Prediction with Neural Networks</h1>
+    <p>A course in ML/AI for creative expression</p>
+</header>
+
+<h2>Predictive Models in Interactive Music</h2>
+
+<p>Charles Martin - The Australian National University</p>
+
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+	<img src="/assets/resources/by-nc-sa.svg" style="height:1.5rem; margin-left:0;">
+</a>
+
+</section><section data-background-image="/assets/canberra1.jpg" data-background-size="cover">
+  
+  <h2>Ngunnawal &amp; Ngambri &amp; Ngarigu Country</h2>
+  
+</section><section id="vision" data-background-image="/assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG" data-background="#000000" data-background-opacity="0.5">
+  
+  <h1>Vision:</h1>
+
+  <h2>
+<i>Predictive Musical Instruments</i><br> become a normal
+  part of musical performance and production.</h2>
+</section><section id="why" data-background-image="/assets/predictive-models-in-interactive-music/2015-11-28-Electrofringe-Workshop-2.jpg" data-background="#000000" data-beackground-opacity="0.5">
+  <h2>Why?</h2>
+    <p>Assist professional musicians &amp; composers</p>
+    <p>Engage novice musicians &amp; students</p>
+    <p>Create <i>new kinds of music!</i></p>
+</section><section id="what" data-background-image="/assets/predictive-models-in-interactive-music/musical-performance-predictions.jpg" data-background="#000000" data-background-opacity="0.6">
+  <h2>Musical Predictions?</h2>
+</section><section data-markdown id="sequences">
+<textarea data-template>
+## predicting sequences
+
+![](/assets/predictive-models-in-interactive-music/sequence-learning.png)
+
+<aside class="notes">
+  So this is sequence learning where we train a model to predict the
+  next element of a sequence.
+  RNNs have long history.
+  Can now generate new data.
+</aside>
+</textarea>
+</section><section data-markdown id="interaction">
+<textarea data-template>
+## interacting with predictions
+
+![](/assets/predictive-models-in-interactive-music/predictive-interaction-motivation.png)
+
+<aside class="notes">
+  Idea here is to embed this model into the interaction loop of NIME
+  so that it can predict future control data.
+</aside>
+</textarea>
+</section><section data-markdown id="perfdata">
+<textarea data-template>
+
+### Performance data is diverse
+
+![](/assets/predictive-models-in-interactive-music/imps-nimes-examples.jpg)
+
+| Music Systems                   | Data                               |
+|---------------------------------|------------------------------------|
+| Score / Notation                | Symbolic Music, Image              |
+| Digital Instruments             | MIDI                               |
+| Recording &amp; Production          | Digital  Audio                     |
+| New Musical Interfaces          | Gestural and Sensor Data           |
+| Show Control                    | Video, Audio, Lighting, Control Signals |
+
+<aside class="notes">
+</aside>
+</textarea>
+</section><section id="gesture-rnn-title" data-background-video="/assets/predictive-models-in-interactive-music/neural-ensemble-interaction.mp4" data-background-video-loop data-background-opacity="0.7" data-background="#000000">
+<h1>GestureRNN</h1>
+</section><section data-markdown id="gesture-rnn-details">
+<textarea data-template>
+  ## GestureRNN
+
+  ![Gesture RNN](/assets/predictive-models-in-interactive-music/gesture-rnn.png) <!-- .element: width="80%" -->
+
+  - Predicts 1 of 9 "gestures" for three AI performers.
+  - Trained on labelled data from 5 hours of quartet performances.
+  - Actual "sounds" are chunks of each gesture played back.
+
+  <aside class="notes">
+    Lessons:
+    - fun to play
+    - music needs beginning and end
+    - limited sonic material
+    - lacks a bit of coherence.
+</aside>
+</textarea>
+</section><section id="robojamtitle" data-background-video="/assets/predictive-models-in-interactive-music/robojam-drum-response.mp4" data-background-video-loop data-background-opacity="0.7" data-background="#000000">
+  <h1>RoboJam</h1>
+</section><section data-markdown id="robojamdetails">
+<textarea data-template>
+## Robojam and Microjam
+
+![Robojam Interaction](/assets/predictive-models-in-interactive-music/robojam-interaction.png) <!-- .element: width="45%" -->
+
+- Predicts next touch location in screen (x, y, dt).
+- Trained on ~1500 5s performances.
+- Configured to produce duet "responses" to performances in the app.
+
+<aside class="notes">
+  - is this a performance instrument
+  - took a long time to get this to work (MDNs are hard)
+  - tuning of the samplig here is important.
+  - a lot relied on the "reply" interaction, but this was a bit of a
+  conceit.
+  - still not sure if this is a "useful" performance idea, only
+  performed a few times with microjam
+  - try out the app? contribute to my dataset!
+</aside>
+</textarea>
+</section><section id="rpiinsttitle" data-background-video="/assets/predictive-models-in-interactive-music/physical-intelligent-instrument.mp4" data-background-video-loop data-background-opacity="0.7" data-background="#000000">
+  <h1>Physical Intelligent Instrument</h1>
+</section><section data-markdown id="rpiinstdetails">
+<textarea data-template>
+## Interactive RNN Instrument
+
+![Physical Intelligent
+Instrument](/assets/predictive-models-in-interactive-music/physical-intelligent-instrument2.png) <!-- .element: width="35%" -->
+
+- Generates endless music with a melody RNN.
+- Switchable Dataset.
+- Controls for sampling "temperature".
+<aside class="notes">
+  - Is this a performance instrument? Something between instrument and
+  playback device.
+  - Switchable dataset is a nice idea (Bach, Massive MIDI, Final
+  Fantasy 7)
+  - "Temperature" is a good user parameter for experimenting in
+  performance, althought users focussed on the synth change knob.
+</aside>
+</textarea>
+</section><section id="slide" data-background-video="/assets/empi/empi-short-demo.mp4" data-background-video-loop data-background-opacity="0.7" data-background="#000000">
+<h1> Embodied Predictive Musical Instrument (EMPI)</h1>
+</section><section data-markdown id="empidetails">
+<textarea data-template>
+## Embodied Predictive Musical Instrument (EMPI)
+
+![Physical Intelligent
+Instrument](/assets/empi/EMPI-system-diagram.jpg) <!-- .element: width="35%" -->
+
+- Predicts next movement and time, represents physically.
+- Experiments with interaction mappings; mainly focussed on call-response
+- Weird and confusing/fun?
+<aside class="notes">
+  - neural networks can run on a raspberry pi.
+  - physical output really draws audiences in
+  - difficult to work out how to extend interaction patterns here
+  - this instrument seems to lend itself to synthetic or one-track
+  datasets (need way to switch between them)_
+</aside>
+</textarea>
+</section><section id="imps" data-background-video="/assets/predictive-models-in-interactive-music/imps-lightpad-loop.mp4" data-background-video-loop data-background-opacity="0.7" data-background="#000000">
+  <h1>IMPS system</h1>
+</section><section data-markdown id="imps-details">
+<textarea data-template>
+  ## IMPS System
+
+  ![](/assets/predictive-models-in-interactive-music/IMPS_connection_example.png) <!-- .element: width="80%" -->
+
+  - Opinionated Neural Network for interacting with NIMES.
+  - Automatically collects data and trains.
+  - "Wekinator" for deep learning?
+  
+  <aside class="notes">
+    - very small datasets work! (for something)
+    - training on regular computers works! (up to a point)
+    - automatic data recording leads to a kind of "practice" for the
+    neural network
+    - do we need data curation as well?
+    - looking for users!
+</aside>
+</textarea>
+</section><section id="whattodo" data-background-image="/assets/predictive-models-in-interactive-music/ipad-ensemble-2015.jpg" data-background-opacity="0.5" data-background="#000000">
+<h2>Using Predictions to Make Music</h2>
+<ul>
+  <li>Emulate or enhance ensemble experience</li>
+  <li>Engage in call-and-response improvisation</li>
+  <li>Model a performer's personal style</li>
+  <li>Modify/improve performance actions in place</li>
+</ul>
+</section><section id="evaluation" data-background-image="/assets/predictive-models-in-interactive-music/metatone-20170529-ifi.jpg" data-background-opacity="0.5" data-background="#000000"> 
+  <h2>Evaluating Predictive Instruments?</h2>
+  <ul>
+    <li>Does the ML model make good predictions?</li>
+    <li>Is this computationally practical?</li>
+    <li>Is this useful to musicians?</li>
+  </ul>
+</section><section data-markdown id="glissrnnvideo" data-background-video="/assets/predictive-models-in-interactive-music/glissrnn.mp4" data-background-video-loop data-background="#000000">
+  <h1>IMPS works with traditional instruments too!</h1>
+</section>
+</div></div>
+
+    
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    
+    <script src="/chalkboard-redux/plugin.js"></script>
+    
+
+    <script src="/reveal.js/reveal.js"></script>
+    <script>
+// this is the reveal config
+Reveal.initialize(
+  {
+  width: 1920,
+  height: 1080,
+  margin: 0.1,
+  center: false,
+  controls: false,
+  transition: 'none',
+  history: true,
+  slideNumber: true,
+  plugins: [
+    ChalkboardRedux,
+    RevealMath
+  ],
+  math: {
+    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+    config: 'TeX-AMS_HTML-full',
+  }
+}
+
+);
+    </script>
+
+    <!-- we don't use reveal.js's highlight.js plugin because it doesn't play -->
+    <!-- nice with the "revealified" markdown-fenced-code-blocks -->
+
+    <!-- basically, this is a consequence of this whole thing being hacks-upon-hacks -->
+
+    <script src="/reveal.js/hljs/highlight.pack.js"></script>
+    <script src="/reveal.js/hljs/extempore.min.js"></script>
+    <link rel="stylesheet" href="/reveal.js/hljs/atom-one-dark.css">
+
+    <script>
+     hljs.highlightAll();
+    </script>
+
+  </body>
+</html>

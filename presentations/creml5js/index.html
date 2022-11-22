@@ -1,0 +1,502 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    
+	<title>Creative Machine Learning with ml5.js</title>
+    
+
+    
+
+    
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reveal.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revealthemes/crepre.css">
+  </head>
+  <body>
+    <div class="reveal"><div class="slides">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="title-slide center" data-background-color="0x000000" data-background-image="/assets/charles-setup.jpg" data-background-size="cover" data-background-opacity="0.7">
+
+
+<header>
+    <h1>Creative Prediction with Neural Networks</h1>
+    <p>A course in ML/AI for creative expression</p>
+</header>
+
+<h2>Creative Machine Learning with ml5.js</h2>
+
+<p>Charles Martin - The Australian National University</p>
+
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+	<img src="/assets/resources/by-nc-sa.svg" style="height:1.5rem; margin-left:0;">
+</a>
+
+</section><section data-background-color="#000000" id="country" data-background-image="/assets/canberra1.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Ngunnawal &amp; Ngambri Country</h2>
+  
+</section><section id="code-theory" data-background-image="/assets/lectures/all-code.jpg" data-background-size="cover" data-background-opacity="0.8"><h2>Creative Machine Learning with ml5.js</h2>
+<p>What is machine learning (ML)?</p>
+<p>How can I use ML in p5?</p>
+<p>How can we make art with this?</p></section><section id="what-is-machine-learning-anyway"><h2>What is Machine Learning Anyway?</h2>
+<p class="fragment">Creating computer programs without explicitly programming them.</p>
+<p class="fragment">Algorithms that learn by example.</p>
+<p class="fragment">Algorithms that learn through experience.</p>
+<p class="fragment">Kind of a big deal ($$$)</p>
+<p class="fragment">Kind of problematic (!!!)</p></section><section id="lets-solve-a-problem"><h2>Let’s Solve a Problem</h2>
+<p>Suppose the boss wants a program where the screen colour <strong>changes to red</strong> when the mouse moves to certain locations.</p>
+<table>
+  <thead>
+    <tr>
+      <th>mouseX</th>
+      <th>red background</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>15</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>173</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>250</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>312</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>375</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+<p>(N.B.: the screen is 400 pixels wide)</p></section><section id="how-would-you-do-it"><h2>How would you do it?</h2>
+<p>Let’s write a <a href="https://editor.p5js.org/charlesmatarles/sketches/r7ZTvg7_g"><strong>configurable algorithm!</strong></a></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (mouseX &gt; ??) {
+    background(255,0,0);
+} else {
+    background(0,0,0);
+}
+</code></pre></div></div>
+<p class="fragment">one <strong>decision</strong> (red or black background)</p>
+<p class="fragment">one <strong>input</strong> (<code class="language-plaintext highlighter-rouge">mouseX</code>)</p></section><section id="what-if-we-had-more-inputs"><h2>What if we had more inputs?</h2>
+<p class="fragment">Maybe we could make <strong>more complicated</strong> decisions?</p>
+<p class="fragment">Likely to get <strong>more complicated</strong> to <strong>configure</strong> the algorithm.</p></section><section data-background-image="/assets/creml5js/ashleigh-robertson-yqL-06P89Hg-unsplash.jpg" data-background-size="cover">
+  
+  <h2>Pictures as Inputs</h2>
+  
+<p class="fragment">Pictures are 2D arrays of colours! (represented as numbers)</p>
+<p class="fragment">So we had <strong>enough</strong> <code class="language-plaintext highlighter-rouge">if</code>s and <code class="language-plaintext highlighter-rouge">else</code>s then maybe we could make a <em>doggo classifier</em>!</p>
+<p style="font-size:.5em;">(<span>Photo by <a href="https://unsplash.com/@a5hleighh?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ashleigh Robertson</a> on <a href="https://unsplash.com/s/photos/doggo?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>)</p></section><section id="simplifying-inputs"><h2>Simplifying inputs</h2>
+<p><img src="/assets/creml5js/perceptron.png" alt="perceptron" style="float:right;width:30%;"></p>
+<p>One trick we often use is to design a <strong>configurable algorithm</strong> which can:</p>
+<ul>
+  <li>take <strong>lots of numbers</strong> as inputs</li>
+  <li>boil this all down to <strong>just one number</strong> as output.</li>
+</ul>
+<p class="fragment">The “configuration” would be “choosing how much of each input to listen to”</p>
+<p class="fragment">One example is a <a href="https://en.wikipedia.org/wiki/Perceptron">“perceptron” (1958)</a></p></section><section id="fast-forward-50-years"><h2>Fast forward 50 years.</h2>
+<p><img src="/assets/creml5js/perceptron-network.png" alt="perceptron network" style="float:right;width:30%;"></p>
+<p>Trick 1: feed the outputs of perceptrons into <strong>more</strong> perceptrons in a kind of <em>network</em></p>
+<p>Trick 2: tricky algorithms to choose the <strong>configuration</strong></p>
+<p>Trick 3: big fast computers with <strong>lots of data</strong> to learn from</p>
+<p class="fragment">By the way, another name for a perceptron is an <em>artificial neuron</em>. So the above is a… <em>neural network</em>…</p></section><section id="terminology" data-background-image="/assets/lectures/all-bigpicture.jpg" data-background-size="cover" data-background-opacity="0.8"><h2>Some terminology</h2>
+<p><strong>Model</strong>: an instance of a trainable algorithm</p>
+<p><strong>Pre-Trained Model</strong>: a trainable algorithm which has… already been trained.</p>
+<p><strong>Training/Optimising</strong>: using training data to make a trained model.</p>
+<p><strong>Prediction/Inference</strong>: using a trained model to generate an output using  <em>unseen</em> data</p>
+<p><strong>Classification</strong>: an ML task for choosing a “class” (or description) for a  piece of data</p></section><section id="ml5js-friendly-machine-learning"><h2>ml5.js: Friendly Machine Learning</h2>
+<p><a href="https://ml5js.org/">ml5.js</a> is a JavaScript library that provides access to machine learning <strong>models</strong> in a web browser.</p>
+<p>You can load up <strong>pre-trained models</strong> and start doing <strong>prediction</strong> right away!</p>
+<p>Related to and inspired by <code class="language-plaintext highlighter-rouge">p5.js</code>.</p></section><section id="get-started"><h2>Get started</h2>
+<p>Just need to load it in our <code class="language-plaintext highlighter-rouge">index.html</code>:</p>
+<div style="font-size:.85em;" class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script src="https://unpkg.com/ml5@0.5.0/dist/ml5.min.js" type="text/javascript"&gt;&lt;/script&gt;
+</code></pre></div></div>
+<p>Open up a <a href="https://editor.p5js.org/charlesmatarles/sketches/W9eLM5cPB">p5 web editor sketch</a> with ml5 already loaded.</p></section><section id="images"><h2>Classifying Images</h2>
+<p><a href="https://editor.p5js.org/charlesmatarles/sketches/qVr2_p4mi">Let’s classify some doggos</a>. We’ll use a pretrained model called <code class="language-plaintext highlighter-rouge">MobileNet</code></p>
+<div style="font-size:.85em;" class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// load the classifier
+classifier = ml5.imageClassifier('MobileNet');
+// classify an image
+classifier.classify(img, gotResult)
+</code></pre></div></div>
+<p>Where does the result go? Need to define a <em>callback</em> function <code class="language-plaintext highlighter-rouge">gotResult(error, results)</code>.</p></section><section id="video"><h2>Classifying Video</h2>
+<p style="font-size:.85em;">We can access a webcam in our <a href="https://editor.p5js.org/charlesmatarles/sketches/kWvnx9M5c">sketch</a>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>video = createCapture(VIDEO);
+video.size(320, 240);
+video.hide();
+</code></pre></div></div>
+<p style="font-size:.85em;">And we can just ask the classifier to only make predictions from this video stream:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>classifier = ml5.imageClassifier('MobileNet', video);
+classifier.classify(gotResult); // classify one frame
+</code></pre></div></div></section><section data-background-image="/assets/creml5js/ashleigh-robertson-yqL-06P89Hg-unsplash.jpg" data-background-size="cover">
+  
+  <h2>What is problematic about doggos?</h2>
+  
+</section><section data-background-image="/assets/creml5js/alina-grubnyak-ZiQkhI7417A-unsplash.jpg" data-background-size="cover">
+  
+  <h2>What is MobileNet?</h2>
+  
+<p style="font-size:.5em;"><span>Photo by <a href="https://unsplash.com/@alinnnaaaa?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alina Grubnyak</a> on <a href="https://unsplash.com/s/photos/network?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></p></section><section data-background-video="/assets/creml5js/imagenet-labels.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+  <h1></h1>
+  
+<p><a href="https://image-net.org/challenges/LSVRC/2012/browse-synsets.php">What was the training data?</a></p></section><section data-background-image="/assets/creml5js/ml-co2-impact.jpg" data-background-size="cover">
+  
+  <h2>Are there hidden costs?</h2>
+  
+</section><section id="training"><h2>Artistinal Bespoke Machine Learning</h2>
+<p>Let’s make <em>our own</em> custom image classifier with <a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a></p>
+<p><img src="/assets/creml5js/teachablecharles.jpg" alt="Teachable Charles" style="display:block;margin-left:auto;margin-right:auto;width:60%"></p></section><section data-background-color="black" data-background-image="/assets/creml5js/compasses-allisonparrish.png" data-background-size="contain">
+  
+<div class="image-credit" style="">
+
+  
+    
+
+  <p class="image-credit-artist">Allison Parrish</p>
+
+	
+  
+    
+
+  <p class="image-credit-title">Compasses</p>
+
+	
+  
+    
+
+  <p class="image-credit-year">2019</p>
+
+	
+  
+
+</div></section><section data-background-color="black" data-background-image="/assets/creml5js/dadabots-relentlessdoppelganger.png" data-background-size="cover">
+  
+<div class="image-credit" style="">
+
+  
+    
+
+  <p class="image-credit-artist">Dadabots</p>
+
+	
+  
+    
+
+  <p class="image-credit-title">Relentless Doppelganger</p>
+
+	
+  
+    
+
+  <p class="image-credit-year">2019</p>
+
+	
+  
+
+</div></section><section data-background-color="black" data-background-image="/assets/creml5js/memo-learningtosee.png" data-background-size="cover">
+  
+<div class="image-credit" style="">
+
+  
+    
+
+  <p class="image-credit-artist">Memo Atken</p>
+
+	
+  
+    
+
+  <p class="image-credit-title">Learning to See</p>
+
+	
+  
+    
+
+  <p class="image-credit-year">2019</p>
+
+	
+  
+
+</div></section><section data-background-color="black" data-background-image="/assets/creml5js/art-or-not.png" data-background-size="contain">
+  
+<div class="image-credit" style="">
+
+  
+    
+
+  <p class="image-credit-artist">Dilpreet Singh</p>
+
+	
+  
+    
+
+  <p class="image-credit-title">Art or Not App</p>
+
+	
+  
+    
+
+  <p class="image-credit-year">2019</p>
+
+	
+  
+
+</div></section><section data-background-video="/assets/creml5js/benediktewallace-dance.mp4" data-background-size="contain" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+<div class="image-credit" style="">
+
+  
+    
+
+  <p class="image-credit-artist">Benedikte Wallace</p>
+
+	
+  
+    
+
+  <p class="image-credit-title">Dance Generation Neural Network</p>
+
+	
+  
+    
+
+  <p class="image-credit-year">2020</p>
+
+	
+  
+
+</div></section>
+</div></div>
+
+    
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    
+    <script src="/chalkboard-redux/plugin.js"></script>
+    
+
+    <script src="/reveal.js/reveal.js"></script>
+    <script>
+// this is the reveal config
+Reveal.initialize(
+  {
+  width: 1920,
+  height: 1080,
+  margin: 0.1,
+  center: false,
+  controls: false,
+  transition: 'none',
+  history: true,
+  slideNumber: true,
+  plugins: [
+    ChalkboardRedux,
+    RevealMath
+  ],
+  math: {
+    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+    config: 'TeX-AMS_HTML-full',
+  }
+}
+
+);
+    </script>
+
+    <!-- we don't use reveal.js's highlight.js plugin because it doesn't play -->
+    <!-- nice with the "revealified" markdown-fenced-code-blocks -->
+
+    <!-- basically, this is a consequence of this whole thing being hacks-upon-hacks -->
+
+    <script src="/reveal.js/hljs/highlight.pack.js"></script>
+    <script src="/reveal.js/hljs/extempore.min.js"></script>
+    <link rel="stylesheet" href="/reveal.js/hljs/atom-one-dark.css">
+
+    <script>
+     hljs.highlightAll();
+    </script>
+
+  </body>
+</html>

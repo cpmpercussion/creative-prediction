@@ -1,0 +1,508 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    
+	<title>Mixture Density Networks</title>
+    
+
+    
+
+    
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reveal.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revealthemes/crepre.css">
+  </head>
+  <body>
+    <div class="reveal"><div class="slides">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="title-slide center" data-background-color="0x000000" data-background-image="/assets/charles-setup.jpg" data-background-size="cover" data-background-opacity="0.7">
+
+
+<header>
+    <h1>Creative Prediction with Neural Networks</h1>
+    <p>A course in ML/AI for creative expression</p>
+</header>
+
+<h2>Mixture Density Networks</h2>
+
+<p>Charles Martin - The Australian National University</p>
+
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+	<img src="/assets/resources/by-nc-sa.svg" style="height:1.5rem; margin-left:0;">
+</a>
+
+</section><section class="slide">
+<h2 id="so-far-rnns-that-model-categorical-data">So far; RNNs that Model Categorical Data</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Remember that most RNNs (and most deep learning models) end with a softmax layer.</li>
+<li>This layer outputs a probability distribution for a set of categorical predictions.</li>
+<li>E.g.:
+<ul>
+<li>image labels,</li>
+<li>letters, words,</li>
+<li>musical notes,</li>
+<li>robot commands,</li>
+<li>moves in chess.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="column">
+  <p>
+    <img data-src="/assets/mdn/charRNN-arch.png" style="width:70%; display: block; margin-left: auto; margin-right: auto;">
+    <img data-src="/assets/mdn/charRNN-training.png" style="width:70%; display: block; margin-left: auto; margin-right: auto;">
+  </p>
+</div>
+</div>
+</section><section class="slide">
+<h2 id="expressive-data-is-often-continuous">Expressive Data is Often Continuous</h2>
+<p style="text-align:center;">
+<img data-src="/assets/mdn/music-interface-1.jpg" style="width:20%;">
+<img data-src="/assets/mdn/music-interface-2.png" style="width:20%;">
+</p>
+<p style="text-align:center;">
+<img data-src="/assets/mdn/music-interface-3.jpg" style="width:20%;">
+<iframe src="https://giphy.com/embed/1AjE1Ci6w3w6fv4D2z" width="300" height="300" frameborder="0" class="giphy-embed" allowfullscreen></iframe>
+</p>
+</section><section class="slide level2">
+  <h2 id="so-are-bio-signals">So are Bio-Signals</h2>
+  <p style="text-align:center;">
+<img data-src="/assets/mdn/continuous-data-ecg.png" style="width:20.0%">
+<img data-src="/assets/mdn/continuous-data-eeg.png" style="width:20.0%"></p>
+  <p style="text-align:center;">
+<img data-src="/assets/mdn/continuous-data-music.png" style="width:30.0%"></p>
+<p>Image Credit: Wikimedia</p>
+</section><section class="slide level2">
+<h3 id="categorical-vs.continuous-models">Categorical vs. Continuous Models</h3>
+<div class="columns">
+<div class="column">
+<p><img data-src="/assets/mdn/categorical_plot.png"></p>
+</div>
+<div class="column">
+<p><img data-src="/assets/mdn/mixture_plot.png"></p>
+</div>
+</div>
+</section><section class="slide level2">
+<h3 id="normal-gaussian-distribution">Normal (Gaussian) Distribution</h3>
+<div class="columns">
+<div class="column">
+<ul>
+<p>The “Standard” probability distribution</p>
+<p>Has two parameters:</p>
+<ul>
+<li>mean (<span class="math inline">\(\mu\)</span>) and</li>
+<li>standard deviation (<span class="math inline">\(\sigma\)</span>)</li>
+</ul>
+<p>Probability Density Function:</p>
+<span class="math display">\[\mathcal{N}(x \mid \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2} } e^{ -\frac{(x-\mu)^2}{2\sigma^2} }\]</span>
+</ul>
+</div>
+<div class="column">
+<p><img data-src="/assets/mdn/normal_distribution_mu0_sd5.png" style="width:100.0%"></p>
+</div>
+</div>
+</section><section class="slide level2">
+<h2 id="problem-normal-distribution-might-not-fit-data">Problem: Normal distribution might not fit data</h2>
+<div class="columns">
+<div class="column">
+<p>What if the data is complicated?</p>
+<p>It’s easy to “fit” a normal model to any data.</p>
+<p>Just calculate <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span></p>
+<p>(might not fit the data well)</p>
+</div>
+<div class="column">
+<p><img data-src="/assets/mdn/complex_distribution_hist_and_normal.png" style="width:100.0%"></p>
+</div>
+</div>
+</section><section class="slide level2">
+
+<h2 id="mixture-of-normals">Mixture of Normals</h2>
+<div class="columns">
+<div class="column">
+<p>Three groups of parameters:</p>
+<ul>
+<li>means (<span class="math inline">\(\boldsymbol\mu\)</span>): location of each component</li>
+<li>standard deviations (<span class="math inline">\(\boldsymbol\sigma\)</span>): width of each component</li>
+<li>Weight (<span class="math inline">\(\boldsymbol\pi\)</span>): height of each curve</li>
+</ul>
+<p>Probability Density Function:</p>
+<span class="math display">\[p(x) = \sum_{i=1}^K \pi_i\mathcal{N}(x \mid \mu, \sigma^2)\]</span>
+</div>
+<div class="column">
+<p><img data-src="/assets/mdn/complex_mixture.png" style="width:100.0%"></p>
+</div>
+</div>
+</section><section class="slide level2">
+
+<h2 id="this-solves-our-problem">This solves our problem:</h2>
+<div class="columns">
+<div class="column">
+<p>Returning to our modelling problem, let’s plot the PDF of a evenly-weighted mixture of the two sample normal models.</p>
+<p>We set:</p>
+<ul>
+<li><span class="math inline">\(K = 2\)</span></li>
+<li><span class="math inline">\(\boldsymbol\pi = [0.5, 0.5]\)</span></li>
+<li><span class="math inline">\(\boldsymbol\mu = [-5, 5]\)</span></li>
+<li><span class="math inline">\(\boldsymbol\sigma = [2, 3]\)</span></li>
+<p>(bold used to indicate the vector of parameters for each component)</p>
+</ul>
+</div>
+<div class="column">
+  <p><img data-src="/assets/mdn/complex_distribution_hist_and_mixture.png" style="width:100.0%"></p>
+  <p>In this case, I knew the right parameters, but normally you would have to <em>estimate</em>, or <em>learn</em>, these somehow…</p>
+</div>
+</div>
+</section><section id="mixture-density-networks">
+<h2>Mixture Density Networks</h2>
+<img data-src="/assets/mdn/mse-network-normal.png" style="width:50%; display: block; margin-left: auto; margin-right: auto;">
+<ul>
+<li>Neural networks used to model complicated real-valued data.</li>
+<li>i.e., data that might not be very “normal”</li>
+<li>Usual approach: use a neuron with linear activation to make predictions.</li>
+<li>Training function could be MSE (mean squared error).</li>
+<li>Problem! This is equivalent to fitting to a single normal model!</li>
+<li>(See <a href="https://publications.aston.ac.uk/id/eprint/373/1/NCRG_94_004.pdf">Bishop, C (1994)</a> for proof and more details)</li>
+</ul>
+</section><section id="mixture-density-networks-1" class="slide level2">
+<h2>Mixture Density Networks</h2>
+<p><img data-src="/assets/mdn/mdn-network.png" style="width:70%; display: block; margin-left: auto; margin-right: auto;"></p>
+<ul>
+<li>Idea: output parameters of a mixture model instead!</li>
+<li>Rather than MSE for training, use the PDF of the mixture model.</li>
+<li>Now network can model complicated distributions! 😌</li>
+</ul>
+</section><section id="simple-example-in-keras" class="slide level2">
+<h2>Simple Example in Keras</h2>
+<p><img data-src="/assets/mdn/arcsine-function.png" style="width:30%; display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Difficult data is not hard to find! Think about modelling an inverse sine (arcsine) function.</p>
+<ul>
+  <li> input value takes multiple outputs…</li>
+  <li> is not going to go well for a single normal model.</li>
+</ul>
+</section><section>
+  <h2 id="feedforward-mse-network">Feedforward MSE Network</h2>
+  <p>Simple two-hidden-layer network (286 parameters):</p>
+  <pre class="sourceCode numberSource python numberLines"><code class="sourceCode python">
+model = Sequential()
+model.add(Dense(15, batch_input_shape=(None, 1), activation='tanh'))
+model.add(Dense(15, activation='tanh'))
+model.add(Dense(1, activation='linear'))
+model.compile(loss='mse', optimizer='rmsprop')
+model.fit(x=x_data, y=y_data, batch_size=128, epochs=200, validation_split=0.15)
+  </code></pre>
+</section><section>
+  <h2 id="feedforward-mse-network-results">Feedforward MSE Network (Result)</h2>
+  <p>Simple two-hidden-layer network (286 parameters):</p>
+<p style="text-align:center;"><img data-src="/assets/mdn/arcsine-feedforward-mse-prediction.png" style="width:30.0%"><img data-src="/assets/mdn/feedforward-mse-prediction-loss-plot.png" style="width:40.0%"></p>
+</section><section id="mdn-architecture" class="slide level2">
+<h2>MDN Architecture:</h2>
+<img data-src="/assets/mdn/mdn-network.png" style="width:60%; display: block; margin-left: auto; margin-right: auto;">
+<p>Loss function for MDN is negative log of likelihood function <span class="math inline">\(\mathcal{L}\)</span>.</p>
+<span class="math inline">\(\mathcal{L}\)</span> measures likelihood of <span class="math inline">\(t\)</span> being drawn from a mixture parametrised by <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>, and <span class="math inline">\(\pi\)</span> which are generated by the network inputs <span class="math inline">\(x\)</span>:
+<span class="math display">\[\mathcal{L} = \sum_{i=1}^K\pi_i(\mathbf{x})\mathcal{N}\bigl(\mu_i(\mathbf{x}), \sigma_i^2(\mathbf{x}); \mathbf{t} \bigr)\]</span>
+</section><section class="slide level2">
+<h2 id="feedforward-mdn-solution">Feedforward MDN Solution</h2>
+<p>Two-hidden-layer MDN (510 parameters)---code snippet:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python">
+N_MIXES = 5
+model = Sequential()
+model.add(Dense(15, batch_input_shape=(None, 1), activation='relu'))
+model.add(Dense(15, activation='relu'))
+model.add(mdn.MDN(1, N_MIXES)) # here's the MDN layer!
+model.compile(loss=mdn.get_mixture_loss_func(1,N_MIXES), optimizer='rmsprop')
+model.summary()
+</code></pre></div>
+</section><section class="slide level2">
+  <h2 id="feedforward-mdn-solution">Feedforward MDN Results</h2>
+  <p>Two-hidden-layer MDN (510 parameters)---works much better!</p>
+<p style="text-align:center;"><img data-src="/assets/mdn/arcsine-feedforward-mdn-predictions.png" style="width:30.0%"> <img data-src="/assets/mdn/arcsine-feedforward-mdn-loss.png" style="width:40.0%"></p>
+</section><section class="slide level2">
+<h2 id="getting-inside-the-mdn-layer">Getting inside the MDN layer</h2>
+<div class="sourceCode" id="cb3" style="font-size:0.8rem"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python">
+def elu_plus_one_plus_epsilon(x):
+    return (K.elu(x) + 1 + 1e-8)
+
+N_HIDDEN = 15; N_MIXES = 5
+inputs = Input(shape=(1,), name='inputs')
+hidden1 = Dense(N_HIDDEN, activation='relu', name='hidden1')(inputs)
+hidden2 = Dense(N_HIDDEN, activation='relu', name='hidden2')(hidden1)
+mdn_mus = Dense(N_MIXES, name='mdn_mus')(hidden2)
+mdn_sigmas = Dense(N_MIXES, activation=elu_plus_one_plus_epsilon, name='mdn_sigmas')(hidden2)
+mdn_pi = Dense(N_MIXES, name='mdn_pi')(hidden2)
+mdn_out = Concatenate(name='mdn_outputs')([mdn_mus, mdn_sigmas, mdn_pi])
+model = Model(inputs=inputs, outputs=mdn_out)
+</code></pre></div>
+</section><section id="loss-function-the-tricky-bit." class="slide level2">
+<h2>Loss Function: The Tricky Bit.</h2>
+<p>Loss function for the MDN should be the negative log likelihood:</p>
+<div class="sourceCode" id="cb4" style="font-size:0.5rem"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python">
+def mdn_loss(y_true, y_pred):
+    # Split the inputs into paramaters
+    out_mu, out_sigma, out_pi = tf.split(y_pred, num_or_size_splits=[N_MIXES, N_MIXES, N_MIXES],
+                                         axis=-1, name='mdn_coef_split')
+    mus = tf.split(out_mu, num_or_size_splits=N_MIXES, axis=1)
+    sigs = tf.split(out_sigma, num_or_size_splits=N_MIXES, axis=1)
+    # Construct the mixture models
+    cat = tfd.Categorical(logits=out_pi)
+    coll = [tfd.MultivariateNormalDiag(loc=loc, scale_diag=scale) for loc, scale
+            in zip(mus, sigs)]
+    mixture = tfd.Mixture(cat=cat, components=coll)
+    # Calculate the loss function
+    loss = mixture.log_prob(y_true)
+    loss = tf.negative(loss)
+    loss = tf.reduce_mean(loss)
+    return loss
+
+model.compile(loss=mdn_loss, optimizer='rmsprop')
+</code></pre></div>
+<p>Let’s go through bit by bit…</p>
+</section><section id="loss-function-part-1" class="slide level2">
+<h2>Loss Function: Part 1:</h2>
+<p>First we have to extract the mixture paramaters.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python">
+# Split the inputs into paramaters
+out_mu, out_sigma, out_pi = tf.split(y_pred, num_or_size_splits=[N_MIXES, N_MIXES, N_MIXES],
+                                     axis=-1, name='mdn_coef_split')
+mus = tf.split(out_mu, num_or_size_splits=N_MIXES, axis=1)
+sigs = tf.split(out_sigma, num_or_size_splits=N_MIXES, axis=1)
+</code></pre></div>
+<ul>
+<li>Split up the parameters <span class="math inline">\(\boldsymbol\mu\)</span>, <span class="math inline">\(\boldsymbol\sigma\)</span>, and <span class="math inline">\(\boldsymbol\pi\)</span>, remember that there are N_MIXES <span class="math inline">\(= K\)</span> of each of these.</li>
+<li>
+<span class="math inline">\(\boldsymbol\mu\)</span> and <span class="math inline">\(\boldsymbol\sigma\)</span> have to be split <em>again</em> so that we can iterate over them (you can’t iterate over an axis of a tensor…)</li>
+</ul>
+</section><section id="loss-function-part-2" class="slide level2">
+<h2>Loss Function: Part 2:</h2>
+<p>Now we have to construct the mixture model’s PDF.</p>
+<div class="sourceCode" id="cb6" style="font-size:0.8rem"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python">
+# Construct the mixture models
+cat = tfd.Categorical(logits=out_pi) 
+coll = [tfd.Normal(loc=loc, scale=scale) for loc, scale
+        in zip(mus, sigs)]
+mixture = tfd.Mixture(cat=cat, components=coll)
+</code></pre></div>
+<ul>
+<li>For this, we’re using the <code>Mixture</code> abstraction provided in <code>tensorflow-probability.distributions</code>.</li>
+<li>This takes a categorical (a.k.a. softmax, a.k.a. generalized Bernoulli distribution) model, and a list the component distributions.</li>
+<li>Each normal PDF is contructed using <code>tfd.Normal</code>.</li>
+<li>Can do this from first principles as well, but good to use abstractions that are available (?)</li>
+</ul>
+</section><section id="loss-function-part-3" class="slide level2">
+<h2>Loss Function: Part 3:</h2>
+<p>Finally, we calculate the loss:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python">
+loss = mixture.log_prob(y_true)
+loss = tf.negative(loss)
+loss = tf.reduce_mean(loss)
+</code></pre></div>
+<ul>
+<li>
+<code>mixture.log_prob(y_true)</code> means “the log-likelihood of sampling <code>y_true</code> from the distribution called <code>mixture</code>.”</li>
+</ul>
+</section><section id="some-more-details." class="slide level2">
+<h2>Some more details….</h2>
+<p><img data-src="/assets/mdn/MultivariateNormal.png" style="width:30%;  display: block; margin-left: auto; margin-right: auto;"></p>
+<ul>
+<li>This “version” of a mixture model works for a mixture of 1D normal distributions.</li>
+<li>Not too hard to extend to multivariate normal distributions, which are useful for lots of problems.</li>
+<li>This is how it actually works in my Keras MDN layer, <a href="https://github.com/cpmpercussion/keras-mdn-layer/">have a look at the code for more details…</a>
+</li>
+</ul>
+</section><section id="mdn-rnns" class="slide level2">
+<h2>MDN-RNNs</h2>
+<p><img data-src="/assets/mdn/mdn-rnn-movement-example.png" style="width:85%;  display: block; margin-left: auto; margin-right: auto;"></p>
+<p>MDNs can be handy at the end of an RNN! Imagine a robot calculating moves forward through space, it might have to choose from a number of valid positions, each of which could be modelled by a 2D Normal model.</p>
+</section><section id="mdn-rnn-architecture" class="slide level2">
+<h2>MDN-RNN Architecture</h2>
+<p><img data-src="/assets/mdn/mdn-rnn-architecture-simple.png" style="width:85%;  display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Can be as simple as putting an MDN layer after recurrent layers!</p>
+</section><section id="use-cases-handwriting-generation" class="slide level2">
+<h2>Use Cases: Handwriting Generation</h2>
+<p style="text-align:center;"><img data-src="/assets/mdn/graves-handwriting-generation.png" style="width:40%">
+<img data-src="/assets/mdn/graves-handwriting2.png" style="width:40.0%"></p>
+<ul>
+<li>Handwriting Generation RNN (Graves, 2013).</li>
+<li>Trained on handwriting data.</li>
+<li>Predicts the next location of the pen (<span class="math inline">\(dx\)</span>, <span class="math inline">\(dy\)</span>, and up/down)</li>
+<li>Network takes text to write as an extra input, RNN learns to decide what character to write next.</li>
+</ul>
+</section><section id="use-cases-sketchrnn" class="slide level2">
+<h2>Use Cases: SketchRNN</h2>
+<p style="text-align:center;"><img data-src="/assets/mdn/ha-kanji-example.png" style="width:40.0%"> <img data-src="/assets/mdn/ha-sketchrnn.png" style="width:40.0%"></p>
+<ul>
+<li>SketchRNN Kanji (Ha, 2015); similar to handwriting generation, trained on kanji and then generates new “fake” characters</li>
+<li>SketchRNN VAE (Ha et al., 2017); similar again, but trained on human-sourced sketches. VAE architecture with bidirectional RNN encoder and MDN in the decoder part.</li>
+</ul>
+</section><section id="use-cases-robojam" class="slide level2">
+<h2>Use Cases: RoboJam</h2>
+<div class="columns">
+<div class="column">
+<iframe src="https://giphy.com/embed/l1Lc4C4TcCTI4Wi8o" width="270" height="480" frameborder="0" class="giphy-embed" allowfullscreen style="display: block; margin-left: auto; margin-right: auto;">
+</iframe>
+</div>
+<div class="column">
+<ul>
+<li>RoboJam (Martin et al., 2018); similar to the kanji RNN, but trained on touchscreen musical performances</li>
+<li>Extra complexity: have to model touch position (<span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>) and time (<span class="math inline">\(dt\)</span>).</li>
+<li>Implemented in my MicroJam app (have a go: <a href="https://microjam.info">microjam.info</a>)</li>
+</ul>
+</div>
+</div>
+</section><section class="slide level2">
+<h2 id="use-cases-world-models">Use Cases: World Models</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>
+<a href="https://worldmodels.github.io">World Models</a> (Ha &amp; Schmidhuber, 2018)</li>
+<li>Train a VAE for visual perception an environment (e.g., VizDoom), now each frame from the environment can be represented by a vector <span class="math inline">\(z\)</span>
+</li>
+<li>Train MDN to predict next <span class="math inline">\(z\)</span>, use this to help train an agent to operate in the environment.</li>
+</ul>
+</div>
+<div class="column">
+  <img data-src="/assets/mdn/mdn-world-model-1.png" style="width:60%;display: block; margin-left: auto; margin-right: auto;">
+  <img data-src="/assets/mdn/mdn-world-model-2.png" style="width:60%;display: block; margin-left: auto; margin-right: auto;">
+</div>
+</div>
+</section><section id="references" class="slide level2">
+<h2>References</h2>
+<ol style="font-size:0.8rem;">
+<li>Christopher M. Bishop. 1994. Mixture Density Networks. <a href="http://publications.aston.ac.uk/373/">Technical Report NCRG/94/004</a>. Neural Computing Research Group, Aston University.</li>
+<li>Axel Brando. 2017. Mixture Density Networks (MDN) for distribution and uncertainty estimation. Master’s thesis. Universitat Politècnica de Catalunya.</li>
+<li>A. Graves. 2013. Generating Sequences With Recurrent Neural Networks. ArXiv e-prints (Aug. 2013). <a href="https://arxiv.org/abs/1308.0850">ArXiv:1308.0850</a>
+</li>
+<li>David Ha and Douglas Eck. 2017. A Neural Representation of Sketch Drawings. ArXiv e-prints (April 2017). <a href="https://arxiv.org/abs/1704.03477">ArXiv:1704.03477</a>
+</li>
+<li>Charles P. Martin and Jim Torresen. 2018. RoboJam: A Musical Mixture Density Network for Collaborative Touchscreen Interaction. In Evolutionary and Biologically Inspired Music, Sound, Art and Design: EvoMUSART ’18, A. Liapis et al. (Ed.). Lecture Notes in Computer Science, Vol. 10783. Springer International Publishing. DOI:<a href="http://dx.doi.org/10.1007/9778-3-319-77583-8_11">10.1007/9778-3-319-77583-8_11</a>
+</li>
+<li>D. Ha and J. Schmidhuber. 2018. Recurrent World Models Facilitate Policy Evolution. ArXiv e-prints (Sept. 2018). <a href="https://arxiv.org/abs/1809.01999">ArXiv:1809.01999</a>
+</li>
+</ol>
+</section>
+</div></div>
+
+    
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    
+    <script src="/chalkboard-redux/plugin.js"></script>
+    
+
+    <script src="/reveal.js/reveal.js"></script>
+    <script>
+// this is the reveal config
+Reveal.initialize(
+  {
+  width: 1920,
+  height: 1080,
+  margin: 0.1,
+  center: false,
+  controls: false,
+  transition: 'none',
+  history: true,
+  slideNumber: true,
+  plugins: [
+    ChalkboardRedux,
+    RevealMath
+  ],
+  math: {
+    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+    config: 'TeX-AMS_HTML-full',
+  }
+}
+
+);
+    </script>
+
+    <!-- we don't use reveal.js's highlight.js plugin because it doesn't play -->
+    <!-- nice with the "revealified" markdown-fenced-code-blocks -->
+
+    <!-- basically, this is a consequence of this whole thing being hacks-upon-hacks -->
+
+    <script src="/reveal.js/hljs/highlight.pack.js"></script>
+    <script src="/reveal.js/hljs/extempore.min.js"></script>
+    <link rel="stylesheet" href="/reveal.js/hljs/atom-one-dark.css">
+
+    <script>
+     hljs.highlightAll();
+    </script>
+
+  </body>
+</html>

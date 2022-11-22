@@ -1,0 +1,175 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    
+	<title>Creative Prediction Projects</title>
+    
+
+    
+
+    
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reveal.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revealthemes/crepre.css">
+  </head>
+  <body>
+    <div class="reveal"><div class="slides">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="title-slide center" data-background-color="0x000000" data-background-image="/assets/charles-setup.jpg" data-background-size="cover" data-background-opacity="0.7">
+
+
+<header>
+    <h1>Creative Prediction with Neural Networks</h1>
+    <p>A course in ML/AI for creative expression</p>
+</header>
+
+<h2>Creative Prediction Projects</h2>
+
+<p>Charles Martin - The Australian National University</p>
+
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+	<img src="/assets/resources/by-nc-sa.svg" style="height:1.5rem; margin-left:0;">
+</a>
+
+</section><section id="supervisors"><h2>Supervisors</h2>
+<p><strong>Charles Martin</strong>. Lecturer in Computer Science, Australian
+National University. charles.martin@anu.edu.au</p>
+<p><strong>Benedikte Wallace</strong>. PhD Researcher, University of Oslo.
+benediwa@ifi.uio.no</p>
+<p style="width:30%;float:right"><img src="/assets/people/charlesmartin.jpg" alt=""></p>
+<p style="width:30%;float:right"><img src="/assets/people/benediktewallace.jpg" alt=""></p></section><section id="creative-predictions"><h2>Creative Predictions</h2>
+<p><img src="/assets/creative-prediction-image.png" alt=""></p></section><section id="learning-to-predict-sequences"><h2>Learning to Predict Sequences</h2>
+<p style="width:100%"><img src="/assets/sequence-learning.png" alt=""></p></section><section id="melody-to-harmony-in-microjam"><h2>Melody to Harmony in MicroJam</h2>
+<p style="float:right;"><img src="/assets/robojam-interaction.png" alt=""></p>
+<ol>
+  <li>Gain an overview of DL for music generation.</li>
+  <li>Develop a melody to harmony sequence to sequence model</li>
+  <li>Train the model on matched melody/harmony sequences</li>
+  <li>Use MicroJam-sourced data as input and see if the generated harmonies make sense!</li>
+</ol></section><section id="seq-to-seq-music-generation"><h2>Seq-to-Seq Music Generation</h2>
+<p style="width:75%"><img src="https://magenta.tensorflow.org/assets/music_transformer/motifs_shaded_boxes.png" alt=""></p>
+<ol>
+  <li>Understand the Transformer architecture.</li>
+  <li>Implement your own Transformer (e.g., in Keras).</li>
+  <li>Find a musical dataset that could be trained.</li>
+  <li>Train your model, listen to the results and find a way to evaluate them.</li>
+</ol></section><section id="generating-colour-palettes-from-audio-data"><h2>Generating colour palettes from audio data</h2>
+<p style="width:50%"><img src="/assets/nainoa-shizuru-NcdG9mK3PBY-unsplash.jpg" alt=""></p>
+<ol>
+  <li>Gain an overview of DL for audio processing.</li>
+  <li>Obtain a dataset of audio and video (or colour) data.</li>
+  <li>Try different neural network designs and evaluate the results. (Even a simple fully-connected ANN might work well!)</li>
+</ol></section><section id="motion-to-motion-generators"><h2>Motion-to-Motion Generators</h2>
+<p style="width:80%"><img src="/assets/motion-to-motion.png" alt=""></p>
+<ol>
+  <li>Gain an overview of the main DL methods used for motion generation including RNNs, MDRNNs, and world models.</li>
+  <li>Find a dataset of motion capture or other movement data (or capture one yourself!)</li>
+  <li>Train the ANN and evaluate its generative abilities.</li>
+</ol></section>
+</div></div>
+
+    
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    
+    <script src="/chalkboard-redux/plugin.js"></script>
+    
+
+    <script src="/reveal.js/reveal.js"></script>
+    <script>
+// this is the reveal config
+Reveal.initialize(
+  {
+  width: 1920,
+  height: 1080,
+  margin: 0.1,
+  center: false,
+  controls: false,
+  transition: 'none',
+  history: true,
+  slideNumber: true,
+  plugins: [
+    ChalkboardRedux,
+    RevealMath
+  ],
+  math: {
+    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+    config: 'TeX-AMS_HTML-full',
+  }
+}
+
+);
+    </script>
+
+    <!-- we don't use reveal.js's highlight.js plugin because it doesn't play -->
+    <!-- nice with the "revealified" markdown-fenced-code-blocks -->
+
+    <!-- basically, this is a consequence of this whole thing being hacks-upon-hacks -->
+
+    <script src="/reveal.js/hljs/highlight.pack.js"></script>
+    <script src="/reveal.js/hljs/extempore.min.js"></script>
+    <link rel="stylesheet" href="/reveal.js/hljs/atom-one-dark.css">
+
+    <script>
+     hljs.highlightAll();
+    </script>
+
+  </body>
+</html>
