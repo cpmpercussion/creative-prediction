@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "creative-prediction"
+version = "0.1.0"
+description = "Walkthroughs and examples for doing machine learning with creative data"
+authors = ["Charles Martin <cpm@charlesmartin.com.au>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+jupyter = "^1.1.1"
+pandas = "^2.2.2"
+pillow = "^10.4.0"
+matplotlib = "^3.9.2"
+music21 = "^9.1.0"
+keras = "^3.5.0"
+pygame = "^2.6.0"
+jax = "^0.4.31"
+tensorflow = "^2.17.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
