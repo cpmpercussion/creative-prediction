@@ -1,0 +1,297 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    
+	<title>An Interactive Musical Prediction System with MDRNNs</title>
+    
+
+    
+
+    
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reveal.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revealthemes/reveal/white.css">
+  </head>
+  <body>
+    <div class="reveal"><div class="slides">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="title-slide center" data-background-color="#000000" data-background-image="/assets/charles-setup.jpg" data-background-size="cover" data-background-opacity="0.5" id="title">
+
+<header>
+  <h1>An Interactive Musical Prediction System with MDRNNs</h1>
+  <p></p>
+</header>
+
+<h2>Dr Charles Martin - The Australian National University</h2>
+
+<p>web: <a href="https://charlesmartin.au">charlesmartin.au</a>     mastodon: <a href="https://aus.social/@charlesmartin">@charlesmartin@aus.social</a></p>
+
+</section><section id="what-is-this"><h1>What is this?</h1></section><section id="learning-to-predict-sequences"><h2>Learning to Predict Sequences</h2>
+<p><img src="/assets/sequence-learning.png" alt=""></p></section><section id="interacting-with-musical-predictions"><h2>Interacting with Musical Predictions</h2>
+<p><img src="/assets/imps/predictive-interaction-motivation-hires.png" alt=""></p></section><section id="why-is-this-needed"><h2>Why is this needed?</h2>
+<p><img src="/assets/imps/imps-nimes-examples.jpg" alt=""></p>
+<table>
+  <thead>
+    <tr>
+      <th>Creative Deep Learning Systems</th>
+      <th>NIMEs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Focus on MIDI data (e.g., Magenta Studio)</td>
+      <td>Yes MIDI, but also many custom sensors</td>
+    </tr>
+    <tr>
+      <td>Focus on digital audio</td>
+      <td>Focus on performer gestures</td>
+    </tr>
+    <tr>
+      <td>Focus on composition/artefact generation</td>
+      <td>Focus on interaction</td>
+    </tr>
+    <tr>
+      <td>Rhythm on 16th note grid</td>
+      <td>Complex or no rhythm</td>
+    </tr>
+    <tr>
+      <td>Focus on categorical data</td>
+      <td>Continuous data more interesting</td>
+    </tr>
+  </tbody>
+</table></section><section class="center" data-background-color="#000">
+
+<iframe class="stretch" src="https://www.youtube.com/embed/Kdmhrp2dfHw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+
+</section><section id="imps-interactive-musial-prediction-system"><h2>IMPS: Interactive Musial Prediction System</h2>
+<p><img src="/assets/imps/demonic_imps.jpg" alt=""></p>
+<ul class="fragment">
+  <li>An opinionated deep learning model for NIMEs</li>
+  <li>An environment for making NIMEs that play themselves</li>
+  <li>“Wekinator” for deep learning?</li>
+</ul></section><section id="how-does-it-work"><h1>How does it work?</h1></section><section id="mixture-density-recurrent-neural-network"><h2>Mixture Density Recurrent Neural Network</h2>
+<p><img src="/assets/imps/mdn-motivation.png" alt=""></p></section><section id="mixture-density-rnn"><h2>Mixture Density RNN</h2>
+<p><img src="/assets/imps/mdn-examples.jpg" alt=""></p>
+<p>Good at predicting creative, continuous, multi-dimensional data: handwriting, sketches… musical gestures?</p></section><section id="what-to-do-with-predictions"><h2>What to do with predictions?</h2>
+<p><img src="/assets/imps/predictive-interactions.png" alt="" style="width:50%"></p>
+<ol>
+  <li>Call-and-Response: Continue gestures when performer stops</li>
+  <li>Layered predictions: Always predict next move from current gesture</li>
+  <li>Duet: Two interdependent processes</li>
+</ol></section><section id="ok-how-do-i-use-it"><h1>Ok, how do I <em>use</em> it?</h1></section><section data-background-image="/assets/imps/IMPS_connection_example_hires.png" data-background-size="contain">
+  
+</section><section id="three-easy-steps"><h2>Three easy steps…</h2>
+<ol>
+
+<li class="fragment">
+<b>Collect some data:</b> IMPS logs interactions automatically to build up a dataset
+</li>
+
+<li class="fragment">
+<b>Train an MDRNN:</b> IMPS includes good presets, no need to train for days/weeks
+</li>
+
+<li class="fragment">
+<b>Perform!</b> IMPS includes three interaction modes, scope to extend in future!
+</li>
+
+</ol></section><section id="is-this-even-practical"><h1>Is this even <em>practical</em>?</h1></section><section id="deep-learning-in-nimes"><h2>Deep Learning in NIMEs??</h2>
+<ul>
+  <li>Is it practical for real-time use?</li>
+  <li>How do the MDRNN parameters affect time per prediction?</li>
+  <li>What are “good defaults” for training parameters?</li>
+  <li>Do you need a powerful/expensive computer?</li>
+</ul></section><section id="test-systems"><h2>Test Systems</h2>
+<p><img src="/assets/imps/imps-test-computers.jpg" alt="Test computers"></p></section><section id="results-time-per-prediction"><h2>Results: Time per prediction</h2>
+<p><img src="/assets/imps/prediction_time_against_units.png" alt="Time per prediction vs LSTM units"></p>
+<p>Time per prediction (ms) with different sizes of LSTM layers.</p></section><section id="results-time-per-prediction-1"><h2>Results: Time per prediction</h2>
+<p><img src="/assets/imps/prediction_time_against_dimension_64units.png" alt="Time per prediction vs MDN dimension"></p>
+<p>Time per prediction (ms) with different MDN output dimensions. (64
+LSTM units)</p></section><section id="results-training-error-vs-validation-set-error"><h2>Results: Training Error vs Validation Set Error</h2>
+<p><img src="/assets/imps/training_loss_12K_lightpad_model.png" alt=""></p>
+<p>12K sample dataset (15 minutes of performance)</p>
+<p>Takeaway: <strong>Smallest model best for small datasets.</strong> Don’t bother training for
+too long.</p></section><section id="results-training-error-vs-validation-set-error-1"><h2>Results: Training Error vs Validation Set Error</h2>
+<p><img src="/assets/imps/training_loss_100K_lightpad_model.png" alt=""></p>
+<p>100K sample dataset (120 minutes of performance)</p>
+<p>Takeaway: <strong>64- and 128-unit model still best!</strong></p></section><section id="results-exploring-generation"><h2>Results: Exploring Generation</h2>
+<p><img src="/assets/imps/robojam_temperature_sampling_0.png" alt="" style="width:50%"></p>
+<p>Takeaway: Make Gaussians <strong>less diverse</strong>, make categorical <strong>more diverse</strong>.</p></section><section id="try-it-out"><h2>Try it out!</h2>
+<p><img src="/assets/imps/imps-github.png" style="float:right;width:45%;"></p>
+<ul>
+  <li>Available on <a href="https://github.com/cpmpercussion/imps">GitHub</a>
+</li>
+  <li>Try with your NIMEs!</li>
+  <li>Hack if you want!</li>
+  <li>Add an issue with problems/results!</li>
+</ul>
+<p>Twitter: <a href="https://www.twitter.com/cpmpercussion">@cpmpercussion</a></p>
+<p>Website: <a href="https://creativeprediction.xyz/imps">creativeprediction.xyz/imps</a></p></section>
+</div></div>
+
+    
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    
+    <script src="/chalkboard-redux/plugin.js"></script>
+    
+
+    <script src="/reveal.js/reveal.js"></script>
+    <script>
+// this is the reveal config
+Reveal.initialize(
+  {
+  width: 1920,
+  height: 1080,
+  margin: 0.1,
+  center: false,
+  controls: false,
+  transition: 'none',
+  history: true,
+  slideNumber: true,
+  plugins: [
+    ChalkboardRedux,
+    RevealMath
+  ],
+  math: {
+    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+    config: 'TeX-AMS_HTML-full',
+  }
+}
+
+);
+    </script>
+
+    <!-- we don't use reveal.js's highlight.js plugin because it doesn't play -->
+    <!-- nice with the "revealified" markdown-fenced-code-blocks -->
+
+    <!-- basically, this is a consequence of this whole thing being hacks-upon-hacks -->
+
+    <script src="/reveal.js/hljs/highlight.pack.js"></script>
+    <script src="/reveal.js/hljs/extempore.min.js"></script>
+    <link rel="stylesheet" href="/reveal.js/hljs/atom-one-dark.css">
+
+    <script>
+     hljs.highlightAll();
+    </script>
+
+  </body>
+</html>

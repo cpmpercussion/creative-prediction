@@ -1,0 +1,358 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    
+	<title>smcclab---sound, music and creative computing at ANU</title>
+    
+
+    
+
+    
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reveal.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revealthemes/crepre-dark.css">
+  </head>
+  <body>
+    <div class="reveal"><div class="slides">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Yichen Smith's performance -->
+
+
+<!-- https://youtu.be/uR7LbpRMMVM -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="title-slide center" data-background-color="0x000000" data-background-image="/assets/charles-setup.jpg" data-background-size="cover" data-background-opacity="0.7">
+
+
+<header>
+    <h1>Creative Prediction with Neural Networks</h1>
+    <p>A course in ML/AI for creative expression</p>
+</header>
+
+<h2>smcclab---sound, music and creative computing at ANU</h2>
+
+<p>Charles Martin - The Australian National University</p>
+
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+	<img src="/assets/resources/by-nc-sa.svg" style="height:1.5rem; margin-left:0;">
+</a>
+
+</section><section data-background-color="#000000" id="country" data-background-image="/assets/canberra1.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Ngunnawal &amp; Ngambri Country</h2>
+  
+</section><section data-background-color="#000000" id="anu" data-background-image="/assets/lectures/charleslab/anu-aerial.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Australian National University (1946)</h2>
+  
+<p class="fragment">only university created by Government of Australia</p>
+<p class="fragment">~20,000 students (50% undergraduate, 50% graduate)</p>
+<p class="fragment">Often highly ranked in Australia and the world.</p></section><section data-background-color="#000000" id="hannaneumann" data-background-image="/assets/lectures/charleslab/anu-hannaneumann.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Hanna Neumann Building (2018)</h2>
+  
+<p class="fragment">completed in <a href="https://architectureck.com.au/project/anu-computer-science-institute/">2018</a></p>
+<p class="fragment">contains half of the School of Computing (College of Engineering and Computer Science) and the whole of the Mathematical Sciences Institute (College of Science)</p></section><section data-background-color="#000000" id="history" data-background-image="/assets/predictive-models-in-interactive-music/metatone-20170529-ifi.jpg" data-background-size="cover" data-background-opacity="0.7">
+  
+  <h2>charles history</h2>
+  
+<p class="fragment">Undergrad at ANU (BSc Hons in maths) with many music courses in percussion</p>
+<p class="fragment">Master of Music (ANU)</p>
+<p class="fragment">Master of Fine Arts (percussion performance), Luleå University of Technology (Sweden) - Piteå Musikhögskolan</p>
+<p class="fragment">PhD in Computing (ANU) 2016</p>
+<p class="fragment">Postdoc at University of Oslo, Department of Informatics 2016–2019</p></section><section id="smcclab-mission"><h2>smcclab mission</h2>
+<ul>
+  <li>
+    <p>Research in music technology, human-centred computing, and creative AI.</p>
+  </li>
+  <li>
+    <p>Advance <em>creative computing</em> as an alternative pathway through computing.</p>
+  </li>
+  <li>
+    <p>Make <em>music computing at ANU</em> famous in Australia and around the world.</p>
+  </li>
+</ul></section><section data-background-color="#000000" id="charleslab-members" data-background-image="/assets/lectures/charleslab/laptop-ensemble-perf.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>members</h2>
+  
+</section><section data-background-color="#000000" id="yichen-members" data-background-image="/assets/lectures/charleslab/yichen-wang.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Yichen Wang</h2>
+  
+<p class="fragment">PhD Researcher from Sep 2021</p>
+<p class="fragment">Creates sonic experiences for augmented reality systems</p></section><section data-background-color="#000000" id="xinlei-members" data-background-image="/assets/lectures/charleslab/xinlei-niu.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Xinlei Niu</h2>
+  
+<p class="fragment">PhD Researcher from Jan 2022</p>
+<p class="fragment">Creates ML models for processing audio data</p></section><section data-background-color="#000000" id="brent-members" data-background-image="/assets/lectures/charleslab/brent-schuetze.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Brent Schuetze</h2>
+  
+<p class="fragment">Research Assistant for Open Form Composition for Synchronised and Coordinated Action project</p></section><section data-background-color="#000000" id="ofcsca" data-background-image="/assets/lectures/charleslab/ipad-application.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Open Form Composition for Synchronised and Coordinated Action</h2>
+  
+<p class="fragment">Create systems for (new) iPad ensemble performances (<a href="http://metatone.net">metatone.net</a>)</p>
+<p class="fragment">$30K Defence Science and Technology Group (Government R&amp;D)</p></section><section data-background-color="#000000" id="augmented-urban-web" data-background-image="/assets/lectures/charleslab/listening-2persons.jpg" data-background-size="cover" data-background-opacity="1.0">
+  
+  <h2>Sonic Sculpture (The Augmented Urban Web)</h2>
+  
+<p class="fragment">Explore augmented reality system for sonifying real objects.</p>
+<p class="fragment">$20K CSIRO / Data 61 (Government R&amp;D)</p></section><section id="sonic-sculpture-video" data-background-video="/assets/lectures/charleslab/sonic-sculpture-excerpt.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section data-background-color="#000000" id="yichen-instrument" data-background-image="/assets/lectures/charleslab/yichen-instrument.jpg" data-background-size="contain" data-background-opacity="0.8">
+  
+  <h2>AR Musical Instruments</h2>
+  
+</section><section class="center" data-background-color="#000">
+
+<iframe class="stretch" src="https://www.youtube.com/embed/uR7LbpRMMVM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+
+</section><section data-background-color="#000000" id="magic-lanterns" data-background-image="/assets/lectures/charleslab/magiclantern-2021-charles.jpg" data-background-size="cover">
+  
+  <h2>Magic Lantern Performances</h2>
+  
+<p class="fragment">Performances led by Martyn Jolley (historian and artist) with Alec Hunter, Rachel Thoms, et al.</p></section><section id="magic-lantern-video" data-background-video="/assets/lectures/charleslab/magic-lantern-excerpt-720.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section data-background-color="#000000" id="carillon" data-background-image="/assets/lectures/charleslab/20191223-carillon1.jpg" data-background-size="cover">
+  
+  <h2>Christmas Carillon Installation</h2>
+  
+</section><section id="carillonvideo" data-background-video="/assets/lectures/charleslab/2019-electro-carillon-short.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+  <h1>Bela-powered Carillon Clavier</h1>
+  
+</section><section id="impsxtouch" data-background-video="/assets/predictive-models-in-interactive-music/imps-xtouch-loop.mp4" data-background-size="cover" data-background-video-muted="true" data-background-video-loop="true" data-background="#000000" data-background-opacity="0.8">
+  
+  <h1>Intelligent Musical Instruments</h1>
+  
+<p class="fragment">lots of musical instruments <strong>don’t use “notes”</strong></p>
+<p class="fragment"><strong>embodied gesture generation</strong>: generate the <em>movements</em> a performer makes to operate a particular musical instrument.</p>
+<p class="fragment">can we incorporate generative ai into a longer-term performance practice?</p></section><section id="impsxtouch" data-background-video="/assets/performing-generative-controller/xtouch-1-sine-tone-solo.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section id="impsxtouch" data-background-video="/assets/performing-generative-controller/xtouch-2-noise-switchover.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section id="impsxtouch" data-background-video="/assets/performing-generative-controller/xtouch-3-samples-independent.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section id="empititle" data-background-video="/assets/empi/empi-micro-demo.mp4" data-background-size="cover" data-background-video-muted="true" data-background-video-loop="true" data-background="#000000" data-background-opacity="0.7">
+  
+  <h1>Embodied Predictive Musical Instrument (EMPI)</h1>
+  
+</section><section id="generated-data"><h2>Generated Data</h2>
+<p><img src="/assets/empi/generation_human_4500points.png" alt="Human Generation" style="width:50%">
+<img src="/assets/empi/generation_synth.png" alt="Synth Generation" style="width:50%">
+<img src="/assets/empi/generation_noise.png" alt="Noise Generation" style="width:50%"></p></section><section id="empihuman" data-background-video="/assets/empi/empi-short-demo.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section id="empinoise" data-background-video="/assets/empi/empi_synth.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section id="empinoise" data-background-video="/assets/empi/empi_noise.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section data-background-color="#000000" id="smc" data-background-image="/assets/lectures/charleslab/laptop-ensemble.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Course: Sound and Music Computing</h2>
+  
+<p class="fragment"><em>new</em> advanced level course focussed on creating collaborative music with computers. Evolved from a “special topic” 2019-2022.</p></section><section data-background-color="#000000" id="artinteraction" data-background-image="/assets/lectures/charleslab/comp1720.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Course: Art and Interaction Computing</h2>
+  
+<p class="fragment">first year elective focussed on creating interactive artworks with computers (<code class="language-plaintext highlighter-rouge">p5.js</code>).</p>
+<p class="fragment">Enrolments from 140-240 per year. Running since ~2005.</p></section><section data-background-color="#000000" id="subprograms" data-background-image="/assets/lectures/charleslab/ccc-lab.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Programs: Human-Centred and Creative Computing</h2>
+  
+<p class="fragment">Goal: <em>create study programs in HCI and creative computing available to all computing students at ANU</em></p>
+<p class="fragment"><strong>Major/Minor/Specialisations</strong> in <em>Human Centred and Creative Computing</em>. New sub-programs to study computing applications in HCI, design, games, music and art.</p>
+<p class="fragment"><a href="https://youtu.be/bLXn8lJ-ldk">HCCC presentation</a></p></section><section data-background-color="#000000" id="bush" data-background-image="/assets/lectures/canberra-bush.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Bush Capital</h2>
+  
+<p>Come visit!</p></section>
+</div></div>
+
+    
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    
+    <script src="/chalkboard-redux/plugin.js"></script>
+    
+
+    <script src="/reveal.js/reveal.js"></script>
+    <script>
+// this is the reveal config
+Reveal.initialize(
+  {
+  width: 1920,
+  height: 1080,
+  margin: 0.1,
+  center: false,
+  controls: false,
+  transition: 'none',
+  history: true,
+  slideNumber: true,
+  plugins: [
+    ChalkboardRedux,
+    RevealMath
+  ],
+  math: {
+    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+    config: 'TeX-AMS_HTML-full',
+  }
+}
+
+);
+    </script>
+
+    <!-- we don't use reveal.js's highlight.js plugin because it doesn't play -->
+    <!-- nice with the "revealified" markdown-fenced-code-blocks -->
+
+    <!-- basically, this is a consequence of this whole thing being hacks-upon-hacks -->
+
+    <script src="/reveal.js/hljs/highlight.pack.js"></script>
+    <script src="/reveal.js/hljs/extempore.min.js"></script>
+    <link rel="stylesheet" href="/reveal.js/hljs/atom-one-dark.css">
+
+    <script>
+     hljs.highlightAll();
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,350 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    
+	<title>Deep Learning in the Cloud</title>
+    
+
+    
+
+    
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reveal.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revealthemes/crepre.css">
+  </head>
+  <body>
+    <div class="reveal"><div class="slides">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="title-slide center" data-background-color="0x000000" data-background-image="/assets/charles-setup.jpg" data-background-size="cover" data-background-opacity="0.7">
+
+
+<header>
+    <h1>Creative Prediction with Neural Networks</h1>
+    <p>A course in ML/AI for creative expression</p>
+</header>
+
+<h2>Deep Learning in the Cloud</h2>
+
+<p>Charles Martin - The Australian National University</p>
+
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+	<img src="/assets/resources/by-nc-sa.svg" style="height:1.5rem; margin-left:0;">
+</a>
+
+</section><section id="why-cloud-for-mlai"><h2>Why cloud for ML/AI?</h2>
+<ul>
+  <li>Not always convenient/cost effective to use big workstation.</li>
+  <li>We like small laptops without hot GPUs and processors.</li>
+  <li>We might want to move from research to product!</li>
+  <li>The internet is cool/fun?</li>
+</ul></section><section id="cloud-models"><h2>Cloud Models</h2>
+<p><img src="/assets/dl-on-cloud/cloud-models.png" alt="Cloud Models"> <!-- .element: width="80%" --></p>
+<p><a href="http://www.comgt.com/lib/sw/deliverymodels/">src: www.comgt.com/lib/sw/deliverymodels/</a></p></section><section id="pizza-as-a-service"><h2>Pizza as a Service</h2>
+<p><img src="/assets/dl-on-cloud/pizza-as-a-service.jpg" alt="Pizza-as-a-Service"> <!-- .element: width="60%" --></p>
+<p><a href="https://www.linkedin.com/pulse/20140730172610-9679881-pizza-as-a-service/">src: Albert Barron</a></p></section><section id="what-do-we-need"><h2>What do we need?</h2>
+<ul>
+  <li>GPUs: Nvidia [GTX1080TI, K80, P100, V100] or… “Tensor Processing Units”</li>
+  <li>OS: Linux?</li>
+  <li>CUDA + CUDnn</li>
+  <li>Python</li>
+  <li>Python libraries: Tensorflow, Keras, SKLearn, etc.</li>
+  <li>Jupyter</li>
+</ul></section><section id="on-premises-workstations"><h2>On Premises: Workstations</h2>
+<p><img align="right" width="30%" src="/assets/dl-on-cloud/workstation.jpg"></p>
+<ul>
+  <li>Workstations (15-50KNOK)</li>
+  <li>Pro: fun to play with</li>
+  <li>Pro: good for small number of users</li>
+  <li>Pro: one-time cost</li>
+  <li>Con: not practical for many users</li>
+  <li>Con: have to keep setting up eduroam</li>
+  <li>Con: I don’t like sharing?</li>
+</ul></section><section id="infrastructure-as-a-service"><h2>Infrastructure-as-a-Service</h2>
+<p><img align="right" width="30%" src="/assets/dl-on-cloud/cloud-server.png"></p>
+<ul>
+  <li>Virtual servers</li>
+  <li>Set up server, access via Linux shell</li>
+  <li>Amazon Web Services (AWS)</li>
+  <li>Google Cloud Platform (GCP)</li>
+  <li>DigitalOcean (DO)</li>
+  <li>
+<a href="http://www.uh-iaas.no">UH Cloud</a> (UiO)</li>
+</ul></section><section id="platform-as-a-service"><h2>Platform-as-a-Service</h2>
+<p><img align="right" width="30%" src="/assets/dl-on-cloud/cloud-dashboard.png"></p>
+<ul>
+  <li>Google Cloud Kubenetes Engine</li>
+  <li>Deploy “Containerised” application to servers.</li>
+  <li>(<a href="https://medium.com/analytics-vidhya/deploy-your-first-deep-learning-model-on-kubernetes-with-python-keras-flask-and-docker-575dc07d9e76">Deploy DL to Kubernetes</a>)</li>
+  <li>
+<a href="https://www.sigma2.no">Sigma2</a> (UiO)</li>
+</ul></section><section id="software-as-a-service"><h2>Software-as-a-Service</h2>
+<p><img align="right" width="30%" src="/assets/dl-on-cloud/colab.png"></p>
+<ul>
+  <li>Google Colaboratory (👏🏼)</li>
+  <li>Kaggle Kernels</li>
+</ul></section><section id="example-robojam"><h2>Example: Robojam</h2>
+<p><img align="center" width="20%" src="/assets/dl-on-cloud/microjam-iphone8-robojam.png"></p></section><section id="example-robojam-1"><h2>Example: Robojam</h2>
+<p><img align="center" width="75%" src="/assets/dl-on-cloud/robojam-application.png"></p>
+<p>RoboJam is a Keras project, now deployed as a Flask web application.</p></section><section id="starting-point-local--saas"><h2>Starting point: Local + SaaS</h2>
+<ul>
+  <li>Developed on local shared workstation</li>
+  <li>Also worked on Colaboratory</li>
+  <li>Tips:</li>
+  <li>keep jupyter sessions around with <code class="language-plaintext highlighter-rouge">screen</code>
+</li>
+  <li>tunnel jupyter port with <code class="language-plaintext highlighter-rouge">ssh -L 8888:localhost:8888</code>
+</li>
+  <li>Could also use Google Cloud VMs with GPUs for short training runs</li>
+</ul></section><section id="starting-point-iaas--paas"><h2>Starting point: IaaS + PaaS</h2>
+<p><img align="center" width="30%" src="/assets/dl-on-cloud/deep-learning-vm-image.png"></p>
+<ul>
+  <li>Can use VMs and Containers for DL development</li>
+  <li><a href="https://cloud.google.com/deep-learning-vm/">Google’s “Cloud Deep Learning VM Image”</a></li>
+  <li>Comes with <code class="language-plaintext highlighter-rouge">jupyterhub</code> running to do development in a browser.</li>
+  <li>Expensive for a good machine: K80 GPU 0.45USD/h</li>
+</ul></section><section id="saas-architecture-on-colab"><h2>SaaS Architecture on Colab</h2>
+<p><img src="/assets/dl-on-cloud/robojam-cloud-architecture-colab.png" alt=""></p></section><section id="production-turning-into-a-web-service"><h2>Production: Turning into a web service</h2>
+<ul>
+  <li>Used <code class="language-plaintext highlighter-rouge">flask</code> framework to create a RESTful web API</li>
+  <li>Just one endpoint: <code class="language-plaintext highlighter-rouge">https://0.0.0.0:5000/api/predict</code>
+</li>
+  <li>Send performance as JSON to that endpoit</li>
+  <li>robojam RNN model is conditioned with input, then a continuation is predicted.</li>
+  <li>prediction returned as JSON</li>
+  <li>“<a href="https://towardsdatascience.com/deploying-keras-deep-learning-models-with-flask-5da4181436a2">Deploying DL models with Flask</a>”</li>
+</ul></section><section id="production-deploying-to-digitalocean"><h2>Production: Deploying to DigitalOcean</h2>
+<ul>
+  <li>Using cheapest DigitalOcean VM: 1vCPU, 1GB, $5 per month.</li>
+  <li>Login, clone git repo, run server in a detached <code class="language-plaintext highlighter-rouge">screen</code>.</li>
+  <li>Works! Deployed for about a year.</li>
+  <li>Predictions take about 1.0s-1.5s, not too bad.</li>
+  <li>Problem: what if the app gets popular?</li>
+</ul></section><section id="iaas-architecture-on-digitalocean"><h2>IaaS Architecture on DigitalOcean</h2>
+<p><img src="/assets/dl-on-cloud/robojam-cloud-architecture-vm.png" alt=""></p></section><section id="containerising-docker"><h2>Containerising: Docker</h2>
+<ul>
+  <li>We want to make a “container” that includes Robojam and all necessary libraries to run on any Docker installation.</li>
+  <li>We’ll start with the tensorflow docker which includes a development environment for tensorflow.</li>
+</ul></section><section id="containerising-dockerfile"><h2>Containerising: Dockerfile</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM tensorflow/tensorflow:latest-py3
+MAINTAINER Charles Martin <span class="s2">"charlepm@ifi.uio.no"</span>
+
+COPY requirements.txt /tmp/
+RUN pip <span class="nb">install</span> <span class="nt">--requirement</span> /tmp/requirements.txt
+COPY <span class="nb">.</span> /tmp/
+WORKDIR /tmp
+CMD <span class="o">[</span> <span class="s2">"python"</span>, <span class="s2">"./serve_tiny_performance_mdrnn.py"</span> <span class="o">]</span>
+</code></pre></div></div></section><section id="containerising-building-the-container"><h2>Containerising: Building the container</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>docker build <span class="nt">-t</span> robojam:latest <span class="nb">.</span>
+docker tag robojam:latest charlepm/robojam:latest
+docker push charlepm/robojam:latest
+</code></pre></div></div></section><section id="containerising-running-the-container"><h2>Containerising: Running the Container</h2>
+<p><code class="language-plaintext highlighter-rouge">docker run -d -p 5000:5000 robojam:latest</code></p></section><section id="containerised-architecture-with-docker"><h2>Containerised Architecture with Docker</h2>
+<p><img src="/assets/dl-on-cloud/robojam-cloud-architecture-docker.png" alt=""></p></section><section id="deploying-to-kubenetes"><h2>Deploying to Kubenetes</h2>
+<ul>
+  <li>Kubernetes is a system to run docker containers on multiple computers simultaneously.</li>
+  <li>Let’s set up a little cluster on Google Cloud Platform and deploy Robojam.</li>
+  <li>Need to set up computers through the web interface</li>
+  <li>Then use command interface to start Robojam.</li>
+</ul></section><section id="deploying-robojam-to-cluster"><h2>Deploying Robojam to Cluster</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl run robojam-cluster <span class="nt">--image</span><span class="o">=</span>charlepm/robojam:latest <span class="nt">--port</span> 5000
+kubectl get pods
+kubectl expose deployment robojam-cluster <span class="nt">--type</span><span class="o">=</span>LoadBalancer <span class="nt">--port</span> 5000 <span class="nt">--target-port</span> 5000
+kubectl get service
+</code></pre></div></div></section><section id="micro-service-architecture-with-kubernetes"><h2>Micro-Service Architecture with Kubernetes</h2>
+<p><img src="/assets/dl-on-cloud/robojam-cloud-architecture-kubenetes.png" alt=""></p></section><section id="conclusion"><h2>Conclusion</h2>
+<ul>
+  <li>ML/AI isn’t just for research, we can make cool applications too!</li>
+  <li>Cloud resources very available:</li>
+  <li>Not too expensive to use powerful servers for short time (training)</li>
+  <li>can do a lot with cheap servers for production</li>
+  <li>Try out docker etc, makes life much easier.</li>
+  <li>Try out Jupyterhub for development. Might be way of future?</li>
+</ul></section><section id="extra-links"><h2>Extra links</h2>
+<ul>
+  <li><a href="https://towardsdatascience.com/maximize-your-gpu-dollars-a9133f4e546a">Maximise your GPU
+Dollars</a></li>
+</ul></section>
+</div></div>
+
+    
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    
+    <script src="/chalkboard-redux/plugin.js"></script>
+    
+
+    <script src="/reveal.js/reveal.js"></script>
+    <script>
+// this is the reveal config
+Reveal.initialize(
+  {
+  width: 1920,
+  height: 1080,
+  margin: 0.1,
+  center: false,
+  controls: false,
+  transition: 'none',
+  history: true,
+  slideNumber: true,
+  plugins: [
+    ChalkboardRedux,
+    RevealMath
+  ],
+  math: {
+    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+    config: 'TeX-AMS_HTML-full',
+  }
+}
+
+);
+    </script>
+
+    <!-- we don't use reveal.js's highlight.js plugin because it doesn't play -->
+    <!-- nice with the "revealified" markdown-fenced-code-blocks -->
+
+    <!-- basically, this is a consequence of this whole thing being hacks-upon-hacks -->
+
+    <script src="/reveal.js/hljs/highlight.pack.js"></script>
+    <script src="/reveal.js/hljs/extempore.min.js"></script>
+    <link rel="stylesheet" href="/reveal.js/hljs/atom-one-dark.css">
+
+    <script>
+     hljs.highlightAll();
+    </script>
+
+  </body>
+</html>

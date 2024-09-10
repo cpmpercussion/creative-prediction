@@ -1,0 +1,492 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    
+	<title>Creating Intelligent Musical Instruments</title>
+    
+
+    
+
+    
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reveal.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revealthemes/crepre-dark.css">
+  </head>
+  <body>
+    <div class="reveal"><div class="slides">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section id="models">
+  <h2>Machine Learning Models</h2>
+
+  <img src="/assets/predictive-models-in-interactive-music/mdn-motivation.png" />
+
+  <ul>
+    <li>Deep learning sequence generation models (e.g., LSTM RNN)</li>
+    <li>Mixture Density Recurrent Neural Networks</li>
+  </ul>
+</section> -->
+<!-- TODO: add something about Benedikte PSCA -->
+<!-- TODO: add something about Sichao and Vikram projects -->
+<!-- TODO: distill a "what are predictions used for" in each example -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- IMPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- EMPI -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section data-markdown id="rohanensemble" -->
+<!--          data-background-image="/assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG" -->
+<!--          data-background="#000000"> -->
+<!-- </section> -->
+
+<!-- <section data-markdown id="metatoneclassifier" -->
+<!--          data-background-image="/assets/predictive-models-in-interactive-music/MetatoneClassifier-SystemDiagram.jpg" -->
+<!--          data-background="#000000"> -->
+<!-- </section> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- ## what to do with predictions? -->
+
+<!-- <\!-- ![](/assets/predictive-models-in-interactive-music/predictive-interactions.png) <\\!-- .element: width="50%" -\\-> -\-> -->
+
+<!-- 1. Call-and-Response: Generate responses/harmonies/layers <\!-- .element: class="fragment" -\-> -->
+<!-- 2. Continuate: Continue performer's style <\!-- .element: class="fragment" -\-> -->
+<!-- 2. Filter: Immediately predict next move <\!-- .element: class="fragment" -\-> -->
+<!-- 3. Duet: Two interdependent processes <\!-- .element: class="fragment" -\-> -->
+<!-- 4. Representing predictions physically <\!-- .element: class="fragment" -\-> -->
+<!-- 5. Using same/different sound for predictions <\!-- .element: class="fragment" -\-> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="title-slide center" data-background-color="#000000" data-background-image="/assets/charles-setup.jpg" data-background-size="cover" data-background-opacity="0.5" id="title">
+
+<header>
+  <h1>Creating Intelligent Musical Instruments</h1>
+  <p></p>
+</header>
+
+<h2>Dr Charles Martin - The Australian National University</h2>
+
+<p>web: <a href="https://charlesmartin.au">charlesmartin.au</a>     mastodon: <a href="https://aus.social/@charlesmartin">@charlesmartin@aus.social</a></p>
+
+</section><section data-background-image="/assets/canberra1.jpg" data-background-size="cover">
+  
+  <h2>Ngunnawal &amp; Ngambri &amp; Ngarigu Country</h2>
+  
+</section><section data-background-color="#000000" data-background-image="/assets/predictive-models-in-interactive-music/rohan-performance-2-performance.JPG" data-background-size="cover" data-background-opacity="0.5" class='id="vision"'>
+  
+  <h2>vision</h2>
+  
+<p><em>Intelligent Musical Instruments</em> become a normal part of musical
+performance and production.</p></section><section data-background-color="#000000" data-background-image="/assets/predictive-models-in-interactive-music/2015-11-28-Electrofringe-Workshop-2.jpg" data-background-size="cover" data-background-opacity="0.5" class='id="why"'>
+  
+  <h2>why?</h2>
+  
+<p>Assist professional musicians &amp; composers</p>
+<p>Engage novice musicians &amp; students</p>
+<p>Create <em>new kinds of music!</em></p></section><section data-background-color="#000000" data-background-image="/assets/predictive-models-in-interactive-music/musical-performance-predictions.jpg" data-background-size="cover" data-background-opacity="0.5" class='id="musical-predictions"'>
+  
+  <h2>making intelligent musical predictions</h2>
+  
+</section><section data-background-image="/assets/predictive-models-in-interactive-music/sequence-learning.png" data-background-size="contain">
+  
+  <h2>predicting sequences</h2>
+  
+</section><section id="interacting-with-predictions"><h2>Interacting with predictions</h2>
+<p><img src="/assets/predictive-models-in-interactive-music/predictive-interaction-motivation.png" alt=""></p></section><section id="history"><h2>History</h2>
+<ul>
+  <li>“Experiments in Musical Intelligence” (1987)</li>
+  <li>Neural Networks for recognising musical gestures (1991)</li>
+  <li>LSTM RNNs for generating music (2002)</li>
+  <li>OMax Musical Agent (2006)</li>
+  <li>Wekinator (2009)</li>
+  <li>Google Magenta MelodyRNN (2016)</li>
+  <li>Magenta Studio (Ableton Plugins) (2019)</li>
+</ul></section><section id="perfdata"><h2>Performance data is diverse</h2>
+<p><img src="/assets/predictive-models-in-interactive-music/imps-nimes-examples.jpg" alt=""></p>
+<table>
+  <thead>
+    <tr>
+      <th>Music Systems</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Score / Notation</td>
+      <td>Symbolic Music, Image</td>
+    </tr>
+    <tr>
+      <td>Digital Instruments</td>
+      <td>MIDI</td>
+    </tr>
+    <tr>
+      <td>Recording &amp; Production</td>
+      <td>Digital  Audio</td>
+    </tr>
+    <tr>
+      <td>New Musical Interfaces</td>
+      <td>Gestural and Sensor Data</td>
+    </tr>
+    <tr>
+      <td>Show Control</td>
+      <td>Video, Audio, Lighting, Control Signals</td>
+    </tr>
+  </tbody>
+</table></section><section id="interactive-rnn-instrument"><h2>Interactive RNN Instrument</h2>
+<p><img src="/assets/predictive-models-in-interactive-music/physical-intelligent-instrument2.png" alt="Physical Intelligent Instrument" style="width:35%"></p>
+<ul>
+  <li>Generates endless music with a melody RNN.</li>
+  <li>Switchable Dataset.</li>
+  <li>Controls for sampling “temperature”.</li>
+</ul></section><section id="rpiinsttitle" data-background-video="/assets/predictive-models-in-interactive-music/physical-intelligent-instrument.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="0.7">
+  
+  <h1>Physical Intelligent Instrument</h1>
+  
+</section><section id="gesture-rnn-title" data-background-video="/assets/predictive-models-in-interactive-music/neural-ensemble-interaction.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="0.7">
+  
+  <h1>GestureRNN</h1>
+  
+</section><section id="gesture-rnn-details"><h2>GestureRNN</h2>
+<p><img src="/assets/predictive-models-in-interactive-music/gesture-rnn.png" alt="Gesture RNN" style="width:80%"></p>
+<ul>
+  <li>Predicts 1 of 9 “gestures” for three AI performers.</li>
+  <li>Trained on labelled data from 5 hours of quartet performances.</li>
+  <li>Actual “sounds” are chunks of each gesture played back.</li>
+</ul></section><section id="robojamtitle" data-background-video="/assets/predictive-models-in-interactive-music/robojam-drum-response.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="0.7">
+  
+  <h1>RoboJam</h1>
+  
+</section><section id="robojamdetails"><h2>Robojam and Microjam</h2>
+<p><img src="/assets/predictive-models-in-interactive-music/robojam-interaction.png" alt="Robojam Interaction" style="width:45%"></p>
+<ul>
+  <li>Predicts next touch location in screen (x, y, dt).</li>
+  <li>Trained on ~1500 5s performances.</li>
+  <li>Produces duet “responses” to the user.</li>
+</ul></section><section id="mdn-model"><h2>Mixture Density Network</h2>
+<p><img src="/assets/predictive-models-in-interactive-music/mdn-motivation.png" alt=""></p></section><section id="robojamperf" data-background-video="/assets/predictive-models-in-interactive-music/robojam-one-loop.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section id="imps-title" data-background-video="/assets/predictive-models-in-interactive-music/imps-lightpad-loop.mp4" data-background-size="cover" data-background-video-muted="true" data-background-video-loop="true" data-background="#000000" data-background-opacity="0.7">
+  
+  <h1>IMPS System</h1>
+  
+</section><section id="imps-details"><h2>IMPS System</h2>
+<p><img src="/assets/predictive-models-in-interactive-music/IMPS_connection_example.png" alt="" style="width:80%;"></p>
+<ul>
+  <li>Opinionated Neural Network for interacting with NIMES.</li>
+  <li>Automatically collects data and trains.</li>
+  <li>“Wekinator” for deep learning?</li>
+</ul></section><section id="three-easy-steps"><h2>Three easy steps…</h2>
+<ul>
+  <li>
+<strong>Collect some data:</strong> IMPS logs interactions automatically to build up a dataset</li>
+  <li>
+<strong>Train an MDRNN:</strong> IMPS includes good presets, no need to train for days/weeks</li>
+  <li>
+<strong>Perform!</strong> IMPS includes three interaction modes, scope to extend in future!</li>
+</ul></section><section id="impslightpad" data-background-video="/assets/predictive-models-in-interactive-music/imps-lightpad-loop.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section id="impsxtouch" data-background-video="/assets/predictive-models-in-interactive-music/imps-xtouch-loop.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section id="impsglissrnn" data-background-video="/assets/predictive-models-in-interactive-music/glissrnn.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section id="empititle" data-background-video="/assets/empi/empi-micro-demo.mp4" data-background-size="cover" data-background-video-muted="true" data-background-video-loop="true" data-background="#000000" data-background-opacity="0.7">
+  
+  <h1>Embodied Predictive Musical Instrument (EMPI)</h1>
+  
+</section><section id="empidetails"><h2>Embodied Predictive Musical Instrument (EMPI)</h2>
+<p><img src="/assets/empi/EMPI-system-diagram.jpg" alt="" style="width:50%;"></p>
+<ul>
+  <li>Predicts next movement and time, represents physically.</li>
+  <li>Experiments with interaction mappings; mainly focussed on call-response</li>
+  <li>Weird and confusing/fun?</li>
+</ul></section><section data-background-color="#000000" id="empihardware" data-background-image="/assets/empi/empi_open.jpg" data-background-size="cover">
+  
+</section><section id="empihardwaredetails"><h2>How to build one</h2>
+<ul>
+  <li>
+<strong>Brain</strong>: Raspberry Pi 3/4</li>
+  <li>
+<strong>Interface</strong>: Arduino Pro Mini or similar</li>
+  <li>
+<strong>Amplifier</strong>: Adafruit Mono 2.5W (PAM8302)</li>
+  <li>
+<strong>Speaker</strong>: scavenged from monitor?</li>
+  <li>
+<strong>Case</strong>: custom 3D print</li>
+  <li>
+<strong>Software</strong>: <a href="https://github.com/cpmpercussion/empi">https://github.com/cpmpercussion/empi</a>
+</li>
+</ul></section><section id="empisoftwaredetails"><h2>Software</h2>
+<ul>
+  <li>
+<strong>Sound</strong>: Pure Data (pd) running in headless mode</li>
+  <li>
+<strong>Predictions</strong>: IMPS (running on RPi)</li>
+  <li>
+<strong>Interface to MCU</strong>: MIDI over USB</li>
+</ul>
+<p>Software starts on boot on the RPi, can configure over a network.</p></section><section id="empiproofofconcept" data-background-image="/assets/empi/empi_00.jpg" data-background-size="cover">
+  
+</section><section id="empi0" data-background-image="/assets/empi/empi_0.jpg" data-background-size="cover">
+  
+</section><section id="empi1" data-background-image="/assets/empi/empi_1.jpg" data-background-size="cover">
+  
+</section><section id="empicases" data-background-image="/assets/empi/empi_designs.jpg" data-background-size="cover">
+  
+</section><section id="empi2" data-background-image="/assets/empi/empi_2.jpg" data-background-size="cover">
+  
+</section><section id="empi3" data-background-image="/assets/empi/empi_3.jpg" data-background-size="cover">
+  
+</section><section id="training-data"><h2>Training Data</h2>
+<p><img src="/assets/empi/training_human.png" alt="Human Data">
+<img src="/assets/empi/training_sine.png" alt="Sine Data" style="width:24%">
+<img src="/assets/empi/training_square.png" alt="Square Data" style="width:24%">
+<img src="/assets/empi/training_saw.png" alt="Saw Data" style="width:24%">
+<img src="/assets/empi/training_noise.png" alt="Noise Data" style="width:24%"></p></section><section id="generated-data"><h2>Generated Data</h2>
+<p><img src="/assets/empi/generation_human_4500points.png" alt="Human Generation" style="width:50%">
+<img src="/assets/empi/generation_synth.png" alt="Synth Generation" style="width:50%">
+<img src="/assets/empi/generation_noise.png" alt="Noise Generation" style="width:50%"></p></section><section id="empihuman" data-background-video="/assets/empi/empi-short-demo.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section id="empinoise" data-background-video="/assets/empi/empi_synth.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section id="empinoise" data-background-video="/assets/empi/empi_noise.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section data-background-color="#000000" id="whattodo" data-background-image="/assets/predictive-models-in-interactive-music/ipad-ensemble-2015.jpg" data-background-size="cover" data-background-opacity="0.5">
+  
+  <h2>Using Predictions to Make Music</h2>
+  
+<p>Emulate or enhance ensemble experience</p>
+<p>Engage in call-and-response improvisation</p>
+<p>Model a performer’s personal style</p>
+<p>Modify/improve performance actions in place</p></section><section data-background-color="#000000" id="evaluation" data-background-image="/assets/predictive-models-in-interactive-music/metatone-20170529-ifi.jpg" data-background-size="cover" data-background-opacity="0.5">
+  
+  <h2>Evaluating Predictive Instruments?</h2>
+  
+<p>Does the ML model make good predictions?</p>
+<p>Is this computationally practical?</p>
+<p>Is this useful to musicians?</p></section><section id="try-out-imps-or-empi"><h2>Try out IMPS or EMPI!</h2>
+<p><img src="/assets/predictive-models-in-interactive-music/imps-github.png" alt="" style="float:right;width:40%;"></p>
+<ul>
+  <li>Available on <a href="https://github.com/cpmpercussion/imps">GitHub</a>
+</li>
+  <li><a href="https://creativeprediction.xyz/imps">creativeprediction.xyz/imps</a></li>
+  <li>Try with your digital musical instruments!</li>
+  <li>Hack if you want!</li>
+  <li>Add an issue with problems/results!</li>
+  <li>Twitter/Github: <a href="https://www.twitter.com/cpmpercussion">@cpmpercussion</a>
+</li>
+  <li>Homepage: <a href="https://charlesmartin.com.au">charlesmartin.com.au</a>
+</li>
+</ul></section>
+</div></div>
+
+    
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    
+    <script src="/chalkboard-redux/plugin.js"></script>
+    
+
+    <script src="/reveal.js/reveal.js"></script>
+    <script>
+// this is the reveal config
+Reveal.initialize(
+  {
+  width: 1920,
+  height: 1080,
+  margin: 0.1,
+  center: false,
+  controls: false,
+  transition: 'none',
+  history: true,
+  slideNumber: true,
+  plugins: [
+    ChalkboardRedux,
+    RevealMath
+  ],
+  math: {
+    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+    config: 'TeX-AMS_HTML-full',
+  }
+}
+
+);
+    </script>
+
+    <!-- we don't use reveal.js's highlight.js plugin because it doesn't play -->
+    <!-- nice with the "revealified" markdown-fenced-code-blocks -->
+
+    <!-- basically, this is a consequence of this whole thing being hacks-upon-hacks -->
+
+    <script src="/reveal.js/hljs/highlight.pack.js"></script>
+    <script src="/reveal.js/hljs/extempore.min.js"></script>
+    <link rel="stylesheet" href="/reveal.js/hljs/atom-one-dark.css">
+
+    <script>
+     hljs.highlightAll();
+    </script>
+
+  </body>
+</html>

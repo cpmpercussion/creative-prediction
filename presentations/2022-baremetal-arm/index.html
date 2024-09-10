@@ -1,0 +1,432 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    
+	<title>Creative Computing on the BBC Microbit with Bare-Metal ARM Assembly</title>
+    
+
+    
+
+    
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reveal.js/reveal.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revealthemes/crepre-dark.css">
+  </head>
+  <body>
+    <div class="reveal"><div class="slides">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="title-slide center" data-background-color="0x000000" data-background-image="/assets/charles-setup.jpg" data-background-size="cover" data-background-opacity="0.7">
+
+
+<header>
+    <h1>Creative Prediction with Neural Networks</h1>
+    <p>A course in ML/AI for creative expression</p>
+</header>
+
+<h2>Creative Computing on the BBC Microbit with Bare-Metal ARM Assembly</h2>
+
+<p>Charles Martin - The Australian National University</p>
+
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+	<img src="/assets/resources/by-nc-sa.svg" style="height:1.5rem; margin-left:0;">
+</a>
+
+</section><section data-background-color="#000000" id="country" data-background-image="/assets/canberra1.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Ngunnawal &amp; Ngambri Country</h2>
+  
+</section><section id="idea"><h2>Idea:</h2>
+<p>Teaching second-year computing by coding in ARM assembly on real hardware.</p>
+<p>Goals:</p>
+<ul>
+  <li>to build and cement mental models for computer organisation and code execution,</li>
+  <li>have the transformational experience of running code right on the metal with no guard rails!</li>
+</ul>
+<p>tl;dr: Can students do it? <strong>yes!</strong></p></section><section data-background-color="#000000" id="microbit" data-background-image="/assets/lectures/arm/microbit-header.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>BBC micro:bit v2</h2>
+  
+</section><section data-background-color="#000000" id="microbit-mcus" data-background-image="/assets/lectures/arm/microbit-mcus.jpg" data-background-size="cover" data-background-opacity="1.0">
+  
+</section><section id="bare-metal-arm-assembly---minimal-example"><h2>Bare-metal ARM Assembly - minimal example</h2>
+<pre style="font-size:0.8em;"><code class="language-arm">    .thumb
+    .syntax unified
+        .global __reset
+
+    .section .vectors
+    .word __stack
+    .word __reset
+
+    .text
+    .thumb_func
+__reset:
+    mov r0, #0
+loop:
+    add r0, #1
+    nop
+    b loop
+</code></pre>
+<p>Build and flash with <a href="https://github.com/cpmpercussion/microbit-v2-baremetal/blob/main/nRF52833.ld">this</a> <code class="language-plaintext highlighter-rouge">.ld</code> file and <a href="https://github.com/cpmpercussion/microbit-v2-baremetal/blob/main/Makefile">this</a> <code class="language-plaintext highlighter-rouge">Makefile</code>.</p></section><section id="comp2300-template"><h2>COMP2300 template</h2>
+<pre style="font-size:0.8em;"><code class="language-arm">.syntax unified
+.global main
+
+.type main, %function
+main:
+  nop
+  ldr r0, =hello
+
+  b main
+.size main, .-main
+
+.data
+hello:
+.word 0x424242
+</code></pre>
+<p>Short <code class="language-plaintext highlighter-rouge">startup.S</code> <a href="https://github.com/cpmpercussion/microbit-vscode-simple/blob/master/lib/startup.S">program</a> to load static <code class="language-plaintext highlighter-rouge">.data</code> to RAM and setup interrupt vector</p></section><section id="toolchain"><h2>Toolchain</h2>
+<ul>
+  <li>
+    <p>Visual Studio Code</p>
+  </li>
+  <li>
+<a href="https://marketplace.visualstudio.com/items?itemName=comp2300-anu.comp2300-2021-extension">COMP2300 extension</a>
+    <ul>
+      <li><a href="https://github.com/Marus/cortex-debug">Cortex Debug Extension</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="https://github.com/cpmpercussion/comp2300-toolchain">COMP2300 toolchain</a>
+    <ul>
+      <li>
+<a href="https://xpack.github.io/openocd/">xPack</a> OpenOCD</li>
+      <li>
+<a href="https://xpack.github.io/arm-none-eabi-gcc/">xPack</a> GNU Arm Embedded GCC (<code class="language-plaintext highlighter-rouge">arm-none-eabi</code>) - <code class="language-plaintext highlighter-rouge">gcc</code>, <code class="language-plaintext highlighter-rouge">gdb</code>, <code class="language-plaintext highlighter-rouge">ld</code>, <code class="language-plaintext highlighter-rouge">objcopy</code>, <code class="language-plaintext highlighter-rouge">as</code>
+</li>
+      <li>
+<a href="https://github.com/cpmpercussion/comp2300-discoserver">COMP2300 discoserver</a>: ARM m4 CPU emulator (by Benjamin Grey)</li>
+      <li><code class="language-plaintext highlighter-rouge">make</code></li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/cpmpercussion/microbit-vscode-simple">baremetal microbit vscode template</a></li>
+  <li><a href="https://github.com/cpmpercussion/microbit-v2-baremetal">baremetal example</a></li>
+</ul></section><section id="context-computer-organisation-and-program-execution"><h2>Context: Computer Organisation and Program Execution</h2>
+<ul>
+  <li>COMP2300/COMP6300</li>
+  <li>2nd year computing course, obligatory for all undergraduate computing majors, equivalent to “intro to computer systems”.</li>
+  <li>Since 2020: &gt;400 students at start of semester, 325 passed in 2022.</li>
+  <li>Lectures and labs <a href="https://comp.anu.edu.au/courses/comp2300/">available online</a>
+</li>
+</ul></section><section><ol>
+  <li>Digital Logic, CPU architecture (high level)</li>
+  <li>Machine instructions, ALU operations</li>
+  <li>Memory and memory instructions</li>
+  <li>Conditional execution and control flow</li>
+  <li>Functions</li>
+  <li>Toolchains and Compilers</li>
+  <li>Data structures in ASM</li>
+  <li>Interrupts, context switches, asynchronism</li>
+  <li>Networks</li>
+  <li>Operating Systems</li>
+  <li>CPU architectures</li>
+  <li>Revision</li>
+</ol></section><section data-background-color="#000000" id="megabit" data-background-image="/assets/lectures/arm/megabit.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Learning Activities</h2>
+  
+<p class="fragment">Labs: <strong>core of the course</strong> starts with <code class="language-plaintext highlighter-rouge">mov r0, #1</code>, ends with implementing context switching between two programs (YourNameOS 1.0).</p>
+<p class="fragment">Assignments: <strong>two</strong> open-ended, creative programming tasks in ARM assembly.</p></section><section data-background-color="#000000" id="lightshow" data-background-image="/assets/lectures/arm/arno-senoner-FDtJZDU8kws-unsplash.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Assignment 1: Lightshow</h2>
+  
+<p>use the LEDs to create a <a href="https://comp.anu.edu.au/courses/comp2300/assessments/light-show/">light show</a> that changes over time</p>
+<p><strong>can</strong> use the speaker to create <a href="https://comp.anu.edu.au/courses/comp2300/labs/05-sound-and-light/">sound</a></p>
+<p><strong>input</strong> peripherals not allowed!</p></section><section id="lightshow-scaffolding"><h2>Lightshow Scaffolding</h2>
+<p>Need:</p>
+<ul>
+  <li>ALU operations: <code class="language-plaintext highlighter-rouge">add</code>, <code class="language-plaintext highlighter-rouge">sub</code>
+</li>
+  <li>memory operations: <code class="language-plaintext highlighter-rouge">ldr</code>, <code class="language-plaintext highlighter-rouge">str</code>
+</li>
+  <li>conditional branching: <code class="language-plaintext highlighter-rouge">ble</code> etc</li>
+  <li>control structions: if/then/while/for in ASM (<a href="https://comp.anu.edu.au/courses/comp2300/labs/04-blinky/">Blinky</a>)</li>
+</ul>
+<p>Helps:</p>
+<ul>
+  <li>functions</li>
+  <li>shifting operations</li>
+  <li>reading comprehension of the nrf52833 manual</li>
+</ul></section><section id="microbit-show-ball" data-background-video="/assets/lectures/arm/microbit-show-ball.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section data-background-color="#000000" id="digitalpet" data-background-image="/assets/lectures/arm/cosmoh-love-unlm6Fxxvjw-unsplash.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Assignment 2: Digital Pet</h2>
+  
+<p>must use the LED display to show a <a href="https://comp.anu.edu.au/courses/comp2300/assessments/digital-pet/">digital pet</a></p>
+<p>must use (at least one) data structure in memory to store the “state” of the digital pet</p>
+<p>must use interrupts to detect interactions with the microbit’s buttons</p>
+<p><strong>can</strong> use sound and <strong>any</strong> peripheral available on the microbit</p></section><section id="digital-pet-scaffolding"><h2>Digital Pet Scaffolding:</h2>
+<p>Need:</p>
+<ul>
+  <li>functions <code class="language-plaintext highlighter-rouge">bl</code>, <code class="language-plaintext highlighter-rouge">bx lr</code>
+</li>
+  <li>memory directives, labels, <code class="language-plaintext highlighter-rouge">ldr=</code> pseudo-instruction</li>
+  <li>calling convention</li>
+  <li>
+<strong>interrupts</strong> (<a href="https://comp.anu.edu.au/courses/comp2300/labs/08-interrupts/">Buttons and Interrupts</a>)</li>
+  <li>arrays/structs in ASM</li>
+</ul>
+<p>Helps:</p>
+<ul>
+  <li>SysTick and timers</li>
+  <li>high comprehension of the nrf52833 manual</li>
+  <li>patience</li>
+</ul></section><section data-background-color="#000000" id="connections" data-background-image="/assets/lectures/arm/john-carlisle-539580-unsplash.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>IO and Networks</h2>
+  
+<p>How can computers connect to each other? How can we interpret voltage on a wire?</p>
+<p>Interrupts leads to parallel or serial data transmission.</p>
+<p>Construct basic UART (RS232/Serial) from first principles and using on-chip peripherals</p></section><section id="serial-output"><h2>Serial Output</h2>
+<p><img src="/assets/lectures/arm/0b10101010.jpg" alt="" style="width:50%;"></p></section><section id="midi"><h2>MIDI</h2>
+<p><img src="/assets/lectures/arm/midi-message.png" alt=""></p></section><section data-background-color="#000000" id="serial-experiments" data-background-image="/assets/lectures/arm/serial-experiments-charles.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Serial Experiments Charles</h2>
+  
+</section><section id="microbit-midi-demo" data-background-video="/assets/lectures/arm/midi-demo-720.mp4" data-background-size="cover" data-background-video-loop="true" data-background="#000000" data-background-opacity="1.0">
+  
+</section><section data-background-color="#000000" id="jurassic-park" data-background-image="/assets/lectures/arm/jurassic-park-unix-2.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>It's a UNIX system! I know this!</h2>
+  
+<p class="fragment">Lightning intro to operating systems. What’s the connection to ARM?</p>
+<p class="fragment">context switch, threads, scheduling, privilege, supervisor calls, exception model…</p></section><section id="youros-10"><h2>YourOS 1.0</h2>
+<p><em>Challenge Lab</em>: build a handcrafted context switch, then change between two programs (blinking one LED vs another)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.data
+process_table:
+.word 0 @ index of currently-operating process
+.word 0x20008000 @ stack pointer 1
+.word 0x20007000 @ stack pointer 2
+</code></pre></div></div></section><section data-background-color="#000000" id="macrobit" data-background-image="/assets/lectures/arm/macrobit.jpg" data-background-size="cover" data-background-opacity="0.8">
+  
+  <h2>Reflections</h2>
+  
+<p class="fragment">What can go wrong?</p>
+<p class="fragment">What can go right?</p></section><section id="what-can-go-wrong-surprisingly-little"><h2>What can go wrong? Surprisingly little!</h2>
+<p><strong>Don’t tell the students “be careful”!</strong></p>
+<ul>
+  <li>1-2 instances of students breaking microbit</li>
+  <li>2 instances of bricking the microbit</li>
+</ul>
+<p>Turns out: turning the GPIO on/off as fast as possible (1 cycle loop) messes up
+the USB connection: saved by special firmware prepared by microbit developers
+for us.</p></section><section id="what-can-go-right"><h2>What can go right?</h2>
+<p>Assessments students want to do (crazy concept)</p>
+<p>“This is the best course I’ve ever taken”</p>
+<p>“I thought assembly would be boring, but it was really fun!”</p>
+<p>“I feel like I learnt a lot from taking this course.”</p></section>
+</div></div>
+
+    
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    
+    <script src="/chalkboard-redux/plugin.js"></script>
+    
+
+    <script src="/reveal.js/reveal.js"></script>
+    <script>
+// this is the reveal config
+Reveal.initialize(
+  {
+  width: 1920,
+  height: 1080,
+  margin: 0.1,
+  center: false,
+  controls: false,
+  transition: 'none',
+  history: true,
+  slideNumber: true,
+  plugins: [
+    ChalkboardRedux,
+    RevealMath
+  ],
+  math: {
+    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+    config: 'TeX-AMS_HTML-full',
+  }
+}
+
+);
+    </script>
+
+    <!-- we don't use reveal.js's highlight.js plugin because it doesn't play -->
+    <!-- nice with the "revealified" markdown-fenced-code-blocks -->
+
+    <!-- basically, this is a consequence of this whole thing being hacks-upon-hacks -->
+
+    <script src="/reveal.js/hljs/highlight.pack.js"></script>
+    <script src="/reveal.js/hljs/extempore.min.js"></script>
+    <link rel="stylesheet" href="/reveal.js/hljs/atom-one-dark.css">
+
+    <script>
+     hljs.highlightAll();
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "lang": "en-GB",
+  "name": "Creative Prediction with Neural Networks",
+  "short_name": "CreativePredictionwithNeuralNetworks",
+  "theme_color": "#24292e",
+  "background_color": "#ffffff",
+  "start_url": "/",
+  "display": "standalone"
+}
