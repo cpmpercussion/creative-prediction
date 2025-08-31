@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @mixin vertical-gradient( $top, $bottom ) {
 	background: $top;
 	background: -moz-linear-gradient( top, $top 0%, $bottom 100% );
