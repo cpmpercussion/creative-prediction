@@ -12,8 +12,8 @@ repo: "https://github.com/cpmpercussion/creative-prediction"
 
 description: >- # this means to ignore newlines until "baseurl:"
   A course in ML/AI for creative expression
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://cpmpercussion.github.io/creative-prediction/" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/creative-prediction" # the subpath of your site, e.g. /blog
+url: "https://cpmpercussion.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  cpmpercussion
 css_inline: false # Will insert all styles into a single <style> block in the <head> element and remove the style <link> reference
 
