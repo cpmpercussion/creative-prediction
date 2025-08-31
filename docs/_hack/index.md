@@ -13,10 +13,9 @@ Python/Keras/Jupyter tools running.
 
 {% for hack in site.hack %}
     {% if hack.hidden != true %}
-1. [{{hack.title}}]({% hack.url | prepend: site.baseurl %})
+1. [{{hack.title}}]({{ hack.url | prepend: site.baseurl }})
     {% endif %}
 {% endfor %}
-
 
 ### Tutorials/Demos
 
