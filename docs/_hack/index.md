@@ -8,12 +8,12 @@ hidden: true
 Here's some exercises/projects/tutorials, to get you started with
 creative prediction.
 
-Remember to check out the [setup](../setup) page to get your
+Remember to check out the [setup]({% link _hack/01-setup.md %}) page to get your
 Python/Keras/Jupyter tools running.
 
 {% for hack in site.hack %}
     {% if hack.hidden != true %}
-1. [{{hack.title}}]({{hack.url}})
+1. [{{hack.title}}]({% hack.url | prepend: site.baseurl %})
     {% endif %}
 {% endfor %}
 
