@@ -1,9 +1,8 @@
 ---
-layout: reveal
+layout: crepre-reveal
 type: teaching
 title: "Creative Machine Learning with ml5.js"
 permalink: /presentations/creml5js/
-theme: assets/revealthemes/crepre.scss
 center: true
 revealified: true
 ---

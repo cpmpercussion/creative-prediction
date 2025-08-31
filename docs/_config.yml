@@ -22,6 +22,9 @@ assets:
     - assets/
     - assets/reveal.js/css/theme/source/ # required to pick up the ANU reveal.js theme file
 
+revealify:
+  theme: assets/revealthemes/crepre-dark.scss
+
 markdown: kramdown
 remote_theme: cpmpercussion/alembic
 plugins:

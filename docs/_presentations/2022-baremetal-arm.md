@@ -1,8 +1,7 @@
 ---
-layout: reveal
+layout: crepre-reveal
 type: research
 title: Creative Computing on the BBC Microbit with Bare-Metal ARM Assembly
-theme: assets/revealthemes/crepre-dark.scss
 center: true
 revealified: true
 ---

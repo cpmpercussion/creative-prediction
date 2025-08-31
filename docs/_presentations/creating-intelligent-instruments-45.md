@@ -1,5 +1,5 @@
 ---
-layout: reveal
+layout: crepre-reveal
 type: research
 title: Creating Intelligent Musical Instruments
 summary: 
@@ -7,7 +7,6 @@ center: true
 width: 1280
 height: 800
 margin: 0.04
-theme: assets/revealthemes/crepre-dark.scss
 ---
 
 {% include slides/research-title.html %}

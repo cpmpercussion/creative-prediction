@@ -1,5 +1,5 @@
 ---
-layout: reveal
+layout: crepre-reveal
 type: research
 title: An Interactive Musical Prediction System with MDRNNs
 permalink: /presentations/imps/

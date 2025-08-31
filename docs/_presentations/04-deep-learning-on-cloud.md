@@ -1,8 +1,7 @@
 ---
-layout: reveal
+layout: crepre-reveal
 type: teaching
 title:  "Deep Learning in the Cloud"
-theme: assets/revealthemes/crepre.scss
 ---
 
 {% include slides/title.html %}

@@ -7,7 +7,6 @@ center: false
 width: 1280
 height: 800
 margin: 0.04
-theme: assets/revealthemes/crepre-dark.scss
 ---
 
 <!-- theme: assets/revealthemes/reveal/moon.scss --> 

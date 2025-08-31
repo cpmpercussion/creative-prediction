@@ -1,8 +1,7 @@
 ---
-layout: reveal
+layout: crepre-reveal
 type: research
 title: smcclab---sound, music and creative computing at ANU
-theme: assets/revealthemes/crepre-dark.scss
 center: true
 revealified: true
 ---

@@ -1,9 +1,8 @@
 ---
-layout: reveal
+layout: crepre-reveal
 type: teaching
 title: Creative Prediction Projects
 permalink: /presentations/creprepro/
-theme: assets/revealthemes/crepre.scss
 ---
 
 {% include slides/title.html %}

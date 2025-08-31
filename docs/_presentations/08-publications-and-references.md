@@ -1,8 +1,7 @@
 ---
-layout: reveal
+layout: crepre-reveal
 type: teaching
 title: References, Citations, Publishing, and Authorship
-theme: assets/revealthemes/crepre-dark.scss
 center: true
 revealified: true
 ---

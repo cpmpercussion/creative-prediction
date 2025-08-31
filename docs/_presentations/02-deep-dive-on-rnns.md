@@ -1,9 +1,8 @@
 ---
-layout: reveal
+layout: crepre-reveal
 type: teaching
 title:  Deep Dive on RNNs
 permalink: /presentations/deep-dive-on-rnns/
-theme: assets/revealthemes/crepre-dark.scss
 margin: 0.1
 center: False
 ---
