@@ -1,7 +1,7 @@
 GIT
-  remote: https://gitlab.cecs.anu.edu.au/lucy/jekyll-revealify-plugin.git
-  revision: b990f43a948e04f65e8b2770736ea84f42894d16
-  branch: master
+  remote: https://gitlab.anu.edu.au/u4110680/jekyll-revealify-plugin.git
+  revision: 808c4a4846b03f7d27ee9a7873b5594f2c42f734
+  ref: 808c4a48
   specs:
     jekyll-revealify-plugin (2.1.0)
       jekyll
@@ -10,7 +10,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.2.2.2)
+    activesupport (8.0.2.1)
       base64
       benchmark (>= 0.3)
       bigdecimal
@@ -22,6 +22,7 @@ GEM
       minitest (>= 5.1)
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
+      uri (>= 0.13.1)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     base64 (0.3.0)
@@ -142,6 +143,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.6.0)
+    uri (1.0.3)
     webrick (1.9.1)
 
 PLATFORMS
@@ -149,7 +151,7 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
-  jekyll (~> 4.2)
+  jekyll (>= 4)
   jekyll-commonmark
   jekyll-feed (~> 0.6)
   jekyll-include-cache
@@ -164,5 +166,8 @@ DEPENDENCIES
   tzinfo-data
   webrick (~> 1.7)
 
+RUBY VERSION
+   ruby 3.3.9p170
+
 BUNDLED WITH
-   2.2.32
+   2.5.22

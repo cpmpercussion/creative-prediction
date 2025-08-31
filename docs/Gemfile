@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+ruby RUBY_VERSION
 
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
@@ -8,7 +9,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 4.2"
+gem "jekyll", ">= 4"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # gem "minima", "~> 2.0"
@@ -33,7 +34,7 @@ group :jekyll_plugins do
   # gem 'jekyll-scholar'
   # Theme
   # gem "alembic-jekyll-theme", "~> 3.2.0", git: "https://github.com/cpmpercussion/alembic"
-  gem "jekyll-revealify-plugin", :git => "https://gitlab.cecs.anu.edu.au/lucy/jekyll-revealify-plugin.git", :branch => 'master'
+  gem "jekyll-revealify-plugin", :git => "https://gitlab.anu.edu.au/u4110680/jekyll-revealify-plugin.git", :ref => '808c4a48'
 end
 
 
