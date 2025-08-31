@@ -169,4 +169,4 @@ Takeaway: Make Gaussians **less diverse**, make categorical **more diverse**.
 
 Twitter: [@cpmpercussion](https://www.twitter.com/cpmpercussion)
 
-Website: [creativeprediction.xyz/imps](https://creativeprediction.xyz/imps)
+Website: <https://cpmpercussion.github.io/creative-prediction/>

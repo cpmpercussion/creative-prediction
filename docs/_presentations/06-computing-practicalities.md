@@ -64,6 +64,6 @@ We can all be Python superheroes! <!-- .element: class="fragment" -->
 
 ## get your tools together
 
-Check out the [setup]({{site.baseurl}}/setup) page on [creativeprediction.xyz](https://creativeprediction.xyz).
+Check out the [setup]({{site.baseurl}}/setup) page on <https://cpmpercussion.github.io/creative-prediction/>.
 
 [_Exercise_: Try out a Google Colab Notebook]({% include colab.html notebook="0-test-setup.ipynb" %})

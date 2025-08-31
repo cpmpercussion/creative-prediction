@@ -135,7 +135,7 @@ Or use whatever computer music environment you want (needs to send and receive O
 ## get your tools together
 
 Now's the time to look at the [setup]({{site.baseurl}}/setup) page
-on [creativeprediction.xyz](https://creativeprediction.xyz).
+on <https://cpmpercussion.github.io/creative-prediction/>.
 
 This course works best with Python, Keras, and Jupyter on your computer, but you
 can use (online) Google Colab Notebooks as well for most of the

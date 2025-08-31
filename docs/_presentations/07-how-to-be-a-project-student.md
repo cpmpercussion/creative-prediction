@@ -105,7 +105,7 @@ A group meeting for delivering information with relevance to multiple people. Th
 - how to structure a git repository for project delivery
 - how to apply for an ethics protocol
 - how to run a user study
-- research topics in musical machine learning (mostly from [Creative Prediction](https://creativeprediction.xyz)
+- research topics in musical machine learning (mostly from [Creative Prediction](https://cpmpercussion.github.io/creative-prediction/)
 - research topics in sound and music computing (some overlap with [COMP2710 Laptop Ensemble](https://cs.anu.edu.au/courses/comp2710-lens/))
 - research topics in interactive media (some overlap with [COMP1720 Art and Interaction Computing](https://cs.anu.edu.au/courses/comp1720/))
 

@@ -105,7 +105,7 @@ image="assets/empi/empi_3.jpg"
 
 ## Generative AI System
 
-- gestural predictions are made by a Mixture Density Recurrent Neural Network (implemented using ["Interactive Music Prediction System"---IMPS](https://creativeprediction.xyz/imps/) - see NIME '19 paper)
+- gestural predictions are made by a Mixture Density Recurrent Neural Network (implemented using ["Interactive Music Prediction System"---IMPS](https://cpmpercussion.github.io/creative-prediction//imps/) - see NIME '19 paper)
 
 - MDRNN: an extension of common LSTM/RNN designs to allow expressive predictions of multiple continuous variables.
 
@@ -235,7 +235,7 @@ heading="Thanks!"
 %}
 
 - EMPI on [GitHub](https://github.com/cpmpercussion/empi)
-- creative ML: [creativeprediction.xyz](https://creativeprediction.xyz/)
+- creative ML: <https://cpmpercussion.github.io/creative-prediction/>
 - Twitter/Github: [@cpmpercussion](https://www.twitter.com/cpmpercussion)
 - Homepage: [charlesmartin.com.au](https://charlesmartin.com.au)
 

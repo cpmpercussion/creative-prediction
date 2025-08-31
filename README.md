@@ -8,4 +8,4 @@ The Creative Prediction project is a collection of walkthroughs and examples for
 
 This repository contains Python examples and jupyter notebooks, as well as data.
 
-For more information, see the [creative prediction website: https://creativeprediction.xyz](https://creativeprediction.xyz).
+For more information, see the creative prediction website: <https://cpmpercussion.github.io/creative-prediction/>.

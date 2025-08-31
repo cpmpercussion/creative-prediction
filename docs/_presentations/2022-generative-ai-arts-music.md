@@ -240,7 +240,7 @@ muted="true"
 ![]({% link assets/charlesgif.gif %}){:style="width:25%;"} 
 
 - IMPS on [GitHub](https://github.com/cpmpercussion/imps)
-- creative ML: [creativeprediction.xyz](https://creativeprediction.xyz/)
+- creative ML: <https://cpmpercussion.github.io/creative-prediction/>
 - Twitter/Github: [@cpmpercussion](https://www.twitter.com/cpmpercussion)
 - Homepage: [charlesmartin.com.au](https://charlesmartin.com.au)
 

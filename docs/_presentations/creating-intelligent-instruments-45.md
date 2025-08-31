@@ -398,7 +398,7 @@ Is this useful to musicians?
 ![]({% link assets/predictive-models-in-interactive-music/imps-github.png %}){:style="float:right;width:40%;"} 
 
 - Available on [GitHub](https://github.com/cpmpercussion/imps)
-- [creativeprediction.xyz/imps](https://creativeprediction.xyz/imps)
+- <https://cpmpercussion.github.io/creative-prediction/imps>
 - Try with your digital musical instruments!
 - Hack if you want!
 - Add an issue with problems/results!

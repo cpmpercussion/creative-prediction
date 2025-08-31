@@ -96,7 +96,7 @@ heading="Sound Design"
 
 ## Generative AI System
 
-- gestural predictions are made by a Mixture Density Recurrent Neural Network (implemented using ["Interactive Music Prediction System"---IMPS](https://creativeprediction.xyz/imps/))
+- gestural predictions are made by a Mixture Density Recurrent Neural Network (implemented using ["Interactive Music Prediction System"---IMPS](https://cpmpercussion.github.io/creative-prediction/imps/))
 
 - MDRNN: an extension of common LSTM/RNN designs to allow expressive predictions of multiple continuous variables.
 
@@ -197,7 +197,7 @@ heading="Thanks!"
 %}
 
 - IMPS on [GitHub](https://github.com/cpmpercussion/imps)
-- creative ML: [creativeprediction.xyz](https://creativeprediction.xyz/)
+- creative ML: <https://cpmpercussion.github.io/creative-prediction/>
 - Twitter/Github: [@cpmpercussion](https://www.twitter.com/cpmpercussion)
 - Homepage: [charlesmartin.com.au](https://charlesmartin.com.au)
 
